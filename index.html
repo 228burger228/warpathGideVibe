@@ -3,24 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Интерактивное тактическое руководство по игре Warpath: Ace Shooter. Основы, выбор фракции, трата золота, юниты, контры, офицеры и подготовка к сражениям.">
-  <meta name="theme-color" content="#0d0e12">
-  <title>WARPATH GUIDE — Тактическое руководство командира</title>
+  <meta name="description" content="Тактический полевой устав по игре Warpath: Ace Shooter. Фракции, трата золота, юниты, контры, офицеры, калькулятор, тикеты и сообщество WarpathHub.">
+  <meta name="theme-color" content="#0b0d10">
+  <title>WARPATH: ACE SHOOTER — Полевой устав командира</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Russo+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Тактический фон с сеткой -->
+  <div class="tactical-bg" aria-hidden="true"></div>
+
   <div class="app-shell">
-    <!-- Верхняя панель -->
+    <!-- Верхняя штабная панель -->
     <header class="topbar">
       <a href="#page=2" class="brand" id="brand-home" aria-label="Warpath Guide — к содержанию">
-        <span class="brand-badge" aria-hidden="true">W</span>
-        <span class="brand-title">WARPATH <span class="brand-accent">GUIDE</span></span>
+        <span class="brand-badge" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 4 6v6c0 5.5 3.4 9.8 8 11 4.6-1.2 8-5.5 8-11V6l-8-4Z"></path>
+            <path d="m8.5 10 2 5 1.5-3.5 1.5 3.5 2-5"></path>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-title">WARPATH <span class="brand-accent">УСТАВ</span></span>
+          <span class="brand-sub">FIELD MANUAL • v14.5</span>
+        </span>
       </a>
 
       <div class="topbar-actions">
+        <button type="button" class="hq-pill-btn" id="btn-hq" aria-label="Штаб: тикеты, бот и калькулятор" title="Тикеты, бот @shevchenko01_bot и калькулятор">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            <path d="M12 7v4"></path><path d="M12 15h.01"></path>
+          </svg>
+          <span class="hq-pill-label">Штаб и Тикеты</span>
+        </button>
+
         <button type="button" class="icon-btn" id="btn-search" aria-label="Поиск по руководству" title="Поиск (/)">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="11" cy="11" r="8"></circle>
@@ -51,28 +70,37 @@
       </div>
     </header>
 
-    <!-- Опция фильтрации страниц как на riseof.ru -->
+    <!-- Панель опций над книгой -->
     <div class="book-options">
-      <label class="skip-toggle">
-        <input type="checkbox" id="skip-subpages">
-        <span class="skip-checkbox" aria-hidden="true"></span>
+      <label class="skip-toggle" for="skip-subpages">
+        <input type="checkbox" id="skip-subpages" class="native-brand-check">
         <span>Пропускать доп. страницы глав</span>
       </label>
+      <a href="https://t.me/WarpathHub/1" target="_blank" rel="noopener noreferrer" class="hub-status-link" title="Перейти в чат WarpathHub">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span>WarpathHub</span>
+      </a>
     </div>
 
-    <!-- Основная область: Книга -->
+    <!-- Основная область: Бронированный планшет-книга -->
     <main class="book-stage" id="book-stage">
       <div class="book-wrapper">
-        <!-- Верхняя золотая закладка текущей главы -->
+        <!-- Верхняя тактическая закладка -->
         <button type="button" class="chapter-bookmark" id="chapter-bookmark" title="Вернуться к содержанию">
           СОДЕРЖАНИЕ
         </button>
 
-        <!-- Физический корпус книги с обрезом страниц -->
+        <!-- Физический корпус устава с болтами и обрезом страниц -->
         <div class="book-frame">
+          <span class="rivet rivet-tl" aria-hidden="true"></span>
+          <span class="rivet rivet-tr" aria-hidden="true"></span>
+          <span class="rivet rivet-bl" aria-hidden="true"></span>
+          <span class="rivet rivet-br" aria-hidden="true"></span>
+
           <div class="book-spine" aria-hidden="true"></div>
 
           <article class="book-page" id="book-page" aria-live="polite">
+            <div class="page-doc-code" id="page-doc-code" aria-hidden="true">WP-FM // SEC-00</div>
             <div class="page-scroll" id="page-content">
               <!-- Контент рендерится из js/app.js -->
             </div>
@@ -83,7 +111,22 @@
             </footer>
           </article>
 
-          <div class="book-edges-right" aria-hidden="true"></div>
+          <div class="book-edges-right" aria-hidden="true">
+            <div class="ribbon-marker"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Мини-плеер озвучки (показывается при активной озвучке) -->
+      <div class="tts-bar" id="tts-bar" hidden>
+        <div class="tts-status">
+          <span class="tts-eq" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span id="tts-status-text">Радиосвязь: чтение страницы...</span>
+        </div>
+        <div class="tts-controls">
+          <button type="button" class="tts-mini-btn" id="tts-pause" title="Пауза / Продолжить">Пауза</button>
+          <button type="button" class="tts-mini-btn" id="tts-speed" title="Скорость речи">1.0×</button>
+          <button type="button" class="tts-mini-btn danger" id="tts-stop" title="Остановить озвучку">Стоп</button>
         </div>
       </div>
 
@@ -98,7 +141,7 @@
         <button type="button" class="page-counter" id="btn-toc-jump" title="Перейти к содержанию">
           <span id="counter-current">2</span>
           <span class="counter-sep">/</span>
-          <span id="counter-total">26</span>
+          <span id="counter-total">30</span>
         </button>
 
         <button type="button" class="ctrl-btn" id="btn-next" aria-label="Следующая страница" title="Вперёд (→)">
@@ -107,8 +150,8 @@
           </svg>
         </button>
 
-        <button type="button" class="ctrl-btn" id="btn-tts" aria-label="Озвучить страницу" aria-pressed="false" title="Озвучить текст страницы">
-          <svg class="icon-vol" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <button type="button" class="ctrl-btn" id="btn-tts" aria-label="Озвучить страницу" aria-pressed="false" title="Голосовой брифинг страницы">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
@@ -130,10 +173,10 @@
   <!-- Модальное окно Поиска -->
   <dialog class="modal-dialog" id="search-dialog" closedby="any" aria-labelledby="search-dialog-title">
     <div class="modal-header">
-      <h2 id="search-dialog-title">Поиск по руководству</h2>
+      <h2 id="search-dialog-title">Поиск по уставу</h2>
       <form method="dialog">
         <button type="submit" class="modal-close" aria-label="Закрыть поиск">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>
           </svg>
         </button>
@@ -142,7 +185,7 @@
     <div class="modal-body">
       <search>
         <label class="sr-only" for="search-input">Поиск по главам, юнитам и офицерам</label>
-        <input type="search" id="search-input" class="search-input" placeholder="Например: Джексон, золото, VIP, SH танк, Arms Race..." autocomplete="off">
+        <input type="search" id="search-input" class="search-input" placeholder="Джексон, золото, VIP, SH танк, @shevchenko01_bot..." autocomplete="off">
       </search>
       <div class="search-results" id="search-results"></div>
     </div>
@@ -151,10 +194,10 @@
   <!-- Модальное окно Оглавления и прогресса -->
   <dialog class="modal-dialog" id="menu-dialog" closedby="any" aria-labelledby="menu-dialog-title">
     <div class="modal-header">
-      <h2 id="menu-dialog-title">Навигация и прогресс</h2>
+      <h2 id="menu-dialog-title">Оглавление и прогресс</h2>
       <form method="dialog">
         <button type="submit" class="modal-close" aria-label="Закрыть меню">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>
           </svg>
         </button>
@@ -163,8 +206,8 @@
     <div class="modal-body">
       <div class="progress-card">
         <div class="progress-head">
-          <span>Изучено глав</span>
-          <strong id="progress-label">0 / 12 (0%)</strong>
+          <span>Изучено глав устава</span>
+          <strong id="progress-label">0 / 14 (0%)</strong>
         </div>
         <div class="progress-track">
           <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
@@ -173,6 +216,107 @@
       <div class="drawer-toc" id="drawer-toc"></div>
       <div class="drawer-footer">
         <button type="button" class="btn-secondary" id="btn-reset-progress">Сбросить прогресс</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Модальное окно ШТАБ: Тикеты, Бот Паши, Калькулятор, Комьюнити -->
+  <dialog class="modal-dialog modal-wide" id="hq-dialog" closedby="any" aria-labelledby="hq-dialog-title">
+    <div class="modal-header">
+      <h2 id="hq-dialog-title">Штаб WarpathHub • Связь и инструменты</h2>
+      <form method="dialog">
+        <button type="submit" class="modal-close" aria-label="Закрыть штаб">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="hq-tabs" role="tablist" aria-label="Разделы штаба">
+        <button type="button" class="hq-tab active" role="tab" aria-selected="true" data-hq-tab="tickets">Тикеты и Вопросы</button>
+        <button type="button" class="hq-tab" role="tab" aria-selected="false" data-hq-tab="calc">Калькулятор</button>
+        <button type="button" class="hq-tab" role="tab" aria-selected="false" data-hq-tab="community">Комьюнити</button>
+      </div>
+
+      <!-- Вкладка 1: Тикеты и Бот Паши -->
+      <div class="hq-panel active" id="hq-panel-tickets" role="tabpanel">
+        <div class="hq-links-grid">
+          <a href="https://t.me/shevchenko01_bot" target="_blank" rel="noopener noreferrer" class="hq-action-card highlight">
+            <div class="hq-action-badge">БОТ ПАШИ</div>
+            <div class="hq-action-title">@shevchenko01_bot</div>
+            <p class="hq-action-desc">Калькулятор, модератор чата и официальная тикет-система Вархаба.</p>
+          </a>
+          <a href="https://t.me/WarpathHub/1" target="_blank" rel="noopener noreferrer" class="hq-action-card">
+            <div class="hq-action-badge">ЧАТ</div>
+            <div class="hq-action-title">WarpathHub Telegram</div>
+            <p class="hq-action-desc">Задай вопрос игрокам, разбор боёв, патчи и новости комьюнити.</p>
+          </a>
+        </div>
+
+        <form class="ticket-form" id="ticket-form">
+          <div class="ticket-form-title">Создать тикет / вопрос в штаб</div>
+          <div class="ticket-row">
+            <div>
+              <label for="ticket-type" class="field-label">Категория</label>
+              <select id="ticket-type" class="field-control">
+                <option value="Вопрос по тактике">❓ Вопрос по тактике / сборке</option>
+                <option value="Ошибка в гайде">🐛 Ошибка / неточность в гайде</option>
+                <option value="Добавить в гайд">💡 Предложить совет / данные</option>
+                <option value="Модерация / Жалоба">🛡️ Тикет модерации WarpathHub</option>
+              </select>
+            </div>
+            <div>
+              <label for="ticket-nick" class="field-label">Ник или @telegram</label>
+              <input type="text" id="ticket-nick" class="field-control" placeholder="@username или ник в игре" maxlength="60">
+            </div>
+          </div>
+
+          <label for="ticket-text" class="field-label">Суть вопроса или тикета</label>
+          <textarea id="ticket-text" class="field-control field-textarea" placeholder="Опиши проблему, сборку, сервер или идею для гайда..." required></textarea>
+
+          <div class="ticket-actions">
+            <button type="submit" class="btn-primary-tac">Сформировать и скопировать</button>
+            <a href="https://t.me/shevchenko01_bot" target="_blank" rel="noopener noreferrer" class="btn-outline-tac">Открыть @shevchenko01_bot ↗</a>
+          </div>
+          <p class="ticket-feedback" id="ticket-feedback" role="status"></p>
+        </form>
+
+        <div class="ticket-history" id="ticket-history"></div>
+      </div>
+
+      <!-- Вкладка 2: Экспресс-калькулятор юнита -->
+      <div class="hq-panel" id="hq-panel-calc" role="tabpanel" hidden>
+        <div class="calc-grid">
+          <div>
+            <label for="calc-unit" class="field-label">Тип техники</label>
+            <select id="calc-unit" class="field-control"></select>
+          </div>
+          <div>
+            <label for="calc-level" class="field-label">Ранг / Уровень (<span id="calc-level-val">10</span>)</label>
+            <input type="range" id="calc-level" class="field-range" min="1" max="10" value="10">
+          </div>
+          <div>
+            <label for="calc-officer" class="field-label">Офицер</label>
+            <select id="calc-officer" class="field-control"></select>
+          </div>
+          <div>
+            <label for="calc-equip" class="field-label">Снаряжение</label>
+            <select id="calc-equip" class="field-control"></select>
+          </div>
+        </div>
+
+        <div class="calc-results" id="calc-results"></div>
+
+        <div class="calc-footer-note">
+          <span>Полный расчёт с деталями и модами доступен в боте:</span>
+          <a href="https://t.me/shevchenko01_bot" target="_blank" rel="noopener noreferrer">@shevchenko01_bot ↗</a>
+        </div>
+      </div>
+
+      <!-- Вкладка 3: Комьюнити и авторы -->
+      <div class="hq-panel" id="hq-panel-community" role="tabpanel" hidden>
+        <div class="community-list" id="community-list"></div>
       </div>
     </div>
   </dialog>
