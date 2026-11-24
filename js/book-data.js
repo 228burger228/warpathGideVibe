@@ -869,23 +869,24 @@ window.BOOK_PAGES = [
     kicker: 'ГЛАВА 13 (ДОП. СТРАНИЦА)',
     title: 'Проверенные авторы и каналы',
     html: `
-      <p class="page-lead">Подборка контент-криэйторов по Warpath, за которыми стоит следить ради тестов и разборов патчей:</p>
+      <p class="page-lead">Главные авторы сообщества WarpathHub, у которых выходят свежие разборы патчей 14.5–14.6, тир-листы, тесты и калькуляторы:</p>
       <div class="editorial-rows">
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">ClanGothic</span><span class="ed-tag">ПАРТНЁР LILITH</span></div>
-          <p class="ed-row-desc">Крупнейший русскоязычный канал по Warpath: обзоры патчей, офицеры, экспедиции.</p>
+          <div class="ed-row-head"><span class="ed-row-title"><a href="https://www.youtube.com/@burgerdom6" target="_blank" rel="noopener noreferrer">Бургер (@burgerdom6)</a></span><span class="ed-tag">ОСНОВА • WARPATHHUB</span></div>
+          <p class="ed-row-desc">Тир-листы офицеров 14.6, разборы обменов, настройки аккаунтов, промокоды и эпичные бои.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Бургер (@burgerdom6)</span><span class="ed-tag">WARPATHHUB</span></div>
-          <p class="ed-row-desc">Честный взгляд на Warpath, нарезки эпичных боёв, разборы аккаунтов и механик.</p>
+          <div class="ed-row-head"><span class="ed-row-title"><a href="https://www.youtube.com/@e6aka56" target="_blank" rel="noopener noreferrer">Паша е6ака (@e6aka56)</a></span><span class="ed-tag">ТЕСТЫ • КАЛЬКУЛЯТОР</span></div>
+          <p class="ed-row-desc">Калькулятор обмена офицеров 14.6, таблицы стоимости построек 32→36, тесты чипов, авиации и арты.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">е6ака / Ehson / VN Warpath</span><span class="ed-tag">ТЕСТЫ И МЕТА</span></div>
-          <p class="ed-row-desc">Реальные тесты F2P-сборок, авиации, расчёты сноса баз и детальная аналитика.</p>
+          <div class="ed-row-head"><span class="ed-row-title"><a href="https://www.youtube.com/@ItsEhson" target="_blank" rel="noopener noreferrer">Ehson</a> / <a href="https://www.youtube.com/@ClanGothic/videos" target="_blank" rel="noopener noreferrer">Сократ (ClanGothic)</a></span><span class="ed-tag">ДОП. КАНАЛЫ</span></div>
+          <p class="ed-row-desc"><strong>Ehson:</strong> F2P-сборки для сноса баз. <strong>Сократ (ClanGothic):</strong> доп. гайды по выбору навыков, лайфхакам и обзоры патчей.</p>
         </div>
       </div>
       <div class="inline-cta-row">
-        <button type="button" class="page-link-btn" data-open-hq="community">Все ссылки в Штабе →</button>
+        <a href="https://www.youtube.com/@burgerdom6" target="_blank" rel="noopener noreferrer" class="page-link-btn">YouTube Бургера ↗</a>
+        <a href="https://www.youtube.com/@e6aka56" target="_blank" rel="noopener noreferrer" class="page-link-btn secondary">YouTube Паши е6аки ↗</a>
       </div>
     `
   },
@@ -983,138 +984,153 @@ window.CALC_DATA = {
 window.COMMUNITY_LINKS = [
   { name: 'WarpathHub (Чат Telegram)', desc: 'Главный чат русскоязычного комьюнити: помощь, сборки, новости.', url: 'https://t.me/WarpathHub/1', cta: 'В чат ↗' },
   { name: '@shevchenko01_bot (Бот Паши)', desc: 'Калькулятор, тикет-система и модерация чата WarpathHub.', url: 'https://t.me/shevchenko01_bot', cta: 'Открыть ↗' },
+  { name: 'Бургер (@burgerdom6)', desc: 'Тир-листы офицеров 14.6, разборы обменов, настройки аккаунта и бои.', url: 'https://www.youtube.com/@burgerdom6', cta: 'YouTube ↗' },
+  { name: 'Паша е6ака (@e6aka56)', desc: 'Калькулятор обмена 14.6, таблицы построек 32→36, тесты юнитов и чипов.', url: 'https://www.youtube.com/@e6aka56', cta: 'YouTube ↗' },
+  { name: 'Ehson', desc: 'Тактика, F2P-методы и разборы сборок для сноса баз.', url: 'https://www.youtube.com/@ItsEhson', cta: 'YouTube ↗' },
+  { name: 'Сократ — ClanGothic (доп.)', desc: 'Обзоры патчей, лайфхаки и подбор доп. навыков офицеров.', url: 'https://www.youtube.com/@ClanGothic/videos', cta: 'YouTube ↗' },
   { name: 'WarpathYTwiki', desc: 'Энциклопедия юнитов, конструктор армий и база офицеров.', url: 'https://228burger228.github.io/WarpathYTwiki/index.html', cta: 'Сайт ↗' },
   { name: 'Официальный Discord Warpath', desc: 'Международный сервер разработчиков Lilith Games (из клиента v14.60).', url: 'https://discord.com/invite/playwarpath', cta: 'Discord ↗' },
   { name: 'Официальный YouTube Warpath', desc: 'Трейлеры патчей, новых офицеров и событий от разработчиков.', url: 'https://www.youtube.com/c/Warpath', cta: 'YouTube ↗' },
-  { name: 'Бургер (@burgerdom6)', desc: 'Гайды, честный взгляд на игру и нарезки эпичных боёв.', url: 'https://www.youtube.com/@burgerdom6/videos', cta: 'YouTube ↗' },
-  { name: 'ClanGothic', desc: 'Официальный партнёр Lilith Games: обзоры патчей и экспедиций.', url: 'https://www.youtube.com/@ClanGothic', cta: 'YouTube ↗' },
-  { name: 'е6ака (Сервер 56)', desc: 'Тесты механик, F2P-сборки на авиацию и честные цифры.', url: 'https://www.youtube.com/@e6aka56', cta: 'YouTube ↗' },
-  { name: 'Ehson', desc: 'Тактика, F2P-методы и разборы сборок для сноса баз.', url: 'https://www.youtube.com/@ItsEhson', cta: 'YouTube ↗' },
   { name: 'VN Warpath (EN)', desc: 'Мета-анализ офицеров и экономики (на английском).', url: 'https://www.youtube.com/@VNwarpath1', cta: 'YouTube ↗' }
 ];
 
 /* ── РЕКОМЕНДУЕМЫЕ ВИДЕО YOUTUBE ПО ТЕМАМ ГЛАВ ─────────────────── */
 window.YOUTUBE_BY_TOPIC = {
   default: {
-    topic: 'Общие гайды и патчи Warpath',
-    query: 'Warpath гайд для новичков',
+    topic: 'Свежие гайды патча 14.6',
+    query: 'Warpath 14.6 гайд burgerdom6 e6aka56',
     videos: [
-      { title: 'Обзор патча и новинок — ClanGothic', author: 'ClanGothic', url: 'https://youtu.be/yZHSys9NgU8' },
-      { title: 'Epic1 battle от лица r4 ч1 — Warpath 13.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/Xy1UkZrxkrY' },
-      { title: '70% of Warpath Players Are Using the WRONG META', author: 'VN Warpath', url: 'https://youtu.be/PTn77IVXbE0' }
+      { title: 'КАКИХ ОФИЦЕРОВ КАЧАТЬ В WARPATH 14.6? Тир-лист кого менять', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/Ri6kCTSDZqE' },
+      { title: 'КАЛЬКУЛЯТОР ОБМЕНА ОФИЦЕРОВ 14.6 — Рассчитай аккаунт за 1 минуту!', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/riVeWZplo2I' },
+      { title: 'Доп.: Сборник полезных лайфхаков для ВСЕХ', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/KMAX3RKXHUU' }
     ]
   },
   1: {
     topic: 'Основы и принципы меты',
-    query: 'Warpath основы гайд 2026',
+    query: 'Warpath гайд новичку настройка аккаунта',
     videos: [
-      { title: '70% of Warpath Players Are Using the WRONG META', author: 'VN Warpath', url: 'https://youtu.be/PTn77IVXbE0' },
-      { title: 'Обзор патча — ключевые механики', author: 'ClanGothic', url: 'https://youtu.be/yZHSys9NgU8' }
+      { title: 'Настройка аккаунта и промики / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/tfMFqibCTZU' },
+      { title: 'ВЫЧИСЛИТЕЛЬНЫЕ ЧИПЫ. КРУТИМ ПРАВИЛЬНО.', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/FgJcrLFNrJ4' },
+      { title: 'Доп.: Сборник полезных лайфхаков для ВСЕХ', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/KMAX3RKXHUU' }
     ]
   },
   2: {
-    topic: 'Фракции и выбор техники',
-    query: 'Warpath какую фракцию выбрать гайд',
+    topic: 'Фракции, танки и авиация',
+    query: 'Warpath выбор техники и фракции',
     videos: [
-      { title: 'Какой МБТ самый лучший? | Warpath: Ace Shooter', author: 'Ehson', url: 'https://youtu.be/V6xFWFjCOrI' },
-      { title: 'Лучшие F2P сборки на истребитель 2026', author: 'е6ака', url: 'https://youtu.be/6XVNFdndgyo' }
+      { title: 'Главные новинки обновления 14.5 в Warpath Ace Shooter', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/oQx7FpiLlCc' },
+      { title: 'ВОЗДУШНЫЕ ГРУППЫ / 2 новых офицера / Патч 14.3', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/hjbw1grtPv8' },
+      { title: 'Какой МБТ самый лучший? | Warpath: Ace Shooter', author: 'Ehson', url: 'https://youtu.be/V6xFWFjCOrI' }
     ]
   },
   3: {
     topic: 'Правильный старт и первые дни',
-    query: 'Warpath правильный старт новичку',
+    query: 'Warpath старт новичку настройка',
     videos: [
-      { title: 'MUST WATCH To Save Money! Warpath SECRETS', author: 'VN Warpath', url: 'https://youtu.be/QMIfClwBZ7g' },
-      { title: 'Канал Ehson — гайды для новичков', author: 'Ehson', url: 'https://www.youtube.com/@ItsEhson' }
+      { title: 'Настройка аккаунта и промики / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/tfMFqibCTZU' },
+      { title: '32→36 СТОИМОСТЬ ВСЕХ ПОСТРОЕК / ТАБЛИЦА', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/mM0hYObwXQE' },
+      { title: 'Доп.: Сборник полезных лайфхаков для ВСЕХ', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/KMAX3RKXHUU' }
     ]
   },
   4: {
     topic: 'F2P-развитие без доната',
-    query: 'Warpath F2P гайд без доната',
+    query: 'Warpath FD без доната гайд',
     videos: [
-      { title: 'Лучшие F2P сборки на истребитель 2026', author: 'е6ака', url: 'https://youtu.be/6XVNFdndgyo' },
+      { title: 'FD против Китая / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/4as-Btr7jRc' },
+      { title: 'КАЛЬКУЛЯТОР ОБМЕНА ОФИЦЕРОВ 14.6', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/riVeWZplo2I' },
       { title: 'Лучшая F2P сборка для сноса баз!', author: 'Ehson', url: 'https://youtu.be/kCTdPzztNGI' }
     ]
   },
   5: {
-    topic: 'Золото, VIP и траты',
-    query: 'Warpath как тратить золото VIP',
+    topic: 'Золото, VIP и выгодные траты',
+    query: 'Warpath золото траты обмен 14.6',
     videos: [
-      { title: 'Обзор аккаунта лидера .MU. Эпик II — итог трат', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/sJJxi8jqE1A' },
-      { title: 'MUST WATCH To Save Money! Warpath SECRETS', author: 'VN Warpath', url: 'https://youtu.be/QMIfClwBZ7g' }
+      { title: 'ОБМЕН ОФИЦЕРОВ ВОЗВРАЩАЕТСЯ! Золотая арта и вкусности / 14.6', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/LrIujsuFFx0' },
+      { title: 'ВЫЧИСЛИТЕЛЬНЫЕ ЧИПЫ. КРУТИМ ПРАВИЛЬНО.', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/FgJcrLFNrJ4' },
+      { title: 'Warpath 1VS15 Gold — потужники сносят меня', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/8LEny-E0Gb8' }
     ]
   },
   6: {
-    topic: 'Наука и Arms Race',
-    query: 'Warpath Arms Race исследования гайд',
+    topic: 'Постройки 36 ур., наука и технологии',
+    query: 'Warpath 36 уровень постройки технологии',
     videos: [
-      { title: 'День рождения Warpath — ивенты и награды', author: 'е6ака', url: 'https://youtu.be/S3QI9rnPSTM' },
-      { title: 'Разборы механик и патчей', author: 'ClanGothic', url: 'https://www.youtube.com/@ClanGothic' }
+      { title: '32→36 СТОИМОСТЬ ВСЕХ ПОСТРОЕК / ТАБЛИЦА', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/mM0hYObwXQE' },
+      { title: '36 УРОВЕНЬ ПОСТРОЙКИ / НОВЫЕ ТЕХНОЛОГИИ / Патч 14.4', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/pLXUnAi8ttw' },
+      { title: 'Доп.: Обзор патча 14.6', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/YA7PniQREhc' }
     ]
   },
   7: {
-    topic: 'Юниты: ТТ, ШХ, ПТ, Арта и RL',
-    query: 'Warpath юниты катюша танки обзор',
+    topic: 'Юниты: ТТ, ШХ, ПТ, Арта и RL Катюша',
+    query: 'Warpath золотая арта истребитель танки',
     videos: [
-      { title: 'Какой МБТ самый лучший? | Warpath: Ace Shooter', author: 'Ehson', url: 'https://youtu.be/V6xFWFjCOrI' },
-      { title: 'Лучшие F2P сборки на истребитель 2026', author: 'е6ака', url: 'https://youtu.be/6XVNFdndgyo' }
+      { title: 'ОБМЕН ОФИЦЕРОВ И ЗОЛОТАЯ АРТА / 14.6', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/LrIujsuFFx0' },
+      { title: 'ОФИЦЕР НА АРТУ / БОЕВОЙ СОКОЛ / 14.3', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/DFdBAC2biT8' },
+      { title: 'ТЕСТЫ! ОФИЦЕР НА ИСТРЕБИТЕЛЬ / ПРЕСЛЕДУЮЩАЯ ТЕНЬ', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/Qdj-z8QjdCE' }
     ]
   },
   8: {
-    topic: 'Система контров и тактика',
-    query: 'Warpath контры юнитов тактика',
+    topic: 'Система контров и тактика боя',
+    query: 'Warpath тактика контры бои',
     videos: [
-      { title: '70% of Warpath Players Are Using the WRONG META', author: 'VN Warpath', url: 'https://youtu.be/PTn77IVXbE0' },
-      { title: 'Epic1 battle от лица r4 ч1 — Warpath 13.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/Xy1UkZrxkrY' }
+      { title: 'Разнос: битва против всей карты / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/ofVt4IlWPFc' },
+      { title: 'НОВЫЕ КОАЛИЦИИ СЛОМАНЫ В КАРИБСКОМ МОРЕ', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/gjgxvQBHeX4' },
+      { title: 'Доп.: Как правильно выбирать доп. навыки офицеров', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/-ZW2_zJ0eC0' }
     ]
   },
   9: {
-    topic: 'Офицеры, навыки и новинки',
-    query: 'Warpath офицеры гайд пробуждение',
+    topic: 'Офицеры 14.5–14.6 и обмен',
+    query: 'Warpath каких офицеров качать 14.6 обмен',
     videos: [
-      { title: 'Фулл офицеры или нет — ошибки. Часть 16', author: 'ClanGothic', url: 'https://youtu.be/w47c4SkscDQ' },
-      { title: 'Официальный YouTube Warpath (трейлеры офицеров)', author: 'PlayWarpath', url: 'https://www.youtube.com/c/Warpath' }
+      { title: 'КАКИХ ОФИЦЕРОВ КАЧАТЬ В WARPATH 14.6? Тир-лист кого менять', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/Ri6kCTSDZqE' },
+      { title: 'КАЛЬКУЛЯТОР ОБМЕНА ОФИЦЕРОВ 14.6 — за 1 минуту!', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/riVeWZplo2I' },
+      { title: 'НОВЫЕ ОФИЦЕРЫ И ТАКТИКИ 14.5', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/MZJxppq8ByI' },
+      { title: 'Доп.: Как правильно выбирать доп. навыки офицеров', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/-ZW2_zJ0eC0' }
     ]
   },
   10: {
-    topic: 'Сборка армии (5 слотов) и осада',
-    query: 'Warpath сборка армии 5 слотов снос баз',
+    topic: 'Сборка армии (5 слотов) и чипы',
+    query: 'Warpath сборка армии чипы арта',
     videos: [
-      { title: 'Лучшая F2P сборка для сноса баз!', author: 'Ehson', url: 'https://youtu.be/kCTdPzztNGI' },
-      { title: 'Обзор аккаунта лидера .MU. Эпик II', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/sJJxi8jqE1A' }
+      { title: 'ВЫЧИСЛИТЕЛЬНЫЕ ЧИПЫ. КРУТИМ ПРАВИЛЬНО.', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/FgJcrLFNrJ4' },
+      { title: 'Настройка аккаунта и промики / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/tfMFqibCTZU' },
+      { title: 'Лучшая F2P сборка для сноса баз!', author: 'Ehson', url: 'https://youtu.be/kCTdPzztNGI' }
     ]
   },
   11: {
-    topic: 'Сражения, ПвП и ТВД',
-    query: 'Warpath битва городов ТВД PvP',
+    topic: 'Гегемон, ТВД, ПвП и турниры',
+    query: 'Warpath гегемон кубок бои',
     videos: [
-      { title: 'Epic1 battle от лица r4 ч1 — Warpath 13.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/Xy1UkZrxkrY' },
-      { title: 'Стримы и разборы боёв', author: 'е6ака', url: 'https://www.youtube.com/@e6aka56' }
+      { title: 'Гегемон / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/V4xFkoiUWtM' },
+      { title: 'Epic s132 VS 2 alliance / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/63ftPjdFac8' },
+      { title: 'Турнир E&L 118 vs FOX 119', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/YhL9b3Vg0uQ' },
+      { title: 'Доп.: Самый тяжелый бой в гегемоне', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/nE7ge5bGTvs' }
     ]
   },
   12: {
-    topic: 'Экспедиции и экипировка',
-    query: 'Warpath экспедиции гайд',
+    topic: 'Экспедиции, патчи и FAQ',
+    query: 'Warpath обновление 14.6 обзор',
     videos: [
-      { title: 'Разборы экспедиций и патчей', author: 'ClanGothic', url: 'https://youtu.be/yZHSys9NgU8' },
-      { title: 'Канал Бургера — механики и бои', author: 'Бургер (@burgerdom6)', url: 'https://www.youtube.com/@burgerdom6/videos' }
+      { title: 'ОБМЕН ОФИЦЕРОВ В 14.6 И ДРУГИЕ ОБНОВЛЕНИЯ', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/kZtiajsI_lg' },
+      { title: 'Обзор офицера от лица девушки 14.5', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/-QDbHEC0ZNY' },
+      { title: 'Доп.: Обзор патча 14.6', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/YA7PniQREhc' }
     ]
   },
   13: {
-    topic: 'Комьюнити и авторы WarpathHub',
-    query: 'WarpathHub Бургер ClanGothic',
+    topic: 'Каналы: Бургер, Паша е6ака и Сократ',
+    query: 'burgerdom6 e6aka56 warpath',
     videos: [
-      { title: 'Бургер (@burgerdom6) — канал', author: 'Бургер', url: 'https://www.youtube.com/@burgerdom6/videos' },
-      { title: 'ClanGothic — официальный партнёр', author: 'ClanGothic', url: 'https://www.youtube.com/@ClanGothic' },
-      { title: 'е6ака — тесты и сборки', author: 'е6ака', url: 'https://www.youtube.com/@e6aka56' }
+      { title: 'Бургер (@burgerdom6) — все свежие видео', author: 'Бургер (@burgerdom6)', url: 'https://www.youtube.com/@burgerdom6' },
+      { title: 'Паша е6ака (@e6aka56) — тесты и таблицы', author: 'Паша е6ака (@e6aka56)', url: 'https://www.youtube.com/@e6aka56' },
+      { title: 'Доп.: Сократ (ClanGothic) — видео канала', author: 'Сократ (ClanGothic)', url: 'https://www.youtube.com/@ClanGothic/videos' }
     ]
   },
   14: {
-    topic: 'Сленг и вопросы новичков',
-    query: 'Warpath советы новичку сленг',
+    topic: 'Вопросы, тикеты и сленг',
+    query: 'Warpath советы гайд',
     videos: [
-      { title: 'Какой МБТ самый лучший? | Warpath: Ace Shooter', author: 'Ehson', url: 'https://youtu.be/V6xFWFjCOrI' },
-      { title: '70% of Warpath Players Are Using the WRONG META', author: 'VN Warpath', url: 'https://youtu.be/PTn77IVXbE0' }
+      { title: 'КАКИХ ОФИЦЕРОВ КАЧАТЬ В WARPATH 14.6?', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/Ri6kCTSDZqE' },
+      { title: '2 НОВЫХ ОФИЦЕРА И ОБНОВЛЕНИЯ В ПАТЧЕ 14.5', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/HKUFDyEJBwg' },
+      { title: 'Доп.: Сборник полезных лайфхаков для ВСЕХ', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/KMAX3RKXHUU' }
     ]
   }
 };
