@@ -58,7 +58,7 @@ window.BOOK_PAGES = [
     title: 'ПОЛЕВОЙ УСТАВ КОМАНДИРА',
     html: `
       <div class="cover-page">
-        <span class="war-stamp">УТВЕРЖДЕНО ШТАБОМ WARPATHHUB</span>
+        <span class="cover-stamp">УТВЕРЖДЕНО ШТАБОМ WARPATHHUB</span>
         <div class="cover-logo-box">
           <img src="assets/warpath-logo.png" alt="Warpath: Ace Shooter" class="cover-logo-img" width="290" height="92" fetchpriority="high">
         </div>
@@ -67,14 +67,9 @@ window.BOOK_PAGES = [
         <p class="cover-subtitle">
           Боевое руководство по Warpath: от первого дня на сервере и траты золота до пробуждения офицеров, контров техники, калькулятора и тикетов WarpathHub.
         </p>
-        <div class="cover-meta">
-          <span class="cover-pill">14 глав</span>
-          <span class="cover-pill">31 страница</span>
-          <span class="cover-pill">Клиент v14.60</span>
-          <span class="cover-pill">@shevchenko01_bot</span>
-        </div>
+        <div class="page-kicker">14 ГЛАВ • 31 СТРАНИЦА • КЛИЕНТ v14.60 • @SHEVCHENKO01_BOT</div>
         <div class="cover-actions">
-          <button type="button" class="btn-start-reading" data-goto="2">Открыть содержание →</button>
+          <button type="button" class="btn-cover-primary" data-goto="2">Открыть содержание →</button>
           <button type="button" class="btn-cover-sec" data-open-hq="tickets">Задать вопрос / Тикет</button>
         </div>
       </div>
@@ -108,7 +103,7 @@ window.BOOK_PAGES = [
       <p class="page-lead"><strong>Warpath: Ace Shooter</strong> — военно-стратегическая RTS в реальном времени от Lilith Games. Здесь побеждает не сумма доната в лоб, а понимание синергии юнитов, офицеров и контров.</p>
 
       <h3 class="section-h3">Базовый игровой цикл</h3>
-      <ul class="bullet-list">
+      <ul class="editorial-list">
         <li><strong>База:</strong> улучшаешь командный центр, казармы, инженерный и исследовательский центры.</li>
         <li><strong>Ресурсы:</strong> добываешь сталь, нефть, военные фонды и золото.</li>
         <li><strong>Юниты:</strong> собираешь дубликаты и повышаешь звёздность (до 7.2 звёзд и 9.2 звёзд).</li>
@@ -116,8 +111,8 @@ window.BOOK_PAGES = [
         <li><strong>Карта:</strong> воюешь в составе альянса за города, ТВД и лагеря Ворон.</li>
       </ul>
 
-      <div class="info-card">
-        <div class="info-card-title">Четыре главных ресурса</div>
+      <div class="margin-note">
+        <div class="margin-note-title">Четыре главных ресурса</div>
         <ul>
           <li><strong>Военные фонды:</strong> строительство, исследования и базовый наём.</li>
           <li><strong>Сталь:</strong> производство и апгрейд техники (вечный дефицит).</li>
@@ -138,30 +133,30 @@ window.BOOK_PAGES = [
     title: '6 золотых принципов меты',
     html: `
       <p class="page-lead">Запомни эти шесть правил до того, как потратишь первые ресурсы и статуэтки офицеров:</p>
-      <div class="grid-cards">
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">1. Офицер важнее юнита</span><span class="tier-badge">60% СИЛЫ</span></div>
-          <p class="mini-card-body">Слабый юнит с топ-офицером сильнее сильного юнита без офицера. Пример: Средний танк + Джексон Хейз сильнее Тяжёлого танка + Такеда.</p>
+      <div class="editorial-rows">
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">1. Офицер важнее юнита</span><span class="ed-tag">60% СИЛЫ</span></div>
+          <p class="ed-row-desc">Слабый юнит с топ-офицером сильнее сильного юнита без офицера. Пример: Средний танк + Джексон Хейз сильнее Тяжёлого танка + Такеда.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">2. Нет «лучшего» юнита</span><span class="tier-badge">РОЛЬ</span></div>
-          <p class="mini-card-body">SH-танк идеален в обороне, но бесполезен в быстром рейде. Лёгкий танк — король разведки, но тает в лобовом бою.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">2. Нет «лучшего» юнита</span><span class="ed-tag">РОЛЬ</span></div>
+          <p class="ed-row-desc">SH-танк идеален в обороне, но бесполезен в быстром рейде. Лёгкий танк — король разведки, но тает в лобовом бою.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">3. Синергия решает</span><span class="tier-badge">5 СЛОТОВ</span></div>
-          <p class="mini-card-body">Сбалансированная армия (фронтлайн + ДД + арта + утилити) всегда бьёт 5 одинаковых танков без прикрытия.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">3. Синергия решает</span><span class="ed-tag">5 СЛОТОВ</span></div>
+          <p class="ed-row-desc">Сбалансированная армия (фронтлайн + ДД + арта + утилити) всегда бьёт 5 одинаковых танков без прикрытия.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">4. Контры важнее мощи</span><span class="tier-badge">КНБ</span></div>
-          <p class="mini-card-body">Дешёвые истребители танков уничтожают дорогие SH-танки, если работают из-за спины союзника.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">4. Контры важнее мощи</span><span class="ed-tag">КНБ</span></div>
+          <p class="ed-row-desc">Дешёвые истребители танков уничтожают дорогие SH-танки, если работают из-за спины союзника.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">5. Первый удар критичен</span><span class="tier-badge">ИНИЦИАТИВА</span></div>
-          <p class="mini-card-body">При равных армиях побеждает тот, кто ударил первым и зашёл с фланга.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">5. Первый удар критичен</span><span class="ed-tag">ИНИЦИАТИВА</span></div>
+          <p class="ed-row-desc">При равных армиях побеждает тот, кто ударил первым и зашёл с фланга.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">6. Качай одного до конца</span><span class="tier-badge">ФОКУС</span></div>
-          <p class="mini-card-body">Один пробуждённый Джексон Хейз сильнее трёх офицеров, прокачанных наполовину.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">6. Качай одного до конца</span><span class="ed-tag">ФОКУС</span></div>
+          <p class="ed-row-desc">Один пробуждённый Джексон Хейз сильнее трёх офицеров, прокачанных наполовину.</p>
         </div>
       </div>
     `
@@ -185,18 +180,18 @@ window.BOOK_PAGES = [
         <figcaption class="page-caption">Официальный арт клиента v14.60: техника и авиация лагерей</figcaption>
       </figure>
 
-      <div class="grid-cards">
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Советы (Martyrs / Красные)</span><span class="tier-badge">НОВИЧКАМ</span></div>
-          <p class="mini-card-body"><strong>Стиль:</strong> тяжёлая броня и мощная артиллерия.<br><strong>Плюсы:</strong> лучшие тяжёлые танки, ракетная установка (РСЗО), простая и понятная мета.<br><strong>Минусы:</strong> нет сверхтяжёлого танка (SH), слабее в авиации.</p>
+      <div class="editorial-rows">
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Советы (Martyrs / Красные)</span><span class="ed-tag">НОВИЧКАМ</span></div>
+          <p class="ed-row-desc"><strong>Стиль:</strong> тяжёлая броня и мощная артиллерия.<br><strong>Плюсы:</strong> лучшие тяжёлые танки, ракетная установка (РСЗО), простая и понятная мета.<br><strong>Минусы:</strong> нет сверхтяжёлого танка (SH), слабее в авиации.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Либерти (Liberty / Синие)</span><span class="tier-badge">МАНЁВР</span></div>
-          <p class="mini-card-body"><strong>Стиль:</strong> скорость, рейды и осада баз.<br><strong>Плюсы:</strong> быстрые лёгкие танки, сильный флот (авианосцы, эсминцы), противотанковые пушки.<br><strong>Минусы:</strong> слабее в лобовых столкновениях, нет SH-танка.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Либерти (Liberty / Синие)</span><span class="ed-tag">МАНЁВР</span></div>
+          <p class="ed-row-desc"><strong>Стиль:</strong> скорость, рейды и осада баз.<br><strong>Плюсы:</strong> быстрые лёгкие танки, сильный флот (авианосцы, эсминцы), противотанковые пушки.<br><strong>Минусы:</strong> слабее в лобовых столкновениях, нет SH-танка.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Авангард (Vanguard / Серые)</span><span class="tier-badge">ЭНДГЕЙМ</span></div>
-          <p class="mini-card-body"><strong>Стиль:</strong> непробиваемая оборона.<br><strong>Плюсы:</strong> эксклюзивный Сверхтяжёлый танк (SH / Маус), сильное ПВО.<br><strong>Минусы:</strong> самые медленные и дорогие в прокачке юниты.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Авангард (Vanguard / Серые)</span><span class="ed-tag">ЭНДГЕЙМ</span></div>
+          <p class="ed-row-desc"><strong>Стиль:</strong> непробиваемая оборона.<br><strong>Плюсы:</strong> эксклюзивный Сверхтяжёлый танк (SH / Маус), сильное ПВО.<br><strong>Минусы:</strong> самые медленные и дорогие в прокачке юниты.</p>
         </div>
       </div>
     `
@@ -223,8 +218,8 @@ window.BOOK_PAGES = [
           </tbody>
         </table>
       </div>
-      <div class="info-card">
-        <div class="info-card-title">Совет ветеранов</div>
+      <div class="margin-note">
+        <div class="margin-note-title">Совет ветеранов</div>
         <p>Если не знаешь, что выбрать на старте — бери <strong>Советы</strong> для основы на тяжёлых танках и артиллерии. Позже ты сможешь комбинировать лучшие юниты разных лагерей в одной армии (например, SH Авангарда + ПТ/Арта Советов).</p>
       </div>
     `
@@ -244,7 +239,7 @@ window.BOOK_PAGES = [
       <p class="page-lead">Первые 24 часа на новом сервере задают темп на месяцы вперёд. Главная цель — не потерять темп и попасть в топ-альянс.</p>
 
       <h3 class="section-h3">Чеклист первого дня</h3>
-      <ul class="bullet-list">
+      <ul class="editorial-list">
         <li><strong>Иди строго по сюжетным заданиям:</strong> основной журнал даёт тонну стали, фондов и купонов на старте.</li>
         <li><strong>Снимай туман войны авиацией:</strong> отправляй самолёты-разведчики открывать карту — за руины и ящики снабжения дают золото и ускорения.</li>
         <li><strong>Вступи в самый сильный альянс:</strong> ищи активный топ-1/топ-3 альянс. Когда соклановцы бьют бункеры или донатят, ты получаешь бесплатные сундуки альянса.</li>
@@ -262,16 +257,16 @@ window.BOOK_PAGES = [
     kicker: 'ГЛАВА 3 (ДОП. СТРАНИЦА)',
     title: 'Чего НЕ делать в первые дни',
     html: `
-      <div class="info-card">
-        <div class="info-card-title">Ошибка #1: Оставлять армию вне базы</div>
+      <div class="margin-note">
+        <div class="margin-note-title">Ошибка #1: Оставлять армию вне базы</div>
         <p>Перед выходом из игры всегда прячь отряды внутрь базы (или переноси базу на территорию альянса). В открытом поле твою армию разобьют за секунды, а ремонт съест нефть и сталь.</p>
       </div>
-      <div class="info-card">
-        <div class="info-card-title">Ошибка #2: Сливать купоны и ускорения сразу</div>
+      <div class="margin-note">
+        <div class="margin-note-title">Ошибка #2: Сливать купоны и ускорения сразу</div>
         <p>Не открывай все универсальные купоны и не жги ускорения в первый попавшийся момент. Держи их под ежедневные этапы <strong>Arms Race</strong> и крупные ивенты (Jurisdiction / Grand Showdown).</p>
       </div>
-      <div class="info-card">
-        <div class="info-card-title">Ошибка #3: Игнорировать промышленную ветку</div>
+      <div class="margin-note">
+        <div class="margin-note-title">Ошибка #3: Игнорировать промышленную ветку</div>
         <p>Новички качают только военные технологии. Без промышленных исследований (скорость добычи и лимит конвоев) ты застрянешь без стали уже к 15 уровню базы.</p>
       </div>
     `
@@ -289,7 +284,7 @@ window.BOOK_PAGES = [
     title: '4. Топ советов новичку (F2P)',
     html: `
       <p class="page-lead">Играть без доната (Free-to-Play) в Warpath абсолютно реально, если соблюдать жёсткую дисциплину ресурсов и фокусировки.</p>
-      <ul class="bullet-list">
+      <ul class="editorial-list">
         <li><strong>Правило 1–2 юнитов:</strong> не пытайся качать все 5 слотов сразу на максимум. Сделай 1 мощный Тяжёлый/Средний танк и 1 Гаубицу — они протащат тебя везде.</li>
         <li><strong>Ошиблись с прокачкой? Есть Разборка!</strong> Зайди в <em>Инженерный центр → Разборка</em>. За символическую плату золотом ты вернёшь вложенные детали и опыт. Перед разборкой убери юнит из активной армии.</li>
         <li><strong>Фарм фрагментов через Экспедиции:</strong> отправляй армию в экспедиции перед сном — это стабильный бесплатный источник статуэток офицеров.</li>
@@ -307,22 +302,22 @@ window.BOOK_PAGES = [
     kicker: 'ГЛАВА 4 (ДОП. СТРАНИЦА)',
     title: 'Чеклист F2P дисциплины',
     html: `
-      <div class="grid-cards cols-2">
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Офицеры</span></div>
-          <p class="mini-card-body">• Фокус на одном до Пробуждения.<br>• Бесплатного офицера 5-го поколения забирай через события.<br>• Выполняй задания офицеров на 100% успеха.</p>
+      <div class="editorial-rows">
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Офицеры</span></div>
+          <p class="ed-row-desc">• Фокус на одном до Пробуждения.<br>• Бесплатного офицера 5-го поколения забирай через события.<br>• Выполняй задания офицеров на 100% успеха.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Юниты</span></div>
-          <p class="mini-card-body">• Выбери 2–3 типа техники.<br>• Исследования важнее количества казарм.<br>• Тяжёлый танк + Кёртис/Джексон — база без доната.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Юниты</span></div>
+          <p class="ed-row-desc">• Выбери 2–3 типа техники.<br>• Исследования важнее количества казарм.<br>• Тяжёлый танк + Кёртис/Джексон — база без доната.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Ресурсы</span></div>
-          <p class="mini-card-body">• Всегда держи запас стали.<br>• Не трать ускорения вне Arms Race.<br>• Постоянно гоняй сборщиков на карту.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Ресурсы</span></div>
+          <p class="ed-row-desc">• Всегда держи запас стали.<br>• Не трать ускорения вне Arms Race.<br>• Постоянно гоняй сборщиков на карту.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Альянс</span></div>
-          <p class="mini-card-body">• Помогай союзникам кнопкой «Помощь».<br>• Покупай в магазине альянса только нужное.<br>• Бей Raven-лагеря группой.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Альянс</span></div>
+          <p class="ed-row-desc">• Помогай союзникам кнопкой «Помощь».<br>• Покупай в магазине альянса только нужное.<br>• Бей Raven-лагеря группой.</p>
         </div>
       </div>
     `
@@ -341,17 +336,17 @@ window.BOOK_PAGES = [
     html: `
       <p class="page-lead">Золото — самая дефицитная валюта в игре. Одна ошибка в тратах на старте откинет аккаунт на несколько недель назад.</p>
 
-      <div class="info-card">
-        <div class="info-card-title">Приоритет №1: Прокачка VIP-уровня</div>
+      <div class="margin-note">
+        <div class="margin-note-title">Приоритет №1: Прокачка VIP-уровня</div>
         <p>Первым делом вкладывай золото в очки VIP (особенно во время ивентов на трату золота):</p>
-        <ul class="bullet-list" style="margin-top:6px; margin-bottom:0;">
+        <ul class="editorial-list" style="margin-top:6px; margin-bottom:0;">
           <li><strong>VIP 4:</strong> открывает <strong>1 бесплатный Универсальный купон</strong> каждый день.</li>
           <li><strong>VIP 9:</strong> открывает <strong>1 бесплатный Лагерный купон</strong> каждый день + огромные бонусы к скорости стройки и исследований.</li>
         </ul>
       </div>
 
       <h3 class="section-h3">Где брать золото каждый день</h3>
-      <ul class="bullet-list">
+      <ul class="editorial-list">
         <li><strong>Ежедневные задания:</strong> до 600 золота в сутки за полное закрытие.</li>
         <li><strong>Первые убийства отрядов Raven</strong> и зачистка новых лагерей.</li>
         <li><strong>Исследование карты</strong> (сундуки в тумане), достижения и повышение уровня командира.</li>
@@ -368,7 +363,7 @@ window.BOOK_PAGES = [
     kicker: 'ГЛАВА 5 (ДОП. СТРАНИЦА)',
     title: 'На что НЕЛЬЗЯ тратить золото',
     html: `
-      <ul class="bullet-list">
+      <ul class="editorial-list">
         <li><strong>Мгновенное завершение стройки/исследований:</strong> самая дорогая и бессмысленная трата. Используй обычные ускорения.</li>
         <li><strong>Покупка стали, нефти и фондов за золото:</strong> курс грабительский, ресурсы легко добываются на карте и в событиях.</li>
         <li><strong>Случайные сундуки в обычном магазине:</strong> без гаранта ты просто сожжёшь валюту. Копи золото на ивентные баннеры 5-го поколения и VIP.</li>
@@ -417,11 +412,11 @@ window.BOOK_PAGES = [
     kicker: 'ГЛАВА 6 (ДОП. СТРАНИЦА)',
     title: 'Приоритет технологий в Центре',
     html: `
-      <div class="info-card">
-        <div class="info-card-title">Золотая середина науки</div>
+      <div class="margin-note">
+        <div class="margin-note-title">Золотая середина науки</div>
         <p>Качай параллельно две ветки. Без экономики армия встанет, без армии экономику разграбят.</p>
       </div>
-      <ul class="bullet-list">
+      <ul class="editorial-list">
         <li><strong>Промышленная ветка:</strong> скорость добычи стали/нефти, грузоподъёмность конвоев, снижение стоимости строительства и ремонта.</li>
         <li><strong>Военная ветка:</strong> открытие слотов армии (до 5 юнитов), усиление именно твоего основного типа войск (например, Тяжёлые танки + Артиллерия).</li>
         <li><strong>Совет по Arms Race:</strong> не обязательно занимать Топ-1 каждый день. Стабильный <strong>Ранг 3+</strong> даёт отличные награды без выгорания и лишнего слива запасов.</li>
@@ -448,7 +443,7 @@ window.BOOK_PAGES = [
       </figure>
 
       <h3 class="section-h3">Как работает звёздность</h3>
-      <ul class="bullet-list">
+      <ul class="editorial-list">
         <li><strong>Объединение:</strong> два одинаковых юнита сливаются для повышения звезды (процесс необратим, но есть разборка деталей).</li>
         <li><strong>Жёлтые звёзды (до 7.2):</strong> классический потолок для базовых и старых линеек техники.</li>
         <li><strong>Синие звёзды (до 9.2):</strong> современная техника (например, Пехота, Тяжёлый танк, современная авиация и флот).</li>
@@ -475,13 +470,13 @@ window.BOOK_PAGES = [
             <tr><th>Юнит</th><th>Тир</th><th>Роль</th><th>Главная задача</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>SH-танк (Авангард)</strong></td><td><span class="tier-badge">S</span></td><td>Ultra Tank</td><td>Стена в лоб. Максимум брони и здоровья, но очень медленный.</td></tr>
-            <tr><td><strong>Тяжёлый танк</strong></td><td><span class="tier-badge">A</span></td><td>Frontline</td><td>Основа ударного кулака, принимает первый урон.</td></tr>
-            <tr><td><strong>Истребитель танков</strong></td><td><span class="tier-badge">A</span></td><td>Anti-Armor</td><td>Пробивает тяжёлые и SH-танки из-за спины.</td></tr>
-            <tr><td><strong>Гаубица / РСЗО</strong></td><td><span class="tier-badge">A/S</span></td><td>AoE ДД</td><td>Сносит базы, скопления пехоты и медленные SH-танки.</td></tr>
-            <tr><td><strong>Средний танк</strong></td><td><span class="tier-badge">B</span></td><td>Universal</td><td>Рабочая лошадка мидгейма с хорошим балансом.</td></tr>
-            <tr><td><strong>Лёгкий танк</strong></td><td><span class="tier-badge">C</span></td><td>Harass</td><td>Разведка, быстрые рейды на сборщиков и арту.</td></tr>
-            <tr><td><strong>Пехота</strong></td><td><span class="tier-badge">C</span></td><td>Utility</td><td>Захват точек, бункеры, дешёвый гарнизон.</td></tr>
+            <tr><td><strong>SH-танк (Авангард)</strong></td><td><span class="ed-tag">S</span></td><td>Ultra Tank</td><td>Стена в лоб. Максимум брони и здоровья, но очень медленный.</td></tr>
+            <tr><td><strong>Тяжёлый танк</strong></td><td><span class="ed-tag">A</span></td><td>Frontline</td><td>Основа ударного кулака, принимает первый урон.</td></tr>
+            <tr><td><strong>Истребитель танков</strong></td><td><span class="ed-tag">A</span></td><td>Anti-Armor</td><td>Пробивает тяжёлые и SH-танки из-за спины.</td></tr>
+            <tr><td><strong>Гаубица / РСЗО</strong></td><td><span class="ed-tag">A/S</span></td><td>AoE ДД</td><td>Сносит базы, скопления пехоты и медленные SH-танки.</td></tr>
+            <tr><td><strong>Средний танк</strong></td><td><span class="ed-tag">B</span></td><td>Universal</td><td>Рабочая лошадка мидгейма с хорошим балансом.</td></tr>
+            <tr><td><strong>Лёгкий танк</strong></td><td><span class="ed-tag">C</span></td><td>Harass</td><td>Разведка, быстрые рейды на сборщиков и арту.</td></tr>
+            <tr><td><strong>Пехота</strong></td><td><span class="ed-tag">C</span></td><td>Utility</td><td>Захват точек, бункеры, дешёвый гарнизон.</td></tr>
           </tbody>
         </table>
       </div>
@@ -528,11 +523,11 @@ window.BOOK_PAGES = [
     kicker: 'ГЛАВА 8 (ДОП. СТРАНИЦА)',
     title: 'Как применять контры на карте',
     html: `
-      <div class="info-card">
-        <div class="info-card-title">Правило разведки</div>
+      <div class="margin-note">
+        <div class="margin-note-title">Правило разведки</div>
         <p>Никогда не вступай в слепой бой. Перед атакой посмотри состав армии врага. Видишь 3 тяжёлых танка — выводи ПТ и Гаубицу. Видишь голую артиллерию без прикрытия — заходи быстрым танком с фланга.</p>
       </div>
-      <ul class="bullet-list">
+      <ul class="editorial-list">
         <li><strong>Защита своей арты:</strong> никогда не ставь гаубицы в первую линию. Держи их за танками на максимальной дистанции выстрела.</li>
         <li><strong>Атака баз:</strong> для сноса укрепрайонов и баз обязательна дальнобойная артиллерия (Гаубицы / САУ) под прикрытием танкового щита.</li>
       </ul>
@@ -553,7 +548,7 @@ window.BOOK_PAGES = [
       <p class="page-lead">Офицеры дают до <strong>60% реальной боевой силы</strong> отряда. Главный секрет — не распылять статуэтки, а доводить одного ключевого офицера до Пробуждения.</p>
 
       <h3 class="section-h3">Механика прокачки</h3>
-      <ul class="bullet-list">
+      <ul class="editorial-list">
         <li><strong>4 базовых навыка:</strong> каждый качается с 1 по 5 уровень. Не качай уровень офицера вслепую — ориентируйся на ключевые боевые навыки.</li>
         <li><strong>Пробуждение (Awakening):</strong> открывается при 5 уровне всех 4 навыков. Требует <strong>720 фрагментов</strong>, но даёт колоссальный скачок силы.</li>
         <li><strong>2 чужих навыка:</strong> в слоты поддержки можно поставить 2 навыка от <em>других</em> офицеров (например, усиление брони или урона).</li>
@@ -571,22 +566,22 @@ window.BOOK_PAGES = [
     kicker: 'ГЛАВА 9 (ДОП. СТРАНИЦА)',
     title: 'Ключевые офицеры текущей меты',
     html: `
-      <div class="grid-cards">
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Джексон Хейз (5 поколение)</span><span class="tier-badge">S-ТИР</span></div>
-          <p class="mini-card-body"><strong>Роль:</strong> Атака (Танки и Вертолёты). +30% Атаки/Защиты. Навык «Пространственный удар» (коэф. 1800, +15% урона на 8 сек). Лучший универсальный дамагер.</p>
+      <div class="editorial-rows">
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Джексон Хейз (5 поколение)</span><span class="ed-tag">S-ТИР</span></div>
+          <p class="ed-row-desc"><strong>Роль:</strong> Атака (Танки и Вертолёты). +30% Атаки/Защиты. Навык «Пространственный удар» (коэф. 1800, +15% урона на 8 сек). Лучший универсальный дамагер.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Хеймекер (5 поколение)</span><span class="tier-badge">S-ТИР</span></div>
-          <p class="mini-card-body"><strong>Роль:</strong> Охотник на тяжёлую броню. +35% Атаки. Массовый урон с бонусом против SH и тяжёлых танков.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Хеймекер (5 поколение)</span><span class="ed-tag">S-ТИР</span></div>
+          <p class="ed-row-desc"><strong>Роль:</strong> Охотник на тяжёлую броню. +35% Атаки. Массовый урон с бонусом против SH и тяжёлых танков.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Кёртис (4 поколение)</span><span class="tier-badge">S-ТИР</span></div>
-          <p class="mini-card-body"><strong>Роль:</strong> Защита наземных войск (+22% защиты, +15% здоровья). Лучший танк-офицер для фронтлайна и обороны.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Кёртис (4 поколение)</span><span class="ed-tag">S-ТИР</span></div>
+          <p class="ed-row-desc"><strong>Роль:</strong> Защита наземных войск (+22% защиты, +15% здоровья). Лучший танк-офицер для фронтлайна и обороны.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Иссабель / Слейтер / Такеда</span><span class="tier-badge">S / A</span></div>
-          <p class="mini-card-body"><strong>Иссабель:</strong> +25% атаки при здоровье ниже 50%. <strong>Слейтер:</strong> топ для авиации. <strong>Такеда и Мартин:</strong> отличные переходные варианты до 5-го поколения.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Иссабель / Слейтер / Такеда</span><span class="ed-tag">S / A</span></div>
+          <p class="ed-row-desc"><strong>Иссабель:</strong> +25% атаки при здоровье ниже 50%. <strong>Слейтер:</strong> топ для авиации. <strong>Такеда и Мартин:</strong> отличные переходные варианты до 5-го поколения.</p>
         </div>
       </div>
     `
@@ -606,22 +601,22 @@ window.BOOK_PAGES = [
         <img src="assets/new-officers.webp" alt="Пять новых офицеров Warpath: Блэкджек, Мусорщик, Красный Крокодил, Главный Судья, Ржавый" class="page-art" width="800" height="800" loading="lazy">
         <figcaption class="page-caption">Пятёрка офицеров последних патчей: море, защита, арта и поле</figcaption>
       </figure>
-      <div class="grid-cards">
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Блэкджек</span><span class="tier-badge">ВМС</span></div>
-          <p class="mini-card-body">Морской офицер — подводные лодки и противолодочные силы.</p>
+      <div class="editorial-rows">
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Блэкджек</span><span class="ed-tag">ВМС</span></div>
+          <p class="ed-row-desc">Морской офицер — подводные лодки и противолодочные силы.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Мусорщик</span><span class="tier-badge">ЗАЩИТА</span></div>
-          <p class="mini-card-body">Офицер защиты — усиление пехоты и танковых подразделений.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Мусорщик</span><span class="ed-tag">ЗАЩИТА</span></div>
+          <p class="ed-row-desc">Офицер защиты — усиление пехоты и танковых подразделений.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Красный Крокодил</span><span class="tier-badge">ВМС</span></div>
-          <p class="mini-card-body">Морской офицер — наступательные ВМС и прорыв флота.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Красный Крокодил</span><span class="ed-tag">ВМС</span></div>
+          <p class="ed-row-desc">Морской офицер — наступательные ВМС и прорыв флота.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Главный Судья / Ржавый</span><span class="tier-badge">АРТА / ТАНКИ</span></div>
-          <p class="mini-card-body"><strong>Главный Судья:</strong> артиллерия и гарнизон базы. <strong>Ржавый:</strong> танковый офицер для полевых сражений.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Главный Судья / Ржавый</span><span class="ed-tag">АРТА / ТАНКИ</span></div>
+          <p class="ed-row-desc"><strong>Главный Судья:</strong> артиллерия и гарнизон базы. <strong>Ржавый:</strong> танковый офицер для полевых сражений.</p>
         </div>
       </div>
     `
@@ -641,7 +636,7 @@ window.BOOK_PAGES = [
       <p class="page-lead">Полная армия состоит из <strong>5 слотов</strong>. Побеждает не сумма звёзд, а правильное распределение ролей и позиций на поле боя.</p>
 
       <h3 class="section-h3">Классический мета-сетап (5 слотов)</h3>
-      <ul class="bullet-list">
+      <ul class="editorial-list">
         <li><strong>Слот 1 (Фронтлайн):</strong> Тяжёлый танк или SH-танк + защитный офицер (Кёртис / Виктор). Принимает весь первый удар.</li>
         <li><strong>Слоты 2–3 (Основной ДД):</strong> 2 ударных юнита (Истребитель танков, Средний/Тяжёлый танк с Джексоном Хейзом). Наносят главный урон.</li>
         <li><strong>Слот 4 (Артиллерия):</strong> Гаубица или РСЗО на задней линии. Чистит пехоту и ломает броню SH-танков по площади.</li>
@@ -659,16 +654,16 @@ window.BOOK_PAGES = [
     kicker: 'ГЛАВА 10 (ДОП. СТРАНИЦА)',
     title: 'Фатальные ошибки компоновки',
     html: `
-      <div class="info-card">
-        <div class="info-card-title">1. Армия из 5 одинаковых танков</div>
+      <div class="margin-note">
+        <div class="margin-note-title">1. Армия из 5 одинаковых танков</div>
         <p>Без ПТ и артиллерии тебя легко разберут контр-юнитами, а без быстрого юнита ты не догонишь вражескую гаубицу.</p>
       </div>
-      <div class="info-card">
-        <div class="info-card-title">2. Только дамагеры без фронтлайна</div>
+      <div class="margin-note">
+        <div class="margin-note-title">2. Только дамагеры без фронтлайна</div>
         <p>Стеклянные пушки (арта и ПТ) без танкового щита впереди умирают за 3 секунды до того, как успеют разрядить навыки.</p>
       </div>
-      <div class="info-card">
-        <div class="info-card-title">3. Непрофильный офицер</div>
+      <div class="margin-note">
+        <div class="margin-note-title">3. Непрофильный офицер</div>
         <p>Постановка артиллерийского или авиационного офицера на танк обнуляет половину его пассивных бонусов. Всегда проверяй теги юнитов в описании навыков!</p>
       </div>
     `
@@ -687,7 +682,7 @@ window.BOOK_PAGES = [
     html: `
       <p class="page-lead">Крупные войны альянсов, битвы за города и ТВД требуют не только прокачанных танков, но и грамотного микроконтроля.</p>
 
-      <ul class="bullet-list">
+      <ul class="editorial-list">
         <li><strong>Инициатива первого удара:</strong> в автоматическом бою тот, кто выстрелил первым, получает преимущество по темпу перезарядки навыков.</li>
         <li><strong>Фланговые манёвры:</strong> не бей в лоб укреплённую линию. Обходи с фланга, чтобы вырезать артиллерию врага, пока танки отвлечены.</li>
         <li><strong>Командная академия (Тактические карты):</strong> вовремя прожимай карты командира (Дымовая завеса против щитов, Усиление брони, Тяжёлый удар). Не трать карты впустую в мелких стычках — копи на ключевые замесы и ивенты <em>Top Tactics</em>.</li>
@@ -704,11 +699,11 @@ window.BOOK_PAGES = [
     kicker: 'ГЛАВА 11 (ДОП. СТРАНИЦА)',
     title: 'Оборона базы и территории',
     html: `
-      <div class="info-card">
-        <div class="info-card-title">Как не потерять базу ночью</div>
+      <div class="margin-note">
+        <div class="margin-note-title">Как не потерять базу ночью</div>
         <p>Всегда держи базу внутри территории альянса (под щитом башен). При угрозе массового рейда используй <strong>Щит мира</strong> заранее — чинить выжженную базу и восстанавливать гарнизон в разы дороже.</p>
       </div>
-      <ul class="bullet-list">
+      <ul class="editorial-list">
         <li><strong>Гарнизон базы:</strong> ставь в оборону базы самые живучие юниты (SH-танк, Тяжёлый танк, Пехота) с защитными офицерами (Кёртис, Виктор).</li>
         <li><strong>Командная игра:</strong> в PvP 1 на 1 решает мощь, в войне альянсов решает фокус-огонь по одной цели и синхронный выход на позицию.</li>
       </ul>
@@ -727,7 +722,7 @@ window.BOOK_PAGES = [
     title: '12. Экспедиции и пассивный фарм',
     html: `
       <p class="page-lead"><strong>Экспедиции</strong> — главный PvE-режим для стабильного фарма фрагментов офицеров, деталей снаряжения и ресурсов без риска потерять армию в PvP.</p>
-      <ul class="bullet-list">
+      <ul class="editorial-list">
         <li><strong>Постоянная загрузка:</strong> отправляй отряды в экспедиции каждый раз, когда уходишь в оффлайн или на работу/учёбу.</li>
         <li><strong>Выбор наград:</strong> ставь в приоритет те маршруты, где падают фрагменты твоих основных офицеров (или универсальные ресурсы для экипировки).</li>
         <li><strong>Снаряжение:</strong> не забывай крафтить и улучшать модули экипировки на танки и артиллерию — на высоких уровнях они дают огромный прирост пробития и здоровья.</li>
@@ -744,16 +739,16 @@ window.BOOK_PAGES = [
     kicker: 'ГЛАВА 12 (ДОП. СТРАНИЦА)',
     title: 'Частые вопросы (FAQ)',
     html: `
-      <div class="info-card">
-        <div class="info-card-title">Можно ли переназначить офицера на другой юнит?</div>
+      <div class="margin-note">
+        <div class="margin-note-title">Можно ли переназначить офицера на другой юнит?</div>
         <p>Да, абсолютно бесплатно и без штрафов. Экспериментируй со связками, чтобы найти максимальный урон.</p>
       </div>
-      <div class="info-card">
-        <div class="info-card-title">Что делать, если вкачал не тот юнит?</div>
+      <div class="margin-note">
+        <div class="margin-note-title">Что делать, если вкачал не тот юнит?</div>
         <p>Убери юнит из активного строя армии и разбери его в <strong>Инженерном центре</strong> за небольшое количество золота — все ресурсы и опыт вернутся.</p>
       </div>
-      <div class="info-card">
-        <div class="info-card-title">Где задать вопрос по своей сборке?</div>
+      <div class="margin-note">
+        <div class="margin-note-title">Где задать вопрос по своей сборке?</div>
         <p>Перейди в чат <a href="https://t.me/WarpathHub/1" target="_blank" rel="noopener noreferrer">WarpathHub</a> или открой вкладку «Штаб и Тикеты» в шапке сайта.</p>
       </div>
     `
@@ -772,10 +767,10 @@ window.BOOK_PAGES = [
     html: `
       <p class="page-lead"><strong>WarpathHub</strong> — главное русскоязычное комьюнити игроков Warpath в Telegram. Всё общение, помощь новичкам, калькулятор и модерация работают в единой связке.</p>
 
-      <div class="info-card">
-        <div class="info-card-title">Бот Паши — @shevchenko01_bot</div>
+      <div class="margin-note">
+        <div class="margin-note-title">Бот Паши — @shevchenko01_bot</div>
         <p>Официальный многофункциональный бот нашего сообщества. В одном месте доступны:</p>
-        <ul class="bullet-list" style="margin-top:6px; margin-bottom:0;">
+        <ul class="editorial-list" style="margin-top:6px; margin-bottom:0;">
           <li><strong>Калькулятор:</strong> точные расчёты прокачки, ресурсов и характеристик.</li>
           <li><strong>Тикет-система:</strong> быстрая отправка вопросов, багов, жалоб и предложений.</li>
           <li><strong>Модерация чата:</strong> защита WarpathHub от спама и порядок в ветках.</li>
@@ -799,18 +794,18 @@ window.BOOK_PAGES = [
     title: 'Проверенные авторы и каналы',
     html: `
       <p class="page-lead">Подборка контент-криэйторов по Warpath, за которыми стоит следить ради тестов и разборов патчей:</p>
-      <div class="grid-cards">
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">ClanGothic</span><span class="tier-badge">ПАРТНЁР LILITH</span></div>
-          <p class="mini-card-body">Крупнейший русскоязычный канал по Warpath: обзоры патчей, офицеры, экспедиции.</p>
+      <div class="editorial-rows">
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">ClanGothic</span><span class="ed-tag">ПАРТНЁР LILITH</span></div>
+          <p class="ed-row-desc">Крупнейший русскоязычный канал по Warpath: обзоры патчей, офицеры, экспедиции.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">Бургер (@burgerdom6)</span><span class="tier-badge">WARPATHHUB</span></div>
-          <p class="mini-card-body">Честный взгляд на Warpath, нарезки эпичных боёв, разборы аккаунтов и механик.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Бургер (@burgerdom6)</span><span class="ed-tag">WARPATHHUB</span></div>
+          <p class="ed-row-desc">Честный взгляд на Warpath, нарезки эпичных боёв, разборы аккаунтов и механик.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-card-head"><span class="mini-card-title">е6ака / Ehson / VN Warpath</span><span class="tier-badge">ТЕСТЫ И МЕТА</span></div>
-          <p class="mini-card-body">Реальные тесты F2P-сборок, авиации, расчёты сноса баз и детальная аналитика.</p>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">е6ака / Ehson / VN Warpath</span><span class="ed-tag">ТЕСТЫ И МЕТА</span></div>
+          <p class="ed-row-desc">Реальные тесты F2P-сборок, авиации, расчёты сноса баз и детальная аналитика.</p>
         </div>
       </div>
       <div class="inline-cta-row">
@@ -831,7 +826,7 @@ window.BOOK_PAGES = [
     title: '14. Тикеты и как задать вопрос',
     html: `
       <p class="page-lead">Чтобы тебе помогли в чате или тикете максимально быстро и по делу, придерживайся короткого шаблона обращения:</p>
-      <ul class="bullet-list">
+      <ul class="editorial-list">
         <li><strong>Для совета по армии:</strong> укажи свой сервер, стиль игры (без доната / лоу-спендер), главную фракцию и скрин/список доступных офицеров.</li>
         <li><strong>Для багов и правок гайда:</strong> укажи номер страницы устава (внизу листа) и что именно нужно уточнить.</li>
         <li><strong>Для модерации:</strong> используй тикет-систему прямо в боте <strong>@shevchenko01_bot</strong> — обращение уйдёт модераторам без потери в общем чате.</li>

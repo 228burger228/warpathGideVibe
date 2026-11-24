@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   WARPATH: ACE SHOOTER — Движок Полевого устава, Тикетов, Калькулятора и TTS
+   WARPATH CODEX — Движок разворота, навигации, скраббера, HQ и TTS
    ═══════════════════════════════════════════════════════════════ */
 (() => {
   'use strict';
@@ -8,6 +8,7 @@
     page: 'wp_guide_page',
     done: 'wp_guide_done_chapters',
     skip: 'wp_guide_skip_subpages',
+    spread: 'wp_guide_spread',
     theme: 'wp_guide_theme',
     tickets: 'wp_guide_tickets',
     ttsRate: 'wp_guide_tts_rate',
@@ -18,25 +19,49 @@
   const tocSections = window.BOOK_TOC_SECTIONS || [];
   const totalPages = pages.length;
 
-  const elPage = document.getElementById('book-page');
-  const elContent = document.getElementById('page-content');
-  const elPageNum = document.getElementById('page-num');
-  const elDocCode = document.getElementById('page-doc-code');
+  const codexWrapper = document.getElementById('codex-wrapper');
+  const codexCover = document.getElementById('codex-cover');
   const elBookmark = document.getElementById('chapter-bookmark');
+  const elChapterProgress = document.getElementById('codex-chapter-progress');
+
+  const elContentLeft = document.getElementById('page-content-left');
+  const elPageNumLeft = document.getElementById('page-num-left');
+  const elDocCodeLeft = document.getElementById('page-doc-code-left');
+  const elSecLeft = document.getElementById('page-sec-left');
+
+  const elContentRight = document.getElementById('page-content-right');
+  const elPageNumRight = document.getElementById('page-num-right');
+  const elDocCodeRight = document.getElementById('page-doc-code-right');
+  const elSecRight = document.getElementById('page-sec-right');
+
   const elCounterCurrent = document.getElementById('counter-current');
   const elCounterTotal = document.getElementById('counter-total');
+  const pageScrubber = document.getElementById('page-scrubber');
 
   const btnPrev = document.getElementById('btn-prev');
   const btnNext = document.getElementById('btn-next');
+  const sidePrev = document.getElementById('side-prev');
+  const sideNext = document.getElementById('side-next');
   const btnTocJump = document.getElementById('btn-toc-jump');
+
+  /* Шапка и отдельное меню инструментов */
+  const btnTocOpen = document.getElementById('btn-toc-open');
+  const btnSearch = document.getElementById('btn-search');
+  const btnHq = document.getElementById('btn-hq');
+  const btnToolsTrigger = document.getElementById('btn-tools-trigger');
+  const toolsMenu = document.getElementById('tools-menu');
+
+  const toggleSpread = document.getElementById('toggle-spread');
+  const chkSkip = document.getElementById('skip-subpages');
   const btnTts = document.getElementById('btn-tts');
   const btnSfx = document.getElementById('btn-sfx');
-  const btnFullscreen = document.getElementById('btn-fullscreen');
-  const btnSearch = document.getElementById('btn-search');
   const btnTheme = document.getElementById('btn-theme');
-  const btnMenu = document.getElementById('btn-menu');
-  const btnHq = document.getElementById('btn-hq');
-  const chkSkip = document.getElementById('skip-subpages');
+  const btnFullscreen = document.getElementById('btn-fullscreen');
+
+  const ttsBadgeState = document.getElementById('tts-badge-state');
+  const sfxBadgeState = document.getElementById('sfx-badge-state');
+  const themeBadgeState = document.getElementById('theme-badge-state');
+  const fsBadgeState = document.getElementById('fs-badge-state');
 
   /* TTS бар */
   const ttsBar = document.getElementById('tts-bar');
@@ -75,6 +100,7 @@
   let currentPage = 2;
   let doneChapters = new Set();
   let skipSubpages = false;
+  let spreadPref = true;
   let sfxEnabled = true;
   let audioCtx = null;
   let tickets = [];
@@ -82,6 +108,7 @@
   let isSpeaking = false;
   let isPaused = false;
 
+  /* ── SFX ──────────────────────────────────────────────────── */
   function playFlipSound() {
     if (!sfxEnabled) return;
     try {
@@ -90,11 +117,11 @@
       if (!audioCtx) audioCtx = new Ctx();
       if (audioCtx.state === 'suspended') audioCtx.resume();
 
-      const dur = 0.055;
+      const dur = 0.05;
       const buf = audioCtx.createBuffer(1, Math.floor(audioCtx.sampleRate * dur), audioCtx.sampleRate);
       const data = buf.getChannelData(0);
       for (let i = 0; i < data.length; i++) {
-        data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (data.length * 0.35));
+        data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (data.length * 0.32));
       }
       const src = audioCtx.createBufferSource();
       src.buffer = buf;
@@ -102,7 +129,7 @@
       filter.type = 'bandpass';
       filter.frequency.value = 1400;
       const gain = audioCtx.createGain();
-      gain.gain.value = 0.08;
+      gain.gain.value = 0.07;
       src.connect(filter);
       filter.connect(gain);
       gain.connect(audioCtx.destination);
@@ -111,15 +138,28 @@
   }
 
   /* ── STATE ────────────────────────────────────────────────── */
+  function isSpreadActive() {
+    return spreadPref && window.innerWidth >= 960 && currentPage > 1;
+  }
+
+  function updateToolBadges() {
+    const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+    themeBadgeState.textContent = theme === 'dark' ? 'Тёмная' : 'Светлая';
+    sfxBadgeState.textContent = sfxEnabled ? 'Вкл' : 'Выкл';
+    sfxBadgeState.classList.toggle('on', sfxEnabled);
+    ttsBadgeState.textContent = isSpeaking ? 'Играет' : 'Выкл';
+    ttsBadgeState.classList.toggle('on', isSpeaking);
+    fsBadgeState.textContent = document.fullscreenElement ? 'Полный' : 'Окно';
+    fsBadgeState.classList.toggle('on', Boolean(document.fullscreenElement));
+  }
+
   function loadState() {
     try {
       const savedTheme = localStorage.getItem(STORAGE_KEYS.theme);
       if (savedTheme === 'light' || savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', savedTheme);
       }
-      const savedSfx = localStorage.getItem(STORAGE_KEYS.sfx);
-      if (savedSfx === '0') sfxEnabled = false;
-      btnSfx.setAttribute('aria-pressed', String(sfxEnabled));
+
       const savedDone = JSON.parse(localStorage.getItem(STORAGE_KEYS.done) || '[]');
       if (Array.isArray(savedDone)) doneChapters = new Set(savedDone.map(Number));
 
@@ -133,6 +173,13 @@
       skipSubpages = localStorage.getItem(STORAGE_KEYS.skip) === '1';
       chkSkip.checked = skipSubpages;
 
+      const savedSpread = localStorage.getItem(STORAGE_KEYS.spread);
+      spreadPref = savedSpread !== '0';
+      toggleSpread.checked = spreadPref;
+
+      const savedSfx = localStorage.getItem(STORAGE_KEYS.sfx);
+      sfxEnabled = savedSfx !== '0';
+
       const hashMatch = window.location.hash.match(/page=(\d+)/);
       const savedPage = parseInt(localStorage.getItem(STORAGE_KEYS.page) || '2', 10);
       const initial = hashMatch ? parseInt(hashMatch[1], 10) : savedPage;
@@ -140,6 +187,7 @@
     } catch (_) {
       currentPage = 2;
     }
+    updateToolBadges();
   }
 
   function saveDone() {
@@ -199,16 +247,18 @@
     if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     isSpeaking = false;
     isPaused = false;
-    btnTts.setAttribute('aria-pressed', 'false');
     ttsBar.hidden = true;
     ttsPauseBtn.textContent = 'Пауза';
+    updateToolBadges();
   }
 
   function startTts() {
     if (!('speechSynthesis' in window)) return;
     window.speechSynthesis.cancel();
 
-    const text = normalizeSpeechText(stripHtml(elContent.innerHTML));
+    const leftTxt = stripHtml(elContentLeft.innerHTML);
+    const rightTxt = isSpreadActive() ? stripHtml(elContentRight.innerHTML) : '';
+    const text = normalizeSpeechText(`${leftTxt}. ${rightTxt}`);
     if (!text) return;
 
     const utter = new SpeechSynthesisUtterance(text);
@@ -225,20 +275,21 @@
 
     isSpeaking = true;
     isPaused = false;
-    btnTts.setAttribute('aria-pressed', 'true');
     ttsBar.hidden = false;
     ttsPauseBtn.textContent = 'Пауза';
     ttsStatusText.textContent = `Радиосвязь: стр. ${currentPage} (${ttsRate}×)`;
+    updateToolBadges();
     window.speechSynthesis.speak(utter);
   }
 
-  /* ── RENDER TOC ───────────────────────────────────────────── */
+  /* ── RENDER HELPERS ───────────────────────────────────────── */
   function buildTocHtml() {
     return `
-      <div class="page-header-block">
-        <div class="page-kicker">ПОЛЕВОЙ УСТАВ КОМАНДИРА</div>
-        <h1 class="page-title">СОДЕРЖАНИЕ</h1>
-        <div class="page-divider"><span class="page-diamond"></span></div>
+      <div class="page-head">
+        <div>
+          <div class="page-kicker">НАВИГАЦИЯ ПО УСТАВУ</div>
+          <h1 class="page-title">СОДЕРЖАНИЕ</h1>
+        </div>
       </div>
       ${tocSections.map(sec => `
         <section class="toc-section">
@@ -252,7 +303,7 @@
                     ${isDone ? '✓' : ''}
                   </button>
                   <button type="button" class="toc-link" data-goto="${ch.page}">
-                    <span class="toc-num">${ch.id}</span>
+                    <span class="toc-num">${String(ch.id).padStart(2, '0')}</span>
                     <span class="toc-name">${ch.title}</span>
                     <span class="toc-dots" aria-hidden="true"></span>
                     <span class="toc-page">${ch.page}</span>
@@ -266,13 +317,58 @@
     `;
   }
 
-  /* ── RENDER PAGE ──────────────────────────────────────────── */
-  function renderPage(pageNum, direction) {
-    const target = clampPage(pageNum);
-    const data = pages[target - 1];
-    if (!data) return;
+  function renderSinglePageInto(data, containerEl, numEl, codeEl, secEl) {
+    if (!data) {
+      containerEl.innerHTML = '<div class="cover-page"><div class="page-kicker">КОНЕЦ УСТАВА</div><p class="cover-subtitle">Вы дошли до последней страницы. Вернитесь к содержанию или задайте вопрос в Штабе WarpathHub.</p><button type="button" class="btn-cover-primary" data-goto="2">К содержанию</button></div>';
+      numEl.textContent = '—';
+      codeEl.textContent = 'WP-FM // END';
+      secEl.textContent = 'WARPATH CODEX';
+      return;
+    }
 
+    numEl.textContent = String(data.page);
+    codeEl.textContent = data.docCode || `WP-FM // ${String(data.page).padStart(2, '0')}`;
+    secEl.textContent = data.bookmark || 'WARPATH CODEX';
+
+    if (data.type === 'cover') {
+      containerEl.innerHTML = data.html;
+    } else if (data.type === 'toc') {
+      containerEl.innerHTML = buildTocHtml();
+    } else {
+      const isDone = data.chapterId ? doneChapters.has(data.chapterId) : false;
+      const doneBtnHtml = data.chapterId ? `
+        <button type="button" class="btn-mark-done ${isDone ? 'done' : ''}" data-toggle-ch="${data.chapterId}">
+          ${isDone ? '✓ Изучено' : 'Отметить'}
+        </button>
+      ` : '';
+
+      containerEl.innerHTML = `
+        <div class="page-head">
+          <div>
+            <div class="page-kicker">${data.kicker || ''}</div>
+            <h1 class="page-title">${data.title || ''}</h1>
+          </div>
+          ${doneBtnHtml}
+        </div>
+        ${data.html}
+      `;
+    }
+    containerEl.scrollTop = 0;
+  }
+
+  /* ── RENDER PAGE / SPREAD ─────────────────────────────────── */
+  function renderPage(pageNum, direction) {
+    let target = clampPage(pageNum);
     currentPage = target;
+
+    const spread = isSpreadActive();
+    if (spread && target > 1 && target % 2 === 1) {
+      // В режиме разворота левая страница — чётная (2-3, 4-5, 6-7...), чтобы Содержание (2) было слева
+      target = clampPage(target - 1);
+      currentPage = target;
+    }
+
+    codexWrapper.classList.toggle('is-spread', spread);
     stopTts();
 
     try {
@@ -283,52 +379,50 @@
     } catch (_) {}
 
     if (direction) {
-      elPage.classList.remove('flip-next', 'flip-prev');
-      void elPage.offsetWidth;
-      elPage.classList.add(direction === 'next' ? 'flip-next' : 'flip-prev');
+      codexCover.classList.remove('flip-next', 'flip-prev');
+      void codexCover.offsetWidth;
+      codexCover.classList.add(direction === 'next' ? 'flip-next' : 'flip-prev');
       playFlipSound();
     }
 
-    elBookmark.textContent = data.bookmark || 'WARPATH УСТАВ';
-    elDocCode.textContent = data.docCode || `WP-FM // P-${currentPage}`;
-    elPageNum.textContent = String(currentPage);
-    elCounterCurrent.textContent = String(currentPage);
-    elCounterTotal.textContent = String(totalPages);
+    const leftData = pages[currentPage - 1];
+    renderSinglePageInto(leftData, elContentLeft, elPageNumLeft, elDocCodeLeft, elSecLeft);
 
-    if (data.type === 'cover') {
-      elContent.innerHTML = data.html;
-    } else if (data.type === 'toc') {
-      elContent.innerHTML = buildTocHtml();
+    if (spread) {
+      const rightData = pages[currentPage] || null;
+      renderSinglePageInto(rightData, elContentRight, elPageNumRight, elDocCodeRight, elSecRight);
+      elCounterCurrent.textContent = rightData ? `${currentPage}–${rightData.page}` : String(currentPage);
     } else {
-      const isDone = data.chapterId ? doneChapters.has(data.chapterId) : false;
-      const doneBtnHtml = data.chapterId ? `
-        <div class="chapter-top-bar">
-          <button type="button" class="btn-mark-done ${isDone ? 'done' : ''}" data-toggle-ch="${data.chapterId}">
-            ${isDone ? '✓ Изучено' : 'Отметить главу'}
-          </button>
-        </div>
-      ` : '';
-
-      elContent.innerHTML = `
-        ${doneBtnHtml}
-        <div class="page-header-block">
-          <div class="page-kicker">${data.kicker || ''}</div>
-          <h1 class="page-title">${data.title || ''}</h1>
-          <div class="page-divider"><span class="page-diamond"></span></div>
-        </div>
-        ${data.html}
-      `;
+      elCounterCurrent.textContent = String(currentPage);
     }
 
-    elContent.scrollTop = 0;
-    btnPrev.disabled = currentPage <= 1;
-    btnNext.disabled = currentPage >= totalPages;
+    elBookmark.textContent = leftData?.bookmark || 'WARPATH CODEX';
+    elCounterTotal.textContent = String(totalPages);
+    pageScrubber.max = String(totalPages);
+    pageScrubber.value = String(currentPage);
+
+    const totalCh = tocSections.reduce((acc, s) => acc + s.chapters.length, 0);
+    elChapterProgress.textContent = `ИЗУЧЕНО ${doneChapters.size} / ${totalCh}`;
+
+    const atStart = currentPage <= 1;
+    const atEnd = spread ? currentPage >= totalPages - 1 : currentPage >= totalPages;
+    btnPrev.disabled = atStart;
+    sidePrev.disabled = atStart;
+    btnNext.disabled = atEnd;
+    sideNext.disabled = atEnd;
   }
 
   /* ── NAVIGATION ───────────────────────────────────────────── */
   function goNext() {
-    if (currentPage >= totalPages) return;
-    let next = currentPage + 1;
+    const spread = isSpreadActive();
+    if (spread ? currentPage >= totalPages - 1 : currentPage >= totalPages) return;
+
+    if (currentPage === 1) {
+      renderPage(2, 'next');
+      return;
+    }
+
+    let next = currentPage + (spread ? 2 : 1);
     if (skipSubpages) {
       while (next < totalPages && !pages[next - 1].isChapterStart) next++;
     }
@@ -337,7 +431,14 @@
 
   function goPrev() {
     if (currentPage <= 1) return;
-    let prev = currentPage - 1;
+    const spread = isSpreadActive();
+
+    if (currentPage === 2) {
+      renderPage(1, 'prev');
+      return;
+    }
+
+    let prev = currentPage - (spread ? 2 : 1);
     if (skipSubpages) {
       while (prev > 1 && !pages[prev - 1].isChapterStart) prev--;
     }
@@ -354,7 +455,7 @@
   function runSearch(query) {
     const q = query.trim().toLowerCase();
     if (!q) {
-      searchResults.innerHTML = '<p style="font-size:13px;color:var(--text-ui-muted);">Введите термин, имя офицера, юнит или @shevchenko01_bot для поиска по уставу.</p>';
+      searchResults.innerHTML = '<p style="font-size:13px;color:var(--text-secondary);">Введите термин, имя офицера, юнит или @shevchenko01_bot для поиска по уставу.</p>';
       return;
     }
 
@@ -372,7 +473,7 @@
     }
 
     if (hits.length === 0) {
-      searchResults.innerHTML = '<p style="font-size:13px;color:var(--text-ui-muted);">Ничего не найдено. Попробуйте другой запрос.</p>';
+      searchResults.innerHTML = '<p style="font-size:13px;color:var(--text-secondary);">Ничего не найдено. Попробуйте другой запрос.</p>';
       return;
     }
 
@@ -397,8 +498,8 @@
       const isDone = doneChapters.has(ch.id);
       return `
         <button type="button" class="drawer-toc-btn" data-goto="${ch.page}">
-          <span>${isDone ? '✅' : '📖'} ${ch.id}. ${ch.title}</span>
-          <span style="color:var(--wp-gold);font-weight:700;">стр. ${ch.page}</span>
+          <span>${isDone ? '[✓]' : '[ ]'} ${ch.id}. ${ch.title}</span>
+          <span style="color:var(--accent-amber);font-weight:700;font-family:'JetBrains Mono',monospace;">стр. ${ch.page}</span>
         </button>
       `;
     }).join('');
@@ -433,7 +534,7 @@
             <span>${t.id} • ${t.type}</span>
             <span>стр. ${t.page}</span>
           </div>
-          <div style="color:var(--text-ui-muted);">${t.text}</div>
+          <div style="color:var(--text-secondary);">${t.text}</div>
         </div>
       `).join('')}
     `;
@@ -495,7 +596,7 @@
   }
 
   /* ── EVENTS ───────────────────────────────────────────────── */
-  elContent.addEventListener('click', (e) => {
+  codexCover.addEventListener('click', (e) => {
     const gotoBtn = e.target.closest('[data-goto]');
     if (gotoBtn) {
       const target = parseInt(gotoBtn.dataset.goto, 10);
@@ -514,13 +615,31 @@
   });
 
   btnPrev.addEventListener('click', goPrev);
+  sidePrev.addEventListener('click', goPrev);
   btnNext.addEventListener('click', goNext);
+  sideNext.addEventListener('click', goNext);
+
+  pageScrubber.addEventListener('input', () => {
+    const target = parseInt(pageScrubber.value, 10);
+    renderPage(target, null);
+  });
 
   elBookmark.addEventListener('click', () => renderPage(2, currentPage > 2 ? 'prev' : 'next'));
   btnTocJump.addEventListener('click', () => renderPage(2, currentPage > 2 ? 'prev' : 'next'));
   document.getElementById('brand-home').addEventListener('click', (e) => {
     e.preventDefault();
     renderPage(2, currentPage > 2 ? 'prev' : 'next');
+  });
+
+  /* Меню инструментов */
+  toolsMenu.addEventListener('toggle', (e) => {
+    btnToolsTrigger.setAttribute('aria-expanded', String(e.newState === 'open'));
+  });
+
+  toggleSpread.addEventListener('change', () => {
+    spreadPref = toggleSpread.checked;
+    try { localStorage.setItem(STORAGE_KEYS.spread, spreadPref ? '1' : '0'); } catch (_) {}
+    renderPage(currentPage, null);
   });
 
   chkSkip.addEventListener('change', () => {
@@ -532,11 +651,13 @@
     const nextTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', nextTheme);
     try { localStorage.setItem(STORAGE_KEYS.theme, nextTheme); } catch (_) {}
+    updateToolBadges();
   });
 
   btnTts.addEventListener('click', () => {
     if (isSpeaking) stopTts();
     else startTts();
+    try { toolsMenu.hidePopover?.(); } catch (_) {}
   });
 
   ttsPauseBtn.addEventListener('click', () => {
@@ -564,20 +685,21 @@
 
   btnSfx.addEventListener('click', () => {
     sfxEnabled = !sfxEnabled;
-    btnSfx.setAttribute('aria-pressed', String(sfxEnabled));
     try { localStorage.setItem(STORAGE_KEYS.sfx, sfxEnabled ? '1' : '0'); } catch (_) {}
+    updateToolBadges();
     if (sfxEnabled) playFlipSound();
   });
 
   btnFullscreen.addEventListener('click', () => {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen?.().catch(() => {});
-      btnFullscreen.setAttribute('aria-pressed', 'true');
     } else {
       document.exitFullscreen?.().catch(() => {});
-      btnFullscreen.setAttribute('aria-pressed', 'false');
     }
+    setTimeout(updateToolBadges, 120);
   });
+
+  document.addEventListener('fullscreenchange', updateToolBadges);
 
   btnSearch.addEventListener('click', () => {
     searchDialog.showModal();
@@ -594,7 +716,7 @@
     renderPage(target, target >= currentPage ? 'next' : 'prev');
   });
 
-  btnMenu.addEventListener('click', () => {
+  btnTocOpen.addEventListener('click', () => {
     updateProgressUI();
     menuDialog.showModal();
   });
@@ -642,7 +764,7 @@
     } catch (_) {}
 
     ticketFeedback.textContent = copied
-      ? `Тикет ${id} скопирован! Вставь его в @shevchenko01_bot или чат WarpathHub.`
+      ? `Тикет ${id} скопирован. Вставь его в @shevchenko01_bot или чат WarpathHub.`
       : `Тикет ${id} сохранён в историю. Открой @shevchenko01_bot для отправки.`;
 
     ticketText.value = '';
@@ -659,14 +781,18 @@
     }
   });
 
+  window.addEventListener('resize', () => {
+    renderPage(currentPage, null);
+  });
+
   let touchStartX = 0;
   let touchStartY = 0;
-  elPage.addEventListener('touchstart', (e) => {
+  codexCover.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].clientX;
     touchStartY = e.changedTouches[0].clientY;
   }, { passive: true });
 
-  elPage.addEventListener('touchend', (e) => {
+  codexCover.addEventListener('touchend', (e) => {
     const dx = e.changedTouches[0].clientX - touchStartX;
     const dy = e.changedTouches[0].clientY - touchStartY;
     if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4) {
