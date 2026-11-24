@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Тактический полевой устав по игре Warpath: Ace Shooter. Фракции, трата золота, юниты, контры, офицеры, калькулятор, тикеты и сообщество WarpathHub.">
+  <meta name="description" content="Тактический полевой устав по игре Warpath: Ace Shooter (v14.60). Фракции, трата золота, юниты, контры, новые офицеры, калькулятор, тикеты и сообщество WarpathHub.">
   <meta name="theme-color" content="#0b0d10">
+  <link rel="icon" type="image/png" href="assets/warpath-icon.png">
+  <link rel="apple-touch-icon" href="assets/warpath-icon.png">
   <title>WARPATH: ACE SHOOTER — Полевой устав командира</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +14,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Тактический фон с сеткой -->
+  <!-- Тактический фон с официальным артом клиента и координатной сеткой -->
   <div class="tactical-bg" aria-hidden="true"></div>
 
   <div class="app-shell">
@@ -20,14 +22,11 @@
     <header class="topbar">
       <a href="#page=2" class="brand" id="brand-home" aria-label="Warpath Guide — к содержанию">
         <span class="brand-badge" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2 4 6v6c0 5.5 3.4 9.8 8 11 4.6-1.2 8-5.5 8-11V6l-8-4Z"></path>
-            <path d="m8.5 10 2 5 1.5-3.5 1.5 3.5 2-5"></path>
-          </svg>
+          <img src="assets/warpath-icon.png" alt="" width="38" height="38">
         </span>
         <span class="brand-text">
           <span class="brand-title">WARPATH <span class="brand-accent">УСТАВ</span></span>
-          <span class="brand-sub">FIELD MANUAL • v14.5</span>
+          <span class="brand-sub">FIELD MANUAL • v14.60</span>
         </span>
       </a>
 
@@ -117,7 +116,7 @@
         </div>
       </div>
 
-      <!-- Мини-плеер озвучки (показывается при активной озвучке) -->
+      <!-- Мини-плеер озвучки -->
       <div class="tts-bar" id="tts-bar" hidden>
         <div class="tts-status">
           <span class="tts-eq" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -141,7 +140,7 @@
         <button type="button" class="page-counter" id="btn-toc-jump" title="Перейти к содержанию">
           <span id="counter-current">2</span>
           <span class="counter-sep">/</span>
-          <span id="counter-total">30</span>
+          <span id="counter-total">31</span>
         </button>
 
         <button type="button" class="ctrl-btn" id="btn-next" aria-label="Следующая страница" title="Вперёд (→)">
@@ -155,6 +154,12 @@
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="ctrl-btn" id="btn-sfx" aria-label="Тактический звук перелистывания" aria-pressed="true" title="Звук перелистывания страниц">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
           </svg>
         </button>
 
@@ -185,7 +190,7 @@
     <div class="modal-body">
       <search>
         <label class="sr-only" for="search-input">Поиск по главам, юнитам и офицерам</label>
-        <input type="search" id="search-input" class="search-input" placeholder="Джексон, золото, VIP, SH танк, @shevchenko01_bot..." autocomplete="off">
+        <input type="search" id="search-input" class="search-input" placeholder="Блэкджек, Джексон, золото, VIP, SH танк..." autocomplete="off">
       </search>
       <div class="search-results" id="search-results"></div>
     </div>
@@ -220,7 +225,7 @@
     </div>
   </dialog>
 
-  <!-- Модальное окно ШТАБ: Тикеты, Бот Паши, Калькулятор, Комьюнити -->
+  <!-- Модальное окно ШТАБ -->
   <dialog class="modal-dialog modal-wide" id="hq-dialog" closedby="any" aria-labelledby="hq-dialog-title">
     <div class="modal-header">
       <h2 id="hq-dialog-title">Штаб WarpathHub • Связь и инструменты</h2>

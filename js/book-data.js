@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════
-   WARPATH: ACE SHOOTER — Полевой устав командира (30 страниц, 14 глав)
-   База: WarpathYTwiki (data.js, faq-data.js) + WarpathHub + гайды 2025-2026
+   WARPATH: ACE SHOOTER — Полевой устав командира (31 страница, 14 глав)
+   База: WarpathYTwiki + клиент v14.60.453 + WarpathHub + гайды 2025-2026
    ═══════════════════════════════════════════════════════════════ */
 
 window.BOOK_TOC_SECTIONS = [
@@ -25,22 +25,22 @@ window.BOOK_TOC_SECTIONS = [
     chapters: [
       { id: 7, title: 'Юниты, роли и Звёздность', page: 15 },
       { id: 8, title: 'Система контров (КНБ)', page: 17 },
-      { id: 9, title: 'Офицеры, навыки и Пробуждение', page: 19 },
-      { id: 10, title: 'Сборка идеальной армии (5 слотов)', page: 21 }
+      { id: 9, title: 'Офицеры, навыки и Новинки 14.60', page: 19 },
+      { id: 10, title: 'Сборка идеальной армии (5 слотов)', page: 22 }
     ]
   },
   {
     title: 'IV. СРАЖЕНИЯ И ТВД',
     chapters: [
-      { id: 11, title: 'Подготовка к сражениям и PvP', page: 23 },
-      { id: 12, title: 'Экспедиции и FAQ командира', page: 25 }
+      { id: 11, title: 'Подготовка к сражениям и PvP', page: 24 },
+      { id: 12, title: 'Экспедиции и FAQ командира', page: 26 }
     ]
   },
   {
     title: 'V. ШТАБ, БОТ И КОМЬЮНИТИ',
     chapters: [
-      { id: 13, title: 'WarpathHub и Бот @shevchenko01_bot', page: 27 },
-      { id: 14, title: 'Тикеты, Вопросы и Словарь сленга', page: 29 }
+      { id: 13, title: 'WarpathHub и Бот @shevchenko01_bot', page: 28 },
+      { id: 14, title: 'Тикеты, Вопросы и Словарь сленга', page: 30 }
     ]
   }
 ];
@@ -69,8 +69,8 @@ window.BOOK_PAGES = [
         </p>
         <div class="cover-meta">
           <span class="cover-pill">14 глав</span>
-          <span class="cover-pill">30 страниц</span>
-          <span class="cover-pill">Патч 14.5+</span>
+          <span class="cover-pill">31 страница</span>
+          <span class="cover-pill">Клиент v14.60</span>
           <span class="cover-pill">@shevchenko01_bot</span>
         </div>
         <div class="cover-actions">
@@ -179,6 +179,11 @@ window.BOOK_PAGES = [
     title: '2. Выбор фракции (Лагеря)',
     html: `
       <p class="page-lead">В Warpath три основных лагеря. Новички часто качают всё подряд и упираются в нехватку деталей. Выбери <strong>1 основную фракцию</strong> (максимум 2 в мидгейме).</p>
+
+      <figure class="page-figure">
+        <img src="assets/bg-parade.webp" alt="Официальный арт Warpath со знамёнами трёх фракций" class="page-art" width="1600" height="898" loading="lazy">
+        <figcaption class="page-caption">Официальный арт клиента v14.60: техника и авиация лагерей</figcaption>
+      </figure>
 
       <div class="grid-cards">
         <div class="mini-card">
@@ -437,6 +442,11 @@ window.BOOK_PAGES = [
     html: `
       <p class="page-lead">В игре 9 основных классов техники: Пехота, Лёгкий/Средний/Тяжёлый/SH танк, Истребитель танков (ПТ), Гаубица/РСЗО, Истребитель, Бомбардировщик и Вертолёт.</p>
 
+      <figure class="page-figure transparent-unit">
+        <img src="assets/unit-armata.webp" alt="Тяжёлый танк 9.2 звёзд — Т-14 Армата (Советы)" class="page-art" width="760" height="532" loading="lazy">
+        <figcaption class="page-caption">Модель 9.2★ (синие звёзды): Советский основной боевой танк</figcaption>
+      </figure>
+
       <h3 class="section-h3">Как работает звёздность</h3>
       <ul class="bullet-list">
         <li><strong>Объединение:</strong> два одинаковых юнита сливаются для повышения звезды (процесс необратим, но есть разборка деталей).</li>
@@ -582,9 +592,44 @@ window.BOOK_PAGES = [
     `
   },
 
-  /* ── ГЛАВА 10: СБОРКА ИДЕАЛЬНОЙ АРМИИ (СТР. 21–22) ── */
   {
     page: 21,
+    type: 'content',
+    chapterId: 9,
+    isChapterStart: false,
+    docCode: 'WP-FM // CH-09C',
+    bookmark: 'ГЛАВА 9 • НОВЫЕ ОФИЦЕРЫ',
+    kicker: 'ГЛАВА 9 (ДОП. СТРАНИЦА)',
+    title: 'Новые офицеры (14.5–14.60)',
+    html: `
+      <figure class="page-figure">
+        <img src="assets/new-officers.webp" alt="Пять новых офицеров Warpath: Блэкджек, Мусорщик, Красный Крокодил, Главный Судья, Ржавый" class="page-art" width="800" height="800" loading="lazy">
+        <figcaption class="page-caption">Пятёрка офицеров последних патчей: море, защита, арта и поле</figcaption>
+      </figure>
+      <div class="grid-cards">
+        <div class="mini-card">
+          <div class="mini-card-head"><span class="mini-card-title">Блэкджек</span><span class="tier-badge">ВМС</span></div>
+          <p class="mini-card-body">Морской офицер — подводные лодки и противолодочные силы.</p>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-head"><span class="mini-card-title">Мусорщик</span><span class="tier-badge">ЗАЩИТА</span></div>
+          <p class="mini-card-body">Офицер защиты — усиление пехоты и танковых подразделений.</p>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-head"><span class="mini-card-title">Красный Крокодил</span><span class="tier-badge">ВМС</span></div>
+          <p class="mini-card-body">Морской офицер — наступательные ВМС и прорыв флота.</p>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-head"><span class="mini-card-title">Главный Судья / Ржавый</span><span class="tier-badge">АРТА / ТАНКИ</span></div>
+          <p class="mini-card-body"><strong>Главный Судья:</strong> артиллерия и гарнизон базы. <strong>Ржавый:</strong> танковый офицер для полевых сражений.</p>
+        </div>
+      </div>
+    `
+  },
+
+  /* ── ГЛАВА 10: СБОРКА ИДЕАЛЬНОЙ АРМИИ (СТР. 22–23) ── */
+  {
+    page: 22,
     type: 'content',
     chapterId: 10,
     isChapterStart: true,
@@ -605,7 +650,7 @@ window.BOOK_PAGES = [
     `
   },
   {
-    page: 22,
+    page: 23,
     type: 'content',
     chapterId: 10,
     isChapterStart: false,
@@ -629,9 +674,9 @@ window.BOOK_PAGES = [
     `
   },
 
-  /* ── ГЛАВА 11: ПОДГОТОВКА К СРАЖЕНИЯМ И PVP (СТР. 23–24) ── */
+  /* ── ГЛАВА 11: ПОДГОТОВКА К СРАЖЕНИЯМ И PVP (СТР. 24–25) ── */
   {
-    page: 23,
+    page: 24,
     type: 'content',
     chapterId: 11,
     isChapterStart: true,
@@ -650,7 +695,7 @@ window.BOOK_PAGES = [
     `
   },
   {
-    page: 24,
+    page: 25,
     type: 'content',
     chapterId: 11,
     isChapterStart: false,
@@ -670,9 +715,9 @@ window.BOOK_PAGES = [
     `
   },
 
-  /* ── ГЛАВА 12: ЭКСПЕДИЦИИ И FAQ КОМАНДИРА (СТР. 25–26) ── */
+  /* ── ГЛАВА 12: ЭКСПЕДИЦИИ И FAQ КОМАНДИРА (СТР. 26–27) ── */
   {
-    page: 25,
+    page: 26,
     type: 'content',
     chapterId: 12,
     isChapterStart: true,
@@ -690,7 +735,7 @@ window.BOOK_PAGES = [
     `
   },
   {
-    page: 26,
+    page: 27,
     type: 'content',
     chapterId: 12,
     isChapterStart: false,
@@ -714,9 +759,9 @@ window.BOOK_PAGES = [
     `
   },
 
-  /* ── ГЛАВА 13: WARPATHHUB И БОТ @SHEVCHENKO01_BOT (СТР. 27–28) ── */
+  /* ── ГЛАВА 13: WARPATHHUB И БОТ @SHEVCHENKO01_BOT (СТР. 28–29) ── */
   {
-    page: 27,
+    page: 28,
     type: 'content',
     chapterId: 13,
     isChapterStart: true,
@@ -744,7 +789,7 @@ window.BOOK_PAGES = [
     `
   },
   {
-    page: 28,
+    page: 29,
     type: 'content',
     chapterId: 13,
     isChapterStart: false,
@@ -774,9 +819,9 @@ window.BOOK_PAGES = [
     `
   },
 
-  /* ── ГЛАВА 14: ТИКЕТЫ, ВОПРОСЫ И СЛОВАРЬ СЛЕНГА (СТР. 29–30) ── */
+  /* ── ГЛАВА 14: ТИКЕТЫ, ВОПРОСЫ И СЛОВАРЬ СЛЕНГА (СТР. 30–31) ── */
   {
-    page: 29,
+    page: 30,
     type: 'content',
     chapterId: 14,
     isChapterStart: true,
@@ -797,7 +842,7 @@ window.BOOK_PAGES = [
     `
   },
   {
-    page: 30,
+    page: 31,
     type: 'content',
     chapterId: 14,
     isChapterStart: false,
@@ -866,6 +911,8 @@ window.COMMUNITY_LINKS = [
   { name: 'WarpathHub (Чат Telegram)', desc: 'Главный чат русскоязычного комьюнити: помощь, сборки, новости.', url: 'https://t.me/WarpathHub/1', cta: 'В чат ↗' },
   { name: '@shevchenko01_bot (Бот Паши)', desc: 'Калькулятор, тикет-система и модерация чата WarpathHub.', url: 'https://t.me/shevchenko01_bot', cta: 'Открыть ↗' },
   { name: 'WarpathYTwiki', desc: 'Энциклопедия юнитов, конструктор армий и база офицеров.', url: 'https://228burger228.github.io/WarpathYTwiki/index.html', cta: 'Сайт ↗' },
+  { name: 'Официальный Discord Warpath', desc: 'Международный сервер разработчиков Lilith Games (из клиента v14.60).', url: 'https://discord.com/invite/playwarpath', cta: 'Discord ↗' },
+  { name: 'Официальный YouTube Warpath', desc: 'Трейлеры патчей, новых офицеров и событий от разработчиков.', url: 'https://www.youtube.com/c/Warpath', cta: 'YouTube ↗' },
   { name: 'Бургер (@burgerdom6)', desc: 'Гайды, честный взгляд на игру и нарезки эпичных боёв.', url: 'https://www.youtube.com/@burgerdom6/videos', cta: 'YouTube ↗' },
   { name: 'ClanGothic', desc: 'Официальный партнёр Lilith Games: обзоры патчей и экспедиций.', url: 'https://www.youtube.com/@ClanGothic', cta: 'YouTube ↗' },
   { name: 'е6ака (Сервер 56)', desc: 'Тесты механик, F2P-сборки на авиацию и честные цифры.', url: 'https://www.youtube.com/@e6aka56', cta: 'YouTube ↗' },

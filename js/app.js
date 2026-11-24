@@ -10,7 +10,8 @@
     skip: 'wp_guide_skip_subpages',
     theme: 'wp_guide_theme',
     tickets: 'wp_guide_tickets',
-    ttsRate: 'wp_guide_tts_rate'
+    ttsRate: 'wp_guide_tts_rate',
+    sfx: 'wp_guide_sfx'
   };
 
   const pages = window.BOOK_PAGES || [];
@@ -29,6 +30,7 @@
   const btnNext = document.getElementById('btn-next');
   const btnTocJump = document.getElementById('btn-toc-jump');
   const btnTts = document.getElementById('btn-tts');
+  const btnSfx = document.getElementById('btn-sfx');
   const btnFullscreen = document.getElementById('btn-fullscreen');
   const btnSearch = document.getElementById('btn-search');
   const btnTheme = document.getElementById('btn-theme');
@@ -73,10 +75,40 @@
   let currentPage = 2;
   let doneChapters = new Set();
   let skipSubpages = false;
+  let sfxEnabled = true;
+  let audioCtx = null;
   let tickets = [];
   let ttsRate = 1.0;
   let isSpeaking = false;
   let isPaused = false;
+
+  function playFlipSound() {
+    if (!sfxEnabled) return;
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+      if (!audioCtx) audioCtx = new Ctx();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+
+      const dur = 0.055;
+      const buf = audioCtx.createBuffer(1, Math.floor(audioCtx.sampleRate * dur), audioCtx.sampleRate);
+      const data = buf.getChannelData(0);
+      for (let i = 0; i < data.length; i++) {
+        data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (data.length * 0.35));
+      }
+      const src = audioCtx.createBufferSource();
+      src.buffer = buf;
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'bandpass';
+      filter.frequency.value = 1400;
+      const gain = audioCtx.createGain();
+      gain.gain.value = 0.08;
+      src.connect(filter);
+      filter.connect(gain);
+      gain.connect(audioCtx.destination);
+      src.start();
+    } catch (_) {}
+  }
 
   /* ── STATE ────────────────────────────────────────────────── */
   function loadState() {
@@ -85,6 +117,9 @@
       if (savedTheme === 'light' || savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', savedTheme);
       }
+      const savedSfx = localStorage.getItem(STORAGE_KEYS.sfx);
+      if (savedSfx === '0') sfxEnabled = false;
+      btnSfx.setAttribute('aria-pressed', String(sfxEnabled));
       const savedDone = JSON.parse(localStorage.getItem(STORAGE_KEYS.done) || '[]');
       if (Array.isArray(savedDone)) doneChapters = new Set(savedDone.map(Number));
 
@@ -251,6 +286,7 @@
       elPage.classList.remove('flip-next', 'flip-prev');
       void elPage.offsetWidth;
       elPage.classList.add(direction === 'next' ? 'flip-next' : 'flip-prev');
+      playFlipSound();
     }
 
     elBookmark.textContent = data.bookmark || 'WARPATH УСТАВ';
@@ -525,6 +561,13 @@
   });
 
   ttsStopBtn.addEventListener('click', stopTts);
+
+  btnSfx.addEventListener('click', () => {
+    sfxEnabled = !sfxEnabled;
+    btnSfx.setAttribute('aria-pressed', String(sfxEnabled));
+    try { localStorage.setItem(STORAGE_KEYS.sfx, sfxEnabled ? '1' : '0'); } catch (_) {}
+    if (sfxEnabled) playFlipSound();
+  });
 
   btnFullscreen.addEventListener('click', () => {
     if (!document.fullscreenElement) {
