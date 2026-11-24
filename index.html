@@ -201,7 +201,7 @@
             </button>
             <div class="codex-meta-right">
               <span class="led-indicator" aria-hidden="true"></span>
-              <span id="codex-chapter-progress">ГЛАВА 0 / 14</span>
+              <span id="codex-chapter-progress">ИЗУЧЕНО 0 / 16</span>
             </div>
           </div>
 
@@ -278,10 +278,10 @@
           <button type="button" class="page-counter" id="btn-toc-jump" title="Вернуться к содержанию">
             <span id="counter-current">2</span>
             <span class="counter-sep">/</span>
-            <span id="counter-total">31</span>
+            <span id="counter-total">36</span>
           </button>
           <label class="sr-only" for="page-scrubber">Быстрый переход по страницам</label>
-          <input type="range" id="page-scrubber" class="page-scrubber" min="1" max="31" value="2">
+          <input type="range" id="page-scrubber" class="page-scrubber" min="1" max="36" value="2">
         </div>
 
         <button type="button" class="dock-arrow" id="btn-next" aria-label="Следующая страница" title="Вперёд (→)">
@@ -291,6 +291,63 @@
         </button>
       </nav>
     </main>
+
+    <!-- Правая Книжная полка (Выбор книги / тома) -->
+    <aside class="shelf-drawer" id="shelf-drawer" aria-label="Книжная полка — выбор книги">
+      <button type="button" class="shelf-drawer-tab" id="btn-shelf-toggle" aria-expanded="false" aria-controls="shelf-drawer-body" title="Выбрать книгу на полке">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+        </svg>
+        <span class="shelf-tab-text">Полка • Т.I</span>
+      </button>
+
+      <div class="shelf-drawer-body" id="shelf-drawer-body">
+        <div class="shelf-head">
+          <div>
+            <div class="shelf-kicker">АРХИВ ШТАБА</div>
+            <div class="shelf-title">Книжная полка</div>
+          </div>
+          <button type="button" class="shelf-close" id="btn-shelf-close" aria-label="Свернуть полку">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="m9 18 6-6-6-6"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="bookshelf-rack">
+          <a href="index.html" class="book-spine-item spine-vol1 is-current" aria-current="page">
+            <span class="spine-band"></span>
+            <span class="spine-vol-num">ТОМ I</span>
+            <span class="spine-info">
+              <span class="spine-name">Полевой устав</span>
+              <span class="spine-meta">16 глав • База, тактика, чипы</span>
+            </span>
+            <span class="spine-status">Читаете</span>
+          </a>
+
+          <a href="updates.html" class="book-spine-item spine-vol2">
+            <span class="spine-band"></span>
+            <span class="spine-vol-num">ТОМ II</span>
+            <span class="spine-info">
+              <span class="spine-name">Хроника патчей</span>
+              <span class="spine-meta">v12.0 → v14.60 • Все обновы</span>
+            </span>
+            <span class="spine-status">Открыть →</span>
+          </a>
+
+          <a href="https://228burger228.github.io/WarpathYTwiki/index.html" target="_blank" rel="noopener noreferrer" class="book-spine-item spine-wiki">
+            <span class="spine-band"></span>
+            <span class="spine-vol-num">АРХИВ</span>
+            <span class="spine-info">
+              <span class="spine-name">WarpathYTwiki</span>
+              <span class="spine-meta">Конструктор армий и статы</span>
+            </span>
+            <span class="spine-status">Сайт ↗</span>
+          </a>
+          <div class="shelf-plank" aria-hidden="true"></div>
+        </div>
+      </div>
+    </aside>
   </div>
 
   <!-- Диалог Поиска -->

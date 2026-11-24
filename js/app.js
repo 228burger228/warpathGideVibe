@@ -4,9 +4,10 @@
 (() => {
   'use strict';
 
+  const bookId = window.BOOK_ID || 'manual';
   const STORAGE_KEYS = {
-    page: 'wp_guide_page',
-    done: 'wp_guide_done_chapters',
+    page: `wp_guide_page_${bookId}`,
+    done: `wp_guide_done_chapters_${bookId}`,
     skip: 'wp_guide_skip_subpages',
     spread: 'wp_guide_spread',
     theme: 'wp_guide_theme',
@@ -70,6 +71,11 @@
   const ytTopicTitle = document.getElementById('yt-topic-title');
   const ytDrawerList = document.getElementById('yt-drawer-list');
   const ytSearchMore = document.getElementById('yt-search-more');
+
+  /* Правая Книжная полка */
+  const shelfDrawer = document.getElementById('shelf-drawer');
+  const btnShelfToggle = document.getElementById('btn-shelf-toggle');
+  const btnShelfClose = document.getElementById('btn-shelf-close');
 
   /* TTS бар */
   const ttsBar = document.getElementById('tts-bar');
@@ -649,13 +655,24 @@
   btnNext.addEventListener('click', goNext);
   sideNext.addEventListener('click', goNext);
 
+  const toggleShelfDrawer = (force) => {
+    if (!shelfDrawer) return;
+    const open = typeof force === 'boolean' ? force : !shelfDrawer.classList.contains('is-open');
+    shelfDrawer.classList.toggle('is-open', open);
+    btnShelfToggle?.setAttribute('aria-expanded', String(open));
+    if (open && window.innerWidth < 1100) toggleYtDrawer(false);
+  };
+
   const toggleYtDrawer = (force) => {
     const open = typeof force === 'boolean' ? force : !ytDrawer.classList.contains('is-open');
     ytDrawer.classList.toggle('is-open', open);
     btnYtToggle.setAttribute('aria-expanded', String(open));
+    if (open && window.innerWidth < 1100) toggleShelfDrawer(false);
   };
   btnYtToggle.addEventListener('click', () => toggleYtDrawer());
   btnYtClose.addEventListener('click', () => toggleYtDrawer(false));
+  btnShelfToggle?.addEventListener('click', () => toggleShelfDrawer());
+  btnShelfClose?.addEventListener('click', () => toggleShelfDrawer(false));
 
   pageScrubber.addEventListener('input', () => {
     const target = parseInt(pageScrubber.value, 10);

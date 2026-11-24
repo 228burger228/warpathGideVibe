@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Том II Warpath Устав: полная хроника обновлений и патчей от 12.0 до 14.60. Все механики, новые офицеры, 36 уровень, чипы и обмен.">
+  <meta name="theme-color" content="#09090b">
+  <link rel="icon" type="image/png" href="assets/warpath-icon.png">
+  <link rel="apple-touch-icon" href="assets/warpath-icon.png">
+  <title>WARPATH УСТАВ — Том II: Хроника патчей (12.0–14.60)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-book="updates">
+  <div class="ambient-backdrop" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <!-- Чистая верхняя панель -->
+    <header class="topbar">
+      <a href="index.html" class="brand" id="brand-home" aria-label="Warpath Устав — Том I">
+        <span class="brand-badge" aria-hidden="true">
+          <img src="assets/warpath-icon.png" alt="" width="36" height="36">
+        </span>
+        <span class="brand-text">
+          <span class="brand-title">WARPATH <span class="brand-accent">УСТАВ</span></span>
+          <span class="brand-sub">ТОМ II • ХРОНИКА ПАТЧЕЙ</span>
+        </span>
+      </a>
+
+      <nav class="topbar-nav" aria-label="Основные действия">
+        <button type="button" class="nav-pill" id="btn-toc-open" title="Оглавление и прогресс">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+          </svg>
+          <span class="nav-label">Главы</span>
+        </button>
+
+        <button type="button" class="nav-pill" id="btn-search" title="Поиск по хронике (/)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg>
+          <span class="nav-label">Поиск</span>
+        </button>
+
+        <button type="button" class="nav-pill accent" id="btn-hq" title="Штаб: тикеты, бот @shevchenko01_bot и калькулятор">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span class="nav-label">Штаб и Тикеты</span>
+        </button>
+
+        <div class="tools-menu-wrap">
+          <button
+            type="button"
+            class="nav-pill icon-only"
+            id="btn-tools-trigger"
+            popovertarget="tools-menu"
+            popovertargetaction="toggle"
+            aria-controls="tools-menu"
+            aria-expanded="false"
+            aria-label="Меню настроек книги и аудио"
+            title="Меню инструментов"
+          >
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="4" x2="20" y1="21" y2="21"></line>
+              <line x1="4" x2="20" y1="14" y2="14"></line>
+              <line x1="4" x2="20" y1="7" y2="7"></line>
+              <circle cx="9" cy="7" r="2"></circle>
+              <circle cx="15" cy="14" r="2"></circle>
+            </svg>
+            <span class="nav-label">Меню</span>
+          </button>
+
+          <div id="tools-menu" class="tools-popover" popover="auto" aria-label="Инструменты чтения">
+            <div class="tools-group">
+              <div class="tools-group-title">Режим книги</div>
+              <label class="tool-row-toggle" for="toggle-spread">
+                <span>Разворот (2 страницы на ПК)</span>
+                <input type="checkbox" id="toggle-spread" class="native-brand-check" checked>
+              </label>
+              <label class="tool-row-toggle" for="skip-subpages">
+                <span>Пропускать доп. страницы глав</span>
+                <input type="checkbox" id="skip-subpages" class="native-brand-check">
+              </label>
+            </div>
+
+            <div class="tools-group">
+              <div class="tools-group-title">Аудио и озвучка</div>
+              <button type="button" class="tool-row-btn" id="btn-tts">
+                <span class="tool-row-left">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  </svg>
+                  <span>Озвучить страницу</span>
+                </span>
+                <span class="tool-badge" id="tts-badge-state">Выкл</span>
+              </button>
+
+              <button type="button" class="tool-row-btn" id="btn-sfx">
+                <span class="tool-row-left">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 18V5l12-2v13"></path>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <circle cx="18" cy="16" r="3"></circle>
+                  </svg>
+                  <span>Звук листания страниц</span>
+                </span>
+                <span class="tool-badge on" id="sfx-badge-state">Вкл</span>
+              </button>
+            </div>
+
+            <div class="tools-group">
+              <div class="tools-group-title">Интерфейс и связь</div>
+              <button type="button" class="tool-row-btn" id="btn-theme">
+                <span class="tool-row-left">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2"></path><path d="M12 20v2"></path>
+                    <path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path>
+                  </svg>
+                  <span>Тема оформления</span>
+                </span>
+                <span class="tool-badge" id="theme-badge-state">Тёмная</span>
+              </button>
+
+              <button type="button" class="tool-row-btn" id="btn-fullscreen">
+                <span class="tool-row-left">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3"></path>
+                    <path d="M21 8V5a2 2 0 0 0-2-2h-3"></path>
+                    <path d="M3 16v3a2 2 0 0 0 2 2h3"></path>
+                    <path d="M16 21h3a2 2 0 0 0 2-2v-3"></path>
+                  </svg>
+                  <span>Полный экран</span>
+                </span>
+                <span class="tool-badge" id="fs-badge-state">Окно</span>
+              </button>
+            </div>
+
+            <div class="tools-links-foot">
+              <a href="https://t.me/WarpathHub/1" target="_blank" rel="noopener noreferrer">Чат WarpathHub</a>
+              <a href="https://t.me/shevchenko01_bot" target="_blank" rel="noopener noreferrer">@shevchenko01_bot</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Левое раскрывающееся меню с видео YouTube по теме патчей -->
+    <aside class="yt-drawer" id="yt-drawer" aria-label="Рекомендации видео с YouTube">
+      <button type="button" class="yt-drawer-tab" id="btn-yt-toggle" aria-expanded="false" aria-controls="yt-drawer-body" title="Видео-разборы патчей">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+        <span class="yt-tab-text">Видео</span>
+      </button>
+
+      <div class="yt-drawer-body" id="yt-drawer-body">
+        <div class="yt-drawer-head">
+          <div>
+            <div class="yt-drawer-kicker">YOUTUBE • РАЗБОР ПАТЧА</div>
+            <div class="yt-drawer-topic" id="yt-topic-title">Обзоры обновлений</div>
+          </div>
+          <button type="button" class="yt-drawer-close" id="btn-yt-close" aria-label="Свернуть панель видео">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="m15 18-6-6 6-6"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="yt-drawer-list" id="yt-drawer-list"></div>
+        <div class="yt-drawer-foot">
+          <a href="https://www.youtube.com/results?search_query=Warpath+обновление" target="_blank" rel="noopener noreferrer" class="yt-more-link" id="yt-search-more">
+            Искать ещё на YouTube ↗
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Сцена книги -->
+    <main class="reader-stage" id="book-stage">
+      <div class="reader-desk">
+        <button type="button" class="side-arrow side-prev" id="side-prev" aria-label="Предыдущая страница" title="Назад (←)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </button>
+
+        <div class="codex-wrapper" id="codex-wrapper">
+          <div class="codex-topbar">
+            <button type="button" class="codex-tab" id="chapter-bookmark" title="Перейти к содержанию">
+              СОДЕРЖАНИЕ • ТОМ II
+            </button>
+            <div class="codex-meta-right">
+              <span class="led-indicator" aria-hidden="true"></span>
+              <span id="codex-chapter-progress">ИЗУЧЕНО 0 / 8</span>
+            </div>
+          </div>
+
+          <div class="codex-cover" id="codex-cover">
+            <div class="codex-edges-left" aria-hidden="true"></div>
+
+            <article class="codex-page page-left" id="book-page-left" aria-live="polite">
+              <div class="page-running-head">
+                <span class="page-doc-code" id="page-doc-code-left">WP-UPD // 02</span>
+                <span class="page-running-sec" id="page-sec-left">WARPATH УСТАВ • ТОМ II</span>
+              </div>
+              <div class="page-scroll" id="page-content-left"></div>
+              <footer class="page-footer">
+                <span class="page-num-line" aria-hidden="true"></span>
+                <span class="page-num" id="page-num-left">2</span>
+                <span class="page-num-line" aria-hidden="true"></span>
+              </footer>
+            </article>
+
+            <div class="codex-gutter" id="codex-gutter" aria-hidden="true"></div>
+
+            <article class="codex-page page-right" id="book-page-right" aria-live="polite">
+              <div class="page-running-head">
+                <span class="page-doc-code" id="page-doc-code-right">WP-UPD // 03</span>
+                <span class="page-running-sec" id="page-sec-right">WARPATH УСТАВ • ТОМ II</span>
+              </div>
+              <div class="page-scroll" id="page-content-right"></div>
+              <footer class="page-footer">
+                <span class="page-num-line" aria-hidden="true"></span>
+                <span class="page-num" id="page-num-right">3</span>
+                <span class="page-num-line" aria-hidden="true"></span>
+              </footer>
+            </article>
+
+            <div class="codex-edges-right" aria-hidden="true">
+              <div class="ribbon-marker"></div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="side-arrow side-next" id="side-next" aria-label="Следующая страница" title="Вперёд (→)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="tts-bar" id="tts-bar" hidden>
+        <div class="tts-status">
+          <span class="tts-eq" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span id="tts-status-text">Радиосвязь: чтение страницы...</span>
+        </div>
+        <div class="tts-controls">
+          <button type="button" class="tts-mini-btn" id="tts-pause">Пауза</button>
+          <button type="button" class="tts-mini-btn" id="tts-speed">1.0×</button>
+          <button type="button" class="tts-mini-btn danger" id="tts-stop">Стоп</button>
+        </div>
+      </div>
+
+      <nav class="reader-dock" aria-label="Постраничная навигация">
+        <button type="button" class="dock-arrow" id="btn-prev" aria-label="Предыдущая страница" title="Назад (←)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </button>
+
+        <div class="scrubber-wrap">
+          <button type="button" class="page-counter" id="btn-toc-jump" title="Вернуться к содержанию">
+            <span id="counter-current">2</span>
+            <span class="counter-sep">/</span>
+            <span id="counter-total">18</span>
+          </button>
+          <label class="sr-only" for="page-scrubber">Быстрый переход по страницам</label>
+          <input type="range" id="page-scrubber" class="page-scrubber" min="1" max="18" value="2">
+        </div>
+
+        <button type="button" class="dock-arrow" id="btn-next" aria-label="Следующая страница" title="Вперёд (→)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
+      </nav>
+    </main>
+
+    <!-- Правая Книжная полка (Выбор книги / тома) -->
+    <aside class="shelf-drawer" id="shelf-drawer" aria-label="Книжная полка — выбор книги">
+      <button type="button" class="shelf-drawer-tab" id="btn-shelf-toggle" aria-expanded="false" aria-controls="shelf-drawer-body" title="Выбрать книгу на полке">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+        </svg>
+        <span class="shelf-tab-text">Полка • Т.II</span>
+      </button>
+
+      <div class="shelf-drawer-body" id="shelf-drawer-body">
+        <div class="shelf-head">
+          <div>
+            <div class="shelf-kicker">АРХИВ ШТАБА</div>
+            <div class="shelf-title">Книжная полка</div>
+          </div>
+          <button type="button" class="shelf-close" id="btn-shelf-close" aria-label="Свернуть полку">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="m9 18 6-6-6-6"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="bookshelf-rack">
+          <a href="index.html" class="book-spine-item spine-vol1">
+            <span class="spine-band"></span>
+            <span class="spine-vol-num">ТОМ I</span>
+            <span class="spine-info">
+              <span class="spine-name">Полевой устав</span>
+              <span class="spine-meta">16 глав • База, тактика, чипы</span>
+            </span>
+            <span class="spine-status">Открыть →</span>
+          </a>
+
+          <a href="updates.html" class="book-spine-item spine-vol2 is-current" aria-current="page">
+            <span class="spine-band"></span>
+            <span class="spine-vol-num">ТОМ II</span>
+            <span class="spine-info">
+              <span class="spine-name">Хроника патчей</span>
+              <span class="spine-meta">v12.0 → v14.60 • Все обновы</span>
+            </span>
+            <span class="spine-status">Читаете</span>
+          </a>
+
+          <a href="https://228burger228.github.io/WarpathYTwiki/index.html" target="_blank" rel="noopener noreferrer" class="book-spine-item spine-wiki">
+            <span class="spine-band"></span>
+            <span class="spine-vol-num">АРХИВ</span>
+            <span class="spine-info">
+              <span class="spine-name">WarpathYTwiki</span>
+              <span class="spine-meta">Конструктор армий и статы</span>
+            </span>
+            <span class="spine-status">Сайт ↗</span>
+          </a>
+          <div class="shelf-plank" aria-hidden="true"></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Диалог Поиска -->
+  <dialog class="modal-dialog" id="search-dialog" closedby="any" aria-labelledby="search-dialog-title">
+    <div class="modal-header">
+      <h2 id="search-dialog-title">Поиск по хронике</h2>
+      <form method="dialog">
+        <button type="submit" class="modal-close" aria-label="Закрыть поиск">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+            <path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+    <div class="modal-body">
+      <search>
+        <label class="sr-only" for="search-input">Поиск по патчам и обновлениям</label>
+        <input type="search" id="search-input" class="search-input" placeholder="14.6, обмен, 36 уровень, Техас, чипы..." autocomplete="off">
+      </search>
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </dialog>
+
+  <!-- Диалог Оглавления и прогресса -->
+  <dialog class="modal-dialog" id="menu-dialog" closedby="any" aria-labelledby="menu-dialog-title">
+    <div class="modal-header">
+      <h2 id="menu-dialog-title">Оглавление • Том II</h2>
+      <form method="dialog">
+        <button type="submit" class="modal-close" aria-label="Закрыть меню">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+            <path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="progress-card">
+        <div class="progress-head">
+          <span>Изучено глав хроники</span>
+          <strong id="progress-label">0 / 8 (0%)</strong>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="drawer-toc" id="drawer-toc"></div>
+      <div class="drawer-footer">
+        <button type="button" class="btn-secondary" id="btn-reset-progress">Сбросить прогресс</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Диалог ШТАБ -->
+  <dialog class="modal-dialog modal-wide" id="hq-dialog" closedby="any" aria-labelledby="hq-dialog-title">
+    <div class="modal-header">
+      <h2 id="hq-dialog-title">Штаб WarpathHub • Связь и инструменты</h2>
+      <form method="dialog">
+        <button type="submit" class="modal-close" aria-label="Закрыть штаб">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+            <path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="hq-tabs" role="tablist" aria-label="Разделы штаба">
+        <button type="button" class="hq-tab active" role="tab" aria-selected="true" data-hq-tab="tickets">Тикеты и Вопросы</button>
+        <button type="button" class="hq-tab" role="tab" aria-selected="false" data-hq-tab="calc">Калькулятор</button>
+        <button type="button" class="hq-tab" role="tab" aria-selected="false" data-hq-tab="community">Комьюнити</button>
+      </div>
+
+      <div class="hq-panel active" id="hq-panel-tickets" role="tabpanel">
+        <div class="hq-links-grid">
+          <a href="https://t.me/shevchenko01_bot" target="_blank" rel="noopener noreferrer" class="hq-action-card highlight">
+            <div class="hq-action-badge">БОТ ПАШИ</div>
+            <div class="hq-action-title">@shevchenko01_bot</div>
+            <p class="hq-action-desc">Калькулятор, модератор чата и официальная тикет-система Вархаба.</p>
+          </a>
+          <a href="https://t.me/WarpathHub/1" target="_blank" rel="noopener noreferrer" class="hq-action-card">
+            <div class="hq-action-badge">ЧАТ</div>
+            <div class="hq-action-title">WarpathHub Telegram</div>
+            <p class="hq-action-desc">Задай вопрос игрокам, разбор боёв, патчи и новости комьюнити.</p>
+          </a>
+        </div>
+
+        <form class="ticket-form" id="ticket-form">
+          <div class="ticket-form-title">Создать тикет / вопрос в штаб</div>
+          <div class="ticket-row">
+            <div>
+              <label for="ticket-type" class="field-label">Категория</label>
+              <select id="ticket-type" class="field-control">
+                <option value="Вопрос по тактике">Вопрос по тактике / сборке</option>
+                <option value="Ошибка в гайде">Ошибка / неточность в гайде</option>
+                <option value="Добавить в гайд">Предложить совет / данные</option>
+                <option value="Модерация / Жалоба">Тикет модерации WarpathHub</option>
+              </select>
+            </div>
+            <div>
+              <label for="ticket-nick" class="field-label">Ник или @telegram</label>
+              <input type="text" id="ticket-nick" class="field-control" placeholder="@username или ник в игре" maxlength="60">
+            </div>
+          </div>
+
+          <label for="ticket-text" class="field-label">Суть вопроса или тикета</label>
+          <textarea id="ticket-text" class="field-control field-textarea" placeholder="Опиши проблему, сборку, сервер или идею для гайда..." required></textarea>
+
+          <div class="ticket-actions">
+            <button type="submit" class="btn-primary-tac">Сформировать и скопировать</button>
+            <a href="https://t.me/shevchenko01_bot" target="_blank" rel="noopener noreferrer" class="btn-outline-tac">Открыть @shevchenko01_bot</a>
+          </div>
+          <p class="ticket-feedback" id="ticket-feedback" role="status"></p>
+        </form>
+
+        <div class="ticket-history" id="ticket-history"></div>
+      </div>
+
+      <div class="hq-panel" id="hq-panel-calc" role="tabpanel" hidden>
+        <div class="calc-grid">
+          <div>
+            <label for="calc-unit" class="field-label">Тип техники</label>
+            <select id="calc-unit" class="field-control"></select>
+          </div>
+          <div>
+            <label for="calc-level" class="field-label">Ранг / Уровень (<span id="calc-level-val">10</span>)</label>
+            <input type="range" id="calc-level" class="field-range" min="1" max="10" value="10">
+          </div>
+          <div>
+            <label for="calc-officer" class="field-label">Офицер</label>
+            <select id="calc-officer" class="field-control"></select>
+          </div>
+          <div>
+            <label for="calc-equip" class="field-label">Снаряжение</label>
+            <select id="calc-equip" class="field-control"></select>
+          </div>
+        </div>
+
+        <div class="calc-results" id="calc-results"></div>
+
+        <div class="calc-footer-note">
+          <span>Полный расчёт с деталями и модами доступен в боте:</span>
+          <a href="https://t.me/shevchenko01_bot" target="_blank" rel="noopener noreferrer">@shevchenko01_bot</a>
+        </div>
+      </div>
+
+      <div class="hq-panel" id="hq-panel-community" role="tabpanel" hidden>
+        <div class="community-list" id="community-list"></div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/updates-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

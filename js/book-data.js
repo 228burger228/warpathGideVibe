@@ -1,7 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════
-   WARPATH: ACE SHOOTER — Полевой устав командира (31 страница, 14 глав)
+   WARPATH УСТАВ — ТОМ I: Полевой устав командира (36 страниц, 16 глав)
    База: WarpathYTwiki + клиент v14.60.453 + WarpathHub + гайды 2025-2026
    ═══════════════════════════════════════════════════════════════ */
+
+window.BOOK_ID = 'manual';
 
 window.BOOK_TOC_SECTIONS = [
   {
@@ -42,6 +44,13 @@ window.BOOK_TOC_SECTIONS = [
       { id: 13, title: 'WarpathHub и Бот @shevchenko01_bot', page: 28 },
       { id: 14, title: 'Тикеты, Вопросы и Словарь сленга', page: 30 }
     ]
+  },
+  {
+    title: 'VI. ПРОДВИНУТАЯ МЕТА 14.x',
+    chapters: [
+      { id: 15, title: 'Инфовойна: Чипы и Экипировка', page: 32 },
+      { id: 16, title: 'Авиация, ВМС и Механики 14.4–14.6', page: 34 }
+    ]
   }
 ];
 
@@ -67,10 +76,10 @@ window.BOOK_PAGES = [
         <p class="cover-subtitle">
           Боевое руководство по Warpath: от первого дня на сервере и траты золота до пробуждения офицеров, контров техники, калькулятора и тикетов WarpathHub.
         </p>
-        <div class="page-kicker">14 ГЛАВ • 31 СТРАНИЦА • КЛИЕНТ v14.60 • @SHEVCHENKO01_BOT</div>
+        <div class="page-kicker">ТОМ I • 16 ГЛАВ • 36 СТРАНИЦ • v14.60</div>
         <div class="cover-actions">
           <button type="button" class="btn-cover-primary" data-goto="2">Открыть содержание →</button>
-          <button type="button" class="btn-cover-sec" data-open-hq="tickets">Задать вопрос / Тикет</button>
+          <a href="updates.html" class="btn-cover-sec">Том II: Хроника патчей</a>
         </div>
       </div>
     `
@@ -942,6 +951,109 @@ window.BOOK_PAGES = [
         </table>
       </div>
     `
+  },
+
+  /* ── ГЛАВА 15: ИНФОВОЙНА, ЧИПЫ И ЭКИПИРОВКА (СТР. 32–33) ── */
+  {
+    page: 32,
+    type: 'content',
+    chapterId: 15,
+    isChapterStart: true,
+    docCode: 'WP-FM // CH-15',
+    bookmark: 'ГЛАВА 15 • ЧИПЫ',
+    kicker: 'VI. ПРОДВИНУТАЯ МЕТА 14.x',
+    title: '15. Инфовойна: Чипы и Экипировка',
+    html: `
+      <p class="page-lead">В мидгейме и эндгейме огромный процент боевой мощи скрыт не в звёздах юнита, а в <strong>Центре инфовойны (Вычислительные чипы)</strong> и экипировке техники/офицеров.</p>
+      <ul class="editorial-list">
+        <li><strong>Вычислительные чипы:</strong> тратятся на узлы контроля неба, огневой мощи и живучести лагерей. Всегда качай ветку под свою основную фракцию.</li>
+        <li><strong>Правило крутки чипов:</strong> не сливай чипы по одной штуке вне событий — жди ивентов на трату вычислительных чипов и карт, чтобы забирать доп. этапы наград.</li>
+        <li><strong>Снаряжение офицеров:</strong> профильные предметы (например, планшет «Сапсан» и «Тёмное крыло» для истребителей) кратно повышают крит-урон навыков.</li>
+      </ul>
+    `
+  },
+  {
+    page: 33,
+    type: 'content',
+    chapterId: 15,
+    isChapterStart: false,
+    docCode: 'WP-FM // CH-15B',
+    bookmark: 'ГЛАВА 15 • МОДЫ',
+    kicker: 'ГЛАВА 15 (ДОП. СТРАНИЦА)',
+    title: 'Приоритет экипировки на технику',
+    html: `
+      <div class="editorial-rows">
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Для ТТ и ШХ (Первая линия)</span><span class="ed-tag">БРОНЯ</span></div>
+          <p class="ed-row-desc">Реактивная броня, Броня Mk.II — максимум защиты и HP, чтобы держать фокус врага.</p>
+        </div>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Для ПТ, Арты и RL (Урон)</span><span class="ed-tag">ОГНЕВАЯ МОЩЬ</span></div>
+          <p class="ed-row-desc">Рейлган и Бронебойные снаряды — режут броню ТТ и ускоряют снос укрепрайонов.</p>
+        </div>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Для ЛТ и Разведки</span><span class="ed-tag">СКОРОСТЬ</span></div>
+          <p class="ed-row-desc">Форсированный двигатель — первым добраться до чужой Арты / RL («Катюши»).</p>
+        </div>
+      </div>
+    `
+  },
+
+  /* ── ГЛАВА 16: АВИАЦИЯ, ВМС И МЕХАНИКИ 14.4–14.6 (СТР. 34–36) ── */
+  {
+    page: 34,
+    type: 'content',
+    chapterId: 16,
+    isChapterStart: true,
+    docCode: 'WP-FM // CH-16',
+    bookmark: 'ГЛАВА 16 • АВИА И ВМС',
+    kicker: 'VI. ПРОДВИНУТАЯ МЕТА 14.x',
+    title: '16. Авиация, ВМС и Механики 14.6',
+    html: `
+      <p class="page-lead">После обновлений 14.3–14.6 наземные бои больше не существуют отдельно от неба и моря.</p>
+      <ul class="editorial-list">
+        <li><strong>Авиация и Воздушные группы:</strong> истребители с офицером «Преследующая тень» (или Слейтером) сбивают вражеские бомбардировщики и прикрывают твою Арту. Для игры без доната (ФД) достаточно качать 1 сильный истребитель.</li>
+        <li><strong>ВМС и Подлодки:</strong> на морских картах и в Морском Гегемоне правят новые офицеры — Блэкджек (подлодки и ПЛО) и Красный Крокодил (наступательные ВМС).</li>
+        <li><strong>36-й уровень построек (14.4):</strong> открыл новые технологии и требует планирования ресурсов (таблицу 32→36 смотри в ролике Паши е6аки).</li>
+      </ul>
+    `
+  },
+  {
+    page: 35,
+    type: 'content',
+    chapterId: 16,
+    isChapterStart: false,
+    docCode: 'WP-FM // CH-16B',
+    bookmark: 'ГЛАВА 16 • ОБМЕН 14.6',
+    kicker: 'ГЛАВА 16 (ДОП. СТРАНИЦА)',
+    title: 'Обмен офицеров и Золотая арта 14.6',
+    html: `
+      <div class="margin-note">
+        <div class="margin-note-title">Главное событие патча 14.6</div>
+        <p>В игру вернулся <strong>Обмен офицеров</strong>, вышла <strong>Золотая арта</strong> и карта <strong>Техаса</strong> с механикой контроля электросетей. Обязательно просчитай обмен через калькулятор Паши е6аки перед тем, как тратить купоны и фрагменты.</p>
+      </div>
+      <ul class="editorial-list">
+        <li>Переливай вложения из старых неиграбельных офицеров в пробуждение топ-связки под твой основной род войск.</li>
+        <li>За подробной хронологией всех патчей (12.0 → 14.6) переходи во вторую книгу справа на Книжной полке!</li>
+      </ul>
+    `
+  },
+  {
+    page: 36,
+    type: 'content',
+    chapterId: 16,
+    isChapterStart: false,
+    docCode: 'WP-FM // CH-16C',
+    bookmark: 'ГЛАВА 16 • ТОМ II',
+    kicker: 'ПЕРЕХОД В ТОМ II',
+    title: 'Наверстать все обновления',
+    html: `
+      <p class="page-lead">Ты дошёл до конца <strong>Тома I (Полевого устава)</strong>. Если ты пропустил патчи или хочешь освежить историю всех изменений от 12.0 до 14.60 — открой <strong>Том II: Хронику обновлений</strong>.</p>
+      <div class="inline-cta-row">
+        <a href="updates.html" class="page-link-btn">Открыть Том II: Хроника патчей →</a>
+        <button type="button" class="page-link-btn secondary" data-open-hq="tickets">Задать вопрос в Штаб</button>
+      </div>
+    `
   }
 ];
 
@@ -1131,6 +1243,23 @@ window.YOUTUBE_BY_TOPIC = {
       { title: 'КАКИХ ОФИЦЕРОВ КАЧАТЬ В WARPATH 14.6?', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/Ri6kCTSDZqE' },
       { title: '2 НОВЫХ ОФИЦЕРА И ОБНОВЛЕНИЯ В ПАТЧЕ 14.5', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/HKUFDyEJBwg' },
       { title: 'Доп.: Сборник полезных лайфхаков для ВСЕХ', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/KMAX3RKXHUU' }
+    ]
+  },
+  15: {
+    topic: 'Вычислительные чипы и экипировка',
+    query: 'Warpath вычислительные чипы инфовойна',
+    videos: [
+      { title: 'ВЫЧИСЛИТЕЛЬНЫЕ ЧИПЫ. КРУТИМ ПРАВИЛЬНО.', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/FgJcrLFNrJ4' },
+      { title: 'Настройка аккаунта и промики / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/tfMFqibCTZU' }
+    ]
+  },
+  16: {
+    topic: 'Авиация, ВМС, 36 ур. и Обмен 14.6',
+    query: 'Warpath 14.6 обмен офицеров золотая арта',
+    videos: [
+      { title: 'ОБМЕН ОФИЦЕРОВ В 14.6! Золотая арта и вкусности', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/LrIujsuFFx0' },
+      { title: 'КАЛЬКУЛЯТОР ОБМЕНА ОФИЦЕРОВ 14.6 за 1 минуту!', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/riVeWZplo2I' },
+      { title: 'ТЕСТЫ! ОФИЦЕР НА ИСТРЕБИТЕЛЬ / ПРЕСЛЕДУЮЩАЯ ТЕНЬ', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/Qdj-z8QjdCE' }
     ]
   }
 };
