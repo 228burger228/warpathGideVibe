@@ -24,7 +24,7 @@
           <img src="assets/warpath-icon.png" alt="" width="36" height="36">
         </span>
         <span class="brand-text">
-          <span class="brand-title">WARPATH <span class="brand-accent">CODEX</span></span>
+          <span class="brand-title">WARPATH <span class="brand-accent">УСТАВ</span></span>
           <span class="brand-sub">ПОЛЕВОЙ УСТАВ • v14.60</span>
         </span>
       </a>
@@ -153,6 +153,36 @@
       </nav>
     </header>
 
+    <!-- Левое раскрывающееся меню с видео с YouTube по теме -->
+    <aside class="yt-drawer" id="yt-drawer" aria-label="Рекомендации видео с YouTube">
+      <button type="button" class="yt-drawer-tab" id="btn-yt-toggle" aria-expanded="false" aria-controls="yt-drawer-body" title="Видео-гайды по текущей теме">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+        <span class="yt-tab-text">Видео</span>
+      </button>
+
+      <div class="yt-drawer-body" id="yt-drawer-body">
+        <div class="yt-drawer-head">
+          <div>
+            <div class="yt-drawer-kicker">YOUTUBE • ПО ТЕМЕ</div>
+            <div class="yt-drawer-topic" id="yt-topic-title">Общие гайды Warpath</div>
+          </div>
+          <button type="button" class="yt-drawer-close" id="btn-yt-close" aria-label="Свернуть панель видео">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="m15 18-6-6 6-6"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="yt-drawer-list" id="yt-drawer-list"></div>
+        <div class="yt-drawer-foot">
+          <a href="https://www.youtube.com/results?search_query=Warpath+гайд" target="_blank" rel="noopener noreferrer" class="yt-more-link" id="yt-search-more">
+            Искать ещё на YouTube ↗
+          </a>
+        </div>
+      </div>
+    </aside>
+
     <!-- Сцена книги с удобными боковыми стрелками -->
     <main class="reader-stage" id="book-stage">
       <div class="reader-desk">
@@ -182,7 +212,7 @@
             <article class="codex-page page-left" id="book-page-left" aria-live="polite">
               <div class="page-running-head">
                 <span class="page-doc-code" id="page-doc-code-left">WP-FM // 02</span>
-                <span class="page-running-sec" id="page-sec-left">WARPATH CODEX</span>
+                <span class="page-running-sec" id="page-sec-left">WARPATH УСТАВ</span>
               </div>
               <div class="page-scroll" id="page-content-left"></div>
               <footer class="page-footer">
@@ -199,7 +229,7 @@
             <article class="codex-page page-right" id="book-page-right" aria-live="polite">
               <div class="page-running-head">
                 <span class="page-doc-code" id="page-doc-code-right">WP-FM // 03</span>
-                <span class="page-running-sec" id="page-sec-right">WARPATH CODEX</span>
+                <span class="page-running-sec" id="page-sec-right">WARPATH УСТАВ</span>
               </div>
               <div class="page-scroll" id="page-content-right"></div>
               <footer class="page-footer">

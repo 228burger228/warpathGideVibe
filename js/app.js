@@ -63,6 +63,14 @@
   const themeBadgeState = document.getElementById('theme-badge-state');
   const fsBadgeState = document.getElementById('fs-badge-state');
 
+  /* Левое меню YouTube */
+  const ytDrawer = document.getElementById('yt-drawer');
+  const btnYtToggle = document.getElementById('btn-yt-toggle');
+  const btnYtClose = document.getElementById('btn-yt-close');
+  const ytTopicTitle = document.getElementById('yt-topic-title');
+  const ytDrawerList = document.getElementById('yt-drawer-list');
+  const ytSearchMore = document.getElementById('yt-search-more');
+
   /* TTS бар */
   const ttsBar = document.getElementById('tts-bar');
   const ttsStatusText = document.getElementById('tts-status-text');
@@ -322,13 +330,13 @@
       containerEl.innerHTML = '<div class="cover-page"><div class="page-kicker">КОНЕЦ УСТАВА</div><p class="cover-subtitle">Вы дошли до последней страницы. Вернитесь к содержанию или задайте вопрос в Штабе WarpathHub.</p><button type="button" class="btn-cover-primary" data-goto="2">К содержанию</button></div>';
       numEl.textContent = '—';
       codeEl.textContent = 'WP-FM // END';
-      secEl.textContent = 'WARPATH CODEX';
+      secEl.textContent = 'WARPATH УСТАВ';
       return;
     }
 
     numEl.textContent = String(data.page);
     codeEl.textContent = data.docCode || `WP-FM // ${String(data.page).padStart(2, '0')}`;
-    secEl.textContent = data.bookmark || 'WARPATH CODEX';
+    secEl.textContent = data.bookmark || 'WARPATH УСТАВ';
 
     if (data.type === 'cover') {
       containerEl.innerHTML = data.html;
@@ -396,10 +404,12 @@
       elCounterCurrent.textContent = String(currentPage);
     }
 
-    elBookmark.textContent = leftData?.bookmark || 'WARPATH CODEX';
+    elBookmark.textContent = leftData?.bookmark || 'WARPATH УСТАВ';
     elCounterTotal.textContent = String(totalPages);
     pageScrubber.max = String(totalPages);
     pageScrubber.value = String(currentPage);
+
+    updateYoutubeDrawer(leftData?.chapterId);
 
     const totalCh = tocSections.reduce((acc, s) => acc + s.chapters.length, 0);
     elChapterProgress.textContent = `ИЗУЧЕНО ${doneChapters.size} / ${totalCh}`;
@@ -410,6 +420,26 @@
     sidePrev.disabled = atStart;
     btnNext.disabled = atEnd;
     sideNext.disabled = atEnd;
+  }
+
+  function updateYoutubeDrawer(chapterId) {
+    const db = window.YOUTUBE_BY_TOPIC || {};
+    const entry = db[chapterId] || db.default;
+    if (!entry) return;
+
+    ytTopicTitle.textContent = entry.topic;
+    ytDrawerList.innerHTML = entry.videos.map(v => `
+      <a href="${v.url}" target="_blank" rel="noopener noreferrer" class="yt-video-card">
+        <span class="yt-play-badge" aria-hidden="true">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 9,5 2,9"/></svg>
+        </span>
+        <div>
+          <div class="yt-video-title">${v.title}</div>
+          <div class="yt-video-author">${v.author}</div>
+        </div>
+      </a>
+    `).join('');
+    ytSearchMore.href = `https://www.youtube.com/results?search_query=${encodeURIComponent(entry.query || 'Warpath гайд')}`;
   }
 
   /* ── NAVIGATION ───────────────────────────────────────────── */
@@ -618,6 +648,14 @@
   sidePrev.addEventListener('click', goPrev);
   btnNext.addEventListener('click', goNext);
   sideNext.addEventListener('click', goNext);
+
+  const toggleYtDrawer = (force) => {
+    const open = typeof force === 'boolean' ? force : !ytDrawer.classList.contains('is-open');
+    ytDrawer.classList.toggle('is-open', open);
+    btnYtToggle.setAttribute('aria-expanded', String(open));
+  };
+  btnYtToggle.addEventListener('click', () => toggleYtDrawer());
+  btnYtClose.addEventListener('click', () => toggleYtDrawer(false));
 
   pageScrubber.addEventListener('input', () => {
     const target = parseInt(pageScrubber.value, 10);

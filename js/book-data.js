@@ -435,18 +435,18 @@ window.BOOK_PAGES = [
     kicker: 'III. АРМИЯ И ОФИЦЕРЫ',
     title: '7. Юниты, роли и Звёздность',
     html: `
-      <p class="page-lead">В игре 9 основных классов техники: Пехота, Лёгкий/Средний/Тяжёлый/SH танк, Истребитель танков (ПТ), Гаубица/РСЗО, Истребитель, Бомбардировщик и Вертолёт.</p>
+      <p class="page-lead">В игре 9 основных классов техники: Пехота, ЛТ (лёгкий), СТ (средний), ТТ (тяжёлый), ШХ (сверхтяжёлый), ПТ (истребитель танков), Арта (гаубица) и RL («Катюша» / РСЗО), а также авиация (истребитель, бомбардировщик, вертолёт).</p>
 
       <figure class="page-figure transparent-unit">
         <img src="assets/unit-armata.webp" alt="Тяжёлый танк 9.2 звёзд — Т-14 Армата (Советы)" class="page-art" width="760" height="532" loading="lazy">
-        <figcaption class="page-caption">Модель 9.2★ (синие звёзды): Советский основной боевой танк</figcaption>
+        <figcaption class="page-caption">Модель 9.2★ (синие звёзды): Советский тяжёлый танк (ТТ / МБТ)</figcaption>
       </figure>
 
       <h3 class="section-h3">Как работает звёздность</h3>
       <ul class="editorial-list">
         <li><strong>Объединение:</strong> два одинаковых юнита сливаются для повышения звезды (процесс необратим, но есть разборка деталей).</li>
         <li><strong>Жёлтые звёзды (до 7.2):</strong> классический потолок для базовых и старых линеек техники.</li>
-        <li><strong>Синие звёзды (до 9.2):</strong> современная техника (например, Пехота, Тяжёлый танк, современная авиация и флот).</li>
+        <li><strong>Синие звёзды (до 9.2):</strong> современная техника (Пехота, ТТ, современная авиация и флот).</li>
         <li><strong>Уровни:</strong> каждый юнит прокачивается по уровням (база характеристик растёт экспоненциально).</li>
       </ul>
       <div class="inline-cta-row">
@@ -462,7 +462,7 @@ window.BOOK_PAGES = [
     docCode: 'WP-FM // CH-07B',
     bookmark: 'ГЛАВА 7 • БАЗА ЮНИТОВ',
     kicker: 'ГЛАВА 7 (ДОП. СТРАНИЦА)',
-    title: 'Роли наземной техники в бою',
+    title: 'Классы и роли техники в бою',
     html: `
       <div class="data-table-wrap">
         <table class="data-table">
@@ -470,13 +470,38 @@ window.BOOK_PAGES = [
             <tr><th>Юнит</th><th>Тир</th><th>Роль</th><th>Главная задача</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>SH-танк (Авангард)</strong></td><td><span class="ed-tag">S</span></td><td>Ultra Tank</td><td>Стена в лоб. Максимум брони и здоровья, но очень медленный.</td></tr>
-            <tr><td><strong>Тяжёлый танк</strong></td><td><span class="ed-tag">A</span></td><td>Frontline</td><td>Основа ударного кулака, принимает первый урон.</td></tr>
-            <tr><td><strong>Истребитель танков</strong></td><td><span class="ed-tag">A</span></td><td>Anti-Armor</td><td>Пробивает тяжёлые и SH-танки из-за спины.</td></tr>
-            <tr><td><strong>Гаубица / РСЗО</strong></td><td><span class="ed-tag">A/S</span></td><td>AoE ДД</td><td>Сносит базы, скопления пехоты и медленные SH-танки.</td></tr>
-            <tr><td><strong>Средний танк</strong></td><td><span class="ed-tag">B</span></td><td>Universal</td><td>Рабочая лошадка мидгейма с хорошим балансом.</td></tr>
-            <tr><td><strong>Лёгкий танк</strong></td><td><span class="ed-tag">C</span></td><td>Harass</td><td>Разведка, быстрые рейды на сборщиков и арту.</td></tr>
-            <tr><td><strong>Пехота</strong></td><td><span class="ed-tag">C</span></td><td>Utility</td><td>Захват точек, бункеры, дешёвый гарнизон.</td></tr>
+            <tr>
+              <td><span class="unit-cell"><svg class="unit-ico" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="8" width="18" height="6" rx="2"/><rect x="6" y="4" width="9" height="4"/><line x1="15" y1="6" x2="23" y2="6"/></svg><strong>ШХ (Маус)</strong></span></td>
+              <td><span class="ed-tag">S</span></td><td>Сверхброня</td><td>Стенка в лоб (только Авангард). Максимум брони и HP, очень медленный.</td>
+            </tr>
+            <tr>
+              <td><span class="unit-cell"><svg class="unit-ico" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="8" width="16" height="6" rx="2"/><path d="M7 8l2-4h6l1 4"/><line x1="16" y1="6" x2="23" y2="5.5"/></svg><strong>ТТ (Тяж / МБТ)</strong></span></td>
+              <td><span class="ed-tag">A</span></td><td>Первая линия</td><td>Основа ударного кулака, принимает первый урон.</td>
+            </tr>
+            <tr>
+              <td><span class="unit-cell"><svg class="unit-ico" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="9" width="15" height="5" rx="1.5"/><path d="M5 9l4-4h6v4"/><line x1="15" y1="6.5" x2="23" y2="6.5"/></svg><strong>ПТ (Истребитель)</strong></span></td>
+              <td><span class="ed-tag">A</span></td><td>Анти-броня</td><td>Пробивает ТТ и ШХ из-за спины союзного танка.</td>
+            </tr>
+            <tr>
+              <td><span class="unit-cell"><svg class="unit-ico" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="9" width="14" height="5" rx="1"/><line x1="8" y1="9" x2="20" y2="2"/><circle cx="7" cy="14" r="1.5"/><circle cx="15" cy="14" r="1.5"/></svg><strong>Арта (Гаубица)</strong></span></td>
+              <td><span class="ed-tag">A</span></td><td>Осада и сплеш</td><td>Бьёт по площади, сносит базы, пехоту и медленные ШХ.</td>
+            </tr>
+            <tr>
+              <td><span class="unit-cell"><svg class="unit-ico" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="10" width="14" height="4" rx="1"/><path d="M6 10l9-6 2 3-8 3"/><line x1="17" y1="3" x2="22" y2="1"/></svg><strong>RL («Катюша» / РСЗО)</strong></span></td>
+              <td><span class="ed-tag">S</span></td><td>Залп по площади</td><td>Быстрый залповый урон по скоплениям и базам (фишка Советов).</td>
+            </tr>
+            <tr>
+              <td><span class="unit-cell"><svg class="unit-ico" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="9" width="14" height="5" rx="2"/><rect x="8" y="5.5" width="6" height="3.5"/><line x1="14" y1="7" x2="21" y2="7"/></svg><strong>СТ (Средний танк)</strong></span></td>
+              <td><span class="ed-tag">B</span></td><td>Универсал</td><td>Рабочая лошадка мидгейма: баланс скорости и брони.</td>
+            </tr>
+            <tr>
+              <td><span class="unit-cell"><svg class="unit-ico" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="10" width="12" height="4" rx="2"/><path d="M8 10l2-3h4l1 3"/><line x1="15" y1="8.5" x2="20" y2="8"/></svg><strong>ЛТ (Лёгкий танк)</strong></span></td>
+              <td><span class="ed-tag">C</span></td><td>Разведка / Рейд</td><td>Самый быстрый на земле (Либерти): снос арты и сборщиков.</td>
+            </tr>
+            <tr>
+              <td><span class="unit-cell"><svg class="unit-ico" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><path d="M7 14v-3a5 5 0 0 1 10 0v3"/></svg><strong>Пехота</strong></span></td>
+              <td><span class="ed-tag">C</span></td><td>Захват / Бункер</td><td>Захват точек, бункеры, дешёвый гарнизон.</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -523,13 +548,44 @@ window.BOOK_PAGES = [
     kicker: 'ГЛАВА 8 (ДОП. СТРАНИЦА)',
     title: 'Как применять контры на карте',
     html: `
+      <div class="tac-diagram">
+        <div class="tac-diagram-title">Схема: кто кого контрит на поле</div>
+        <svg viewBox="0 0 420 155" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Схема контров: ПТ бьёт ТТ, Арта и Катюша бьют ШХ и Пехоту, ЛТ и Вертолёт бьют Арту">
+          <rect x="8" y="14" width="118" height="36" rx="4" fill="#e6dac0" stroke="#8f4f0e" stroke-width="1.5"/>
+          <text x="67" y="36" text-anchor="middle" fill="#1f1b14" font-family="Inter, sans-serif" font-size="11.5" font-weight="700">ПТ (Истреб. танков)</text>
+          <path d="M132 32H170" stroke="#8f4f0e" stroke-width="2" marker-end="url(#arr)"/>
+          <rect x="176" y="14" width="118" height="36" rx="4" fill="#f3ebd8" stroke="#544b3c" stroke-width="1.2"/>
+          <text x="235" y="36" text-anchor="middle" fill="#1f1b14" font-family="Inter, sans-serif" font-size="11.5" font-weight="700">ТТ (Тяж) и СТ</text>
+          <text x="306" y="36" fill="#8f4f0e" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">пробитие</text>
+
+          <rect x="8" y="62" width="118" height="36" rx="4" fill="#e6dac0" stroke="#8f4f0e" stroke-width="1.5"/>
+          <text x="67" y="84" text-anchor="middle" fill="#1f1b14" font-family="Inter, sans-serif" font-size="11.5" font-weight="700">Арта / RL (Катюша)</text>
+          <path d="M132 80H170" stroke="#8f4f0e" stroke-width="2"/>
+          <rect x="176" y="62" width="118" height="36" rx="4" fill="#f3ebd8" stroke="#544b3c" stroke-width="1.2"/>
+          <text x="235" y="84" text-anchor="middle" fill="#1f1b14" font-family="Inter, sans-serif" font-size="11.5" font-weight="700">ШХ / Пехота / Базы</text>
+          <text x="306" y="84" fill="#8f4f0e" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">сплеш</text>
+
+          <rect x="8" y="110" width="118" height="36" rx="4" fill="#e6dac0" stroke="#8f4f0e" stroke-width="1.5"/>
+          <text x="67" y="132" text-anchor="middle" fill="#1f1b14" font-family="Inter, sans-serif" font-size="11.5" font-weight="700">ЛТ / Вертолёт</text>
+          <path d="M132 128H170" stroke="#8f4f0e" stroke-width="2"/>
+          <rect x="176" y="110" width="118" height="36" rx="4" fill="#f3ebd8" stroke="#544b3c" stroke-width="1.2"/>
+          <text x="235" y="132" text-anchor="middle" fill="#1f1b14" font-family="Inter, sans-serif" font-size="11.5" font-weight="700">Голая Арта и RL</text>
+          <text x="306" y="132" fill="#8f4f0e" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">фланг</text>
+
+          <defs>
+            <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0 0L6 3L0 6Z" fill="#8f4f0e"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
       <div class="margin-note">
         <div class="margin-note-title">Правило разведки</div>
-        <p>Никогда не вступай в слепой бой. Перед атакой посмотри состав армии врага. Видишь 3 тяжёлых танка — выводи ПТ и Гаубицу. Видишь голую артиллерию без прикрытия — заходи быстрым танком с фланга.</p>
+        <p>Никогда не вступай в слепой бой. Видишь 3 тяжёлых танка — выводи ПТ и Арту. Видишь голую арту или RL-Катюшу без прикрытия — заходи быстрым ЛТ или вертолётом с фланга.</p>
       </div>
       <ul class="editorial-list">
-        <li><strong>Защита своей арты:</strong> никогда не ставь гаубицы в первую линию. Держи их за танками на максимальной дистанции выстрела.</li>
-        <li><strong>Атака баз:</strong> для сноса укрепрайонов и баз обязательна дальнобойная артиллерия (Гаубицы / САУ) под прикрытием танкового щита.</li>
+        <li><strong>Защита своей арты:</strong> никогда не ставь гаубицы и RL в первую линию. Держи их за ТТ на максимальной дистанции выстрела.</li>
+        <li><strong>Атака баз:</strong> для сноса укрепрайонов и баз обязательна Арта / RL («Катюша») под прикрытием танкового щита.</li>
       </ul>
     `
   },
@@ -633,14 +689,34 @@ window.BOOK_PAGES = [
     kicker: 'III. АРМИЯ И ОФИЦЕРЫ',
     title: '10. Сборка идеальной армии',
     html: `
-      <p class="page-lead">Полная армия состоит из <strong>5 слотов</strong>. Побеждает не сумма звёзд, а правильное распределение ролей и позиций на поле боя.</p>
+      <p class="page-lead">Полная армия состоит из <strong>5 слотов</strong>. Побеждает не сумма звёзд, а правильное построение линий на поле боя.</p>
 
-      <h3 class="section-h3">Классический мета-сетап (5 слотов)</h3>
+      <div class="tac-diagram">
+        <div class="tac-diagram-title">Схема боевого построения (5 слотов)</div>
+        <svg viewBox="0 0 420 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Схема построения армии: впереди ТТ или ШХ, за ним 2 ПТ или СТ, сзади Арта или RL Катюша, на фланге ЛТ или Вертолёт">
+          <rect x="8" y="14" width="110" height="44" rx="4" fill="#e6dac0" stroke="#8f4f0e" stroke-width="1.5"/>
+          <text x="63" y="33" text-anchor="middle" fill="#8f4f0e" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="700">ТЫЛ (СЛОТ 4)</text>
+          <text x="63" y="49" text-anchor="middle" fill="#1f1b14" font-family="Inter, sans-serif" font-size="11.5" font-weight="700">Арта / RL Катюша</text>
+
+          <rect x="148" y="14" width="124" height="44" rx="4" fill="#f3ebd8" stroke="#544b3c" stroke-width="1.3"/>
+          <text x="210" y="33" text-anchor="middle" fill="#8f4f0e" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="700">ЦЕНТР ДД (2–3)</text>
+          <text x="210" y="49" text-anchor="middle" fill="#1f1b14" font-family="Inter, sans-serif" font-size="11.5" font-weight="700">2× ПТ / СТ (урон)</text>
+
+          <rect x="302" y="14" width="110" height="44" rx="4" fill="#8f4f0e" stroke="#8f4f0e" stroke-width="1.5"/>
+          <text x="357" y="33" text-anchor="middle" fill="#f3ebd8" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="700">ФРОНТ (СЛОТ 1)</text>
+          <text x="357" y="49" text-anchor="middle" fill="#ffffff" font-family="Inter, sans-serif" font-size="11.5" font-weight="700">ТТ или ШХ (щит)</text>
+
+          <rect x="148" y="74" width="264" height="38" rx="4" fill="rgba(143,79,14,0.08)" stroke="#8f4f0e" stroke-dasharray="4 3"/>
+          <text x="280" y="97" text-anchor="middle" fill="#1f1b14" font-family="Inter, sans-serif" font-size="11.5" font-weight="700">Фланг (Слот 5): ЛТ / Вертолёт / Пехота</text>
+        </svg>
+      </div>
+
+      <h3 class="section-h3">Классическая мета-сборка</h3>
       <ul class="editorial-list">
-        <li><strong>Слот 1 (Фронтлайн):</strong> Тяжёлый танк или SH-танк + защитный офицер (Кёртис / Виктор). Принимает весь первый удар.</li>
-        <li><strong>Слоты 2–3 (Основной ДД):</strong> 2 ударных юнита (Истребитель танков, Средний/Тяжёлый танк с Джексоном Хейзом). Наносят главный урон.</li>
-        <li><strong>Слот 4 (Артиллерия):</strong> Гаубица или РСЗО на задней линии. Чистит пехоту и ломает броню SH-танков по площади.</li>
-        <li><strong>Слот 5 (Ситуативный):</strong> Лёгкий танк для флангов/разведки, Пехота для захвата точек или Вертолёт поддержки.</li>
+        <li><strong>Слот 1 (Фронт):</strong> ТТ или ШХ + защитный офицер (Кёртис / Мусорщик / Виктор). Принимает первый удар.</li>
+        <li><strong>Слоты 2–3 (Основной ДД):</strong> 2 ударных юнита (ПТ или СТ/ТТ с Джексоном Хейзом). Вырезают броню врага.</li>
+        <li><strong>Слот 4 (Арта / RL):</strong> Гаубица или RL («Катюша») сзади. Чистит пехоту и ломает ШХ по площади.</li>
+        <li><strong>Слот 5 (Гибкий):</strong> ЛТ для рейдов/разведки, Пехота для точек или Вертолёт поддержки.</li>
       </ul>
     `
   },
@@ -852,11 +928,13 @@ window.BOOK_PAGES = [
             <tr><th>Термин</th><th>Расшифровка</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>SH (ШХ / Маус)</strong></td><td>Сверхтяжёлый танк Авангарда — максимальная броня в игре.</td></tr>
-            <tr><td><strong>ПТ (TH)</strong></td><td>Истребитель танков (Tank Hunter) — главный контр тяжёлой брони.</td></tr>
-            <tr><td><strong>Арта / Гаубица / РСЗО</strong></td><td>Дальнобойная артиллерия и ракетные установки для осады и урона по площади.</td></tr>
+            <tr><td><strong>ШХ (SH / «Маус»)</strong></td><td>Сверхтяжёлый танк Авангарда — максимальная броня в игре.</td></tr>
+            <tr><td><strong>ТТ / МБТ</strong></td><td>Тяжёлый танк (основной боевой танк) — база первой линии.</td></tr>
+            <tr><td><strong>СТ / ЛТ</strong></td><td>Средний танк (универсал) и Лёгкий танк (быстрые рейды и разведка).</td></tr>
+            <tr><td><strong>ПТ (TH)</strong></td><td>Истребитель танков — главный убийца ТТ и ШХ.</td></tr>
+            <tr><td><strong>Арта / RL («Катюша»)</strong></td><td>Гаубица и реактивная система залпового огня (РСЗО) для сноса баз и урона по площади.</td></tr>
             <tr><td><strong>ДД (DPS)</strong></td><td>Отряды или офицеры, наносящие основной урон (Джексон, Хеймекер).</td></tr>
-            <tr><td><strong>ФД (F2P)</strong></td><td>Игра без доната (Free-to-Play) или с минимальными тратами.</td></tr>
+            <tr><td><strong>ФД (F2P)</strong></td><td>Игра без доната или с минимальными тратами.</td></tr>
             <tr><td><strong>Пробуждение</strong></td><td>Финальный апгрейд офицера при всех 4 навыках 5-го уровня (720 фрагментов).</td></tr>
             <tr><td><strong>ТВД / КВК</strong></td><td>Театр военных действий — масштабные межсерверные битвы альянсов.</td></tr>
           </tbody>
@@ -869,14 +947,14 @@ window.BOOK_PAGES = [
 /* ── ДАННЫЕ ДЛЯ ВСТРОЕННОГО КАЛЬКУЛЯТОРА (из WarpathYTwiki/data.js) ── */
 window.CALC_DATA = {
   units: [
-    { id: 'heavy', label: 'Тяжёлый танк', baseAtk: 1100, baseDef: 1050, baseHP: 28000, baseMov: 36 },
-    { id: 'superheavy', label: 'Сверхтяжёлый танк (SH)', baseAtk: 1480, baseDef: 1320, baseHP: 40000, baseMov: 24 },
-    { id: 'tankhunter', label: 'Истребитель танков (ПТ)', baseAtk: 1250, baseDef: 520, baseHP: 14000, baseMov: 46 },
-    { id: 'howitzer', label: 'Гаубица', baseAtk: 1400, baseDef: 350, baseHP: 9000, baseMov: 22 },
-    { id: 'launcher', label: 'Ракетная установка (РСЗО)', baseAtk: 1600, baseDef: 300, baseHP: 8500, baseMov: 30 },
-    { id: 'medium', label: 'Средний танк', baseAtk: 860, baseDef: 760, baseHP: 18000, baseMov: 52 },
-    { id: 'light', label: 'Лёгкий танк', baseAtk: 680, baseDef: 520, baseHP: 12000, baseMov: 70 },
-    { id: 'antitank', label: 'Противотанковая пушка', baseAtk: 1100, baseDef: 440, baseHP: 10000, baseMov: 28 },
+    { id: 'heavy', label: 'ТТ (Тяжёлый танк)', baseAtk: 1100, baseDef: 1050, baseHP: 28000, baseMov: 36 },
+    { id: 'superheavy', label: 'ШХ (Сверхтяжёлый / Маус)', baseAtk: 1480, baseDef: 1320, baseHP: 40000, baseMov: 24 },
+    { id: 'tankhunter', label: 'ПТ (Истребитель танков)', baseAtk: 1250, baseDef: 520, baseHP: 14000, baseMov: 46 },
+    { id: 'howitzer', label: 'Арта (Гаубица)', baseAtk: 1400, baseDef: 350, baseHP: 9000, baseMov: 22 },
+    { id: 'launcher', label: 'RL («Катюша» / РСЗО)', baseAtk: 1600, baseDef: 300, baseHP: 8500, baseMov: 30 },
+    { id: 'medium', label: 'СТ (Средний танк)', baseAtk: 860, baseDef: 760, baseHP: 18000, baseMov: 52 },
+    { id: 'light', label: 'ЛТ (Лёгкий танк)', baseAtk: 680, baseDef: 520, baseHP: 12000, baseMov: 70 },
+    { id: 'antitank', label: 'ПТО (Противотанк. пушка)', baseAtk: 1100, baseDef: 440, baseHP: 10000, baseMov: 28 },
     { id: 'infantry', label: 'Пехота', baseAtk: 420, baseDef: 380, baseHP: 8000, baseMov: 55 }
   ],
   levelMult: { 1: 1.0, 2: 1.1, 3: 1.22, 4: 1.36, 5: 1.52, 6: 1.7, 7: 1.9, 8: 2.12, 9: 2.38, 10: 2.68 },
@@ -914,3 +992,129 @@ window.COMMUNITY_LINKS = [
   { name: 'Ehson', desc: 'Тактика, F2P-методы и разборы сборок для сноса баз.', url: 'https://www.youtube.com/@ItsEhson', cta: 'YouTube ↗' },
   { name: 'VN Warpath (EN)', desc: 'Мета-анализ офицеров и экономики (на английском).', url: 'https://www.youtube.com/@VNwarpath1', cta: 'YouTube ↗' }
 ];
+
+/* ── РЕКОМЕНДУЕМЫЕ ВИДЕО YOUTUBE ПО ТЕМАМ ГЛАВ ─────────────────── */
+window.YOUTUBE_BY_TOPIC = {
+  default: {
+    topic: 'Общие гайды и патчи Warpath',
+    query: 'Warpath гайд для новичков',
+    videos: [
+      { title: 'Обзор патча и новинок — ClanGothic', author: 'ClanGothic', url: 'https://youtu.be/yZHSys9NgU8' },
+      { title: 'Epic1 battle от лица r4 ч1 — Warpath 13.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/Xy1UkZrxkrY' },
+      { title: '70% of Warpath Players Are Using the WRONG META', author: 'VN Warpath', url: 'https://youtu.be/PTn77IVXbE0' }
+    ]
+  },
+  1: {
+    topic: 'Основы и принципы меты',
+    query: 'Warpath основы гайд 2026',
+    videos: [
+      { title: '70% of Warpath Players Are Using the WRONG META', author: 'VN Warpath', url: 'https://youtu.be/PTn77IVXbE0' },
+      { title: 'Обзор патча — ключевые механики', author: 'ClanGothic', url: 'https://youtu.be/yZHSys9NgU8' }
+    ]
+  },
+  2: {
+    topic: 'Фракции и выбор техники',
+    query: 'Warpath какую фракцию выбрать гайд',
+    videos: [
+      { title: 'Какой МБТ самый лучший? | Warpath: Ace Shooter', author: 'Ehson', url: 'https://youtu.be/V6xFWFjCOrI' },
+      { title: 'Лучшие F2P сборки на истребитель 2026', author: 'е6ака', url: 'https://youtu.be/6XVNFdndgyo' }
+    ]
+  },
+  3: {
+    topic: 'Правильный старт и первые дни',
+    query: 'Warpath правильный старт новичку',
+    videos: [
+      { title: 'MUST WATCH To Save Money! Warpath SECRETS', author: 'VN Warpath', url: 'https://youtu.be/QMIfClwBZ7g' },
+      { title: 'Канал Ehson — гайды для новичков', author: 'Ehson', url: 'https://www.youtube.com/@ItsEhson' }
+    ]
+  },
+  4: {
+    topic: 'F2P-развитие без доната',
+    query: 'Warpath F2P гайд без доната',
+    videos: [
+      { title: 'Лучшие F2P сборки на истребитель 2026', author: 'е6ака', url: 'https://youtu.be/6XVNFdndgyo' },
+      { title: 'Лучшая F2P сборка для сноса баз!', author: 'Ehson', url: 'https://youtu.be/kCTdPzztNGI' }
+    ]
+  },
+  5: {
+    topic: 'Золото, VIP и траты',
+    query: 'Warpath как тратить золото VIP',
+    videos: [
+      { title: 'Обзор аккаунта лидера .MU. Эпик II — итог трат', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/sJJxi8jqE1A' },
+      { title: 'MUST WATCH To Save Money! Warpath SECRETS', author: 'VN Warpath', url: 'https://youtu.be/QMIfClwBZ7g' }
+    ]
+  },
+  6: {
+    topic: 'Наука и Arms Race',
+    query: 'Warpath Arms Race исследования гайд',
+    videos: [
+      { title: 'День рождения Warpath — ивенты и награды', author: 'е6ака', url: 'https://youtu.be/S3QI9rnPSTM' },
+      { title: 'Разборы механик и патчей', author: 'ClanGothic', url: 'https://www.youtube.com/@ClanGothic' }
+    ]
+  },
+  7: {
+    topic: 'Юниты: ТТ, ШХ, ПТ, Арта и RL',
+    query: 'Warpath юниты катюша танки обзор',
+    videos: [
+      { title: 'Какой МБТ самый лучший? | Warpath: Ace Shooter', author: 'Ehson', url: 'https://youtu.be/V6xFWFjCOrI' },
+      { title: 'Лучшие F2P сборки на истребитель 2026', author: 'е6ака', url: 'https://youtu.be/6XVNFdndgyo' }
+    ]
+  },
+  8: {
+    topic: 'Система контров и тактика',
+    query: 'Warpath контры юнитов тактика',
+    videos: [
+      { title: '70% of Warpath Players Are Using the WRONG META', author: 'VN Warpath', url: 'https://youtu.be/PTn77IVXbE0' },
+      { title: 'Epic1 battle от лица r4 ч1 — Warpath 13.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/Xy1UkZrxkrY' }
+    ]
+  },
+  9: {
+    topic: 'Офицеры, навыки и новинки',
+    query: 'Warpath офицеры гайд пробуждение',
+    videos: [
+      { title: 'Фулл офицеры или нет — ошибки. Часть 16', author: 'ClanGothic', url: 'https://youtu.be/w47c4SkscDQ' },
+      { title: 'Официальный YouTube Warpath (трейлеры офицеров)', author: 'PlayWarpath', url: 'https://www.youtube.com/c/Warpath' }
+    ]
+  },
+  10: {
+    topic: 'Сборка армии (5 слотов) и осада',
+    query: 'Warpath сборка армии 5 слотов снос баз',
+    videos: [
+      { title: 'Лучшая F2P сборка для сноса баз!', author: 'Ehson', url: 'https://youtu.be/kCTdPzztNGI' },
+      { title: 'Обзор аккаунта лидера .MU. Эпик II', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/sJJxi8jqE1A' }
+    ]
+  },
+  11: {
+    topic: 'Сражения, ПвП и ТВД',
+    query: 'Warpath битва городов ТВД PvP',
+    videos: [
+      { title: 'Epic1 battle от лица r4 ч1 — Warpath 13.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/Xy1UkZrxkrY' },
+      { title: 'Стримы и разборы боёв', author: 'е6ака', url: 'https://www.youtube.com/@e6aka56' }
+    ]
+  },
+  12: {
+    topic: 'Экспедиции и экипировка',
+    query: 'Warpath экспедиции гайд',
+    videos: [
+      { title: 'Разборы экспедиций и патчей', author: 'ClanGothic', url: 'https://youtu.be/yZHSys9NgU8' },
+      { title: 'Канал Бургера — механики и бои', author: 'Бургер (@burgerdom6)', url: 'https://www.youtube.com/@burgerdom6/videos' }
+    ]
+  },
+  13: {
+    topic: 'Комьюнити и авторы WarpathHub',
+    query: 'WarpathHub Бургер ClanGothic',
+    videos: [
+      { title: 'Бургер (@burgerdom6) — канал', author: 'Бургер', url: 'https://www.youtube.com/@burgerdom6/videos' },
+      { title: 'ClanGothic — официальный партнёр', author: 'ClanGothic', url: 'https://www.youtube.com/@ClanGothic' },
+      { title: 'е6ака — тесты и сборки', author: 'е6ака', url: 'https://www.youtube.com/@e6aka56' }
+    ]
+  },
+  14: {
+    topic: 'Сленг и вопросы новичков',
+    query: 'Warpath советы новичку сленг',
+    videos: [
+      { title: 'Какой МБТ самый лучший? | Warpath: Ace Shooter', author: 'Ehson', url: 'https://youtu.be/V6xFWFjCOrI' },
+      { title: '70% of Warpath Players Are Using the WRONG META', author: 'VN Warpath', url: 'https://youtu.be/PTn77IVXbE0' }
+    ]
+  }
+};
