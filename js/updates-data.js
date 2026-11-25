@@ -490,7 +490,7 @@ window.COMMUNITY_LINKS = [
   { name: 'VN Warpath (EN)', desc: 'Математика F2P, быстрый фарм снаряжения офицеров и разбор Обмена 2026.', url: 'https://www.youtube.com/@VNwarpath1', cta: 'YouTube ↗' },
   { name: 'MoreScop3s (EN)', desc: 'Глубокие тесты новых офицеров (Мусорщик, Крокодил) и патчи 14.5–14.6.', url: 'https://www.youtube.com/@MoreScop3s', cta: 'YouTube ↗' },
   { name: 'Twon22 — Antoine Leclerc (EN)', desc: 'Эндгейм-гайды, войны серверов, карты завоеваний и мини-гайды по офицерам.', url: 'https://www.youtube.com/@Twon22', cta: 'YouTube ↗' },
-  { name: 'WarpathYTwiki', desc: 'Энциклопедия юнитов, конструктор армий и база офицеров.', url: 'https://228burger228.github.io/WarpathYTwiki/index.html', cta: 'Сайт ↗' },
+  { name: 'WarpathYTwiki (Архив Бургера)', desc: 'Старый авторский справочник (давно не обновляется; для расчётов используй WP Commander).', url: 'https://228burger228.github.io/WarpathYTwiki/index.html', cta: 'Архив ↗' },
   { name: 'Официальный Discord Warpath', desc: 'Международный сервер разработчиков Lilith Games.', url: 'https://discord.com/invite/playwarpath', cta: 'Discord ↗' }
 ];
 

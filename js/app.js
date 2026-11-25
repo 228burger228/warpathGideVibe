@@ -80,6 +80,8 @@
   const btnShelfToggle = document.getElementById('btn-shelf-toggle');
   const btnShelfMobile = document.getElementById('btn-shelf-mobile');
   const btnShelfClose = document.getElementById('btn-shelf-close');
+  const btnShelfExt = document.getElementById('btn-shelf-ext');
+  const shelfExtMenu = document.getElementById('shelf-ext-menu');
 
   /* TTS бар */
   const ttsBar = document.getElementById('tts-bar');
@@ -773,6 +775,13 @@
     toggleShelfDrawer();
   });
   btnShelfClose?.addEventListener('click', () => toggleShelfDrawer(false));
+  btnShelfExt?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (!shelfExtMenu) return;
+    const willOpen = shelfExtMenu.hidden;
+    shelfExtMenu.hidden = !willOpen;
+    btnShelfExt.setAttribute('aria-expanded', String(willOpen));
+  });
 
   pageScrubber.addEventListener('input', () => {
     const target = parseInt(pageScrubber.value, 10);

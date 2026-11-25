@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════
-   WARPATH УСТАВ — ТОМ I: Полевой устав командира (36 страниц, 16 глав)
-   База: WarpathYTwiki + клиент v14.60.10.464 + WarpathHub + гайды 2025-2026
+   WARPATH УСТАВ — ТОМ I: Полный справочник командира (48 страниц, 22 главы)
+   База: клиент v14.60.10.464 + WarpathHub + WP Commander + SpeedPath + архив WarpathYTwiki
    ═══════════════════════════════════════════════════════════════ */
 
 window.BOOK_ID = 'manual';
@@ -48,8 +48,19 @@ window.BOOK_TOC_SECTIONS = [
   {
     title: 'VI. ПРОДВИНУТАЯ МЕТА 14.x',
     chapters: [
-      { id: 15, title: 'Инфовойна: Чипы и Экипировка', page: 32 },
-      { id: 16, title: 'Авиация, ВМС и Механики 14.4–14.6', page: 34 }
+      { id: 15, title: 'Оперсети, Чипы и Снаряжение', page: 32 },
+      { id: 16, title: 'Авиация, ВМС и Офицерский обмен', page: 34 }
+    ]
+  },
+  {
+    title: 'VII. ПОЛНЫЙ СПРАВОЧНИК (ОТ А ДО Я)',
+    chapters: [
+      { id: 17, title: 'Боевые формулы и Пробитие навылет', page: 37 },
+      { id: 18, title: 'Путь юнита: 4★→9.2★, Прототипы, Лиги', page: 39 },
+      { id: 19, title: 'База, Стены, VIP и Зал Кэт', page: 41 },
+      { id: 20, title: 'Энциклопедия всех родов войск', page: 43 },
+      { id: 21, title: 'События, Завоевание и Лимиты', page: 45 },
+      { id: 22, title: 'Чеклист: Новичок / Мид / Профи', page: 47 }
     ]
   }
 ];
@@ -76,7 +87,7 @@ window.BOOK_PAGES = [
         <p class="cover-subtitle">
           Боевое руководство по Warpath: от первого дня на сервере и траты золота до пробуждения офицеров, контров техники, калькулятора и тикетов WarpathHub.
         </p>
-        <div class="page-kicker">ТОМ I • 16 ГЛАВ • 36 СТРАНИЦ • v14.60.10</div>
+        <div class="page-kicker">ТОМ I • 22 ГЛАВЫ • 48 СТРАНИЦ • v14.60.10</div>
         <div class="cover-actions">
           <button type="button" class="btn-cover-primary" data-goto="2">Открыть содержание →</button>
           <a href="updates.html" class="btn-cover-sec">Том II: Хроника патчей</a>
@@ -1077,14 +1088,312 @@ window.BOOK_PAGES = [
     chapterId: 16,
     isChapterStart: false,
     docCode: 'WP-FM // CH-16C',
-    bookmark: 'ГЛАВА 16 • ТОМ II',
-    kicker: 'ПЕРЕХОД В ТОМ II',
-    title: 'Наверстать все обновления',
+    bookmark: 'ГЛАВА 16 • ИТОГИ МЕТЫ',
+    kicker: 'ДАЛЕЕ: ПОЛНЫЙ СПРАВОЧНИК',
+    title: 'Шпаргалка по переходу к энциклопедии',
     html: `
-      <p class="page-lead">Ты дошёл до конца <strong>Тома I (Полевого устава)</strong>. Если ты пропустил патчи или хочешь освежить историю всех изменений от 12.0 до 14.60 — открой <strong>Том II: Хронику обновлений</strong>.</p>
+      <p class="page-lead">С базой 14.60 разобрались. В следующих главах (<strong>Раздел VII, стр. 37–48</strong>) — развёрнутая «аптечная инструкция» по всей физике боя Warpath: от сквозного пробития и лимитов лиг до всех родов войск и чеклистов.</p>
       <div class="inline-cta-row">
-        <a href="updates.html" class="page-link-btn">Открыть Том II: Хроника патчей →</a>
-        <button type="button" class="page-link-btn secondary" data-open-hq="tickets">Задать вопрос в Штаб</button>
+        <button type="button" class="page-link-btn" data-goto="37">Открыть Раздел VII: Формулы →</button>
+        <a href="updates.html" class="page-link-btn secondary">Том II: Хроника патчей</a>
+      </div>
+    `
+  },
+
+  /* ── ГЛАВА 17: БОЕВЫЕ ФОРМУЛЫ И ПРОБИТИЕ НАВЫЛЕТ (СТР. 37–38) ── */
+  {
+    page: 37,
+    type: 'content',
+    chapterId: 17,
+    isChapterStart: true,
+    docCode: 'WP-FM // CH-17',
+    bookmark: 'ГЛАВА 17 • ФОРМУЛЫ',
+    kicker: 'VII. ПОЛНЫЙ СПРАВОЧНИК (ОТ А ДО Я)',
+    title: '17. Боевые формулы и Приведённая броня',
+    html: `
+      <p class="page-lead">Урон в Warpath считается не одной кнопкой «Мощь», а попарным сравнением характеристик атакующего и цели (по коду клиента <code>14.60.10</code>):</p>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>Атака</th><th>Защита цели</th><th>Как работает</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Глубина бронепробития</strong></td><td><strong>Приведённая броня</strong></td><td>Толщина листа + угол наклона плит. Нет пробития — урон сильно режется.</td></tr>
+            <tr><td><strong>Интенсивность урона</strong></td><td><strong>Сопротивление урону</strong></td><td>Умножающий множитель всего исходящего/входящего урона.</td></tr>
+            <tr><td><strong>Усиление навыков</strong></td><td><strong>Устойчивость к навыкам</strong></td><td>Определяет урон от ульт/тактических/пассивных навыков офицеров (кап базе 80%).</td></tr>
+            <tr><td><strong>Усиление обычных атак</strong></td><td><strong>Устойчивость к автоатакам</strong></td><td>Решающий стат для ЗСУ/Флака, ОБТ на критах и пехоты (кап базе 80%).</td></tr>
+            <tr><td><strong>Усиление ударной волны</strong></td><td><strong>Устойчивость к ударной волне</strong></td><td>Уменьшает взрывной урон (гаубицы/РСЗО) по цели и базе.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    `
+  },
+  {
+    page: 38,
+    type: 'content',
+    chapterId: 17,
+    isChapterStart: false,
+    docCode: 'WP-FM // CH-17B',
+    bookmark: 'ГЛАВА 17 • СКВОЗНОЕ ПРОБИТИЕ',
+    kicker: 'ГЛАВА 17 (ДОП. СТРАНИЦА)',
+    title: 'Пробитие навылет и Капы режимов',
+    html: `
+      <div class="margin-note">
+        <div class="margin-note-title">Сквозное пробитие («пробитие навылет»)</div>
+        <p><strong>Официальное правило игры:</strong> если глубина бронепробития атакующего <em>намного превышает</em> приведённую броню цели, снаряд проходит навылет и <strong>урон значительно снижается</strong>! Поэтому тяжёлые ПТ бьют ЛТ/грузовики хуже скорострельных автоатак.</p>
+      </div>
+      <ul class="editorial-list">
+        <li><strong>Лимит 80% для базы:</strong> бонусы офицеров к устойчивости базы (отдельно для автоатак и для навыков) суммируются, но <strong>не могут превышать 80%</strong>.</li>
+        <li><strong>Ограничения вне Завоевания:</strong> за пределами Завоевания/Операции интенсивность урона и сопротивление снижаются до <strong>60%</strong> от нормальных значений.</li>
+        <li><strong>Потолок разницы в Завоевании:</strong> макс. разница интенсивности и сопротивления между командирами снижена с 50% до <strong>30%</strong>, чтобы бои не превращались в односторонний снос.</li>
+      </ul>
+    `
+  },
+
+  /* ── ГЛАВА 18: ПУТЬ ЮНИТА 4★→9.2★, ПРОТОТИПЫ И ЛИГИ (СТР. 39–40) ── */
+  {
+    page: 39,
+    type: 'content',
+    chapterId: 18,
+    isChapterStart: true,
+    docCode: 'WP-FM // CH-18',
+    bookmark: 'ГЛАВА 18 • ЗВЁЗДЫ И ПРОТОТИПЫ',
+    kicker: 'VII. ПОЛНЫЙ СПРАВОЧНИК (ОТ А ДО Я)',
+    title: '18. Путь юнита: от 4★ до 9.2★ и XVI ранга',
+    html: `
+      <p class="page-lead">Эволюция техники делится на две эпохи: <strong>Классические юниты (4★ → 7.2★)</strong> и <strong>Современные юниты (8★ → 9.2★, категории XV–XVI)</strong>.</p>
+      <ul class="editorial-list">
+        <li><strong>Переход через «Прототип» (180+ дней):</strong> на серверах возрастом от <strong>180 дней</strong> любой юнит с <code>7.2★</code> можно превратить в Современный юнит <code>8★+</code> — меняется модель, потолок уровня (<code>160–200</code>) и открываются новые моды.</li>
+        <li><strong>Обратная сборка:</strong> позволяет собирать напрямую за <em>Фрагменты прототипов</em> и чертежи только юниты <strong>7★, 7.1★ и 7.2★</strong> (строго того же лагеря!). Выше — только ручное слияние/апгрейд.</li>
+        <li><strong>Наследование скинов:</strong> скин классического юнита работает на <code>5★–7.2★</code> и <em>автоматически открывает</em> свою современную версию для <code>8★+</code>!</li>
+        <li><strong>Разборка и Слияние:</strong> пока юнит ниже <code>7.2★</code>, не трать зря «левые» карты в бесполезные звёзды, а при ошибке делай Разборку за золото (вернутся детали/опыт).</li>
+      </ul>
+    `
+  },
+  {
+    page: 40,
+    type: 'content',
+    chapterId: 18,
+    isChapterStart: false,
+    docCode: 'WP-FM // CH-18B',
+    bookmark: 'ГЛАВА 18 • ЛИГИ И КАПЫ',
+    kicker: 'ГЛАВА 18 (ДОП. СТРАНИЦА)',
+    title: 'Ограничения полей сражений по лигам',
+    html: `
+      <p class="page-lead">Перед перелётом или выбором лиги альянса сверяйся с потолками звёзд, оперсетей и стен на полях боя:</p>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>Дивизион / Лига</th><th>Макс. звёзды</th><th>Стены / Примечание</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Серебро I–III</strong></td><td>до <code>8.1★</code></td><td>Мягкие капы; комфортно новичкам и F2P для старта без китов.</td></tr>
+            <tr><td><strong>Золото III (G3)</strong></td><td><code>9★</code> (ВМС <code>8.2★</code>)</td><td>Стена макс. <strong>130</strong>; Оперсети и XV ранг ограничены.</td></tr>
+            <tr><td><strong>Золото II (G2)</strong></td><td><code>9.1★</code> (ВМС <code>8.2★</code>)</td><td>Стена макс. <strong>180</strong>; Оперсети и ранг XV работают полностью.</td></tr>
+            <tr><td><strong>Золото I / Легенд. I–II</strong></td><td><code>9.1★+</code> / макс.</td><td>Эндгейм-поля со стенами <strong>130–180+</strong>, полной авиацией и ВМС.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="margin-note">
+        <div class="margin-note-title">Совет для F2P</div>
+        <p>Не рвись в верхние лиги Золота, пока не прокачал минимум 1–2 современных юнита и базовые Операционные сети.</p>
+      </div>
+    `
+  },
+
+  /* ── ГЛАВА 19: БАЗА, СТЕНЫ, VIP И ЗАЛ КЭТ (СТР. 41–42) ── */
+  {
+    page: 41,
+    type: 'content',
+    chapterId: 19,
+    isChapterStart: true,
+    docCode: 'WP-FM // CH-19',
+    bookmark: 'ГЛАВА 19 • БАЗА И СТЕНЫ',
+    kicker: 'VII. ПОЛНЫЙ СПРАВОЧНИК (ОТ А ДО Я)',
+    title: '19. Здания базы, 4 стены и Приоритеты стройки',
+    html: `
+      <p class="page-lead">Секрет быстрого роста до 32–36 ур. — не качать все здания вширь, а держать фокус на ключевых узлах армии и науки.</p>
+      <ul class="editorial-list">
+        <li><strong>Топ-1: Командный центр (Штаб)</strong> — разблокирует лимиты всех построек, слоты и возрастные фичи сервера.</li>
+        <li><strong>Топ-2: Исследовательский и Инженерный центры</strong> — ускоряют науку, производство кирпича/бетона/стальных балок и дают доступ к Разборке/Обратной сборке.</li>
+        <li><strong>Топ-3: Профильные Казармы + Ангар / Верфь</strong> — качай в первую очередь казарму своего основного лагеря и ангар (истребители/бомберы).</li>
+        <li><strong>4 укреплённые стены базы:</strong> по механике клиента у базы <strong>4 независимые стороны стен</strong> (каждая качается отдельно!). Высокие уровни дают прямые <code>+%</code> к ОЗ и сопротивлению базы.</li>
+      </ul>
+    `
+  },
+  {
+    page: 42,
+    type: 'content',
+    chapterId: 19,
+    isChapterStart: false,
+    docCode: 'WP-FM // CH-19B',
+    bookmark: 'ГЛАВА 19 • VIP И ЗАЛ КЭТ',
+    kicker: 'ГЛАВА 19 (ДОП. СТРАНИЦА)',
+    title: 'Пороги VIP, Чёрный рынок и Зал отдыха Кэт',
+    html: `
+      <div class="editorial-rows">
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Ключевые уровни VIP (приоритет №1 для золота)</span><span class="ed-tag">VIP 4 / 9 / 12+</span></div>
+          <p class="ed-row-desc"><strong>VIP 4:</strong> 1 Универсальный купон ежедневно. <strong>VIP 9:</strong> 1 Лагерный купон ежедневно + сильные бонусы к стройке/науке. В VIP-магазине выгодно добирать ускорения и ключи снаряги.</p>
+        </div>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Эксклюзивный зал отдыха Кэт</span><span class="ed-tag">5 ДНЕЙ / МЕСЯЦ</span></div>
+          <p class="ed-row-desc">Открывается случайно раз в месяц на <strong>5 дней</strong>. Редкие эксклюзивные офицеры (Мулянь, Безмолвный гром, Виндикта, Крокодил) нанимаются за <em>премиальные жетоны на напитки</em>.</p>
+        </div>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Чёрный рынок (ежедневное правило)</span><span class="ed-tag">РЕСУРС ЗА РЕСУРС</span></div>
+          <p class="ed-row-desc">При каждом обновлении выкупай лоты ресурсов за другие ресурсы (это чистая прибыль казны) и ускорения за 10–20 золота. Никогда не покупай там сырьё за полную цену золота.</p>
+        </div>
+      </div>
+    `
+  },
+
+  /* ── ГЛАВА 20: ЭНЦИКЛОПЕДИЯ ВСЕХ РОДОВ ВОЙСК (СТР. 43–44) ── */
+  {
+    page: 43,
+    type: 'content',
+    chapterId: 20,
+    isChapterStart: true,
+    docCode: 'WP-FM // CH-20',
+    bookmark: 'ГЛАВА 20 • СУША И БУНКЕР',
+    kicker: 'VII. ПОЛНЫЙ СПРАВОЧНИК (ОТ А ДО Я)',
+    title: '20. Все рода войск: Суша (9 классов)',
+    html: `
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>Класс</th><th>Особая механика из игры</th><th>Когда использовать</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Пехота</strong></td><td>При остановке входит в <strong>режим бункера</strong>: с 7★+ снижает урон союзникам в радиусе 2 квадратов на <code>3%–4%</code> (стакается до <strong>12%</strong>).</td><td>Захват точек, бункер перед пушками и дешёвый щит базы.</td></tr>
+            <tr><td><strong>ЛТ / VADS</strong></td><td>Высочайшая скорость и частые автоатаки; ЗСУ (VADS) режет воздух и тонкие цели без риска «навылет».</td><td>Рейды в тыл арты, разведка, Флак-сборка.</td></tr>
+            <tr><td><strong>СТ / ТТ / ШХ</strong></td><td>От универсала (СТ) до передвижной крепости («Судный день» / «Маус»): высокая приведённая броня.</td><td>Держать первую линию и танковать фокус.</td></tr>
+            <tr><td><strong>ПТ / ПТО</strong></td><td>Макс. бронепробитие; <strong>ПТО переключается в режим ПВО</strong> против авиации! Риск сквозного пробития по ЛТ.</td><td>Вырезание ТТ и ШХ, засады и прикрытие от бобров.</td></tr>
+            <tr><td><strong>Арта / RL (Катюша)</strong></td><td>Урон по площади и ударная волна; у RL часто бонус <em>за каждые N мм брони цели</em>.</td><td>Снос баз и скоплений врага из-за спины танков.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    `
+  },
+  {
+    page: 44,
+    type: 'content',
+    chapterId: 20,
+    isChapterStart: false,
+    docCode: 'WP-FM // CH-20B',
+    bookmark: 'ГЛАВА 20 • НЕБО И МОРЕ',
+    kicker: 'ГЛАВА 20 (ДОП. СТРАНИЦА)',
+    title: 'Энциклопедия ВВС и ВМС (Небо и Море)',
+    html: `
+      <div class="editorial-rows">
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Истребители (Воздушный контроль)</span><span class="ed-tag">70% АУРА</span></div>
+          <p class="ed-row-desc">Тот, у кого выше <em>Контроль воздушного пространства</em>, наносит больше и получает меньше урона. Плюс защитный истребитель передаёт <strong>70%</strong> своего контроля союзникам в радиусе.</p>
+        </div>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Бомбардировщики (Разница лагерей)</span><span class="ed-tag">АВАНГАРД / ЛИБЕРТИ</span></div>
+          <p class="ed-row-desc">Бомбардировщики <strong>Авангарда</strong> делят урон по всем видимым юнитам в квадрате (<code>+2%</code> за каждый видимый юнит); <strong>Либерти</strong> лучше бьёт точечные/бронированные цели. Выпускай бобров строго под прикрытием ястреба!</p>
+        </div>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">ВМС (Подлодки, ПВО и Ракетные эсминцы)</span><span class="ed-tag">МОРСКОЙ ГЕГЕМОН</span></div>
+          <p class="ed-row-desc"><strong>Подлодки (Кит 627А):</strong> Блэкджек / Дитя прилива. <strong>Эсминцы и Крейсеры:</strong> Красный крокодил + Волнорез (горение по броне) или Сирена + Клык приливов. В пачке 14.6 авиация интегрирована в Морской кубок.</p>
+        </div>
+      </div>
+    `
+  },
+
+  /* ── ГЛАВА 21: СОБЫТИЯ, ЗАВОЕВАНИЕ И ЛИМИТЫ (СТР. 45–46) ── */
+  {
+    page: 45,
+    type: 'content',
+    chapterId: 21,
+    isChapterStart: true,
+    docCode: 'WP-FM // CH-21',
+    bookmark: 'ГЛАВА 21 • КАЛЕНДАРЬ ИВЕНТОВ',
+    kicker: 'VII. ПОЛНЫЙ СПРАВОЧНИК (ОТ А ДО Я)',
+    title: '21. Главные события и циклы сервера',
+    html: `
+      <ul class="editorial-list">
+        <li><strong>Гонка вооружений (Arms Race) и Юрисдикции:</strong> никогда не трать крупные ускорения и купоны впустую — сливай под совпадение этапов! Просроченные юрисдикции (до <strong>3 шт.</strong>) сохраняются в <em>Очереди перемотки</em> (1 повторный шанс на каждую).</li>
+        <li><strong>Склад снаряжения (сервер 90+ дн.):</strong> в вишлист добавляется 6 предметов; каждые <strong>10 ящиков</strong> — гарантированный фрагмент. До <strong>100 ключей</strong> можно докупить за золото раз в 3 дня.</li>
+        <li><strong>Центр оперативной информации (120+ дн.):</strong> 6 сетей (по 2 на лагерь); глобальный апгрейд потолка раз в <strong>180 дней</strong> с автоускорением догоняющих («Разгон процессора»).</li>
+        <li><strong>Защита ракеты / Сокровища / Авиарейды:</strong> ивенты каждые ~3 недели (длительность 3 дня) — стабильный источник чипов, деталей и чертежей.</li>
+      </ul>
+    `
+  },
+  {
+    page: 46,
+    type: 'content',
+    chapterId: 21,
+    isChapterStart: false,
+    docCode: 'WP-FM // CH-21B',
+    bookmark: 'ГЛАВА 21 • ЗАВОЕВАНИЕ',
+    kicker: 'ГЛАВА 21 (ДОП. СТРАНИЦА)',
+    title: 'Правила Завоевания, Техаса и Миграции',
+    html: `
+      <div class="editorial-rows">
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Карта Техаса и Электроснабжение</span><span class="ed-tag">ПОРОГ 90%</span></div>
+          <p class="ed-row-desc">Эффективность питания = множитель поселения × множитель электротехнологий. Упадёт ниже <strong>90%</strong> — вся база и войска получают ступенчатый штраф к урону!</p>
+        </div>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Перелёт (Миграция) и Блокировки зданий</span><span class="ed-tag">90 / 105 / 120 ДНЕЙ</span></div>
+          <p class="ed-row-desc">При миграции на молодой сервер временно блокируются: до 90 дн. — <em>Склад снаряжения</em>, до 105 дн. — <em>Офицерский обмен</em>, до 120 дн. — <em>Оперсети</em>, до 180 дн. — <em>Прототипы 8★+</em>. Прогресс сохраняется.</p>
+        </div>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Отчёты и статистика C4 в WarpathHub</span><span class="ed-tag">БОТ @shevchenko01_bot</span></div>
+          <p class="ed-row-desc">В чате пиши <code>link [PID]</code> (номер под авой), затем <code>stats</code> и <code>c4</code> — для контроля своего K/D, фарма и разборов.</p>
+        </div>
+      </div>
+    `
+  },
+
+  /* ── ГЛАВА 22: СВОДНЫЙ ЧЕКЛИСТ НОВИЧОК / МИД / ПРОФИ (СТР. 47–48) ── */
+  {
+    page: 47,
+    type: 'content',
+    chapterId: 22,
+    isChapterStart: true,
+    docCode: 'WP-FM // CH-22',
+    bookmark: 'ГЛАВА 22 • ЧЕКЛИСТ',
+    kicker: 'VII. ПОЛНЫЙ СПРАВОЧНИК (ОТ А ДО Я)',
+    title: '22. Чеклист роста: Новичок / Мид / Профи',
+    html: `
+      <div class="editorial-rows">
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Этап 1: Новичок (1–30 дней, F2P)</span><span class="ed-tag">БАЗА</span></div>
+          <p class="ed-row-desc">• 1 главный лагерь + 2 юнита (ТТ/СТ + Арта).<br>• Золото только в VIP 4 → VIP 9, не на ускорение.<br>• Активируй промокоды в «Штаб → Промокоды», гоняй сборщиков и Чёрный рынок (ресурс за ресурс).</p>
+        </div>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Этап 2: Мидгейм (7.2★ → Прототип 9★)</span><span class="ed-tag">СИНЕРГИЯ</span></div>
+          <p class="ed-row-desc">• Разделяй 4 бюджета апгрейда (SpeedPath).<br>• Качай 1–2 пробуждённых офицеров до упора вместо всех по чуть-чуть.<br>• Собирай фиолетовую снарягу офицеров (ур. 40 > слабое золото 20 ур.).</p>
+        </div>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Этап 3: Профи (180+ дней, G2 / Эпик)</span><span class="ed-tag">ЭНДГЕЙМ</span></div>
+          <p class="ed-row-desc">• Оперсети в упор (3 зелёных > 1 синий) + защитный ястреб (70% ауры) + 2 бобра.<br>• Жёсткое деление на деф (без гибридов, кап 80% базе) и атаку (усиление навыков арте, автоатаки флаку).<br>• Перед Офицерским обменом (3 слота: 2+1) — полный просчёт в калькуляторе Шевченко.</p>
+        </div>
+      </div>
+    `
+  },
+  {
+    page: 48,
+    type: 'content',
+    chapterId: 22,
+    isChapterStart: false,
+    docCode: 'WP-FM // FINISH',
+    bookmark: 'ФИНАЛ • ТОМ II И ИНСТРУМЕНТЫ',
+    kicker: 'ЭНЦИКЛОПЕДИЯ ЗАВЕРШЕНА',
+    title: 'Навигация по инструментам и Тому II',
+    html: `
+      <p class="page-lead">Теперь у тебя под рукой полный справочник Тома I (48 страниц). Чтобы наверстать изменения патчей 12.0 → 14.60, скопировать промокоды или открыть актуальные калькуляторы — пользуйся быстрыми переходами ниже:</p>
+      <div class="inline-cta-row">
+        <a href="updates.html" class="page-link-btn">Том II: Хроника патчей →</a>
+        <button type="button" class="page-link-btn secondary" data-open-hq="codes">Промокоды (копировать)</button>
+        <button type="button" class="page-link-btn secondary" data-open-hq="tickets">Штаб и Тикеты</button>
+      </div>
+      <div class="margin-note" style="margin-top:12px;">
+        <div class="margin-note-title">Внешние базы (выбор)</div>
+        <p><a href="https://wpcommander.netlify.app/index.html" target="_blank" rel="noopener noreferrer">WP Commander (актуальный)</a> • <a href="https://www.speedpath.org" target="_blank" rel="noopener noreferrer">SpeedPath (EN)</a> • <a href="https://228burger228.github.io/WarpathYTwiki/index.html" target="_blank" rel="noopener noreferrer">WarpathYTwiki (архивный сайт Бургера)</a></p>
       </div>
     `
   }
@@ -1141,7 +1450,7 @@ window.COMMUNITY_LINKS = [
   { name: 'VN Warpath (EN)', desc: 'Математика F2P, быстрый фарм снаряжения офицеров и разбор Обмена 2026.', url: 'https://www.youtube.com/@VNwarpath1', cta: 'YouTube ↗' },
   { name: 'MoreScop3s (EN)', desc: 'Глубокие тесты новых офицеров (Мусорщик, Крокодил) и патчи 14.5–14.6.', url: 'https://www.youtube.com/@MoreScop3s', cta: 'YouTube ↗' },
   { name: 'Twon22 — Antoine Leclerc (EN)', desc: 'Эндгейм-гайды, войны серверов, карты завоеваний и мини-гайды по офицерам.', url: 'https://www.youtube.com/@Twon22', cta: 'YouTube ↗' },
-  { name: 'WarpathYTwiki', desc: 'Энциклопедия юнитов, конструктор армий и база офицеров.', url: 'https://228burger228.github.io/WarpathYTwiki/index.html', cta: 'Сайт ↗' },
+  { name: 'WarpathYTwiki (Архив Бургера)', desc: 'Старый авторский справочник и конструктор (давно не обновляется; для актуальных расчётов используй WP Commander).', url: 'https://228burger228.github.io/WarpathYTwiki/index.html', cta: 'Архив ↗' },
   { name: 'Официальный Discord Warpath', desc: 'Международный сервер разработчиков Lilith Games (из клиента v14.60).', url: 'https://discord.com/invite/playwarpath', cta: 'Discord ↗' }
 ];
 
@@ -1329,6 +1638,59 @@ window.YOUTUBE_BY_TOPIC = {
       { title: 'EN: Dont Swap the WRONG Free Officer! Guide 2026', author: 'VN Warpath (@VNwarpath1)', url: 'https://youtu.be/iI5Znd_OB3I' },
       { title: 'EN: Update 14.6 — Officer Swap, Техас и ВМС', author: 'MoreScop3s (@MoreScop3s)', url: 'https://youtu.be/VerRbQt2Yvs' },
       { title: 'ТЕСТЫ! ОФИЦЕР НА ИСТРЕБИТЕЛЬ / ПРЕСЛЕДУЮЩАЯ ТЕНЬ', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/Qdj-z8QjdCE' }
+    ]
+  },
+  17: {
+    topic: 'Боевые формулы и пробитие брони',
+    query: 'Warpath бронепробитие урон формулы',
+    videos: [
+      { title: 'ВЫЧИСЛИТЕЛЬНЫЕ ЧИПЫ И УРОН. КРУТИМ ПРАВИЛЬНО.', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/FgJcrLFNrJ4' },
+      { title: 'Тест новых офицеров 14.3 — кто теперь мета?', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/F_iWTrR3CuI' },
+      { title: 'EN: How to Get Officer Gear FASTEST (математика снаряги)', author: 'VN Warpath (@VNwarpath1)', url: 'https://youtu.be/JuRjlxM-Z7A' }
+    ]
+  },
+  18: {
+    topic: 'Путь 4★→9.2★, Прототипы и Лиги',
+    query: 'Warpath 9.2 современные юниты прототипы',
+    videos: [
+      { title: 'ОБМЕН ОФИЦЕРОВ И ЗОЛОТАЯ АРТА / 14.6', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/LrIujsuFFx0' },
+      { title: 'FD против Китая / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/4as-Btr7jRc' },
+      { title: 'EN: F2P GOD! Best FREE Officers & Units', author: 'VN Warpath (@VNwarpath1)', url: 'https://youtu.be/H46wQlbyOgc' }
+    ]
+  },
+  19: {
+    topic: 'База, Стены, VIP и Зал отдыха Кэт',
+    query: 'Warpath постройки 36 уровень VIP черный рынок',
+    videos: [
+      { title: '32→36 СТОИМОСТЬ ВСЕХ ПОСТРОЕК / ТАБЛИЦА', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/mM0hYObwXQE' },
+      { title: 'Настройка аккаунта и промики / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/tfMFqibCTZU' }
+    ]
+  },
+  20: {
+    topic: 'Все рода войск: Суша, Небо и Море',
+    query: 'Warpath юниты авиация вмс арта',
+    videos: [
+      { title: 'ОФИЦЕР НА АРТУ / БОЕВОЙ СОКОЛ / 14.3', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/DFdBAC2biT8' },
+      { title: 'EN: Red Crocodile Breakdown (ВМС Либерти)', author: 'MoreScop3s (@MoreScop3s)', url: 'https://youtu.be/215cGNOPzMI' },
+      { title: 'Какой МБТ самый лучший? | Warpath: Ace Shooter', author: 'Ehson', url: 'https://youtu.be/V6xFWFjCOrI' }
+    ]
+  },
+  21: {
+    topic: 'События, Завоевание и Техас',
+    query: 'Warpath завоевание техас гегемон',
+    videos: [
+      { title: 'Гегемон / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/V4xFkoiUWtM' },
+      { title: 'EN: Update 14.6 — Officer Swap, Техас и ВМС', author: 'MoreScop3s (@MoreScop3s)', url: 'https://youtu.be/VerRbQt2Yvs' },
+      { title: 'EN: Завоевания и разборы ТВД', author: 'Twon22 (@Twon22)', url: 'https://www.youtube.com/@Twon22/videos' }
+    ]
+  },
+  22: {
+    topic: 'Итоговый чеклист и переход к Тому II',
+    query: 'Warpath настройка аккаунта 14.6 гайд',
+    videos: [
+      { title: 'КАКИХ ОФИЦЕРОВ КАЧАТЬ В WARPATH 14.6?', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/Ri6kCTSDZqE' },
+      { title: 'КАЛЬКУЛЯТОР ОБМЕНА ОФИЦЕРОВ 14.6 за 1 минуту!', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/riVeWZplo2I' },
+      { title: 'Доп.: Сборник полезных лайфхаков для ВСЕХ', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/KMAX3RKXHUU' }
     ]
   }
 };

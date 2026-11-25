@@ -209,7 +209,7 @@
                 <span>Полка</span>
               </button>
               <span class="led-indicator" aria-hidden="true"></span>
-              <span id="codex-chapter-progress">ИЗУЧЕНО 0 / 16</span>
+              <span id="codex-chapter-progress">ИЗУЧЕНО 0 / 22</span>
             </div>
           </div>
 
@@ -286,10 +286,10 @@
           <button type="button" class="page-counter" id="btn-toc-jump" title="Вернуться к содержанию">
             <span id="counter-current">2</span>
             <span class="counter-sep">/</span>
-            <span id="counter-total">36</span>
+            <span id="counter-total">48</span>
           </button>
           <label class="sr-only" for="page-scrubber">Быстрый переход по страницам</label>
-          <input type="range" id="page-scrubber" class="page-scrubber" min="1" max="36" value="2">
+          <input type="range" id="page-scrubber" class="page-scrubber" min="1" max="48" value="2">
           <span class="scrubber-chapter" id="scrubber-chapter">Содержание</span>
         </div>
 
@@ -340,7 +340,7 @@
             <span class="spine-vol-num">ТОМ I</span>
             <span class="spine-info">
               <span class="spine-name">Полевой устав</span>
-              <span class="spine-meta">16 глав • База, тактика, чипы</span>
+              <span class="spine-meta">22 главы • Полный справочник</span>
             </span>
             <span class="spine-status">Читаете</span>
           </a>
@@ -355,15 +355,30 @@
             <span class="spine-status">Открыть →</span>
           </a>
 
-          <a href="https://228burger228.github.io/WarpathYTwiki/index.html" target="_blank" rel="noopener noreferrer" class="book-spine-item spine-wiki">
+          <button type="button" class="book-spine-item spine-wiki" id="btn-shelf-ext" aria-expanded="false" aria-controls="shelf-ext-menu">
             <span class="spine-band"></span>
-            <span class="spine-vol-num">АРХИВ</span>
+            <span class="spine-vol-num">БАЗЫ</span>
             <span class="spine-info">
-              <span class="spine-name">WarpathYTwiki</span>
-              <span class="spine-meta">Конструктор армий и статы</span>
+              <span class="spine-name">Внешние справочники</span>
+              <span class="spine-meta">WP Commander • SpeedPath • Вики</span>
             </span>
-            <span class="spine-status">Сайт ↗</span>
-          </a>
+            <span class="spine-status">Выбор ▾</span>
+          </button>
+
+          <div class="shelf-ext-menu" id="shelf-ext-menu" hidden>
+            <a href="https://wpcommander.netlify.app/index.html" target="_blank" rel="noopener noreferrer" class="shelf-ext-link is-fresh">
+              <strong>WP Commander (Актуальный) ↗</strong>
+              <span>Калькуляторы VIP, напитков, обмена и коды</span>
+            </a>
+            <a href="https://www.speedpath.org" target="_blank" rel="noopener noreferrer" class="shelf-ext-link">
+              <strong>SpeedPath (EN База) ↗</strong>
+              <span>206 скинов, 668 деталей I–XV и чеклисты</span>
+            </a>
+            <a href="https://228burger228.github.io/WarpathYTwiki/index.html" target="_blank" rel="noopener noreferrer" class="shelf-ext-link is-archive">
+              <strong>WarpathYTwiki (мой архив) ↗</strong>
+              <span>Старый сайт автора — давно не обновлялся</span>
+            </a>
+          </div>
           <div class="shelf-plank" aria-hidden="true"></div>
         </div>
       </div>
@@ -420,7 +435,7 @@
           <a href="https://www.youtube.com/@burgerdom6" target="_blank" rel="noopener noreferrer" class="author-yt-link">YouTube @burgerdom6 ↗</a>
         </div>
         <p class="author-credit-desc">
-          <strong>Бургер (@burgerdom6):</strong> сборка и дизайн устава (Том I–II под клиент <code>14.60.10</code>), база <a href="https://228burger228.github.io/WarpathYTwiki/index.html" target="_blank" rel="noopener noreferrer">WarpathYTwiki</a>, тир-листы офицеров, разборы аккаунтов и видеогайды.
+          <strong>Бургер (@burgerdom6):</strong> сборка и дизайн устава (Том I–II под клиент <code>14.60.10</code>), старый архивный <a href="https://228burger228.github.io/WarpathYTwiki/index.html" target="_blank" rel="noopener noreferrer">WarpathYTwiki</a> (не обновляется; актуальная база — <a href="https://wpcommander.netlify.app/index.html" target="_blank" rel="noopener noreferrer">WP Commander</a>), тир-листы офицеров и видеогайды.
         </p>
       </div>
       <div class="drawer-footer">
