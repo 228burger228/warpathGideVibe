@@ -88,6 +88,7 @@ window.BOOK_PAGES = [
           Боевое руководство по Warpath: от первого дня на сервере и траты золота до пробуждения офицеров, контров техники, калькулятора и тикетов WarpathHub.
         </p>
         <div class="page-kicker">ТОМ I • 22 ГЛАВЫ • 48 СТРАНИЦ • v14.60</div>
+        <div class="cover-verified">Актуальность v14.60 • Механики и офицеры сверены с игрой</div>
         <div class="cover-actions">
           <button type="button" class="btn-cover-primary" data-goto="2">Открыть содержание →</button>
           <a href="updates.html" class="btn-cover-sec">Том II: Хроника патчей</a>
@@ -166,7 +167,7 @@ window.BOOK_PAGES = [
       <div class="editorial-rows">
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">1. Офицер важнее юнита</span><span class="ed-tag">60% СИЛЫ</span></div>
-          <p class="ed-row-desc">Слабый юнит с топ-офицером сильнее сильного юнита без офицера (СТ + Джексон Хейз бьёт ТТ + Такеда).</p>
+          <p class="ed-row-desc">Слабый юнит с топ-офицером сильнее сильного юнита без офицера (СТ + Стальная коса / Джексон Хейз бьёт ТТ со стартовым непрофильным офицером).</p>
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">2. Нет «лучшего» юнита</span><span class="ed-tag">РОЛЬ</span></div>
@@ -335,7 +336,7 @@ window.BOOK_PAGES = [
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">Юниты</span></div>
-          <p class="ed-row-desc">• Выбери 2–3 типа техники.<br>• Исследования важнее количества казарм.<br>• Тяжёлый танк + Кёртис/Джексон — база без доната.</p>
+          <p class="ed-row-desc">• Выбери 2–3 типа техники.<br>• Исследования важнее количества казарм.<br>• Тяжёлый танк + Стальная коса (Джексон Хейз) / Песнь рассвета — основа базы.</p>
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">Ресурсы</span></div>
@@ -653,20 +654,20 @@ window.BOOK_PAGES = [
     html: `
       <div class="editorial-rows">
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Джексон Хейз (5 поколение)</span><span class="ed-tag">S-ТИР</span></div>
-          <p class="ed-row-desc"><strong>Роль:</strong> Атака (Танки и Вертолёты). +30% Атаки/Защиты. Навык «Пространственный удар» (коэф. 1800, +15% урона на 8 сек). Лучший универсальный дамагер.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Стальная коса (Джексон Хейз)</span><span class="ed-tag">S-ТИР • ДД</span></div>
+          <p class="ed-row-desc"><strong>Роль:</strong> Танки и Вертолёты. Тактический навык <em>«Пространственный удар»</em> наносит высокий урон и повышает интенсивность урона отряда (отлично с Госпожой теней / Егерем пустыни).</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Хеймекер (5 поколение)</span><span class="ed-tag">S-ТИР</span></div>
-          <p class="ed-row-desc"><strong>Роль:</strong> Охотник на тяжёлую броню. +35% Атаки. Массовый урон с бонусом против SH и тяжёлых танков.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Песнь рассвета / Арбитр / Мусорщик</span><span class="ed-tag">S-ТИР • ЩИТ</span></div>
+          <p class="ed-row-desc"><strong>Роль:</strong> Защита фронтлайна и гарнизона. Дают щиты и сопротивление урону для ШХ и ОБТ; <em>Мусорщик</em> дополнительно раздаёт ауру огневой мощи союзной наземке.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Кёртис (4 поколение)</span><span class="ed-tag">S-ТИР</span></div>
-          <p class="ed-row-desc"><strong>Роль:</strong> Защита наземных войск (+22% защиты, +15% здоровья). Лучший танк-офицер для фронтлайна и обороны.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Мадам Виндикта / Боевой сокол / Око провидения</span><span class="ed-tag">АРТА И RL</span></div>
+          <p class="ed-row-desc"><strong>Роль:</strong> Осадная арта. Виндикта и Сокол дают <code>+1</code> к дальности, <em>Говорящая с ветром</em> и <em>Крылатый пленник</em> усиливают осадный урон, а для защиты гарнизона на арту ставят <em>Верховную судью</em>.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Иссабель / Слейтер / Такеда</span><span class="ed-tag">S / A</span></div>
-          <p class="ed-row-desc"><strong>Иссабель:</strong> +25% атаки при здоровье ниже 50%. <strong>Слейтер:</strong> топ для авиации. <strong>Такеда и Мартин:</strong> отличные переходные варианты до 5-го поколения.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Старт без доната и Авиа / ПВО</span><span class="ed-tag">БАЗА И НЕБО</span></div>
+          <p class="ed-row-desc"><strong>Старт (F2P):</strong> <em>Сержант Спанер, Белая Волчица, Виктор, Дядюшка Иванков</em>. <strong>Авиа и Флак:</strong> <em>Преследующая тень, Госпожа теней, Рапира (Е Цимин) + Клавдия</em>.</p>
         </div>
       </div>
     `
@@ -683,7 +684,7 @@ window.BOOK_PAGES = [
     title: 'Рабочие связки и мета 14.5–14.60',
     html: `
       <figure class="page-figure">
-        <img src="assets/new-officers.webp" alt="Пять новых офицеров Warpath: Блэкджек, Мусорщик, Красный Крокодил, Главный Судья, Ржавый" class="page-art" width="800" height="800" loading="lazy">
+        <img src="assets/new-officers.webp" alt="Новые офицеры Warpath 14.5+: Блэкджек, Мусорщик, Красный Крокодил, Верховная судья" class="page-art" width="800" height="800" loading="lazy">
         <figcaption class="page-caption">Лимит 80%: бонусы офицеров к устойчивости базы (к навыкам и к автоатакам) суммируются не выше 80%</figcaption>
       </figure>
       <div class="editorial-rows">
@@ -697,11 +698,11 @@ window.BOOK_PAGES = [
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">ШХ / ОБТ и Оборона («Черепаха»)</span><span class="ed-tag">БЕЗ ГИБРИДОВ</span></div>
-          <p class="ed-row-desc"><strong>Офиц. связки:</strong> <em>Арбитр + Песнь рассвета</em> (щиты и живучесть) / Иваньков / Терновая графиня; в атаку — <em>Стальная коса / Егерь + Мулянь</em> (не смешивай деф-офицеров с атакующими в 1 юните).</p>
+          <p class="ed-row-desc"><strong>Офиц. связки:</strong> <em>Арбитр + Песнь рассвета</em> (щиты и живучесть) / <em>Песнь триумфа</em> / Дядюшка Иванков / Терновая графиня; в атаку — <em>Стальная коса / Егерь пустыни + Госпожа теней (Мулянь)</em> (не смешивай деф-офицеров с атакующими в 1 юните).</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Новые 14.5+: Море и Поддержка</span><span class="ed-tag">БЛЭКДЖЕК / КРОКОДИЛ</span></div>
-          <p class="ed-row-desc"><strong>ВМС:</strong> <em>Красный крокодил + Волнорез</em> (горение флота), <em>Блэкджек</em> и <em>Дитя прилива</em> (подлодки). <strong>Суша:</strong> <em>Мусорщик</em> (деф), <em>Главный Судья</em> (арта), <em>Ржавый</em> (поле).</p>
+          <div class="ed-row-head"><span class="ed-row-title">Новые 14.5+: Море, Щит и Гарнизон</span><span class="ed-tag">БЛЭКДЖЕК / МУСОРЩИК</span></div>
+          <p class="ed-row-desc"><strong>ВМС:</strong> <em>Красный крокодил + Волнорез</em> (горение флота), <em>Блэкджек + Дитя прилива</em> (подлодки). <strong>Суша:</strong> <em>Мусорщик</em> (щит и аура огневой мощи танкам/пехоте), <em>Верховная судья</em> (гарнизон с артой, «Упреждающий удар»).</p>
         </div>
       </div>
     `
@@ -742,7 +743,7 @@ window.BOOK_PAGES = [
 
       <h3 class="section-h3">Классическая мета-сборка</h3>
       <ul class="editorial-list">
-        <li><strong>Слот 1 (Фронт):</strong> ТТ или ШХ + защитный офицер (Кёртис / Мусорщик / Виктор). Принимает первый удар.</li>
+        <li><strong>Слот 1 (Фронт):</strong> ТТ или ШХ + защитный офицер (Мусорщик / Песнь рассвета / Виктор). Принимает первый удар.</li>
         <li><strong>Слоты 2–3 (Основной ДД):</strong> 2 ударных юнита (ПТ или СТ/ТТ с Джексоном Хейзом). Вырезают броню врага.</li>
         <li><strong>Слот 4 (Арта / RL):</strong> Гаубица или RL («Катюша») сзади. Чистит пехоту и ломает ШХ по площади.</li>
         <li><strong>Слот 5 (Гибкий):</strong> ЛТ для рейдов/разведки, Пехота для точек или Вертолёт поддержки.</li>
@@ -813,7 +814,7 @@ window.BOOK_PAGES = [
         <p>Всегда держи базу внутри территории альянса (под щитом башен). При угрозе массового рейда используй <strong>Щит мира</strong> заранее — чинить выжженную базу и восстанавливать гарнизон в разы дороже.</p>
       </div>
       <ul class="editorial-list">
-        <li><strong>Гарнизон базы:</strong> ставь в оборону базы самые живучие юниты (SH-танк, Тяжёлый танк, Пехота) с защитными офицерами (Кёртис, Виктор).</li>
+        <li><strong>Гарнизон базы:</strong> ставь в оборону базы самые живучие юниты (SH-танк, Тяжёлый танк, Пехота) с защитными офицерами (Мусорщик, Дядюшка Иванков, Песнь рассвета, Виктор).</li>
         <li><strong>Командная игра:</strong> в PvP 1 на 1 решает мощь, в войне альянсов решает фокус-огонь по одной цели и синхронный выход на позицию.</li>
       </ul>
     `
@@ -978,13 +979,13 @@ window.BOOK_PAGES = [
             <tr><td><strong>СТ / ЛТ</strong></td><td>Средний танк (универсал) и Лёгкий танк (быстрые рейды и разведка).</td></tr>
             <tr><td><strong>ПТ (TH)</strong></td><td>Истребитель танков — главный убийца ТТ и ШХ.</td></tr>
             <tr><td><strong>Арта / RL («Катюша»)</strong></td><td>Гаубица и реактивная система залпового огня (РСЗО) для сноса баз и урона по площади.</td></tr>
-            <tr><td><strong>ДД (DPS)</strong></td><td>Отряды или офицеры, наносящие основной урон (Джексон, Хеймекер).</td></tr>
+            <tr><td><strong>ДД (DPS)</strong></td><td>Отряды или офицеры, наносящие основной урон (Стальная коса / Джексон Хейз, Говорящая с ветром).</td></tr>
             <tr><td><strong>ФД (F2P)</strong></td><td>Игра без доната или с минимальными тратами.</td></tr>
             <tr><td><strong>Оперсети</strong></td><td>Операционные сети базы — самый выгодный буст интенсивности и огневой мощи (круче Коллекционера).</td></tr>
             <tr><td><strong>G3 / G2 / Эпик</strong></td><td>Лиги подбора на карте: в Gold 3 (G3) отключены оперсети и XV ранг юнитов, в Gold 2 (G2) и выше — включены.</td></tr>
             <tr><td><strong>Флак / VADS</strong></td><td>Зенитный лёгкий танк (ЗСУ), играет от автоатак и пробития с <code>Дробовиком + Кастетом</code>.</td></tr>
-            <tr><td><strong>Ракушка / Черепаха</strong></td><td>Глухая оборона базы на защитных офицерах (Иваньков, Хаос, Графиня).</td></tr>
-            <tr><td><strong>Титан / Неб. крепость</strong></td><td>Альянсовое супероружие (управляется через Боевой узел): Титан защищает деревню, Небесная крепость штурмует.</td></tr>
+            <tr><td><strong>Ракушка / Черепаха</strong></td><td>Глухая оборона базы на защитных офицерах (Дядюшка Иванков, Мадам Хаос, Терновая графиня, Песнь рассвета).</td></tr>
+            <tr><td><strong>Цех и Эпоха мастеров</strong></td><td>Совместный тактический цех и материалы 33–36 ур. (титановый сплав, иридий); ранние «Небесные крепости» были удалены из игры.</td></tr>
             <tr><td><strong>C4 / ТВД / Пробуждение</strong></td><td>Сезонная кампания (сводка <code>c4</code> в боте) / Пробуждение: 4 навыка 5 ур. (720 фрагментов).</td></tr>
           </tbody>
         </table>
@@ -1004,6 +1005,10 @@ window.BOOK_PAGES = [
     title: '15. Оперсети, Чипы и Механика игры',
     html: `
       <p class="page-lead"><strong>Центр оперативной информации</strong> открывается с возраста сервера <strong>120 дней</strong> и управляет <strong>6 операционными сетями</strong> (по 2 на каждый лагерь).</p>
+      <figure class="page-figure">
+        <img src="assets/ops-chips.webp" alt="Центр оперативной информации, вычислительные чипы и оперсети Warpath" class="page-art" width="1280" height="714" loading="lazy">
+        <figcaption class="page-caption">Центр инфовойны: чипы, 6 операционных сетей и Разгон процессора (цикл 180 дней)</figcaption>
+      </figure>
       <ul class="editorial-list">
         <li><strong>Официальные циклы 14.60:</strong> потолок сетей автоматически поднимается каждые <strong>180 дней</strong> (не 160!), а если ты отстаёшь от макс. уровня/ранга — включается <em>«Разгон процессора»</em> с повышенным шансом доп. апгрейдов.</li>
         <li><strong>Протокол воздушного контроля:</strong> истребитель раздаёт союзным истребителям в радиусе <strong>70%</strong> своего контроля неба. На <strong>Обратную сборку</strong> доступны только юниты <code>7★–7.2★</code> (топ-техника доросла уже до категорий <code>XV–XVI</code>).</li>
@@ -1054,6 +1059,10 @@ window.BOOK_PAGES = [
     title: '16. Авиация, ВМС и Механики 14.6',
     html: `
       <p class="page-lead">После обновлений 14.3–14.6 наземные бои больше не существуют отдельно от неба и моря.</p>
+      <figure class="page-figure">
+        <img src="assets/air-navy.webp" alt="Воздушные группы (истребитель + бомбардировщик) и ВМС Warpath" class="page-art" width="1280" height="714" loading="lazy">
+        <figcaption class="page-caption">Взаимодействие ВВС и флота 14.6: истребитель-прикрытие + бомбардировщики + ракетные эсминцы</figcaption>
+      </figure>
       <ul class="editorial-list">
         <li><strong>Тактика «Ястреб + Бобры»:</strong> выпускай 1 защитного истребителя («Ястреб» на живучесть с Планшетом «Сапсан») <em>до</em> бомбардировщиков (<em>Мадам теней + Сокол</em>, <em>Усатый + Орёл</em>) — ястреб принимает ПВО, пока бобры безнаказанно ломают цель.</li>
         <li><strong>Лайфхак управления на ПК:</strong> если у тебя 3 истребителя, не сбивай их в 1 группу (разлетаются в бою) — привяжи 1-й на клавишу <code>1</code>, а два других на клавишу <code>2</code>.</li>
@@ -1282,10 +1291,14 @@ window.BOOK_PAGES = [
     chapterId: 20,
     isChapterStart: false,
     docCode: 'WP-FM // CH-20B',
-    bookmark: 'ГЛАВА 20 • ВВС, ВМС И ТИТАНЫ',
+    bookmark: 'ГЛАВА 20 • ВВС, ВМС И 36 УР.',
     kicker: 'ГЛАВА 20 (ДОП. СТРАНИЦА)',
-    title: 'ВВС, ВМС, Титаны и Небесные крепости',
+    title: 'ВВС, ВМС и Эпоха мастеров (33–36 ур.)',
     html: `
+      <figure class="page-figure">
+        <img src="assets/artisans-base.webp" alt="Укреплённая база 36 уровня и Совместный тактический цех" class="page-art" width="1280" height="714" loading="lazy">
+        <figcaption class="page-caption">Постройки 33–36 ур. и Совместный тактический цех (титановый сплав и иридий)</figcaption>
+      </figure>
       <div class="editorial-rows">
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">Истребители (70% аура) и Бомбардировщики</span><span class="ed-tag">ВОЗДУХ</span></div>
@@ -1296,8 +1309,8 @@ window.BOOK_PAGES = [
           <p class="ed-row-desc"><strong>Подлодки:</strong> Блэкджек / Дитя прилива. <strong>Эсминцы:</strong> Красный крокодил + Волнорез или Сирена + Клык приливов. В 14.6 добавлены <strong>16 командных навыков</strong> и авиаудары в Морском кубке.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Титаны и Небесные крепости (Супероружие)</span><span class="ed-tag">БОЕВОЙ УЗЕЛ</span></div>
-          <p class="ed-row-desc"><strong>Титан</strong> защищает все базы в деревне (чинится самолётом-разведчиком, принимает гарнизон союзников). Обычные войска его почти не пробивают — штурмует только <strong>Небесная крепость</strong> (сбор союзников до вылета; снабжение суперсплавами из Цеха и Продвинутыми чипами раз в 2 мес. в <em>Быстрых разработках</em>).</p>
+          <div class="ed-row-head"><span class="ed-row-title">Совместный тактический цех и 33–36 ур.</span><span class="ed-tag">ЭПОХА МАСТЕРОВ</span></div>
+          <p class="ed-row-desc"><strong>Титановый сплав и иридий</strong> добываются в <em>Совместном тактическом цехе</em> и событиях: они нужны для апгрейда базы до 33–36 ур. и новых технологий. <em>Примечание:</em> ранние «Небесные крепости» были удалены из активной игры и не участвуют в текущих режимах.</p>
         </div>
       </div>
     `
@@ -1339,7 +1352,7 @@ window.BOOK_PAGES = [
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">Зал вербовки (14.6), Миграция и Таймеры</span><span class="ed-tag">90 / 105 / 120 ДНЕЙ</span></div>
-          <p class="ed-row-desc">Кросс-серверный поиск альянсов с превью миграции. На серверах моложе 90/105/120/180 дн. временно скрыты <em>Склад снаряги / Офиц. обмен / Оперсети / Прототипы</em>. Материалы Титанов (титан. сплав, иридий) — из <em>Эры передовой инженерии</em>.</p>
+          <p class="ed-row-desc">Кросс-серверный поиск альянсов с превью миграции. На серверах моложе 90/105/120/180 дн. временно скрыты <em>Склад снаряги / Офиц. обмен / Оперсети / Прототипы</em>. Материалы 33–36 ур. (титановый сплав, иридий) — из <em>Цехов</em> и <em>Эпохи мастеров</em>.</p>
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">Отчёты и статистика C4 в WarpathHub</span><span class="ed-tag">БОТ @shevchenko01_bot</span></div>
@@ -1416,15 +1429,16 @@ window.CALC_DATA = {
   levelMult: { 1: 1.0, 2: 1.1, 3: 1.22, 4: 1.36, 5: 1.52, 6: 1.7, 7: 1.9, 8: 2.12, 9: 2.38, 10: 2.68 },
   officers: [
     { id: 'none', name: '— Без офицера —', atkB: 0, defB: 0, hpB: 0 },
-    { id: 'jackson', name: 'Джексон Хейз (S, 5 пок.)', atkB: 30, defB: 10, hpB: 5 },
-    { id: 'haymeker', name: 'Хеймекер (S, 5 пок.)', atkB: 35, defB: 5, hpB: 0 },
-    { id: 'curtis', name: 'Кёртис (S, 4 пок.)', atkB: 10, defB: 22, hpB: 15 },
-    { id: 'isabel', name: 'Иссабель (S, 4 пок.)', atkB: 25, defB: 5, hpB: 5 },
-    { id: 'takeda', name: 'Такеда (A, 4 пок.)', atkB: 20, defB: 12, hpB: 8 },
-    { id: 'slater', name: 'Слейтер (A, Авиация)', atkB: 22, defB: 6, hpB: 6 },
-    { id: 'martin', name: 'Мартин (A, 3 пок.)', atkB: 18, defB: 8, hpB: 10 },
-    { id: 'victor', name: 'Виктор (B, 3 пок.)', atkB: 8, defB: 20, hpB: 18 },
-    { id: 'houghton', name: 'Хоутон (B, 3 пок.)', atkB: 12, defB: 10, hpB: 20 }
+    { id: 'jackson', name: 'Стальная коса / Джексон Хейз (S, ДД)', atkB: 32, defB: 8, hpB: 5 },
+    { id: 'scavenger', name: 'Мусорщик (S, Щит / Наземка)', atkB: 16, defB: 26, hpB: 14 },
+    { id: 'dawn', name: 'Песнь рассвета (S, Защита)', atkB: 10, defB: 24, hpB: 16 },
+    { id: 'arbiter', name: 'Арбитр (S, Щиты / База)', atkB: 12, defB: 22, hpB: 15 },
+    { id: 'vindicta', name: 'Мадам Виндикта (S, Арта +1)', atkB: 28, defB: 6, hpB: 8 },
+    { id: 'falcon', name: 'Боевой сокол (S, Арта / Осада)', atkB: 30, defB: 5, hpB: 6 },
+    { id: 'eye', name: 'Око провидения / А. Шевченко', atkB: 26, defB: 8, hpB: 8 },
+    { id: 'rapier', name: 'Е Цимин / Рапира (VADS / ПВО)', atkB: 26, defB: 10, hpB: 10 },
+    { id: 'ivankov', name: 'Дядюшка Иванков (Гарнизон)', atkB: 10, defB: 20, hpB: 18 },
+    { id: 'victor', name: 'Виктор (Базовый, Старт)', atkB: 8, defB: 18, hpB: 16 }
   ],
   equipment: [
     { id: 'none', name: '— Без снаряжения —', atkB: 0, defB: 0, hpB: 0 },

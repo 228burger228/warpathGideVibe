@@ -102,10 +102,13 @@
   const btnResetProgress = document.getElementById('btn-reset-progress');
 
   const hqDialog = document.getElementById('hq-dialog');
+  const btnReportError = document.getElementById('btn-report-error');
   const ticketForm = document.getElementById('ticket-form');
+  const ticketContextBadge = document.getElementById('ticket-context-badge');
   const ticketType = document.getElementById('ticket-type');
   const ticketNick = document.getElementById('ticket-nick');
   const ticketText = document.getElementById('ticket-text');
+  const btnGithubIssue = document.getElementById('btn-github-issue');
   const ticketFeedback = document.getElementById('ticket-feedback');
   const ticketHistoryEl = document.getElementById('ticket-history');
 
@@ -545,6 +548,32 @@
   }
 
   /* ── HQ: TABS, TICKETS, CALCULATOR & COMMUNITY ────────────── */
+  function getTicketContext() {
+    const vol = IS_UPDATES ? 'Том II (Хроника патчей)' : 'Том I (Полевой устав)';
+    const cur = PAGES.find(p => p.page === currentPage) || PAGES[0];
+    const chap = cur?.bookmark || cur?.title || `Стр. ${currentPage}`;
+    return { vol, page: currentPage, chap };
+  }
+
+  function updateGithubIssueLink() {
+    if (!btnGithubIssue) return;
+    const ctx = getTicketContext();
+    const cat = ticketType?.value || 'Ошибка в гайде';
+    const nick = ticketNick?.value.trim() || 'Читатель';
+    const msg = ticketText?.value.trim() || '(укажите, что нужно поправить или обновить на этой странице)';
+    const title = `[${cat}] ${ctx.vol}, стр. ${ctx.page} (${ctx.chap})`;
+    const body = `Том: ${ctx.vol}\nСтраница: ${ctx.page} (${ctx.chap})\nКатегория: ${cat}\nОт: ${nick}\n\nОписание:\n${msg}`;
+    btnGithubIssue.href = `https://github.com/228burger228/warpathGideVibe/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+  }
+
+  function updateTicketContext() {
+    const ctx = getTicketContext();
+    if (ticketContextBadge) {
+      ticketContextBadge.textContent = `Привязка: ${ctx.vol} • Стр. ${ctx.page} • ${ctx.chap}`;
+    }
+    updateGithubIssueLink();
+  }
+
   function openHq(tabName = 'tickets') {
     document.querySelectorAll('[data-hq-tab]').forEach(btn => {
       const active = btn.dataset.hqTab === tabName;
@@ -556,6 +585,7 @@
       panel.classList.toggle('active', active);
       panel.hidden = !active;
     });
+    updateTicketContext();
     renderTickets();
     if (!hqDialog.open) hqDialog.showModal();
   }
@@ -906,6 +936,15 @@
     btn.addEventListener('click', () => openHq(btn.dataset.hqTab));
   });
 
+  btnReportError?.addEventListener('click', () => {
+    if (ticketType) ticketType.value = 'Ошибка в гайде';
+    openHq('tickets');
+    requestAnimationFrame(() => ticketText?.focus());
+  });
+  ticketType?.addEventListener('change', updateGithubIssueLink);
+  ticketNick?.addEventListener('input', updateGithubIssueLink);
+  ticketText?.addEventListener('input', updateGithubIssueLink);
+
   ticketForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const msg = ticketText.value.trim();
@@ -914,10 +953,12 @@
     const id = `#WP-${Math.floor(1000 + Math.random() * 9000)}`;
     const nick = ticketNick.value.trim() || 'Командир';
     const type = ticketType.value;
+    const ctx = getTicketContext();
 
-    const formatted = `[ТИКЕТ ${id}]\nКатегория: ${type}\nОт: ${nick}\nСтраница устава: ${currentPage}\nСуть: ${msg}`;
+    const formatted = `[ТИКЕТ ${id}]\nКатегория: ${type}\nОт: ${nick}\nРаздел: ${ctx.vol}, стр. ${ctx.page} (${ctx.chap})\nСуть: ${msg}`;
 
-    tickets.unshift({ id, type, page: currentPage, text: msg });
+    updateGithubIssueLink();
+    tickets.unshift({ id, type, page: `${ctx.page} (${ctx.chap})`, text: msg });
     saveTickets();
     renderTickets();
 
@@ -928,8 +969,8 @@
     } catch (_) {}
 
     ticketFeedback.textContent = copied
-      ? `Тикет ${id} скопирован. Вставь его в @shevchenko01_bot или чат WarpathHub.`
-      : `Тикет ${id} сохранён в историю. Открой @shevchenko01_bot для отправки.`;
+      ? `Тикет ${id} скопирован! Вставь в @shevchenko01_bot или нажми «Отправить в GitHub ↗».`
+      : `Тикет ${id} готов — нажми «Отправить в GitHub ↗» или отправь в @shevchenko01_bot.`;
 
     ticketText.value = '';
   });

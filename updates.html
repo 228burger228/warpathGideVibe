@@ -195,6 +195,10 @@
               СОДЕРЖАНИЕ • ТОМ II
             </button>
             <div class="codex-meta-right">
+              <button type="button" class="codex-mini-btn codex-report-btn" id="btn-report-error" title="Сообщить о неточности или устаревшей инфе на странице">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></svg>
+                <span>Нашли ошибку?</span>
+              </button>
               <button type="button" class="codex-mini-btn" id="btn-yt-mobile" title="Видеоразборы по теме">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                 <span>Видео</span>
@@ -468,7 +472,8 @@
         </div>
 
         <form class="ticket-form" id="ticket-form">
-          <div class="ticket-form-title">Создать тикет / вопрос в штаб</div>
+          <div class="ticket-form-title">Создать тикет / сообщить о неточности</div>
+          <div class="ticket-context-badge" id="ticket-context-badge">Раздел: Том II • Стр. 1</div>
           <div class="ticket-row">
             <div>
               <label for="ticket-type" class="field-label">Категория</label>
@@ -490,7 +495,8 @@
 
           <div class="ticket-actions">
             <button type="submit" class="btn-primary-tac">Сформировать и скопировать</button>
-            <a href="https://t.me/shevchenko01_bot" target="_blank" rel="noopener noreferrer" class="btn-outline-tac">Открыть @shevchenko01_bot</a>
+            <a href="https://github.com/228burger228/warpathGideVibe/issues/new" target="_blank" rel="noopener noreferrer" class="btn-outline-tac" id="btn-github-issue">Отправить в GitHub ↗</a>
+            <a href="https://t.me/shevchenko01_bot" target="_blank" rel="noopener noreferrer" class="btn-outline-tac">Бот @shevchenko01_bot</a>
           </div>
           <p class="ticket-feedback" id="ticket-feedback" role="status"></p>
         </form>
