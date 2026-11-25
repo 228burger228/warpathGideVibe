@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════
    WARPATH УСТАВ — ТОМ I: Полный справочник командира (48 страниц, 22 главы)
-   База: клиент v14.60.10.464 + WarpathHub + WP Commander + SpeedPath + архив WarpathYTwiki
+   База: официальные гайды v14.60 + WarpathHub + WP Commander + SpeedPath + архив WarpathYTwiki
    ═══════════════════════════════════════════════════════════════ */
 
 window.BOOK_ID = 'manual';
@@ -87,7 +87,7 @@ window.BOOK_PAGES = [
         <p class="cover-subtitle">
           Боевое руководство по Warpath: от первого дня на сервере и траты золота до пробуждения офицеров, контров техники, калькулятора и тикетов WarpathHub.
         </p>
-        <div class="page-kicker">ТОМ I • 22 ГЛАВЫ • 48 СТРАНИЦ • v14.60.10</div>
+        <div class="page-kicker">ТОМ I • 22 ГЛАВЫ • 48 СТРАНИЦ • v14.60</div>
         <div class="cover-actions">
           <button type="button" class="btn-cover-primary" data-goto="2">Открыть содержание →</button>
           <a href="updates.html" class="btn-cover-sec">Том II: Хроника патчей</a>
@@ -203,7 +203,7 @@ window.BOOK_PAGES = [
 
       <figure class="page-figure">
         <img src="assets/bg-parade.webp" alt="Официальный арт Warpath со знамёнами трёх фракций" class="page-art" width="1600" height="898" loading="lazy">
-        <figcaption class="page-caption">Официальный арт клиента v14.60: техника и авиация лагерей</figcaption>
+        <figcaption class="page-caption">Официальный арт v14.60: техника и авиация лагерей</figcaption>
       </figure>
 
       <div class="editorial-rows">
@@ -684,16 +684,16 @@ window.BOOK_PAGES = [
     html: `
       <figure class="page-figure">
         <img src="assets/new-officers.webp" alt="Пять новых офицеров Warpath: Блэкджек, Мусорщик, Красный Крокодил, Главный Судья, Ржавый" class="page-art" width="800" height="800" loading="lazy">
-        <figcaption class="page-caption">Кап 80% по клиенту: бонусы офицеров к устойчивости базы (к навыкам и к автоатакам) суммируются не выше 80%</figcaption>
+        <figcaption class="page-caption">Лимит 80%: бонусы офицеров к устойчивости базы (к навыкам и к автоатакам) суммируются не выше 80%</figcaption>
       </figure>
       <div class="editorial-rows">
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">Арта / RL («Катюша»)</span><span class="ed-tag">+1 ДАЛЬНОСТЬ</span></div>
-          <p class="ed-row-desc"><strong>По игре:</strong> <em>Мадам Виндикта</em> и <em>Боевой сокол</em> дают <code>+1</code> к дальности! Офиц. пары: Виндикта + <em>Безмолвный гром</em> (крит навыков), Боевой сокол + <em>Красная жара</em> (горение), а также Искатель будущего + Шевченко / Глаз провидения (и F2P: Мулянь + Шевченко).</p>
+          <p class="ed-row-desc"><strong>Топ-связки:</strong> <em>Мадам Виндикта</em> и <em>Боевой сокол</em> дают <code>+1</code> к дальности! Офиц. пары: Виндикта + <em>Безмолвный гром</em> (крит навыков), Боевой сокол + <em>Красная жара</em> (горение), а также Искатель будущего + Шевченко / Глаз провидения (и F2P: Мулянь + Шевченко).</p>
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">ЗСУ / Флак (VADS) и Вертолёт</span><span class="ed-tag">АВТОАТАКА / КРИТ</span></div>
-          <p class="ed-row-desc"><strong>Флак:</strong> по клиенту с пробуждённым <em>Е Цимином (Рапира)</em> отлично идёт <em>Клавдия</em> (усиление автоатак), также Стальной + Либерти / Пламя; снаряга <em>Дробовик шерифа + Тигриный кастет</em>. <strong>Верт:</strong> Стальная коса + Госпожа теней (Мулянь) / Маргарита.</p>
+          <p class="ed-row-desc"><strong>Флак:</strong> с пробуждённым <em>Е Цимином (Рапира)</em> отлично идёт <em>Клавдия</em> (усиление автоатак), также Стальной + Либерти / Пламя; снаряга <em>Дробовик шерифа + Тигриный кастет</em>. <strong>Верт:</strong> Стальная коса + Госпожа теней (Мулянь) / Маргарита.</p>
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">ШХ / ОБТ и Оборона («Черепаха»)</span><span class="ed-tag">БЕЗ ГИБРИДОВ</span></div>
@@ -984,6 +984,7 @@ window.BOOK_PAGES = [
             <tr><td><strong>G3 / G2 / Эпик</strong></td><td>Лиги подбора на карте: в Gold 3 (G3) отключены оперсети и XV ранг юнитов, в Gold 2 (G2) и выше — включены.</td></tr>
             <tr><td><strong>Флак / VADS</strong></td><td>Зенитный лёгкий танк (ЗСУ), играет от автоатак и пробития с <code>Дробовиком + Кастетом</code>.</td></tr>
             <tr><td><strong>Ракушка / Черепаха</strong></td><td>Глухая оборона базы на защитных офицерах (Иваньков, Хаос, Графиня).</td></tr>
+            <tr><td><strong>Титан / Неб. крепость</strong></td><td>Альянсовое супероружие (управляется через Боевой узел): Титан защищает деревню, Небесная крепость штурмует.</td></tr>
             <tr><td><strong>C4 / ТВД / Пробуждение</strong></td><td>Сезонная кампания (сводка <code>c4</code> в боте) / Пробуждение: 4 навыка 5 ур. (720 фрагментов).</td></tr>
           </tbody>
         </table>
@@ -1004,7 +1005,7 @@ window.BOOK_PAGES = [
     html: `
       <p class="page-lead"><strong>Центр оперативной информации</strong> открывается с возраста сервера <strong>120 дней</strong> и управляет <strong>6 операционными сетями</strong> (по 2 на каждый лагерь).</p>
       <ul class="editorial-list">
-        <li><strong>Реальные правила из клиента 14.60:</strong> потолок сетей автоматически поднимается каждые <strong>180 дней</strong> (не 160!), а если ты отстаёшь от макс. уровня/ранга — включается <em>«Разгон процессора»</em> с повышенным шансом доп. апгрейдов.</li>
+        <li><strong>Официальные циклы 14.60:</strong> потолок сетей автоматически поднимается каждые <strong>180 дней</strong> (не 160!), а если ты отстаёшь от макс. уровня/ранга — включается <em>«Разгон процессора»</em> с повышенным шансом доп. апгрейдов.</li>
         <li><strong>Протокол воздушного контроля:</strong> истребитель раздаёт союзным истребителям в радиусе <strong>70%</strong> своего контроля неба. На <strong>Обратную сборку</strong> доступны только юниты <code>7★–7.2★</code> (топ-техника доросла уже до категорий <code>XV–XVI</code>).</li>
         <li><strong>Практика билда и Завоевания:</strong> сети качают под усилительные блоки и 20+ уровни (3 зелёных блока выгоднее 1 синего); вне Завоевания интенсивность/сопра режутся до <strong>60%</strong>, а в Завоевании разница статов ограничена <strong>30%</strong>.</li>
       </ul>
@@ -1069,7 +1070,7 @@ window.BOOK_PAGES = [
     docCode: 'WP-FM // CH-16B',
     bookmark: 'ГЛАВА 16 • ОФИЦЕРСКИЙ ОБМЕН',
     kicker: 'ГЛАВА 16 (ДОП. СТРАНИЦА)',
-    title: 'Офицерский обмен и Техас (14.60.10)',
+    title: 'Офицерский обмен и Техас (v14.60)',
     html: `
       <div class="margin-note">
         <div class="margin-note-title">Точные правила Офицерского обмена (сервер 105+ дней)</div>
@@ -1111,7 +1112,7 @@ window.BOOK_PAGES = [
     kicker: 'VII. ПОЛНЫЙ СПРАВОЧНИК (ОТ А ДО Я)',
     title: '17. Боевые формулы и Приведённая броня',
     html: `
-      <p class="page-lead">Урон в Warpath считается не одной кнопкой «Мощь», а попарным сравнением характеристик атакующего и цели (по коду клиента <code>14.60.10</code>):</p>
+      <p class="page-lead">Урон в Warpath считается не одной кнопкой «Мощь», а попарным сравнением характеристик атакующего и цели (по актуальным правилам v14.60):</p>
       <div class="data-table-wrap">
         <table class="data-table">
           <thead>
@@ -1217,7 +1218,7 @@ window.BOOK_PAGES = [
         <li><strong>Топ-1: Командный центр (Штаб)</strong> — разблокирует лимиты всех построек, слоты и возрастные фичи сервера.</li>
         <li><strong>Топ-2: Исследовательский и Инженерный центры</strong> — ускоряют науку, производство кирпича/бетона/стальных балок и дают доступ к Разборке/Обратной сборке.</li>
         <li><strong>Топ-3: Профильные Казармы + Ангар / Верфь</strong> — качай в первую очередь казарму своего основного лагеря и ангар (истребители/бомберы).</li>
-        <li><strong>4 укреплённые стены базы:</strong> по механике клиента у базы <strong>4 независимые стороны стен</strong> (каждая качается отдельно!). Высокие уровни дают прямые <code>+%</code> к ОЗ и сопротивлению базы.</li>
+        <li><strong>4 укреплённые стены базы:</strong> по механике игры у базы <strong>4 независимые стороны стен</strong> (каждая качается отдельно!). Высокие уровни дают прямые <code>+%</code> к ОЗ и сопротивлению базы.</li>
       </ul>
     `
   },
@@ -1281,22 +1282,22 @@ window.BOOK_PAGES = [
     chapterId: 20,
     isChapterStart: false,
     docCode: 'WP-FM // CH-20B',
-    bookmark: 'ГЛАВА 20 • НЕБО И МОРЕ',
+    bookmark: 'ГЛАВА 20 • ВВС, ВМС И ТИТАНЫ',
     kicker: 'ГЛАВА 20 (ДОП. СТРАНИЦА)',
-    title: 'Энциклопедия ВВС и ВМС (Небо и Море)',
+    title: 'ВВС, ВМС, Титаны и Небесные крепости',
     html: `
       <div class="editorial-rows">
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Истребители (Воздушный контроль)</span><span class="ed-tag">70% АУРА</span></div>
-          <p class="ed-row-desc">Тот, у кого выше <em>Контроль воздушного пространства</em>, наносит больше и получает меньше урона. Плюс защитный истребитель передаёт <strong>70%</strong> своего контроля союзникам в радиусе.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Истребители (70% аура) и Бомбардировщики</span><span class="ed-tag">ВОЗДУХ</span></div>
+          <p class="ed-row-desc">Защитный истребитель передаёт союзникам в радиусе <strong>70%</strong> контроля неба. Бомберы <strong>Авангарда</strong> делят урон по всем целям в квадрате (<code>+2%</code> за каждый видимый юнит); <strong>Либерти</strong> бьёт точечно под щитом ястреба.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Бомбардировщики (Разница лагерей)</span><span class="ed-tag">АВАНГАРД / ЛИБЕРТИ</span></div>
-          <p class="ed-row-desc">Бомбардировщики <strong>Авангарда</strong> делят урон по всем видимым юнитам в квадрате (<code>+2%</code> за каждый видимый юнит); <strong>Либерти</strong> лучше бьёт точечные/бронированные цели. Выпускай бобров строго под прикрытием ястреба!</p>
+          <div class="ed-row-head"><span class="ed-row-title">ВМС (Подлодки, ПВО и Ракетные эсминцы)</span><span class="ed-tag">ГЕГЕМОН 14.6</span></div>
+          <p class="ed-row-desc"><strong>Подлодки:</strong> Блэкджек / Дитя прилива. <strong>Эсминцы:</strong> Красный крокодил + Волнорез или Сирена + Клык приливов. В 14.6 добавлены <strong>16 командных навыков</strong> и авиаудары в Морском кубке.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">ВМС (Подлодки, ПВО и Ракетные эсминцы)</span><span class="ed-tag">МОРСКОЙ ГЕГЕМОН</span></div>
-          <p class="ed-row-desc"><strong>Подлодки (Кит 627А):</strong> Блэкджек / Дитя прилива. <strong>Эсминцы и Крейсеры:</strong> Красный крокодил + Волнорез (горение по броне) или Сирена + Клык приливов. В пачке 14.6 авиация интегрирована в Морской кубок.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Титаны и Небесные крепости (Супероружие)</span><span class="ed-tag">БОЕВОЙ УЗЕЛ</span></div>
+          <p class="ed-row-desc"><strong>Титан</strong> защищает все базы в деревне (чинится самолётом-разведчиком, принимает гарнизон союзников). Обычные войска его почти не пробивают — штурмует только <strong>Небесная крепость</strong> (сбор союзников до вылета; снабжение суперсплавами из Цеха и Продвинутыми чипами раз в 2 мес. в <em>Быстрых разработках</em>).</p>
         </div>
       </div>
     `
@@ -1333,12 +1334,12 @@ window.BOOK_PAGES = [
     html: `
       <div class="editorial-rows">
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Карта Техаса и Электроснабжение</span><span class="ed-tag">ПОРОГ 90%</span></div>
-          <p class="ed-row-desc">Эффективность питания = множитель поселения × множитель электротехнологий. Упадёт ниже <strong>90%</strong> — вся база и войска получают ступенчатый штраф к урону!</p>
+          <div class="ed-row-head"><span class="ed-row-title">Техас: Цех хранения энергии и Электросети</span><span class="ed-tag">ПОРОГ 90%</span></div>
+          <p class="ed-row-desc">Цех производит батареи высокой энергоемкости (ресурсы за стройку возвращаются после сезона). При падении питания базы ниже <strong>90%</strong> войска и база ловят штраф к урону.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Перелёт (Миграция) и Блокировки зданий</span><span class="ed-tag">90 / 105 / 120 ДНЕЙ</span></div>
-          <p class="ed-row-desc">При миграции на молодой сервер временно блокируются: до 90 дн. — <em>Склад снаряжения</em>, до 105 дн. — <em>Офицерский обмен</em>, до 120 дн. — <em>Оперсети</em>, до 180 дн. — <em>Прототипы 8★+</em>. Прогресс сохраняется.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Зал вербовки (14.6), Миграция и Таймеры</span><span class="ed-tag">90 / 105 / 120 ДНЕЙ</span></div>
+          <p class="ed-row-desc">Кросс-серверный поиск альянсов с превью миграции. На серверах моложе 90/105/120/180 дн. временно скрыты <em>Склад снаряги / Офиц. обмен / Оперсети / Прототипы</em>. Материалы Титанов (титан. сплав, иридий) — из <em>Эры передовой инженерии</em>.</p>
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">Отчёты и статистика C4 в WarpathHub</span><span class="ed-tag">БОТ @shevchenko01_bot</span></div>
@@ -1451,7 +1452,7 @@ window.COMMUNITY_LINKS = [
   { name: 'MoreScop3s (EN)', desc: 'Глубокие тесты новых офицеров (Мусорщик, Крокодил) и патчи 14.5–14.6.', url: 'https://www.youtube.com/@MoreScop3s', cta: 'YouTube ↗' },
   { name: 'Twon22 — Antoine Leclerc (EN)', desc: 'Эндгейм-гайды, войны серверов, карты завоеваний и мини-гайды по офицерам.', url: 'https://www.youtube.com/@Twon22', cta: 'YouTube ↗' },
   { name: 'WarpathYTwiki (Архив Бургера)', desc: 'Старый авторский справочник и конструктор (давно не обновляется; для актуальных расчётов используй WP Commander).', url: 'https://228burger228.github.io/WarpathYTwiki/index.html', cta: 'Архив ↗' },
-  { name: 'Официальный Discord Warpath', desc: 'Международный сервер разработчиков Lilith Games (из клиента v14.60).', url: 'https://discord.com/invite/playwarpath', cta: 'Discord ↗' }
+  { name: 'Официальный Discord Warpath', desc: 'Международный сервер разработчиков Lilith Games (объявления и патч-ноты v14.60).', url: 'https://discord.com/invite/playwarpath', cta: 'Discord ↗' }
 ];
 
 window.PROMO_CODES = [
