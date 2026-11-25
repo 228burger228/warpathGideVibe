@@ -195,6 +195,14 @@
               СОДЕРЖАНИЕ • ТОМ II
             </button>
             <div class="codex-meta-right">
+              <button type="button" class="codex-mini-btn" id="btn-yt-mobile" title="Видеоразборы по теме">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Видео</span>
+              </button>
+              <button type="button" class="codex-mini-btn" id="btn-shelf-mobile" title="Книжная полка — все тома">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                <span>Полка</span>
+              </button>
               <span class="led-indicator" aria-hidden="true"></span>
               <span id="codex-chapter-progress">ИЗУЧЕНО 0 / 8</span>
             </div>
@@ -271,6 +279,7 @@
           </button>
           <label class="sr-only" for="page-scrubber">Быстрый переход по страницам</label>
           <input type="range" id="page-scrubber" class="page-scrubber" min="1" max="18" value="2">
+          <span class="scrubber-chapter" id="scrubber-chapter">Содержание</span>
         </div>
 
         <button type="button" class="dock-arrow" id="btn-next" aria-label="Следующая страница" title="Вперёд (→)">
@@ -279,6 +288,17 @@
           </svg>
         </button>
       </nav>
+
+      <!-- Уголок авторов материалов -->
+      <footer class="desk-credits" aria-label="Авторы и источники материалов">
+        <span>Материалы:</span>
+        <a href="https://www.youtube.com/@burgerdom6" target="_blank" rel="noopener noreferrer">@burgerdom6</a>
+        <a href="https://www.youtube.com/@e6aka56" target="_blank" rel="noopener noreferrer">@e6aka56</a>
+        <a href="https://www.youtube.com/@VNwarpath1" target="_blank" rel="noopener noreferrer">@VNwarpath1</a>
+        <a href="https://www.youtube.com/@MoreScop3s" target="_blank" rel="noopener noreferrer">@MoreScop3s</a>
+        <a href="https://www.youtube.com/@Twon22" target="_blank" rel="noopener noreferrer">@Twon22</a>
+        <a href="https://www.youtube.com/@ClanGothic/videos" target="_blank" rel="noopener noreferrer">Сократ</a>
+      </footer>
     </main>
 
     <!-- Правая Книжная полка (Выбор книги / тома) -->
@@ -383,6 +403,15 @@
         </div>
       </div>
       <div class="drawer-toc" id="drawer-toc"></div>
+      <div class="author-credit-card">
+        <div class="author-credit-head">
+          <span class="author-credit-badge">ОБ АВТОРЕ ПРОЕКТА</span>
+          <a href="https://www.youtube.com/@burgerdom6" target="_blank" rel="noopener noreferrer" class="author-yt-link">YouTube @burgerdom6 ↗</a>
+        </div>
+        <p class="author-credit-desc">
+          <strong>Бургер (@burgerdom6):</strong> сборка и дизайн устава (Том I–II под клиент <code>14.60.10</code>), база <a href="https://228burger228.github.io/WarpathYTwiki/index.html" target="_blank" rel="noopener noreferrer">WarpathYTwiki</a>, тир-листы офицеров, разборы аккаунтов и видеогайды.
+        </p>
+      </div>
       <div class="drawer-footer">
         <button type="button" class="btn-secondary" id="btn-reset-progress">Сбросить прогресс</button>
       </div>
@@ -404,6 +433,7 @@
     <div class="modal-body">
       <div class="hq-tabs" role="tablist" aria-label="Разделы штаба">
         <button type="button" class="hq-tab active" role="tab" aria-selected="true" data-hq-tab="tickets">Тикеты и Вопросы</button>
+        <button type="button" class="hq-tab" role="tab" aria-selected="false" data-hq-tab="codes">Промокоды</button>
         <button type="button" class="hq-tab" role="tab" aria-selected="false" data-hq-tab="calc">Калькулятор</button>
         <button type="button" class="hq-tab" role="tab" aria-selected="false" data-hq-tab="community">Комьюнити</button>
       </div>
@@ -479,6 +509,19 @@
           <span>Полный расчёт с деталями и модами доступен в боте:</span>
           <a href="https://t.me/shevchenko01_bot" target="_blank" rel="noopener noreferrer">@shevchenko01_bot</a>
         </div>
+      </div>
+
+      <div class="hq-panel" id="hq-panel-codes" role="tabpanel" hidden>
+        <div class="promo-guide-box">
+          <div class="promo-guide-text">
+            <strong>Куда вводить:</strong> в игре <em>Опции → Подарки</em> или на портале Лилит (UID → Send Code → код из Системной почты). Нажми на кнопку, чтобы скопировать код в 1 клик.
+          </div>
+          <div class="promo-toolbar">
+            <button type="button" class="btn-primary-tac" id="btn-copy-all-codes">Скопировать все списком</button>
+            <a href="https://cdkey.lilith.com/warpath-global" target="_blank" rel="noopener noreferrer" class="btn-outline-tac">Портал Лилит ↗</a>
+          </div>
+        </div>
+        <div class="promo-list" id="promo-list"></div>
       </div>
 
       <div class="hq-panel" id="hq-panel-community" role="tabpanel" hidden>

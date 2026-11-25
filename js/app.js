@@ -13,7 +13,8 @@
     theme: 'wp_guide_theme',
     tickets: 'wp_guide_tickets',
     ttsRate: 'wp_guide_tts_rate',
-    sfx: 'wp_guide_sfx'
+    sfx: 'wp_guide_sfx',
+    usedCodes: 'wp_guide_used_codes'
   };
 
   const pages = window.BOOK_PAGES || [];
@@ -38,6 +39,7 @@
   const elCounterCurrent = document.getElementById('counter-current');
   const elCounterTotal = document.getElementById('counter-total');
   const pageScrubber = document.getElementById('page-scrubber');
+  const scrubberChapter = document.getElementById('scrubber-chapter');
 
   const btnPrev = document.getElementById('btn-prev');
   const btnNext = document.getElementById('btn-next');
@@ -67,6 +69,7 @@
   /* Левое меню YouTube */
   const ytDrawer = document.getElementById('yt-drawer');
   const btnYtToggle = document.getElementById('btn-yt-toggle');
+  const btnYtMobile = document.getElementById('btn-yt-mobile');
   const btnYtClose = document.getElementById('btn-yt-close');
   const ytTopicTitle = document.getElementById('yt-topic-title');
   const ytDrawerList = document.getElementById('yt-drawer-list');
@@ -75,6 +78,7 @@
   /* Правая Книжная полка */
   const shelfDrawer = document.getElementById('shelf-drawer');
   const btnShelfToggle = document.getElementById('btn-shelf-toggle');
+  const btnShelfMobile = document.getElementById('btn-shelf-mobile');
   const btnShelfClose = document.getElementById('btn-shelf-close');
 
   /* TTS бар */
@@ -110,6 +114,8 @@
   const calcEquip = document.getElementById('calc-equip');
   const calcResults = document.getElementById('calc-results');
   const communityList = document.getElementById('community-list');
+  const promoList = document.getElementById('promo-list');
+  const btnCopyAllCodes = document.getElementById('btn-copy-all-codes');
 
   let currentPage = 2;
   let doneChapters = new Set();
@@ -153,7 +159,7 @@
 
   /* ── STATE ────────────────────────────────────────────────── */
   function isSpreadActive() {
-    return spreadPref && window.innerWidth >= 960 && currentPage > 1;
+    return spreadPref && window.innerWidth >= 960;
   }
 
   function updateToolBadges() {
@@ -376,8 +382,8 @@
     currentPage = target;
 
     const spread = isSpreadActive();
-    if (spread && target > 1 && target % 2 === 1) {
-      // В режиме разворота левая страница — чётная (2-3, 4-5, 6-7...), чтобы Содержание (2) было слева
+    if (spread && target % 2 === 0) {
+      // Левая страница разворота — нечётная: 1-2 (Обложка + Содержание), 3-4 (Глава 1), 5-6 (Глава 2)...
       target = clampPage(target - 1);
       currentPage = target;
     }
@@ -402,20 +408,25 @@
     const leftData = pages[currentPage - 1];
     renderSinglePageInto(leftData, elContentLeft, elPageNumLeft, elDocCodeLeft, elSecLeft);
 
+    let rightData = null;
     if (spread) {
-      const rightData = pages[currentPage] || null;
+      rightData = pages[currentPage] || null;
       renderSinglePageInto(rightData, elContentRight, elPageNumRight, elDocCodeRight, elSecRight);
       elCounterCurrent.textContent = rightData ? `${currentPage}–${rightData.page}` : String(currentPage);
     } else {
       elCounterCurrent.textContent = String(currentPage);
     }
 
-    elBookmark.textContent = leftData?.bookmark || 'WARPATH УСТАВ';
+    const activeData = (leftData?.type === 'cover' && rightData) ? rightData : leftData;
+    elBookmark.textContent = activeData?.bookmark || 'WARPATH УСТАВ';
+    if (scrubberChapter) {
+      scrubberChapter.textContent = activeData?.title || activeData?.bookmark || '';
+    }
     elCounterTotal.textContent = String(totalPages);
     pageScrubber.max = String(totalPages);
     pageScrubber.value = String(currentPage);
 
-    updateYoutubeDrawer(leftData?.chapterId);
+    updateYoutubeDrawer(rightData?.chapterId || leftData?.chapterId);
 
     const totalCh = tocSections.reduce((acc, s) => acc + s.chapters.length, 0);
     elChapterProgress.textContent = `ИЗУЧЕНО ${doneChapters.size} / ${totalCh}`;
@@ -453,11 +464,6 @@
     const spread = isSpreadActive();
     if (spread ? currentPage >= totalPages - 1 : currentPage >= totalPages) return;
 
-    if (currentPage === 1) {
-      renderPage(2, 'next');
-      return;
-    }
-
     let next = currentPage + (spread ? 2 : 1);
     if (skipSubpages) {
       while (next < totalPages && !pages[next - 1].isChapterStart) next++;
@@ -468,11 +474,6 @@
   function goPrev() {
     if (currentPage <= 1) return;
     const spread = isSpreadActive();
-
-    if (currentPage === 2) {
-      renderPage(1, 'prev');
-      return;
-    }
 
     let prev = currentPage - (spread ? 2 : 1);
     if (skipSubpages) {
@@ -631,6 +632,97 @@
     `).join('');
   }
 
+  async function copyTextSafe(txt) {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(txt);
+        return true;
+      }
+    } catch (_) {}
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = txt;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand('copy');
+      ta.remove();
+      return ok;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function initPromoCodes() {
+    if (!promoList) return;
+    const codes = window.PROMO_CODES || [];
+    let usedSet = new Set();
+    try {
+      const raw = JSON.parse(localStorage.getItem(STORAGE_KEYS.usedCodes) || '[]');
+      if (Array.isArray(raw)) usedSet = new Set(raw);
+    } catch (_) {}
+
+    const saveUsed = () => {
+      try { localStorage.setItem(STORAGE_KEYS.usedCodes, JSON.stringify([...usedSet])); } catch (_) {}
+    };
+
+    const renderCodes = () => {
+      promoList.innerHTML = codes.map(c => {
+        const isUsed = usedSet.has(c.code);
+        return `
+          <div class="promo-card ${isUsed ? 'is-used' : ''}">
+            <div class="promo-left">
+              <div class="promo-top-row">
+                <code class="promo-code-chip">${c.code}</code>
+                <span class="ed-tag">${c.tag}</span>
+              </div>
+              <div class="promo-note">${c.note}</div>
+            </div>
+            <div class="promo-actions">
+              <button type="button" class="promo-copy-btn" data-copy-code="${c.code}">Копировать</button>
+              <button type="button" class="promo-used-btn" data-toggle-code="${c.code}" title="Отметить использованным">${isUsed ? 'Использован ✓' : 'Отметить'}</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    };
+
+    promoList.addEventListener('click', async (e) => {
+      const copyBtn = e.target.closest('[data-copy-code]');
+      if (copyBtn) {
+        const code = copyBtn.dataset.copyCode;
+        const ok = await copyTextSafe(code);
+        copyBtn.textContent = ok ? 'Скопировано ✓' : code;
+        copyBtn.classList.add('is-copied');
+        setTimeout(() => {
+          copyBtn.textContent = 'Копировать';
+          copyBtn.classList.remove('is-copied');
+        }, 1600);
+        return;
+      }
+      const toggleBtn = e.target.closest('[data-toggle-code]');
+      if (toggleBtn) {
+        const code = toggleBtn.dataset.toggleCode;
+        if (usedSet.has(code)) usedSet.delete(code);
+        else usedSet.add(code);
+        saveUsed();
+        renderCodes();
+      }
+    });
+
+    btnCopyAllCodes?.addEventListener('click', async () => {
+      const activeList = codes.filter(c => !usedSet.has(c.code)).map(c => c.code);
+      const payload = (activeList.length ? activeList : codes.map(c => c.code)).join('\n');
+      const ok = await copyTextSafe(payload);
+      const orig = btnCopyAllCodes.textContent;
+      btnCopyAllCodes.textContent = ok ? `Скопировано (${payload.split('\n').length}) ✓` : 'Ошибка буфера';
+      setTimeout(() => { btnCopyAllCodes.textContent = orig; }, 1800);
+    });
+
+    renderCodes();
+  }
+
   /* ── EVENTS ───────────────────────────────────────────────── */
   codexCover.addEventListener('click', (e) => {
     const gotoBtn = e.target.closest('[data-goto]');
@@ -670,8 +762,16 @@
     if (open && window.innerWidth < 1100) toggleShelfDrawer(false);
   };
   btnYtToggle.addEventListener('click', () => toggleYtDrawer());
+  btnYtMobile?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleYtDrawer();
+  });
   btnYtClose.addEventListener('click', () => toggleYtDrawer(false));
   btnShelfToggle?.addEventListener('click', () => toggleShelfDrawer());
+  btnShelfMobile?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleShelfDrawer();
+  });
   btnShelfClose?.addEventListener('click', () => toggleShelfDrawer(false));
 
   pageScrubber.addEventListener('input', () => {
@@ -825,10 +925,22 @@
     ticketText.value = '';
   });
 
-  /* Клавиатура и свайпы */
+  /* Клавиатура, клик вне полок и свайпы */
+  document.addEventListener('click', (e) => {
+    if (ytDrawer.classList.contains('is-open') && !ytDrawer.contains(e.target) && !btnYtMobile?.contains(e.target)) {
+      toggleYtDrawer(false);
+    }
+    if (shelfDrawer && shelfDrawer.classList.contains('is-open') && !shelfDrawer.contains(e.target) && !btnShelfMobile?.contains(e.target)) {
+      toggleShelfDrawer(false);
+    }
+  });
+
   document.addEventListener('keydown', (e) => {
     if (searchDialog.open || menuDialog.open || hqDialog.open) return;
-    if (e.key === 'ArrowRight') goNext();
+    if (e.key === 'Escape') {
+      toggleYtDrawer(false);
+      toggleShelfDrawer(false);
+    } else if (e.key === 'ArrowRight') goNext();
     else if (e.key === 'ArrowLeft') goPrev();
     else if (e.key === '/') {
       e.preventDefault();
@@ -836,8 +948,13 @@
     }
   });
 
+  let lastSpreadActive = isSpreadActive();
   window.addEventListener('resize', () => {
-    renderPage(currentPage, null);
+    const nextSpreadActive = isSpreadActive();
+    if (nextSpreadActive !== lastSpreadActive) {
+      lastSpreadActive = nextSpreadActive;
+      renderPage(currentPage, null);
+    }
   });
 
   let touchStartX = 0;
@@ -860,5 +977,6 @@
   loadState();
   initCalculator();
   initCommunity();
+  initPromoCodes();
   renderPage(currentPage, null);
 })();

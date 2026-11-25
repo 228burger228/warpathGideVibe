@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════
    WARPATH УСТАВ — ТОМ I: Полевой устав командира (36 страниц, 16 глав)
-   База: WarpathYTwiki + клиент v14.60.453 + WarpathHub + гайды 2025-2026
+   База: WarpathYTwiki + клиент v14.60.10.464 + WarpathHub + гайды 2025-2026
    ═══════════════════════════════════════════════════════════════ */
 
 window.BOOK_ID = 'manual';
@@ -76,7 +76,7 @@ window.BOOK_PAGES = [
         <p class="cover-subtitle">
           Боевое руководство по Warpath: от первого дня на сервере и траты золота до пробуждения офицеров, контров техники, калькулятора и тикетов WarpathHub.
         </p>
-        <div class="page-kicker">ТОМ I • 16 ГЛАВ • 36 СТРАНИЦ • v14.60</div>
+        <div class="page-kicker">ТОМ I • 16 ГЛАВ • 36 СТРАНИЦ • v14.60.10</div>
         <div class="cover-actions">
           <button type="button" class="btn-cover-primary" data-goto="2">Открыть содержание →</button>
           <a href="updates.html" class="btn-cover-sec">Том II: Хроника патчей</a>
@@ -124,11 +124,11 @@ window.BOOK_PAGES = [
         <li><strong>Доски, Кирпичи, Цемент, Стальные балки:</strong> требуются для постройки и повышения уровней всех зданий базы (вплоть до 32–36 ур. в Эпохе мастеров). Производятся в <strong>Инженерном центре</strong>, падают в тумане и на Чёрном рынке.</li>
       </ul>
 
-      <h3 class="section-h3">3. Ресурсы на Юниты, Офицеров и Инфовойну</h3>
+      <h3 class="section-h3">3. Ресурсы на Юниты, Офицеров и Оперсети</h3>
       <ul class="editorial-list">
-        <li><strong>Для Юнитов (Армия):</strong> <em>Боеприпасы (Патроны)</em> и <em>Боевой опыт</em> поднимают уровень отряда; <em>Детали / Компоненты</em> нужны для модов и экипировки; <em>Купоны (Универсальные и Лагерные)</em> дают новые карточки техники для звёзд 7.2★ и 9.2★.</li>
-        <li><strong>Для Офицеров:</strong> <em>Книги опыта</em> качают уровень, а <em>Статуэтки / Фрагменты</em> открывают навыки и Пробуждение (720 фрагментов).</li>
-        <li><strong>Для Инфовойны:</strong> <em>Вычислительные чипы и Карты</em> усиливают огневую мощь и живучесть целого лагеря.</li>
+        <li><strong>Для Юнитов (Армия):</strong> <em>Боеприпасы (Патроны)</em> и <em>Боевой опыт</em> поднимают уровень отряда; <em>Детали / Чертежи (включая <code>++</code>)</em> нужны для экипировки (шанс на <code>++</code> есть и при открытии ящика, и при крафте обычной детали); <em>Купоны (Универсальные и Лагерные)</em> дают карточки техники (вплоть до 9.2★ и ранга XV).</li>
+        <li><strong>Для Офицеров:</strong> <em>Книги опыта</em> качают уровень, <em>Статуэтки / Фрагменты</em> открывают навыки и Пробуждение (720 фрагментов), а <em>Золотые ключи/планшеты</em> — личное снаряжение (щит, дробовик, кастет, сапсан).</li>
+        <li><strong>Инфовойна и Оперсети:</strong> <em>Вычислительные чипы, Карты</em> и <em>зелёные купоны/блоки</em> Операционных сетей усиливают весь лагерь сильнее дорогого Коллекционера.</li>
       </ul>
     `
   },
@@ -145,9 +145,9 @@ window.BOOK_PAGES = [
       <div class="margin-note">
         <div class="margin-note-title">Шпаргалка новичка: что откуда фармится</div>
         <ul>
-          <li><strong>Сталь / Нефть / Фонды:</strong> сборщики на точках карты + Кампания + ежедневные задания.</li>
-          <li><strong>Кирпичи / Цемент / Балки:</strong> заказ в Инженерном центре + разведка тумана (склады, обломки самолётов) + Чёрный рынок.</li>
-          <li><strong>Фрагменты и Детали:</strong> Экспедиции, лагеря Ворон и этапы Arms Race.</li>
+          <li><strong>Сталь / Нефть / Фонды:</strong> сборщики на точках карты + Чёрный рынок (при каждом обновлении скупай ресурсы за ресурсы и ускорения за 10–20 золота).</li>
+          <li><strong>Кирпичи / Цемент / Балки:</strong> заказ в Инженерном центре + разведка тумана + склады альянса.</li>
+          <li><strong>Фрагменты, Чертежи и Купоны:</strong> Экспедиции, лагеря Ворон, Юрисдикции и ивент-магазины.</li>
         </ul>
       </div>
 
@@ -360,12 +360,15 @@ window.BOOK_PAGES = [
         </ul>
       </div>
 
-      <h3 class="section-h3">Где брать золото каждый день</h3>
+      <h3 class="section-h3">Где брать золото и промокоды</h3>
       <ul class="editorial-list">
-        <li><strong>Ежедневные задания:</strong> до 600 золота в сутки за полное закрытие.</li>
-        <li><strong>Первые убийства отрядов Raven</strong> и зачистка новых лагерей.</li>
-        <li><strong>Исследование карты</strong> (сундуки в тумане), достижения и повышение уровня командира.</li>
+        <li><strong>Ежедневные задания и Юрисдикции:</strong> до 600 золота в сутки. Внимание: по вторникам и воскресеньям усложнённые юрисдикции требуют до 80 ключей снаряжения — планируй ключи заранее.</li>
+        <li><strong>Промокоды (Опции → Подарки):</strong> с 2026 года коды вводятся прямо в игре во вкладке <em>Опции → Подарки</em> или на <a href="https://cdkey.lilith.com/warpath-global" target="_blank" rel="noopener noreferrer">cdkey.lilith.com/warpath-global</a> (лимит активаций ограничен, вводи сразу).</li>
+        <li><strong>Чёрный рынок и ивенты:</strong> всегда скупай ресурсы за ресурсы и ускорения со скидкой 10–20 золота, а перед крупным «Обменом офицеров» пропускай рулетку статуй, если золота впритык.</li>
       </ul>
+      <div class="inline-cta-row">
+        <button type="button" class="page-link-btn" data-open-hq="codes">Открыть выписку промокодов →</button>
+      </div>
     `
   },
   {
@@ -380,9 +383,9 @@ window.BOOK_PAGES = [
     html: `
       <ul class="editorial-list">
         <li><strong>Мгновенное завершение стройки/исследований:</strong> самая дорогая и бессмысленная трата. Используй обычные ускорения.</li>
-        <li><strong>Покупка стали, нефти и фондов за золото:</strong> курс грабительский, ресурсы легко добываются на карте и в событиях.</li>
-        <li><strong>Случайные сундуки в обычном магазине:</strong> без гаранта ты просто сожжёшь валюту. Копи золото на ивентные баннеры 5-го поколения и VIP.</li>
-        <li><strong>Чёрный рынок без скидки:</strong> бери товары на Чёрном рынке только если там глубокая скидка (от 50–70%) на критически нужные ускорения или детали.</li>
+        <li><strong>Покупка стали, нефти и фондов за золото:</strong> курс грабительский, ресурсы легко добываются на карте и на Чёрном рынке за другие ресурсы.</li>
+        <li><strong>Случайные сундуки и рулетка перед обменом:</strong> без гаранта сжигается валюта. Перед «Обменом офицеров» (14.6) золото держат под покупку слотов в магазине обмена.</li>
+        <li><strong>Чёрный рынок без скидки:</strong> бери товары за золото только при глубокой скидке (10–20 золота за ускорение или редкие купоны).</li>
       </ul>
     `
   },
@@ -664,30 +667,30 @@ window.BOOK_PAGES = [
     chapterId: 9,
     isChapterStart: false,
     docCode: 'WP-FM // CH-09C',
-    bookmark: 'ГЛАВА 9 • НОВЫЕ ОФИЦЕРЫ',
+    bookmark: 'ГЛАВА 9 • СВЯЗКИ 2026',
     kicker: 'ГЛАВА 9 (ДОП. СТРАНИЦА)',
-    title: 'Новые офицеры (14.5–14.60)',
+    title: 'Рабочие связки и мета 14.5–14.60',
     html: `
       <figure class="page-figure">
         <img src="assets/new-officers.webp" alt="Пять новых офицеров Warpath: Блэкджек, Мусорщик, Красный Крокодил, Главный Судья, Ржавый" class="page-art" width="800" height="800" loading="lazy">
-        <figcaption class="page-caption">Пятёрка офицеров последних патчей: море, защита, арта и поле</figcaption>
+        <figcaption class="page-caption">Кап 80% по клиенту: бонусы офицеров к устойчивости базы (к навыкам и к автоатакам) суммируются не выше 80%</figcaption>
       </figure>
       <div class="editorial-rows">
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Блэкджек</span><span class="ed-tag">ВМС</span></div>
-          <p class="ed-row-desc">Морской офицер — подводные лодки и противолодочные силы.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Арта / RL («Катюша»)</span><span class="ed-tag">+1 ДАЛЬНОСТЬ</span></div>
+          <p class="ed-row-desc"><strong>По игре:</strong> <em>Мадам Виндикта</em> и <em>Боевой сокол</em> дают <code>+1</code> к дальности! Офиц. пары: Виндикта + <em>Безмолвный гром</em> (крит навыков), Боевой сокол + <em>Красная жара</em> (горение), а также Искатель будущего + Шевченко / Глаз провидения (и F2P: Мулянь + Шевченко).</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Мусорщик</span><span class="ed-tag">ЗАЩИТА</span></div>
-          <p class="ed-row-desc">Офицер защиты — усиление пехоты и танковых подразделений.</p>
+          <div class="ed-row-head"><span class="ed-row-title">ЗСУ / Флак (VADS) и Вертолёт</span><span class="ed-tag">АВТОАТАКА / КРИТ</span></div>
+          <p class="ed-row-desc"><strong>Флак:</strong> по клиенту с пробуждённым <em>Е Цимином (Рапира)</em> отлично идёт <em>Клавдия</em> (усиление автоатак), также Стальной + Либерти / Пламя; снаряга <em>Дробовик шерифа + Тигриный кастет</em>. <strong>Верт:</strong> Стальная коса + Госпожа теней (Мулянь) / Маргарита.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Красный Крокодил</span><span class="ed-tag">ВМС</span></div>
-          <p class="ed-row-desc">Морской офицер — наступательные ВМС и прорыв флота.</p>
+          <div class="ed-row-head"><span class="ed-row-title">ШХ / ОБТ и Оборона («Черепаха»)</span><span class="ed-tag">БЕЗ ГИБРИДОВ</span></div>
+          <p class="ed-row-desc"><strong>Офиц. связки:</strong> <em>Арбитр + Песнь рассвета</em> (щиты и живучесть) / Иваньков / Терновая графиня; в атаку — <em>Стальная коса / Егерь + Мулянь</em> (не смешивай деф-офицеров с атакующими в 1 юните).</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Главный Судья / Ржавый</span><span class="ed-tag">АРТА / ТАНКИ</span></div>
-          <p class="ed-row-desc"><strong>Главный Судья:</strong> артиллерия и гарнизон базы. <strong>Ржавый:</strong> танковый офицер для полевых сражений.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Новые 14.5+: Море и Поддержка</span><span class="ed-tag">БЛЭКДЖЕК / КРОКОДИЛ</span></div>
+          <p class="ed-row-desc"><strong>ВМС:</strong> <em>Красный крокодил + Волнорез</em> (горение флота), <em>Блэкджек</em> и <em>Дитя прилива</em> (подлодки). <strong>Суша:</strong> <em>Мусорщик</em> (деф), <em>Главный Судья</em> (арта), <em>Ржавый</em> (поле).</p>
         </div>
       </div>
     `
@@ -754,8 +757,12 @@ window.BOOK_PAGES = [
         <p>Стеклянные пушки (арта и ПТ) без танкового щита впереди умирают за 3 секунды до того, как успеют разрядить навыки.</p>
       </div>
       <div class="margin-note">
-        <div class="margin-note-title">3. Непрофильный офицер</div>
-        <p>Постановка артиллерийского или авиационного офицера на танк обнуляет половину его пассивных бонусов. Всегда проверяй теги юнитов в описании навыков!</p>
+        <div class="margin-note-title">3. Непрофильный офицер и слепые условия</div>
+        <p>Постановка неверного офицера обнуляет пассивки. По чеклисту <strong>SpeedPath</strong>: всегда проверяй 4 условия каждого навыка — <em>тип юнита, позицию, территорию и режим</em> — и не считай условный бонус, если не выполняешь его.</p>
+      </div>
+      <div class="margin-note">
+        <div class="margin-note-title">4. Смешивание бюджетов апгрейда</div>
+        <p>Разделяй 4 бюджета проекта на юнит: (1) звёзды и купоны, (2) детали и модификации, (3) офицеры и наука, (4) резерв на ивенты. Помни: среднее число прокруток на купоны ≠ личный гарант.</p>
       </div>
     `
   },
@@ -860,17 +867,24 @@ window.BOOK_PAGES = [
 
       <div class="margin-note">
         <div class="margin-note-title">Бот Паши — @shevchenko01_bot</div>
-        <p>Официальный многофункциональный бот нашего сообщества. В одном месте доступны:</p>
+        <p>Многофункциональный бот WarpathHub: модерация, тикеты, <a href="https://t.me/shevchenko01_bot/calc" target="_blank" rel="noopener noreferrer">Калькулятор обмена офицеров</a> и живая статистика боёв C4 прямо в чате:</p>
         <ul class="editorial-list" style="margin-top:6px; margin-bottom:0;">
-          <li><strong>Калькулятор:</strong> точные расчёты прокачки, ресурсов и характеристик.</li>
-          <li><strong>Тикет-система:</strong> быстрая отправка вопросов, багов, жалоб и предложений.</li>
-          <li><strong>Модерация чата:</strong> защита WarpathHub от спама и порядок в ветках.</li>
+          <li><code>link [ваш_ID]</code> — привязать свой игровой PID (под аватаркой в левом верхнем углу).</li>
+          <li><code>stats [ID]</code> — общая сводка командира (мощь, убийства, K/D).</li>
+          <li><code>c4 [ID]</code> или <code>stats c4 [ID]</code> — статистика текущего/прошлого сезона C4 и фарма.</li>
         </ul>
       </div>
 
+      <h3 class="section-h3">Доп. инструменты сообщества</h3>
+      <ul class="editorial-list">
+        <li><strong><a href="https://wpcommander.netlify.app/index.html" target="_blank" rel="noopener noreferrer">WP Commander</a>:</strong> калькулятор стройки/науки, VIP и Эксклюзивного зала (напитки), симулятор Офицерского обмена и живая база промокодов.</li>
+        <li><strong><a href="https://www.speedpath.org" target="_blank" rel="noopener noreferrer">SpeedPath</a>:</strong> база на 206 скинов и 668 деталей, грейды I–XV, чеклист офицеров, планировщик науки/купонов и лента минорных патч-нотов (14.31b+).</li>
+        <li><strong><a href="https://warpath.afuns.cc/en/daily" target="_blank" rel="noopener noreferrer">Warpath AFuns Stats</a>:</strong> трекер статистики игроков и рейтингов альянсов C4.</li>
+      </ul>
+
       <div class="inline-cta-row">
-        <a href="https://t.me/shevchenko01_bot" target="_blank" rel="noopener noreferrer" class="page-link-btn">Открыть @shevchenko01_bot ↗</a>
-        <a href="https://t.me/WarpathHub/1" target="_blank" rel="noopener noreferrer" class="page-link-btn secondary">Чат WarpathHub ↗</a>
+        <a href="https://t.me/shevchenko01_bot/calc" target="_blank" rel="noopener noreferrer" class="page-link-btn">Калькулятор обмена ↗</a>
+        <button type="button" class="page-link-btn secondary" data-open-hq="codes">Промокоды →</button>
       </div>
     `
   },
@@ -896,7 +910,11 @@ window.BOOK_PAGES = [
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title"><a href="https://www.youtube.com/@ItsEhson" target="_blank" rel="noopener noreferrer">Ehson</a> / <a href="https://www.youtube.com/@ClanGothic/videos" target="_blank" rel="noopener noreferrer">Сократ (ClanGothic)</a></span><span class="ed-tag">ДОП. КАНАЛЫ</span></div>
-          <p class="ed-row-desc"><strong>Ehson:</strong> F2P-сборки для сноса баз. <strong>Сократ (ClanGothic):</strong> доп. гайды по выбору навыков, лайфхакам и обзоры патчей.</p>
+          <p class="ed-row-desc"><strong>Ehson:</strong> F2P-сборки для сноса баз. <strong>Сократ (ClanGothic):</strong> гайды по навыкам, лайфхакам и обзорам патчей.</p>
+        </div>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title"><a href="https://www.youtube.com/@VNwarpath1" target="_blank" rel="noopener noreferrer">VN Warpath</a> / <a href="https://www.youtube.com/@MoreScop3s" target="_blank" rel="noopener noreferrer">MoreScop3s</a> / <a href="https://www.youtube.com/@Twon22" target="_blank" rel="noopener noreferrer">Twon22</a></span><span class="ed-tag">EN МЕТА • ТЕСТЫ</span></div>
+          <p class="ed-row-desc"><strong>VN Warpath:</strong> математика F2P и снаряги. <strong>MoreScop3s:</strong> тесты офицеров 14.5–14.6. <strong>Twon22:</strong> эндгейм, ТВД и разбор связок.</p>
         </div>
       </div>
       <div class="inline-cta-row">
@@ -951,8 +969,11 @@ window.BOOK_PAGES = [
             <tr><td><strong>Арта / RL («Катюша»)</strong></td><td>Гаубица и реактивная система залпового огня (РСЗО) для сноса баз и урона по площади.</td></tr>
             <tr><td><strong>ДД (DPS)</strong></td><td>Отряды или офицеры, наносящие основной урон (Джексон, Хеймекер).</td></tr>
             <tr><td><strong>ФД (F2P)</strong></td><td>Игра без доната или с минимальными тратами.</td></tr>
-            <tr><td><strong>Пробуждение</strong></td><td>Финальный апгрейд офицера при всех 4 навыках 5-го уровня (720 фрагментов).</td></tr>
-            <tr><td><strong>ТВД / КВК</strong></td><td>Театр военных действий — масштабные межсерверные битвы альянсов.</td></tr>
+            <tr><td><strong>Оперсети</strong></td><td>Операционные сети базы — самый выгодный буст интенсивности и огневой мощи (круче Коллекционера).</td></tr>
+            <tr><td><strong>G3 / G2 / Эпик</strong></td><td>Лиги подбора на карте: в Gold 3 (G3) отключены оперсети и XV ранг юнитов, в Gold 2 (G2) и выше — включены.</td></tr>
+            <tr><td><strong>Флак / VADS</strong></td><td>Зенитный лёгкий танк (ЗСУ), играет от автоатак и пробития с <code>Дробовиком + Кастетом</code>.</td></tr>
+            <tr><td><strong>Ракушка / Черепаха</strong></td><td>Глухая оборона базы на защитных офицерах (Иваньков, Хаос, Графиня).</td></tr>
+            <tr><td><strong>C4 / ТВД / Пробуждение</strong></td><td>Сезонная кампания (сводка <code>c4</code> в боте) / Пробуждение: 4 навыка 5 ур. (720 фрагментов).</td></tr>
           </tbody>
         </table>
       </div>
@@ -966,15 +987,15 @@ window.BOOK_PAGES = [
     chapterId: 15,
     isChapterStart: true,
     docCode: 'WP-FM // CH-15',
-    bookmark: 'ГЛАВА 15 • ЧИПЫ',
+    bookmark: 'ГЛАВА 15 • ОПЕРСЕТИ И ЧИПЫ',
     kicker: 'VI. ПРОДВИНУТАЯ МЕТА 14.x',
-    title: '15. Инфовойна: Чипы и Экипировка',
+    title: '15. Оперсети, Чипы и Механика игры',
     html: `
-      <p class="page-lead">В мидгейме и эндгейме огромный процент боевой мощи скрыт не в звёздах юнита, а в <strong>Центре инфовойны (Вычислительные чипы)</strong> и экипировке техники/офицеров.</p>
+      <p class="page-lead"><strong>Центр оперативной информации</strong> открывается с возраста сервера <strong>120 дней</strong> и управляет <strong>6 операционными сетями</strong> (по 2 на каждый лагерь).</p>
       <ul class="editorial-list">
-        <li><strong>Вычислительные чипы:</strong> тратятся на узлы контроля неба, огневой мощи и живучести лагерей. Всегда качай ветку под свою основную фракцию.</li>
-        <li><strong>Правило крутки чипов:</strong> не сливай чипы по одной штуке вне событий — жди ивентов на трату вычислительных чипов и карт, чтобы забирать доп. этапы наград.</li>
-        <li><strong>Снаряжение офицеров:</strong> профильные предметы (например, планшет «Сапсан» и «Тёмное крыло» для истребителей) кратно повышают крит-урон навыков.</li>
+        <li><strong>Реальные правила из клиента 14.60:</strong> потолок сетей автоматически поднимается каждые <strong>180 дней</strong> (не 160!), а если ты отстаёшь от макс. уровня/ранга — включается <em>«Разгон процессора»</em> с повышенным шансом доп. апгрейдов.</li>
+        <li><strong>Протокол воздушного контроля:</strong> истребитель раздаёт союзным истребителям в радиусе <strong>70%</strong> своего контроля неба. На <strong>Обратную сборку</strong> доступны только юниты <code>7★–7.2★</code> (топ-техника доросла уже до категорий <code>XV–XVI</code>).</li>
+        <li><strong>Практика билда и Завоевания:</strong> сети качают под усилительные блоки и 20+ уровни (3 зелёных блока выгоднее 1 синего); вне Завоевания интенсивность/сопра режутся до <strong>60%</strong>, а в Завоевании разница статов ограничена <strong>30%</strong>.</li>
       </ul>
     `
   },
@@ -984,22 +1005,26 @@ window.BOOK_PAGES = [
     chapterId: 15,
     isChapterStart: false,
     docCode: 'WP-FM // CH-15B',
-    bookmark: 'ГЛАВА 15 • МОДЫ',
+    bookmark: 'ГЛАВА 15 • ТЕСТЫ И СНАРЯГА',
     kicker: 'ГЛАВА 15 (ДОП. СТРАНИЦА)',
-    title: 'Приоритет экипировки на технику',
+    title: 'Приоритет снаряжения и доп. навыков',
     html: `
+      <div class="margin-note">
+        <div class="margin-note-title">Склад снаряжения (с 90 дня) и Тест бункера 9</div>
+        <p>Ключи снаряжения: до <strong>100 шт. за золото</strong> каждые 3 дня, гарант фрагмента каждые 10 ящиков; 3 просроченные юрисдикции сохраняются в <em>Очереди перемотки</em>. По тесту ульты Арты (Искатель + Глаз): <strong>Навыки +40%</strong> (2.00B) &gt; Огневая +40% (1.74B) &gt; Интенсивность +25% (1.73B).</p>
+      </div>
       <div class="editorial-rows">
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Для ТТ и ШХ (Первая линия)</span><span class="ed-tag">БРОНЯ</span></div>
-          <p class="ed-row-desc">Реактивная броня, Броня Mk.II — максимум защиты и HP, чтобы держать фокус врага.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Арта / RL («Катюша»)</span><span class="ed-tag">ЭКЗОПЕРЧАТКИ + ДРОН</span></div>
+          <p class="ed-row-desc"><em>Багровые / Экзоперчатки</em> + Дрон + Набор песочной карты и доп на <strong>усиление навыков</strong> (главный урон арты идёт от ульты).</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Для ПТ, Арты и RL (Урон)</span><span class="ed-tag">ОГНЕВАЯ МОЩЬ</span></div>
-          <p class="ed-row-desc">Рейлган и Бронебойные снаряды — режут броню ТТ и ускоряют снос укрепрайонов.</p>
+          <div class="ed-row-head"><span class="ed-row-title">ЗСУ / Флак (VADS) и ОБТ атаки</span><span class="ed-tag">ДРОБОВИК + КАСТЕТ</span></div>
+          <p class="ed-row-desc"><em>Дробовик шерифа + Тигриный кастет</em> (или <em>Небесный взор</em>) и усиление обычных атак/критов (снижает TTK флака с 52с до 26с).</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Для ЛТ и Разведки</span><span class="ed-tag">СКОРОСТЬ</span></div>
-          <p class="ed-row-desc">Форсированный двигатель — первым добраться до чужой Арты / RL («Катюши»).</p>
+          <div class="ed-row-head"><span class="ed-row-title">ШХ / Оборона базы и Снаряга (VN Warpath)</span><span class="ed-tag">СБРОСА НЕТ!</span></div>
+          <p class="ed-row-desc">У снаряжения офицеров <strong>нет сброса уровня</strong>, а <strong>фиолетовое 40 ур. сильнее слабого золота 20 ур.</strong> Копи ключи с VIP-магазина, радара и магазина Завоевания; для истребителей — <em>«Сапсаны»</em>.</p>
         </div>
       </div>
     `
@@ -1018,9 +1043,10 @@ window.BOOK_PAGES = [
     html: `
       <p class="page-lead">После обновлений 14.3–14.6 наземные бои больше не существуют отдельно от неба и моря.</p>
       <ul class="editorial-list">
-        <li><strong>Авиация и Воздушные группы:</strong> истребители с офицером «Преследующая тень» (или Слейтером) сбивают вражеские бомбардировщики и прикрывают твою Арту. Для игры без доната (ФД) достаточно качать 1 сильный истребитель.</li>
-        <li><strong>ВМС и Подлодки:</strong> на морских картах и в Морском Гегемоне правят новые офицеры — Блэкджек (подлодки и ПЛО) и Красный Крокодил (наступательные ВМС).</li>
-        <li><strong>36-й уровень построек (14.4):</strong> открыл новые технологии и требует планирования ресурсов (таблицу 32→36 смотри в ролике Паши е6аки).</li>
+        <li><strong>Тактика «Ястреб + Бобры»:</strong> выпускай 1 защитного истребителя («Ястреб» на живучесть с Планшетом «Сапсан») <em>до</em> бомбардировщиков (<em>Мадам теней + Сокол</em>, <em>Усатый + Орёл</em>) — ястреб принимает ПВО, пока бобры безнаказанно ломают цель.</li>
+        <li><strong>Лайфхак управления на ПК:</strong> если у тебя 3 истребителя, не сбивай их в 1 группу (разлетаются в бою) — привяжи 1-й на клавишу <code>1</code>, а два других на клавишу <code>2</code>.</li>
+        <li><strong>ВМС и Подлодки:</strong> Блэкджек (подлодки и ПЛО), Дитя прилива (Лоик Месье) и Красный Крокодил (флот).</li>
+        <li><strong>36-й уровень построек (14.4):</strong> открыл новые технологии; таблицу стоимости 32→36 смотри в ролике Паши е6аки.</li>
       </ul>
     `
   },
@@ -1030,17 +1056,18 @@ window.BOOK_PAGES = [
     chapterId: 16,
     isChapterStart: false,
     docCode: 'WP-FM // CH-16B',
-    bookmark: 'ГЛАВА 16 • ОБМЕН 14.6',
+    bookmark: 'ГЛАВА 16 • ОФИЦЕРСКИЙ ОБМЕН',
     kicker: 'ГЛАВА 16 (ДОП. СТРАНИЦА)',
-    title: 'Обмен офицеров и Золотая арта 14.6',
+    title: 'Офицерский обмен и Техас (14.60.10)',
     html: `
       <div class="margin-note">
-        <div class="margin-note-title">Главное событие патча 14.6</div>
-        <p>В игру вернулся <strong>Обмен офицеров</strong>, вышла <strong>Золотая арта</strong> и карта <strong>Техаса</strong> с механикой контроля электросетей. Обязательно просчитай обмен через калькулятор Паши е6аки перед тем, как тратить купоны и фрагменты.</p>
+        <div class="margin-note-title">Точные правила Офицерского обмена (сервер 105+ дней)</div>
+        <p>Всего <strong>3 необратимых обмена</strong>: <strong>2</strong> для обычных и <strong>1</strong> для эксклюзивного офицера (из Эксклюзивного зала отдыха Кэт). Переносятся только уровни и навыки; повторно уже обменянного менять нельзя! В стоп-листе: <em>Перси, Марко Росси, Эри Касамото, Белая Волчица, Кровавая Мэри, Машина войны, Спанер</em>. Планируй в <a href="https://t.me/shevchenko01_bot/calc" target="_blank" rel="noopener noreferrer">Калькуляторе Шевченко</a>.</p>
       </div>
       <ul class="editorial-list">
-        <li>Переливай вложения из старых неиграбельных офицеров в пробуждение топ-связки под твой основной род войск.</li>
-        <li>За подробной хронологией всех патчей (12.0 → 14.6) переходи во вторую книгу справа на Книжной полке!</li>
+        <li><strong>Оптимизация навыков (MoreScop3s / VN Warpath):</strong> не сливай статуи в бесполезный 4-й пассивный навык перед обменом (держи формат <code>5-5-4-1</code> или сперва считай баланс статуй в калькуляторе).</li>
+        <li><strong>Электроснабжение базы (Техас):</strong> если эффективность падает ниже <strong>90%</strong>, база и армия получают ступенчатый штраф к урону!</li>
+        <li><strong>Сертификаты:</strong> статуи пробуждённых меняются в Магазине сувениров (50 сертификатов; за Машину войны — 5).</li>
       </ul>
     `
   },
@@ -1101,15 +1128,40 @@ window.CALC_DATA = {
 
 window.COMMUNITY_LINKS = [
   { name: 'WarpathHub (Чат Telegram)', desc: 'Главный чат русскоязычного комьюнити: помощь, сборки, новости.', url: 'https://t.me/WarpathHub/1', cta: 'В чат ↗' },
-  { name: '@shevchenko01_bot (Бот Паши)', desc: 'Калькулятор, тикет-система и модерация чата WarpathHub.', url: 'https://t.me/shevchenko01_bot', cta: 'Открыть ↗' },
+  { name: 'Калькулятор Обмена (@shevchenko01_bot)', desc: 'Приложение WARHUB: расчёт 3 слотов, статуй, золота и Battle Pass для 14.6.', url: 'https://t.me/shevchenko01_bot/calc', cta: 'Расчёт ↗' },
+  { name: '@shevchenko01_bot (Бот Паши)', desc: 'Тикет-система, статистика игроков (link/stats/c4) и модерация чата.', url: 'https://t.me/shevchenko01_bot', cta: 'Открыть ↗' },
+  { name: 'Активация промокодов Lilith', desc: 'Официальный портал ввода подарочных кодов Warpath (или в игре: Опции → Подарки).', url: 'https://cdkey.lilith.com/warpath-global', cta: 'Ввести код ↗' },
+  { name: 'WP Commander', desc: 'Калькуляторы стройки, науки, VIP, напитков, обмена, сравнение игроков и база кодов.', url: 'https://wpcommander.netlify.app/index.html', cta: 'Открыть ↗' },
+  { name: 'SpeedPath (EN)', desc: 'База 206 скинов и 668 деталей (I–XV), чеклисты сборок, планировщики и минорные патч-ноты.', url: 'https://www.speedpath.org', cta: 'Открыть ↗' },
+  { name: 'Warpath AFuns Stats', desc: 'База боевой статистики C4, мощи игроков и рейтингов альянсов.', url: 'https://warpath.afuns.cc/en/daily', cta: 'Статистика ↗' },
   { name: 'Бургер (@burgerdom6)', desc: 'Тир-листы офицеров 14.6, разборы обменов, настройки аккаунта и бои.', url: 'https://www.youtube.com/@burgerdom6', cta: 'YouTube ↗' },
   { name: 'Паша е6ака (@e6aka56)', desc: 'Калькулятор обмена 14.6, таблицы построек 32→36, тесты юнитов и чипов.', url: 'https://www.youtube.com/@e6aka56', cta: 'YouTube ↗' },
   { name: 'Ehson', desc: 'Тактика, F2P-методы и разборы сборок для сноса баз.', url: 'https://www.youtube.com/@ItsEhson', cta: 'YouTube ↗' },
   { name: 'Сократ — ClanGothic (доп.)', desc: 'Обзоры патчей, лайфхаки и подбор доп. навыков офицеров.', url: 'https://www.youtube.com/@ClanGothic/videos', cta: 'YouTube ↗' },
+  { name: 'VN Warpath (EN)', desc: 'Математика F2P, быстрый фарм снаряжения офицеров и разбор Обмена 2026.', url: 'https://www.youtube.com/@VNwarpath1', cta: 'YouTube ↗' },
+  { name: 'MoreScop3s (EN)', desc: 'Глубокие тесты новых офицеров (Мусорщик, Крокодил) и патчи 14.5–14.6.', url: 'https://www.youtube.com/@MoreScop3s', cta: 'YouTube ↗' },
+  { name: 'Twon22 — Antoine Leclerc (EN)', desc: 'Эндгейм-гайды, войны серверов, карты завоеваний и мини-гайды по офицерам.', url: 'https://www.youtube.com/@Twon22', cta: 'YouTube ↗' },
   { name: 'WarpathYTwiki', desc: 'Энциклопедия юнитов, конструктор армий и база офицеров.', url: 'https://228burger228.github.io/WarpathYTwiki/index.html', cta: 'Сайт ↗' },
-  { name: 'Официальный Discord Warpath', desc: 'Международный сервер разработчиков Lilith Games (из клиента v14.60).', url: 'https://discord.com/invite/playwarpath', cta: 'Discord ↗' },
-  { name: 'Официальный YouTube Warpath', desc: 'Трейлеры патчей, новых офицеров и событий от разработчиков.', url: 'https://www.youtube.com/c/Warpath', cta: 'YouTube ↗' },
-  { name: 'VN Warpath (EN)', desc: 'Мета-анализ офицеров и экономики (на английском).', url: 'https://www.youtube.com/@VNwarpath1', cta: 'YouTube ↗' }
+  { name: 'Официальный Discord Warpath', desc: 'Международный сервер разработчиков Lilith Games (из клиента v14.60).', url: 'https://discord.com/invite/playwarpath', cta: 'Discord ↗' }
+];
+
+window.PROMO_CODES = [
+  { code: 'PATCHPREVIEW146', note: 'Актуальный код превью патча 14.6', tag: '14.6' },
+  { code: 'HALLOWEEN2026', note: 'Сезонный подарочный код 2026', tag: 'ИВЕНТ' },
+  { code: '8qjhvimahr', note: 'Свежий код сообщества (база WP Commander)', tag: 'НОВЫЙ' },
+  { code: '8qav8qpsrp', note: 'Свежий код сообщества (база WP Commander)', tag: 'НОВЫЙ' },
+  { code: 'a4eb6wqfvd', note: 'Свежий код сообщества (база WP Commander)', tag: 'НОВЫЙ' },
+  { code: '8qbj8j5iw5', note: 'Подарочный код (ограниченные активации)', tag: '2026' },
+  { code: '8qkapmp54w', note: 'Подарочный код (ограниченные активации)', tag: '2026' },
+  { code: '8qnj2tykei', note: 'Подарочный код (ограниченные активации)', tag: '2026' },
+  { code: '8qyfvc7zp9', note: 'Подарочный код (ограниченные активации)', tag: '2026' },
+  { code: 'PATCHPREVIEW145', note: 'Код превью патча 14.5', tag: '14.5' },
+  { code: 'PATCHPREVIEW144', note: 'Код превью патча 14.4', tag: '14.4' },
+  { code: '7t3ds9i9dr', note: 'Архив WP Commander (проверь на аккаунте)', tag: 'АРХИВ' },
+  { code: '8qy2us688p', note: 'Архив WP Commander (проверь на аккаунте)', tag: 'АРХИВ' },
+  { code: '8qddt8h7yw', note: 'Архив WP Commander (проверь на аккаунте)', tag: 'АРХИВ' },
+  { code: '8qrnn29eca', note: 'Архив WP Commander (проверь на аккаунте)', tag: 'АРХИВ' },
+  { code: 'QIXI2026', note: 'Праздничный код Циси 2026', tag: 'АРХИВ' }
 ];
 
 /* ── РЕКОМЕНДУЕМЫЕ ВИДЕО YOUTUBE ПО ТЕМАМ ГЛАВ ─────────────────── */
@@ -1156,7 +1208,8 @@ window.YOUTUBE_BY_TOPIC = {
     videos: [
       { title: 'FD против Китая / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/4as-Btr7jRc' },
       { title: 'КАЛЬКУЛЯТОР ОБМЕНА ОФИЦЕРОВ 14.6', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/riVeWZplo2I' },
-      { title: 'Лучшая F2P сборка для сноса баз!', author: 'Ehson', url: 'https://youtu.be/kCTdPzztNGI' }
+      { title: 'Лучшая F2P сборка для сноса баз!', author: 'Ehson', url: 'https://youtu.be/kCTdPzztNGI' },
+      { title: 'EN: F2P GOD! Best FREE Officers You Need Before Update', author: 'VN Warpath (@VNwarpath1)', url: 'https://youtu.be/H46wQlbyOgc' }
     ]
   },
   5: {
@@ -1196,12 +1249,15 @@ window.YOUTUBE_BY_TOPIC = {
     ]
   },
   9: {
-    topic: 'Офицеры 14.5–14.6 и обмен',
+    topic: 'Офицеры 14.5–14.6 и связки',
     query: 'Warpath каких офицеров качать 14.6 обмен',
     videos: [
       { title: 'КАКИХ ОФИЦЕРОВ КАЧАТЬ В WARPATH 14.6? Тир-лист кого менять', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/Ri6kCTSDZqE' },
+      { title: 'Тест новых офицеров 14.3 — кто теперь мета?', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/F_iWTrR3CuI' },
       { title: 'КАЛЬКУЛЯТОР ОБМЕНА ОФИЦЕРОВ 14.6 — за 1 минуту!', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/riVeWZplo2I' },
-      { title: 'НОВЫЕ ОФИЦЕРЫ И ТАКТИКИ 14.5', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/MZJxppq8ByI' },
+      { title: 'Разбор связок (Мадам + Сокол / Гром + Шева) 16:08–17:17', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/g4Eo78UKXiw' },
+      { title: 'EN: Scavenger Testing (Мусорщик на танки и пехоту)', author: 'MoreScop3s (@MoreScop3s)', url: 'https://youtu.be/qTyj5vBNyt4' },
+      { title: 'EN: Red Crocodile Breakdown (ВМС Либерти 14.6)', author: 'MoreScop3s (@MoreScop3s)', url: 'https://youtu.be/215cGNOPzMI' },
       { title: 'Доп.: Как правильно выбирать доп. навыки офицеров', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/-ZW2_zJ0eC0' }
     ]
   },
@@ -1221,6 +1277,7 @@ window.YOUTUBE_BY_TOPIC = {
       { title: 'Гегемон / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/V4xFkoiUWtM' },
       { title: 'Epic s132 VS 2 alliance / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/63ftPjdFac8' },
       { title: 'Турнир E&L 118 vs FOX 119', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/YhL9b3Vg0uQ' },
+      { title: 'EN: Разбор завоеваний, Nighthawk / Surf Strider / Herald', author: 'Twon22 (@Twon22)', url: 'https://www.youtube.com/@Twon22/videos' },
       { title: 'Доп.: Самый тяжелый бой в гегемоне', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/nE7ge5bGTvs' }
     ]
   },
@@ -1234,11 +1291,14 @@ window.YOUTUBE_BY_TOPIC = {
     ]
   },
   13: {
-    topic: 'Каналы: Бургер, Паша е6ака и Сократ',
-    query: 'burgerdom6 e6aka56 warpath',
+    topic: 'Каналы: Бургер, Паша е6ака и EN-авторы',
+    query: 'burgerdom6 e6aka56 vnwarpath1 morescop3s twon22',
     videos: [
       { title: 'Бургер (@burgerdom6) — все свежие видео', author: 'Бургер (@burgerdom6)', url: 'https://www.youtube.com/@burgerdom6' },
       { title: 'Паша е6ака (@e6aka56) — тесты и таблицы', author: 'Паша е6ака (@e6aka56)', url: 'https://www.youtube.com/@e6aka56' },
+      { title: 'EN: VN Warpath — математика F2P и снаряжения', author: 'VN Warpath (@VNwarpath1)', url: 'https://www.youtube.com/@VNwarpath1' },
+      { title: 'EN: MoreScop3s — тесты офицеров и 14.5–14.6', author: 'MoreScop3s (@MoreScop3s)', url: 'https://www.youtube.com/@MoreScop3s' },
+      { title: 'EN: Twon22 (Antoine Leclerc) — эндгейм и ТВД', author: 'Twon22 (@Twon22)', url: 'https://www.youtube.com/@Twon22' },
       { title: 'Доп.: Сократ (ClanGothic) — видео канала', author: 'Сократ (ClanGothic)', url: 'https://www.youtube.com/@ClanGothic/videos' }
     ]
   },
@@ -1252,19 +1312,22 @@ window.YOUTUBE_BY_TOPIC = {
     ]
   },
   15: {
-    topic: 'Вычислительные чипы и экипировка',
-    query: 'Warpath вычислительные чипы инфовойна',
+    topic: 'Оперсети, чипы и снаряжение офицеров',
+    query: 'Warpath вычислительные чипы инфовойна gear',
     videos: [
       { title: 'ВЫЧИСЛИТЕЛЬНЫЕ ЧИПЫ. КРУТИМ ПРАВИЛЬНО.', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/FgJcrLFNrJ4' },
-      { title: 'Настройка аккаунта и промики / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/tfMFqibCTZU' }
+      { title: 'Настройка аккаунта и промики / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/tfMFqibCTZU' },
+      { title: 'EN: How to Get Officer Gear FASTEST (Фиолет 40 vs Золото 20)', author: 'VN Warpath (@VNwarpath1)', url: 'https://youtu.be/JuRjlxM-Z7A' }
     ]
   },
   16: {
-    topic: 'Авиация, ВМС, 36 ур. и Обмен 14.6',
+    topic: 'Авиация, ВМС, 36 ур. и Офицерский обмен 14.6',
     query: 'Warpath 14.6 обмен офицеров золотая арта',
     videos: [
       { title: 'ОБМЕН ОФИЦЕРОВ В 14.6! Золотая арта и вкусности', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/LrIujsuFFx0' },
       { title: 'КАЛЬКУЛЯТОР ОБМЕНА ОФИЦЕРОВ 14.6 за 1 минуту!', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/riVeWZplo2I' },
+      { title: 'EN: Dont Swap the WRONG Free Officer! Guide 2026', author: 'VN Warpath (@VNwarpath1)', url: 'https://youtu.be/iI5Znd_OB3I' },
+      { title: 'EN: Update 14.6 — Officer Swap, Техас и ВМС', author: 'MoreScop3s (@MoreScop3s)', url: 'https://youtu.be/VerRbQt2Yvs' },
       { title: 'ТЕСТЫ! ОФИЦЕР НА ИСТРЕБИТЕЛЬ / ПРЕСЛЕДУЮЩАЯ ТЕНЬ', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/Qdj-z8QjdCE' }
     ]
   }

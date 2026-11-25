@@ -56,7 +56,7 @@ window.BOOK_PAGES = [
         <div class="page-kicker">8 ГЛАВ • 18 СТРАНИЦ • v12.0 → v14.60</div>
         <div class="cover-actions">
           <button type="button" class="btn-cover-primary" data-goto="2">Открыть хронику →</button>
-          <a href="index.html" class="btn-cover-sec">К Тома I (Устав)</a>
+          <a href="index.html" class="btn-cover-sec">К Тому I (Устав)</a>
         </div>
       </div>
     `
@@ -97,8 +97,8 @@ window.BOOK_PAGES = [
           <p class="ed-row-desc">Вернулся долгожданный обмен старых офицеров на актуальных, вышла золотая арта и карта Техаса.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Вычислительные чипы и Инфовойна</span><span class="ed-tag">12.3 → 14.x</span></div>
-          <p class="ed-row-desc">Новая система усиления огневой мощи и живучести лагерей через центр инфовойны.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Вычислительные чипы и Оперсети</span><span class="ed-tag">12.3 → 14.x</span></div>
+          <p class="ed-row-desc">Новая система усиления лагерей (по отдаче Операционные сети обходят Коллекционер); с лиги Gold 2+ активны оперсети и XV ранг (ур. 160–200).</p>
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">Воздушные группы и ВМС</span><span class="ed-tag">14.3 → 14.6</span></div>
@@ -167,12 +167,12 @@ window.BOOK_PAGES = [
     title: 'Как не слить Вычислительные чипы',
     html: `
       <div class="margin-note">
-        <div class="margin-note-title">Совет Паши е6аки (@e6aka56)</div>
-        <p>Чипы — такой же жёсткий ресурс, как золото. Не крути их хаотично во все ветки подряд: выбирай узлы строго под свой основной лагерь и тип техники (наземка или воздух).</p>
+        <div class="margin-note-title">Центр оперативной информации и 180-дневный цикл</div>
+        <p>По коду клиента <strong>14.60.10</strong>: здание доступно с <strong>120-го дня сервера</strong> (6 сетей), потолок растёт каждые <strong>180 дней</strong> (не 160!), есть <em>«Разгон процессора»</em> для догоняющих, а истребители передают союзникам <strong>70%</strong> контроля неба.</p>
       </div>
       <ul class="editorial-list">
-        <li><strong>Копи под ивенты:</strong> трать чипы и карты вычислений на этапах событий, чтобы забирать доп. сундуки наград.</li>
-        <li><strong>Синергия с 5 поколением:</strong> бонусы чипов на огневую мощь умножаются на проценты от пробуждённого Джексона или Хеймекера.</li>
+        <li><strong>Ограничения полей и ранг XV–XVI:</strong> техника выросла до XVI категории (Обратная сборка только <code>7★–7.2★</code>); вне Завоевания урон/сопра режутся до <strong>60%</strong>.</li>
+        <li><strong>Золото++ и Юрисдикции:</strong> до 3 незавершённых юрисдикций ждут в <em>Очереди перемотки</em>, а на Складе снаряжения (с 90 дня) можно докупить до 100 ключей каждые 3 дня.</li>
       </ul>
     `
   },
@@ -190,9 +190,9 @@ window.BOOK_PAGES = [
     html: `
       <p class="page-lead">Линейка патчей 14.0–14.2 принесла юбилейные события, переработку кастомизации и морские коалиции.</p>
       <ul class="editorial-list">
-        <li><strong>Легендарный шоурум (14.0):</strong> магазин уникальных скинов для баз, эффектов атак и раскрасок юнитов (например, Титановое ядро, Морозный край).</li>
-        <li><strong>Офицеры 14.0–14.1:</strong> пополнение ростера танковых и боевых командиров, обновление промокодов.</li>
-        <li><strong>Коалиции в Карибском море (14.2):</strong> изменения механики союзов на морских картах, перебалансировка точек и снабжения.</li>
+        <li><strong>Легендарный шоурум (14.0):</strong> магазин скинов (Титановое ядро, Морозный край) + исправление экономики фрагментов снаряжения ВМС и магазина переработки в <strong>14.1</strong>.</li>
+        <li><strong>Усложнение Юрисдикций и вкладка «Подарки» (2026):</strong> во вторник и воскресенье введены юрисдикции на 80 ключей снаряжения; в меню <em>Опции</em> добавлена вкладка <strong>«Подарки»</strong> для быстрого ввода промокодов в игре.</li>
+        <li><strong>Коалиции в Карибском море (14.2):</strong> изменения механики союзов на морских картах, перебалансировка точек и снабжения + запрос на расширение флота.</li>
       </ul>
     `
   },
@@ -253,12 +253,12 @@ window.BOOK_PAGES = [
     title: 'Итоги тестов авиации в 14.3',
     html: `
       <div class="margin-note">
-        <div class="margin-note-title">Роль воздуха в современной мете</div>
-        <p>После патча 14.3 игнорировать авиацию нельзя: даже 1 хорошо собранный истребитель или бомбардировщик с профильным офицером прикрывает наземку от вражеских гаубиц и RL.</p>
+        <div class="margin-note-title">Роль воздуха и борьба со стилем «Ракушка»</div>
+        <p>После 14.3 против глухой обороны баз («ракушки») вышли новые осадные офицеры артиллерии (5-е поколение с эффектом горения 4с и <code>+1 клеткой дальности</code> при пробуждении), а 1 защитный ястреб стал обязательным щитом для бомбардировщиков (<em>Мадам + Сокол</em>).</p>
       </div>
       <ul class="editorial-list">
-        <li>Если играешь без доната — качай один универсальный истребитель (см. разборы Паши е6аки).</li>
-        <li>В левом меню «Видео» открывай тесты офицеров «Преследующая тень» и «Боевой сокол».</li>
+        <li><strong>Лайфхак ПК:</strong> 3 истребителя дели на клавиши <code>1</code> и <code>2</code> (1+2), чтобы не разлетались.</li>
+        <li>В левом меню «Видео» открывай тесты офицеров «Преследующая тень», «Боевой сокол» и разбор Бургера 14.3.</li>
       </ul>
     `
   },
@@ -355,19 +355,19 @@ window.BOOK_PAGES = [
     kicker: 'ПАТЧИ 14.4 — 14.60',
     title: '7. 14.6: Обмен офицеров, Техас, Арта',
     html: `
-      <p class="page-lead">Актуальная версия <strong>14.60.453</strong> — одно из самых ожидаемых обновлений для перестройки старых аккаунтов.</p>
+      <p class="page-lead">Актуальный клиент <strong>14.60.10.464</strong> — возвращение Офицерского обмена, Золотая арта и электросети Техаса.</p>
       <div class="editorial-rows">
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Возвращение Обмена офицеров</span><span class="ed-tag">ГЛАВНОЕ</span></div>
-          <p class="ed-row-desc">Позволяет перенести вложения из устаревших командиров в актуальную мету. Обязательно используй калькулятор обмена перед стартом!</p>
+          <div class="ed-row-head"><span class="ed-row-title">Офицерский обмен (сервер 105+ дн.)</span><span class="ed-tag">3 ОБМЕНА</span></div>
+          <p class="ed-row-desc">Ровно <strong>2 обычных + 1 эксклюзивный</strong> необратимых обмена (без Перси/Росси/Касамото/Волчицы/Мэри/Машины/Спанера). Лишние статуи пробуждённых идут в Сертификаты (50 / 5).</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Золотая арта и новые скины</span><span class="ed-tag">ТЕХНИКА</span></div>
-          <p class="ed-row-desc">Свежие усиления артиллерии и новые образы в Легендарном шоуруме («Морозный край», «Золотой скарабей»).</p>
+          <div class="ed-row-head"><span class="ed-row-title">Золотая арта и Мадам Виндикта (+1 дальность)</span><span class="ed-tag">ТЕХНИКА</span></div>
+          <p class="ed-row-desc">Усиления артиллерии (<em>Мадам Виндикта + Безмолвный гром</em>, <em>Боевой сокол + Красная жара</em>) и шоурум («Морозный край», «Золотой скарабей»).</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Карта Техаса и Электросети</span><span class="ed-tag">ТВД</span></div>
-          <p class="ed-row-desc">Новая тактическая механика контроля энергосетей / электричества на карте Техаса.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Карта Техаса: штраф ниже 90%</span><span class="ed-tag">ЭЛЕКТРОСНАБЖЕНИЕ</span></div>
+          <p class="ed-row-desc">При падении эффективности электроснабжения базы ниже <strong>90%</strong> войска и база получают ступенчатый штраф к урону.</p>
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">ВВС в Морском Гегемоне</span><span class="ed-tag">ТУРНИР</span></div>
@@ -387,12 +387,12 @@ window.BOOK_PAGES = [
     title: 'Кого менять в Обмене 14.6',
     html: `
       <div class="margin-note">
-        <div class="margin-note-title">Сверься перед обменом!</div>
-        <p>Прежде чем нажимать кнопку обмена, открой слева вкладку <strong>«Видео»</strong>: там есть свежий тир-лист Бургера <em>«Каких офицеров качать в 14.6»</em> и <em>«Калькулятор обмена офицеров за 1 минуту»</em> от Паши е6аки.</p>
+        <div class="margin-note-title">Сверься в Калькуляторе WARHUB!</div>
+        <p>Специально к 14.6 в нашем чате запущен <a href="https://t.me/shevchenko01_bot/calc" target="_blank" rel="noopener noreferrer">Калькулятор обмена @shevchenko01_bot</a> (расчёт 3 слотов, разницы статуй и лимита золота 80–100 покупок), а также команды статистики C4 (<code>link</code> / <code>stats</code> / <code>c4</code>).</p>
       </div>
       <ul class="editorial-list">
-        <li>Сливай устаревших офицеров 2–3 поколений, которыми не пользуешься ни в поле, ни в гарнизоне.</li>
-        <li>Приоритет — довести до Пробуждения ключевых ДД/танков (Джексон, Хеймекер, Кёртис или новинки под твой род войск).</li>
+        <li>Сливай устаревших офицеров в мета-связку (<em>Искатель + Шевченко/Глаз</em> на арту, <em>Мулянь</em> на истребитель/верт, <em>Рапира</em> на VADS).</li>
+        <li>Проверяй комбинации навыков в Beta <strong>WP Commander</strong> и свежем тир-листе Бургера слева во вкладке «Видео».</li>
       </ul>
     `
   },
@@ -432,8 +432,8 @@ window.BOOK_PAGES = [
         <p>Залетай в наш чат <strong>WarpathHub</strong> или отправляй вопрос через тикет-систему в боте Паши <strong>@shevchenko01_bot</strong> — подскажем, кого обменять и что качать в 14.6.</p>
       </div>
       <div class="inline-cta-row">
-        <a href="index.html" class="page-link-btn">Перейти к Тома I (Устав)</a>
-        <button type="button" class="page-link-btn secondary" data-open-hq="tickets">Открыть Штаб и Тикеты</button>
+        <a href="index.html" class="page-link-btn">Перейти к Тому I (Устав)</a>
+        <button type="button" class="page-link-btn secondary" data-open-hq="codes">Выписка промокодов →</button>
       </div>
     `
   }
@@ -477,13 +477,40 @@ window.CALC_DATA = {
 
 window.COMMUNITY_LINKS = [
   { name: 'WarpathHub (Чат Telegram)', desc: 'Главный чат русскоязычного комьюнити: помощь, сборки, новости.', url: 'https://t.me/WarpathHub/1', cta: 'В чат ↗' },
-  { name: '@shevchenko01_bot (Бот Паши)', desc: 'Калькулятор, тикет-система и модерация чата WarpathHub.', url: 'https://t.me/shevchenko01_bot', cta: 'Открыть ↗' },
+  { name: 'Калькулятор Обмена (@shevchenko01_bot)', desc: 'Приложение WARHUB: расчёт 3 слотов, статуй и золота для 14.6.', url: 'https://t.me/shevchenko01_bot/calc', cta: 'Расчёт ↗' },
+  { name: '@shevchenko01_bot (Бот Паши)', desc: 'Тикеты, статистика C4 (link/stats/c4) и модерация WarpathHub.', url: 'https://t.me/shevchenko01_bot', cta: 'Открыть ↗' },
+  { name: 'Активация промокодов Lilith', desc: 'Портал подарочных кодов Warpath (или в игре: Опции → Подарки).', url: 'https://cdkey.lilith.com/warpath-global', cta: 'Ввести код ↗' },
+  { name: 'WP Commander', desc: 'Калькуляторы стройки/науки, VIP, напитков, обмена, сравнение игроков и коды.', url: 'https://wpcommander.netlify.app/index.html', cta: 'Открыть ↗' },
+  { name: 'SpeedPath (EN)', desc: 'База 206 скинов и 668 деталей (I–XV), чеклисты сборок и минорные патч-ноты.', url: 'https://www.speedpath.org', cta: 'Открыть ↗' },
+  { name: 'Warpath AFuns Stats', desc: 'Трекер боевой статистики C4 и рейтингов альянсов.', url: 'https://warpath.afuns.cc/en/daily', cta: 'Статистика ↗' },
   { name: 'Бургер (@burgerdom6)', desc: 'Тир-листы офицеров 14.6, разборы обменов, настройки аккаунта и бои.', url: 'https://www.youtube.com/@burgerdom6', cta: 'YouTube ↗' },
   { name: 'Паша е6ака (@e6aka56)', desc: 'Калькулятор обмена 14.6, таблицы построек 32→36, тесты юнитов и чипов.', url: 'https://www.youtube.com/@e6aka56', cta: 'YouTube ↗' },
   { name: 'Ehson', desc: 'Тактика, F2P-методы и разборы сборок для сноса баз.', url: 'https://www.youtube.com/@ItsEhson', cta: 'YouTube ↗' },
   { name: 'Сократ — ClanGothic (доп.)', desc: 'Обзоры патчей, лайфхаки и подбор доп. навыков офицеров.', url: 'https://www.youtube.com/@ClanGothic/videos', cta: 'YouTube ↗' },
+  { name: 'VN Warpath (EN)', desc: 'Математика F2P, быстрый фарм снаряжения офицеров и разбор Обмена 2026.', url: 'https://www.youtube.com/@VNwarpath1', cta: 'YouTube ↗' },
+  { name: 'MoreScop3s (EN)', desc: 'Глубокие тесты новых офицеров (Мусорщик, Крокодил) и патчи 14.5–14.6.', url: 'https://www.youtube.com/@MoreScop3s', cta: 'YouTube ↗' },
+  { name: 'Twon22 — Antoine Leclerc (EN)', desc: 'Эндгейм-гайды, войны серверов, карты завоеваний и мини-гайды по офицерам.', url: 'https://www.youtube.com/@Twon22', cta: 'YouTube ↗' },
   { name: 'WarpathYTwiki', desc: 'Энциклопедия юнитов, конструктор армий и база офицеров.', url: 'https://228burger228.github.io/WarpathYTwiki/index.html', cta: 'Сайт ↗' },
   { name: 'Официальный Discord Warpath', desc: 'Международный сервер разработчиков Lilith Games.', url: 'https://discord.com/invite/playwarpath', cta: 'Discord ↗' }
+];
+
+window.PROMO_CODES = [
+  { code: 'PATCHPREVIEW146', note: 'Актуальный код превью патча 14.6', tag: '14.6' },
+  { code: 'HALLOWEEN2026', note: 'Сезонный подарочный код 2026', tag: 'ИВЕНТ' },
+  { code: '8qjhvimahr', note: 'Свежий код сообщества (база WP Commander)', tag: 'НОВЫЙ' },
+  { code: '8qav8qpsrp', note: 'Свежий код сообщества (база WP Commander)', tag: 'НОВЫЙ' },
+  { code: 'a4eb6wqfvd', note: 'Свежий код сообщества (база WP Commander)', tag: 'НОВЫЙ' },
+  { code: '8qbj8j5iw5', note: 'Подарочный код (ограниченные активации)', tag: '2026' },
+  { code: '8qkapmp54w', note: 'Подарочный код (ограниченные активации)', tag: '2026' },
+  { code: '8qnj2tykei', note: 'Подарочный код (ограниченные активации)', tag: '2026' },
+  { code: '8qyfvc7zp9', note: 'Подарочный код (ограниченные активации)', tag: '2026' },
+  { code: 'PATCHPREVIEW145', note: 'Код превью патча 14.5', tag: '14.5' },
+  { code: 'PATCHPREVIEW144', note: 'Код превью патча 14.4', tag: '14.4' },
+  { code: '7t3ds9i9dr', note: 'Архив WP Commander (проверь на аккаунте)', tag: 'АРХИВ' },
+  { code: '8qy2us688p', note: 'Архив WP Commander (проверь на аккаунте)', tag: 'АРХИВ' },
+  { code: '8qddt8h7yw', note: 'Архив WP Commander (проверь на аккаунте)', tag: 'АРХИВ' },
+  { code: '8qrnn29eca', note: 'Архив WP Commander (проверь на аккаунте)', tag: 'АРХИВ' },
+  { code: 'QIXI2026', note: 'Праздничный код Циси 2026', tag: 'АРХИВ' }
 ];
 
 window.YOUTUBE_BY_TOPIC = {
@@ -545,6 +572,7 @@ window.YOUTUBE_BY_TOPIC = {
     videos: [
       { title: 'НОВЫЕ ОФИЦЕРЫ И ТАКТИКИ! СЕКРЕТНЫЙ ГОСТЬ / 14.5', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/MZJxppq8ByI' },
       { title: '2 НОВЫХ ОФИЦЕРА И ДРУГИЕ ОБНОВЛЕНИЯ В 14.5', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/HKUFDyEJBwg' },
+      { title: 'EN: Scavenger Testing (Мусорщик на танки/пехоту)', author: 'MoreScop3s (@MoreScop3s)', url: 'https://youtu.be/qTyj5vBNyt4' },
       { title: 'Доп.: Обзор патча 14.5', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/KBdEzmtui9Y' }
     ]
   },
@@ -554,7 +582,10 @@ window.YOUTUBE_BY_TOPIC = {
     videos: [
       { title: 'КАКИХ ОФИЦЕРОВ КАЧАТЬ В WARPATH 14.6?', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/Ri6kCTSDZqE' },
       { title: 'ОБМЕН ОФИЦЕРОВ ВОЗВРАЩАЕТСЯ! Золотая арта / 14.6', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/LrIujsuFFx0' },
-      { title: 'КАЛЬКУЛЯТОР ОБМЕНА ОФИЦЕРОВ 14.6 за 1 минуту!', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/riVeWZplo2I' }
+      { title: 'КАЛЬКУЛЯТОР ОБМЕНА ОФИЦЕРОВ 14.6 за 1 минуту!', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/riVeWZplo2I' },
+      { title: 'EN: Dont Swap the WRONG Free Officer! Guide 2026', author: 'VN Warpath (@VNwarpath1)', url: 'https://youtu.be/iI5Znd_OB3I' },
+      { title: 'EN: Update 14.6 — Officer Swap & Техас', author: 'MoreScop3s (@MoreScop3s)', url: 'https://youtu.be/VerRbQt2Yvs' },
+      { title: 'EN: Red Crocodile (ВМС Либерти)', author: 'MoreScop3s (@MoreScop3s)', url: 'https://youtu.be/215cGNOPzMI' }
     ]
   },
   8: {
