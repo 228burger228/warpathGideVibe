@@ -241,12 +241,12 @@ window.BOOK_PAGES = [
           <p class="ed-row-desc">Новый интерфейс и боевые формации для авиации (обкатывалось на сезонных картах завоеваний вроде Александрии).</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Преследующая тень (Валентина Круз)</span><span class="ed-tag">ИСТРЕБИТЕЛЬ</span></div>
-          <p class="ed-row-desc">Специализированный офицер на истребитель — резко усилила воздушный перехват и дуэли в небе.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Преследующая тень (Валентина Круз)</span><span class="ed-tag">50 УР. ВВС СОВЕТОВ</span></div>
+          <p class="ed-row-desc">Истребитель: щит до <code>1800</code> (КД 8с), <code>+10%</code> уклонения и стаки устойчивости к навыкам (до +40%). Открывается прокачкой любого офицера ВВС Советов до <strong>50 ур.</strong></p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Боевой сокол</span><span class="ed-tag">АРТА</span></div>
-          <p class="ed-row-desc">Новый офицер для артиллерии, усиливший осадный потенциал и сплеш-урон.</p>
+          <div class="ed-row-head"><span class="ed-row-title">4th Brave's Path, Сонар и Арена</span><span class="ed-tag">ОБНОВА 14.3</span></div>
+          <p class="ed-row-desc">Альянсовый рейтинг <em>Brave's Path</em> (Legend I, скины базы 1–3 ур.); снаряжение <em>Frogman Sonar</em> (+30% обычн. атак на 15с); тактика <em>Heavy Armor Assault</em> (-4% сопр. базы врага); отдельная снаряга для Арены.</p>
         </div>
       </div>
     `
@@ -289,10 +289,10 @@ window.BOOK_PAGES = [
         <figcaption class="page-caption">Эпоха мастеров: постройки 33–36 ур., титановый сплав и иридий</figcaption>
       </figure>
       <ul class="editorial-list">
-        <li><strong>36-й уровень построек:</strong> здания получили уровни с 32 по 36 с новыми материалами и требованиями.</li>
-        <li><strong>Новые ветки технологий:</strong> расширены военные и промышленные исследования под эндгейм.</li>
-        <li><strong>Снаряжение авиации (Toy Joy Night):</strong> добавлен наколенный планшет «Сапсан» (Peregrine — крит-урон навыков и огневая мощь истребителя) и тактика «Тёмное крыло».</li>
-        <li><strong>2-й Завоевательный поход: Лига армий:</strong> обновлённый турнирный формат со свободными агентами и топ-8.</li>
+        <li><strong>Условия Эпохи мастеров (14.4):</strong> сервер <strong>180+ дней</strong> и <strong>КЦ 32 ур.</strong>; ветка <em>Artisan Frontline</em> и Иридий высокой чистоты открываются с <strong>ИЦ 33 ур.</strong></li>
+        <li><strong>Откуда брать материалы:</strong> Титановый сплав и Иридий добавлены в награды <em>Arms Race</em>, <em>Glorious Reign</em>, <em>Paratrooper Invasion</em>, а также в <strong>VIP-магазин</strong> и <strong>Магазин Арены</strong> (очки трат — Вт, Ср, Сб).</li>
+        <li><strong>Ребаланс юнитов 14.4:</strong> МБТ щит входа <code>1000 → 1500</code>; Вертолёт урон по броне <code>250% → 300%</code> + замедление <code>-10%</code> на 4с; ЛТ — ПВО-урон и <strong>75% шанс уворота от навыков</strong> первые 3с; ускорена первая перезарядка <button type="button" class="wp-term" data-term="atg">АТГ</button> на 1с.</li>
+        <li><strong>Планшет «Сапсан» и «Тёмное крыло»:</strong> до <code>+48%</code> крит-урона и <code>+15%</code> крит-шанса истребителю + тактика невидимости бобров на 60с; в <em>Лиге армий</em> — <strong>8 слотов свободных агентов</strong> и отбор <strong>Топ-8</strong>.</li>
       </ul>
     `
   },
@@ -334,7 +334,9 @@ window.BOOK_PAGES = [
         <figcaption class="page-caption">Пятёрка офицеров патча 14.5: ВМС, защита, арта и поле</figcaption>
       </figure>
       <ul class="editorial-list">
-        <li><strong>Новые офицеры 14.5+:</strong> Блэкджек (подлодки и ПЛО), Мусорщик (щит и аура огневой мощи для пехоты и танков), Красный Крокодил (горение ВМС по области), Верховная судья (гарнизонная арта, «Упреждающий удар»), Волнорез и Говорящая с ветром.</li>
+        <li><strong>Джек Каллахан (Блэкджек — ВМС):</strong> подлодки и БПК (-1 квадрат обнаружения подлодки на 5 ур.). <em>Наём:</em> уничтожить <strong>10 бункеров Ворон 6 ур.+</strong></li>
+        <li><strong>Бруно Шталь (Мусорщик — Наземка):</strong> щит + аура <code>+25% Огневой мощи</code> союзникам в радиусе 5 квадратов на 8с. <em>Наём:</em> поднять <strong>любого наземного офицера Советов до 50 ур.</strong></li>
+        <li><strong>Тактика и снаряга 14.5:</strong> <em>War Cry Throat Mic</em> (+24% обычн. атак/огн. мощи, замедление врага -20%) и ЭМ-тактика ВМС <em>Plasma Ship Shield</em> (иммунитет флота к прямому урону тактик).</li>
       </ul>
     `
   },
@@ -349,10 +351,8 @@ window.BOOK_PAGES = [
     title: 'Технологии обороны и Ящики 14.5',
     html: `
       <ul class="editorial-list">
-        <li><strong>Динамическая оборона города:</strong> новые технологии «Динамическое ПВО города», «Плотная оборона» и «Усиленная броня», а также защита от бомбардировки при возведении стен.</li>
-        <li><strong>Серия «Ящики снабжения» (Munitions Crate):</strong> ивент-пропуск с рикошетными снарядами и редкими предметами.</li>
-        <li><strong>Кап коллекционера 170:</strong> увеличена максимальная планка коллекции.</li>
-        <li><strong>Улучшения удобства (QoL):</strong> доработаны миссии снабжения альянса, точки сбора и поиск/фильтр в чате.</li>
+        <li><strong>Динамическая оборона города и <em>Bombardment Protection</em>:</strong> ветки <em>«Динамическое ПВО города»</em>, <em>«Плотная оборона»</em> (+10% Интенсы базы), <em>«Усиленная броня»</em> (+20% сопр. бобрам) и защита стен от бомбардировки.</li>
+        <li><strong>Quick Transfer, ПК-алерт и Коллекционер 170:</strong> быстрый перенос базы на точку сбора альянса, мигание иконки ПК-клиента при атаке базы, ивент-пропуск <em>«Ящики снабжения»</em> (Munitions Crate) и кап Коллекционера <strong>170</strong>.</li>
       </ul>
     `
   },
@@ -375,12 +375,12 @@ window.BOOK_PAGES = [
           <p class="ed-row-desc">Ровно <strong>2 обычных + 1 эксклюзивный</strong> необратимых обмена (без Перси/Росси/Касамото/Волчицы/Мэри/Машины/Спанера). Лишние статуи пробуждённых идут в Сертификаты (50 / 5).</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Карта Техаса и Цех хранения энергии</span><span class="ed-tag">ПОРОГ 90%</span></div>
-          <p class="ed-row-desc">Эксклюзивное здание производит батареи высокой энергоемкости (ресурсы за стройку возвращаются после сезона). Ниже <strong>90%</strong> питания база и войска получают штраф к урону.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Техас: Электросети, Коалиции и Цех энергии</span><span class="ed-tag">OVERCHARGE</span></div>
+          <p class="ed-row-desc">Энергия идёт от Поселений через Электростанции деревень (бьются <strong>без границы территории</strong>; Central Command должен стоять целым!). Асимметричные коалиции и <strong>межальянсовые группы армий</strong>; в конце сезона технологии сбрасываются, а лишние батареи конвертируются в ускорения.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Гегемон (16 навыков), Зал вербовки и 7.2★ QoL</span><span class="ed-tag">МЕХАНИКИ</span></div>
-          <p class="ed-row-desc">ВВС в Морском кубке + 16 командных навыков; кросс-серверный поиск в Зале вербовки с превью миграции; прямой выбор 7 юнитов <code>7.2★</code> в Обратной сборке.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Гегемон (16 навыков), Зал вербовки и 7.2★</span><span class="ed-tag">80K → 120K</span></div>
+          <p class="ed-row-desc">Выбор <strong>6 из 16 командных навыков</strong> (пул 10 очков, +100% скорости отстающим); очки центра по раундам <code>80k → 100k → 120k</code>; ВВС в Морском кубке (резервы <code>2100</code>, реген `1 / 0.7с`); Зал вербовки с <strong>90-го дня</strong>; прямой выбор всех 7–7.2★ юнитов в Обратной сборке.</p>
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">Шоурум (скидки 40%), Титаны и Ивенты</span><span class="ed-tag">ВЫСТАВОЧНЫЙ ЗАЛ</span></div>
@@ -568,7 +568,8 @@ window.YOUTUBE_BY_TOPIC = {
     videos: [
       { title: 'ВОЗДУШНЫЕ ГРУППЫ / 2 ОФИЦЕРА НОВЫХ / 14.3', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/hjbw1grtPv8' },
       { title: 'ТЕСТЫ! ОФИЦЕР НА ИСТРЕБИТЕЛЬ / ПРЕСЛЕДУЮЩАЯ ТЕНЬ', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/Qdj-z8QjdCE' },
-      { title: 'ОФИЦЕР НА АРТУ / БОЕВОЙ СОКОЛ / 14.3', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/DFdBAC2biT8' }
+      { title: 'ОФИЦЕР НА АРТУ / БОЕВОЙ СОКОЛ / 14.3', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/DFdBAC2biT8' },
+      { title: 'EN: Official Patch Preview Version 14.3', author: 'Warpath Official', url: 'https://www.youtube.com/watch?v=gAL-XkHhsCo' }
     ]
   },
   5: {
@@ -577,7 +578,8 @@ window.YOUTUBE_BY_TOPIC = {
     videos: [
       { title: '32→36 СТОИМОСТЬ ВСЕХ ПОСТРОЕК / ТАБЛИЦА', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/mM0hYObwXQE' },
       { title: '36 УРОВЕНЬ ПОСТРОЙКИ / НОВЫЕ ТЕХНОЛОГИИ / 14.4', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/pLXUnAi8ttw' },
-      { title: 'Доп.: Я ошибся в обзоре патча 14.4', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/HDEnEOdZbbc' }
+      { title: 'Доп.: Я ошибся в обзоре патча 14.4', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/HDEnEOdZbbc' },
+      { title: 'EN: Official Patch Preview Version 14.4 (Age of Artisans)', author: 'Warpath Official', url: 'https://youtu.be/vBQkRpkGKs4' }
     ]
   },
   6: {
@@ -587,7 +589,8 @@ window.YOUTUBE_BY_TOPIC = {
       { title: 'НОВЫЕ ОФИЦЕРЫ И ТАКТИКИ! СЕКРЕТНЫЙ ГОСТЬ / 14.5', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/MZJxppq8ByI' },
       { title: '2 НОВЫХ ОФИЦЕРА И ДРУГИЕ ОБНОВЛЕНИЯ В 14.5', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/HKUFDyEJBwg' },
       { title: 'EN: Scavenger Testing (Мусорщик на танки/пехоту)', author: 'MoreScop3s (@MoreScop3s)', url: 'https://youtu.be/qTyj5vBNyt4' },
-      { title: 'Доп.: Обзор патча 14.5', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/KBdEzmtui9Y' }
+      { title: 'Доп.: Обзор патча 14.5', author: 'Сократ (ClanGothic)', url: 'https://youtu.be/KBdEzmtui9Y' },
+      { title: 'EN: Official Patch Preview Version 14.5', author: 'Warpath Official', url: 'https://www.youtube.com/watch?v=GInINQBgrn4' }
     ]
   },
   7: {
@@ -597,6 +600,7 @@ window.YOUTUBE_BY_TOPIC = {
       { title: 'КАКИХ ОФИЦЕРОВ КАЧАТЬ В WARPATH 14.6?', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/Ri6kCTSDZqE' },
       { title: 'ОБМЕН ОФИЦЕРОВ ВОЗВРАЩАЕТСЯ! Золотая арта / 14.6', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/LrIujsuFFx0' },
       { title: 'КАЛЬКУЛЯТОР ОБМЕНА ОФИЦЕРОВ 14.6 за 1 минуту!', author: 'Паша е6ака (@e6aka56)', url: 'https://youtu.be/riVeWZplo2I' },
+      { title: 'EN: Official Patch Preview Version 14.6 (Texas & Swap)', author: 'Warpath Official', url: 'https://youtu.be/ucKk1OeqpHc' },
       { title: 'EN: Dont Swap the WRONG Free Officer! Guide 2026', author: 'VN Warpath (@VNwarpath1)', url: 'https://youtu.be/iI5Znd_OB3I' },
       { title: 'EN: Update 14.6 — Officer Swap & Техас', author: 'MoreScop3s (@MoreScop3s)', url: 'https://youtu.be/VerRbQt2Yvs' },
       { title: 'EN: Red Crocodile (ВМС Либерти)', author: 'MoreScop3s (@MoreScop3s)', url: 'https://youtu.be/215cGNOPzMI' }
