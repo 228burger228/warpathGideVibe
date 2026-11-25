@@ -380,7 +380,7 @@ window.BOOK_PAGES = [
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">Гегемон (16 навыков), Зал вербовки и 7.2★</span><span class="ed-tag">80K → 120K</span></div>
-          <p class="ed-row-desc">Выбор <strong>6 из 16 командных навыков</strong> (пул 10 очков, +100% скорости отстающим); очки центра по раундам <code>80k → 100k → 120k</code>; ВВС в Морском кубке (резервы <code>2100</code>, реген `1 / 0.7с`); Зал вербовки с <strong>90-го дня</strong>; прямой выбор всех 7–7.2★ юнитов в Обратной сборке.</p>
+          <p class="ed-row-desc">Выбор <strong>6 из 16 командных навыков</strong> (пул 10 очков, +100% скорости отстающим); очки центра по раундам <code>80k → 100k → 120k</code>; ВВС в Морском кубке (резервы <code>2100</code>, реген 1 ед. / 0.7с); Зал вербовки с <strong>90-го дня</strong>; прямой выбор всех 7–7.2★ юнитов в Обратной сборке.</p>
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">Шоурум (скидки 40%), Титаны и Ивенты</span><span class="ed-tag">ВЫСТАВОЧНЫЙ ЗАЛ</span></div>
