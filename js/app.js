@@ -122,6 +122,113 @@
   const promoList = document.getElementById('promo-list');
   const btnCopyAllCodes = document.getElementById('btn-copy-all-codes');
 
+  /* Игровые термины-тултипы (как <wiki> в Warpath) */
+  const WP_GLOSSARY = {
+    awakening: {
+      title: 'Пробуждение офицера',
+      body: 'Открывается, когда все 4 базовых навыка офицера подняты до 5 уровня (нужно 720 фрагментов). Открывает 5-й ультимативный навык — даёт самый сильный скачок боевой мощи.'
+    },
+    arms_race: {
+      title: 'Arms Race (Гонка вооружений)',
+      body: 'Ежедневное событие с заданиями по дням недели (сбор, стройка, наука, купоны, ускорения). Трать запасы именно в нужный день, чтобы забирать золото и ускорения бесплатно.'
+    },
+    intensity: {
+      title: 'Интенсивность урона («Интенса»)',
+      body: 'Главный умножающий множитель всего урона (обычных атак и навыков). Нейтрализуется «Сопротивлением урону» цели. Критически важно собирать её через навыки, оперсети и Бонус лагеря.'
+    },
+    firepower: {
+      title: 'Огневая мощь',
+      body: 'Общий базовый урон в минуту из всего оружия юнита (зависит от урона пушки, скорострельности, точности и радиуса ударной волны). Сильна в начале, но без Интенсивности упирается в броню и сопротивление врага.'
+    },
+    resist: {
+      title: 'Сопротивление урону',
+      body: 'Умножающий защитный показатель, снижающий весь входящий урон (и от атак, и от навыков). Нейтрализует вражескую Интенсивность урона.'
+    },
+    skill_boost: {
+      title: 'Усиление навыков офицера',
+      body: 'Увеличивает урон от тактических/активных навыков и ульт. Главный стат в доп-навыках и снаряге для Арты (Гаубиц) и РСЗО («Катюши»).'
+    },
+    normal_boost: {
+      title: 'Усиление обычной атаки',
+      body: 'Увеличивает постоянный урон автоатак (выстрелов между навыками). Ставится скорострельным юнитам: Флаку (VADS), ПТО и пулемётным ОБТ.'
+    },
+    gold_pp: {
+      title: 'Чертежи Золото+ и Золото++',
+      body: 'Золото+ ещё можно улучшить крафтом до Золото++. Чертежи Золото++ — высший эндгейм-уровень: их НИКОГДА нельзя разбирать, а покупать обычные чертежи в магазинах Альянса и Кампании невыгодно.'
+    },
+    camp_bonus: {
+      title: 'Бонус лагеря',
+      body: 'Суммарный бонус от коллекции и уровня прокачки юнитов выбранного лагеря. Даёт постоянную Интенсивность урона — её важно собирать по максимуму.'
+    },
+    cat_bonus: {
+      title: 'Бонусы категории (напр. V кат. = 60 ур.)',
+      body: 'Пассивные баффы аккаунта за повышение уровня открытых юнитов. Даже не выпуская юнит и без тренировки в арсенале, доведите нужную категорию до порога (для V категории хватит 60 ур.) — это даёт скорость исследований!'
+    },
+    tac_card: {
+      title: 'Тактическая карточка',
+      body: 'Боевые карты Командной академии (Дымовая завеса, Тяжёлый удар, Усиление брони). Прожимай их вручную в нужный момент — например, чтобы сбрить вражескую арту или танк у твоей базы.'
+    },
+    atg: {
+      title: 'АТГ (ПТО Авангарда)',
+      body: 'Немецкая противотанковая пушка лагеря Авангард. Огромное бронепробитие по наземной броне и умение переключаться в режим ПВО против самолётов.'
+    },
+    ops_net: {
+      title: 'Оперсети (Операционные сети)',
+      body: 'Система из 6 сетей в Центре оперативной информации (со 120-го дня сервера). По прибавке Интенсивности и Огневой мощи превосходит Коллекционер.'
+    }
+  };
+
+  let tooltipEl = null;
+  let activeTermEl = null;
+  let hoverOpenedAt = 0;
+
+  function ensureTooltip() {
+    if (tooltipEl) return tooltipEl;
+    tooltipEl = document.createElement('div');
+    tooltipEl.id = 'wp-tooltip';
+    tooltipEl.className = 'wp-tooltip';
+    tooltipEl.setAttribute('role', 'tooltip');
+    tooltipEl.hidden = true;
+    tooltipEl.innerHTML = '<div class="wp-tooltip-title"></div><div class="wp-tooltip-body"></div>';
+    document.body.appendChild(tooltipEl);
+    return tooltipEl;
+  }
+
+  function showTermTooltip(target) {
+    const key = target?.dataset?.term;
+    const item = key && WP_GLOSSARY[key];
+    if (!item) return;
+    const box = ensureTooltip();
+    box.querySelector('.wp-tooltip-title').textContent = item.title;
+    box.querySelector('.wp-tooltip-body').textContent = item.body;
+    box.hidden = false;
+    if (activeTermEl && activeTermEl !== target) activeTermEl.classList.remove('is-active');
+    activeTermEl = target;
+    activeTermEl.classList.add('is-active');
+    hoverOpenedAt = Date.now();
+
+    const rect = target.getBoundingClientRect();
+    const bw = box.offsetWidth || 280;
+    const bh = box.offsetHeight || 90;
+    let left = rect.left + rect.width / 2 - bw / 2;
+    left = Math.max(10, Math.min(left, window.innerWidth - bw - 10));
+    let top = rect.top - bh - 8;
+    if (top < 10) top = Math.min(rect.bottom + 8, window.innerHeight - bh - 10);
+    box.style.left = `${Math.round(left)}px`;
+    box.style.top = `${Math.round(top)}px`;
+    requestAnimationFrame(() => box.classList.add('is-visible'));
+  }
+
+  function hideTermTooltip() {
+    if (activeTermEl) {
+      activeTermEl.classList.remove('is-active');
+      activeTermEl = null;
+    }
+    if (!tooltipEl) return;
+    tooltipEl.classList.remove('is-visible');
+    tooltipEl.hidden = true;
+  }
+
   let currentPage = 2;
   let doneChapters = new Set();
   let skipSubpages = false;
@@ -383,6 +490,7 @@
 
   /* ── RENDER PAGE / SPREAD ─────────────────────────────────── */
   function renderPage(pageNum, direction) {
+    hideTermTooltip();
     let target = clampPage(pageNum);
     currentPage = target;
 
@@ -756,7 +864,37 @@
   }
 
   /* ── EVENTS ───────────────────────────────────────────────── */
+  codexCover.addEventListener('mouseover', (e) => {
+    const term = e.target.closest('.wp-term');
+    if (term) showTermTooltip(term);
+  });
+
+  codexCover.addEventListener('mouseout', (e) => {
+    const term = e.target.closest('.wp-term');
+    if (term && !term.contains(e.relatedTarget)) hideTermTooltip();
+  });
+
+  codexCover.addEventListener('focusin', (e) => {
+    const term = e.target.closest('.wp-term');
+    if (term) showTermTooltip(term);
+  });
+
+  codexCover.addEventListener('focusout', (e) => {
+    const term = e.target.closest('.wp-term');
+    if (term) hideTermTooltip();
+  });
+
   codexCover.addEventListener('click', (e) => {
+    const term = e.target.closest('.wp-term');
+    if (term) {
+      e.preventDefault();
+      e.stopPropagation();
+      const justOpened = Date.now() - hoverOpenedAt < 450;
+      if (activeTermEl === term && tooltipEl && !tooltipEl.hidden && !justOpened) hideTermTooltip();
+      else showTermTooltip(term);
+      return;
+    }
+    hideTermTooltip();
     const gotoBtn = e.target.closest('[data-goto]');
     if (gotoBtn) {
       const target = parseInt(gotoBtn.dataset.goto, 10);
@@ -977,6 +1115,7 @@
 
   /* Клавиатура, клик вне полок и свайпы */
   document.addEventListener('click', (e) => {
+    if (activeTermEl && !e.target.closest('.wp-term')) hideTermTooltip();
     const isReadingNav = !document.contains(e.target) || Boolean(e.target.closest('.reader-dock, .side-arrow, .codex-wrapper, [data-goto]'));
     if (ytDrawer.classList.contains('is-open') && !ytDrawer.contains(e.target) && !btnYtMobile?.contains(e.target) && !isReadingNav) {
       toggleYtDrawer(false);
@@ -989,6 +1128,7 @@
   document.addEventListener('keydown', (e) => {
     if (searchDialog.open || menuDialog.open || hqDialog.open) return;
     if (e.key === 'Escape') {
+      hideTermTooltip();
       toggleYtDrawer(false);
       toggleShelfDrawer(false);
     } else if (e.key === 'ArrowRight') goNext();

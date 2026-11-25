@@ -178,12 +178,12 @@ window.BOOK_PAGES = [
           <p class="ed-row-desc">Сбалансированная армия (ТТ + 2 ПТ + Арта/RL + ЛТ) всегда бьёт 5 одинаковых танков без прикрытия.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">4. Контры важнее мощи</span><span class="ed-tag">КНБ</span></div>
-          <p class="ed-row-desc">Дешёвые ПТ уничтожают дорогие ТТ и ШХ, если стреляют из-за спины союзника.</p>
+          <div class="ed-row-head"><span class="ed-row-title">4. Тактика боя и фокус важнее мощи</span><span class="ed-tag">ТАКТИКА / КАРТЫ</span></div>
+          <p class="ed-row-desc">В разных ситуациях нужна своя тактика: к примеру, при обороне часто выгоднее <button type="button" class="wp-term" data-term="tac_card">тактической карточкой</button> и фокусом быстро сбрить юнит, танкующий твою базу, или выбить вражескую арту, чтобы база не словила критический урон.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">5. Первый удар и фокус</span><span class="ed-tag">ТАКТИКА</span></div>
-          <p class="ed-row-desc">Бей первым с фланга и доводи одного главного офицера до Пробуждения, а не трёх наполовину.</p>
+          <div class="ed-row-head"><span class="ed-row-title">5. Первый удар и фокус</span><span class="ed-tag">ОФИЦЕРЫ</span></div>
+          <p class="ed-row-desc">Бей первым с фланга и доводи одного главного офицера до <button type="button" class="wp-term" data-term="awakening">Пробуждения</button>, а не трёх наполовину.</p>
         </div>
       </div>
     `
@@ -209,16 +209,16 @@ window.BOOK_PAGES = [
 
       <div class="editorial-rows">
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Советы (Martyrs / Красные)</span><span class="ed-tag">НОВИЧКАМ</span></div>
-          <p class="ed-row-desc"><strong>Стиль:</strong> тяжёлая броня и мощная артиллерия.<br><strong>Плюсы:</strong> лучшие тяжёлые танки, ракетная установка (РСЗО), простая и понятная мета.<br><strong>Минусы:</strong> нет сверхтяжёлого танка (SH), слабее в авиации.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Советы (Martyrs / Красные)</span><span class="ed-tag">АРТА И КАТЮША</span></div>
+          <p class="ed-row-desc"><strong>Стиль:</strong> мощнейшая осадная артиллерия.<br><strong>Плюсы:</strong> топовые Гаубица (Арта) и реактивная установка «Катюша» (RL / РСЗО).<br><strong>Минусы:</strong> советский МБТ сейчас не играбелен (танки лучше брать у Авангарда), нет ШХ.</p>
         </div>
         <div class="ed-row">
           <div class="ed-row-head"><span class="ed-row-title">Либерти (Liberty / Синие)</span><span class="ed-tag">МАНЁВР</span></div>
-          <p class="ed-row-desc"><strong>Стиль:</strong> скорость, рейды и осада баз.<br><strong>Плюсы:</strong> быстрые лёгкие танки, сильный флот (авианосцы, эсминцы), противотанковые пушки.<br><strong>Минусы:</strong> слабее в лобовых столкновениях, нет SH-танка.</p>
+          <p class="ed-row-desc"><strong>Стиль:</strong> скорость, рейды и осада баз.<br><strong>Плюсы:</strong> быстрые лёгкие танки (в т.ч. Флак/VADS), Гаубица, сильный флот и авиация.<br><strong>Минусы:</strong> слабее в лобовых танковых дуэлях, нет SH-танка.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Авангард (Vanguard / Серые)</span><span class="ed-tag">ЭНДГЕЙМ</span></div>
-          <p class="ed-row-desc"><strong>Стиль:</strong> непробиваемая оборона.<br><strong>Плюсы:</strong> эксклюзивный Сверхтяжёлый танк (SH / Маус), сильное ПВО.<br><strong>Минусы:</strong> самые медленные и дорогие в прокачке юниты.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Авангард (Vanguard / Серые)</span><span class="ed-tag">ТАНКИ И АТГ</span></div>
+          <p class="ed-row-desc"><strong>Стиль:</strong> броня, танковый кулак и пробитие.<br><strong>Плюсы:</strong> Сверхтяжёлый танк (ШХ / Маус), сильный МБТ (основной боевой танк) и <button type="button" class="wp-term" data-term="atg">АТГ</button> (немецкая противотанковая пушка / ПТО), отличное ПВО.<br><strong>Минусы:</strong> тяжелее по темпу старта.</p>
         </div>
       </div>
     `
@@ -236,18 +236,18 @@ window.BOOK_PAGES = [
       <div class="data-table-wrap">
         <table class="data-table">
           <thead>
-            <tr><th>Фракция</th><th>Сильная сторона</th><th>Кому подходит</th></tr>
+            <tr><th>Фракция</th><th>Сильная сторона (актуально)</th><th>Кому подходит</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>Советы</strong></td><td>Тяжёлый танк, Средний танк, Гаубица / РСЗО</td><td>Идеально для старта и игры без доната. Понятная игра от брони и урона.</td></tr>
-            <tr><td><strong>Либерти</strong></td><td>Лёгкий танк, Гаубица, Авиация и Флот</td><td>Любителям мобильных рейдов и морских операций.</td></tr>
-            <tr><td><strong>Авангард</strong></td><td>Сверхтяжёлый танк (SH), ПВО-эсминец</td><td>Терпеливым игрокам под лейтгейм и удержание точек.</td></tr>
+            <tr><td><strong>Советы</strong></td><td>Гаубица (Арта), РСЗО «Катюша» (RL)</td><td>Ради лучшей арты и «Катюши». ТТ/МБТ Советов в бою не актуален (МБТ неиграбельный).</td></tr>
+            <tr><td><strong>Либерти</strong></td><td>Лёгкий танк / VADS, Гаубица, Авиация и Флот</td><td>Любителям мобильных рейдов, автоатак и морских операций.</td></tr>
+            <tr><td><strong>Авангард</strong></td><td>Сверхтяжёлый танк (ШХ), МБТ, немецкая пушка <button type="button" class="wp-term" data-term="atg">АТГ</button>, ПВО</td><td>Для игры от танкового кулака, жирной брони, ПТО-засад и эндгейма.</td></tr>
           </tbody>
         </table>
       </div>
       <div class="margin-note">
         <div class="margin-note-title">Совет ветеранов</div>
-        <p>Если не знаешь, что выбрать на старте — бери <strong>Советы</strong> для основы на тяжёлых танках и артиллерии. Позже ты сможешь комбинировать лучшие юниты разных лагерей в одной армии (например, SH Авангарда + ПТ/Арта Советов).</p>
+        <p>Советские <strong>Гаубица и Катюша</strong> отлично сочетаются с <strong>МБТ, ШХ или немецкой пушкой АТГ</strong> из Авангарда — смело комбинируй эти лагеря в одной армии, не вкладываясь в советские танки.</p>
       </div>
     `
   },
@@ -312,7 +312,7 @@ window.BOOK_PAGES = [
     html: `
       <p class="page-lead">Играть без доната (Free-to-Play) в Warpath абсолютно реально, если соблюдать жёсткую дисциплину ресурсов и фокусировки.</p>
       <ul class="editorial-list">
-        <li><strong>Правило 1–2 юнитов:</strong> не пытайся качать все 5 слотов сразу на максимум. Сделай 1 мощный Тяжёлый/Средний танк и 1 Гаубицу — они протащат тебя везде.</li>
+        <li><strong>Правило 1–2 юнитов:</strong> не распыляйся сразу на все 5 слотов. Сделай 1 основной ударный танк (например, МБТ Авангарда) или <button type="button" class="wp-term" data-term="atg">АТГ</button> + 1 советскую Гаубицу/Катюшу — они протащат тебя везде.</li>
         <li><strong>Ошиблись с прокачкой? Есть Разборка!</strong> Зайди в <em>Инженерный центр → Разборка</em>. За символическую плату золотом ты вернёшь вложенные детали и опыт. Перед разборкой убери юнит из активной армии.</li>
         <li><strong>Фарм фрагментов через Экспедиции:</strong> отправляй армию в экспедиции перед сном — это стабильный бесплатный источник статуэток офицеров.</li>
         <li><strong>Не трать статуэтки на проходных офицеров:</strong> копи универсальные фрагменты на S-тир (5 поколение или ключевых 4-го).</li>
@@ -331,20 +331,20 @@ window.BOOK_PAGES = [
     html: `
       <div class="editorial-rows">
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Офицеры</span></div>
-          <p class="ed-row-desc">• Фокус на одном до Пробуждения.<br>• Бесплатного офицера 5-го поколения забирай через события.<br>• Выполняй задания офицеров на 100% успеха.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Офицеры и Пробуждение</span><span class="ed-tag">НАВЕДИ НА ТЕРМИН</span></div>
+          <p class="ed-row-desc">• Доводи одного главного офицера до <button type="button" class="wp-term" data-term="awakening">Пробуждения</button>, не распыляй статуэтки на троих.<br>• В 2 доп-слота ставь статы под тип юнита: <button type="button" class="wp-term" data-term="intensity">Интенсивность</button> / <button type="button" class="wp-term" data-term="skill_boost">Навыки</button> (арте) или <button type="button" class="wp-term" data-term="normal_boost">Автоатаки</button> (флаку/ПТО).</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Юниты</span></div>
-          <p class="ed-row-desc">• Выбери 2–3 типа техники.<br>• Исследования важнее количества казарм.<br>• Тяжёлый танк + Стальная коса (Джексон Хейз) / Песнь рассвета — основа базы.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Юниты, Чертежи и Категории</span><span class="ed-tag">БЕЗ ПОТЕРЬ</span></div>
+          <p class="ed-row-desc">• НИКОГДА не разбирай чертежи <button type="button" class="wp-term" data-term="gold_pp">Золото++</button> (Золото+ ещё улучшаются, а Золото++ береги!).<br>• Держи <button type="button" class="wp-term" data-term="cat_bonus">V категорию на 60 ур.</button> (даёт скорость науки даже без тренировки) и собирай <button type="button" class="wp-term" data-term="camp_bonus">Бонус лагеря</button> на <button type="button" class="wp-term" data-term="intensity">интенсу</button>.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Ресурсы</span></div>
-          <p class="ed-row-desc">• Всегда держи запас стали.<br>• Не трать ускорения вне Arms Race.<br>• Постоянно гоняй сборщиков на карту.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Ресурсы и События</span></div>
+          <p class="ed-row-desc">• Не жги ускорения вне <button type="button" class="wp-term" data-term="arms_race">Arms Race</button>.<br>• Всегда держи запас стали и гоняй сборщиков на точки карты.<br>• Изучай <button type="button" class="wp-term" data-term="ops_net">Оперсети</button> со 120-го дня сервера.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Альянс</span></div>
-          <p class="ed-row-desc">• Помогай союзникам кнопкой «Помощь».<br>• Покупай в магазине альянса только нужное.<br>• Бей Raven-лагеря группой.</p>
+          <div class="ed-row-head"><span class="ed-row-title">Альянс и Магазины</span></div>
+          <p class="ed-row-desc">• НЕ покупай чертежи в магазине Кампании и Альянса (слив валюты!).<br>• Помогай союзникам кнопкой «Помощь» и бей Raven-лагеря группой.</p>
         </div>
       </div>
     `
@@ -443,13 +443,13 @@ window.BOOK_PAGES = [
     title: 'Приоритет технологий в Центре',
     html: `
       <div class="margin-note">
-        <div class="margin-note-title">Золотая середина науки</div>
-        <p>Качай параллельно две ветки. Без экономики армия встанет, без армии экономику разграбят.</p>
+        <div class="margin-note-title">Секрет науки: Категория V (60 ур.) и Бонус лагеря</div>
+        <p>Чтобы качать технологии быстрее: поднимай уровень открытых юнитов до нужных порогов <button type="button" class="wp-term" data-term="cat_bonus">категории</button> — для <strong>V категории достаточно 60 уровня</strong> (даже если юнит не собран/не тренирован, аккаунт уже получает <strong>Скорость исследований</strong>!). Обязательно собирай <button type="button" class="wp-term" data-term="camp_bonus">Бонус лагеря</button>: он даёт постоянную <button type="button" class="wp-term" data-term="intensity">Интенсивность урона</button>.</p>
       </div>
       <ul class="editorial-list">
-        <li><strong>Промышленная ветка:</strong> скорость добычи стали/нефти, грузоподъёмность конвоев, снижение стоимости строительства и ремонта.</li>
-        <li><strong>Военная ветка:</strong> открытие слотов армии (до 5 юнитов), усиление именно твоего основного типа войск (например, Тяжёлые танки + Артиллерия).</li>
-        <li><strong>Совет по Arms Race:</strong> не обязательно занимать Топ-1 каждый день. Стабильный <strong>Ранг 3+</strong> даёт отличные награды без выгорания и лишнего слива запасов.</li>
+        <li><strong>Промышленная ветка (приоритет №1):</strong> скорость исследований, скорость стройки, добыча стали/нефти, вместимость конвоев и снижение цены ремонта. Без этого аккаунт упрётся в стену по ресурсам.</li>
+        <li><strong>Военная ветка (строго под свой состав):</strong> сначала открытие 5 слотов армии, затем броня/пробитие/ОЗ именно тех родов войск, которыми реально воюешь (не трать время на неиспользуемые классы).</li>
+        <li><strong>Оборона города и лейтгейм:</strong> в 14.5+ критичны технологии ПВО города, укреплённых стен и <em>Эпохи мастеров</em>, а в Arms Race достаточно стабильно брать <strong>Ранг 3+</strong>.</li>
       </ul>
     `
   },
@@ -468,8 +468,8 @@ window.BOOK_PAGES = [
       <p class="page-lead">В игре 9 основных классов техники: Пехота, ЛТ (лёгкий), СТ (средний), ТТ (тяжёлый), ШХ (сверхтяжёлый), ПТ (истребитель танков), Арта (гаубица) и RL («Катюша» / РСЗО), а также авиация (истребитель, бомбардировщик, вертолёт).</p>
 
       <figure class="page-figure transparent-unit">
-        <img src="assets/unit-armata.webp" alt="Тяжёлый танк 9.2 звёзд — Т-14 Армата (Советы)" class="page-art" width="760" height="532" loading="lazy">
-        <figcaption class="page-caption">Модель 9.2★ (синие звёзды): Советский тяжёлый танк (ТТ / МБТ)</figcaption>
+        <img src="assets/unit-armata.webp" alt="Современный тяжёлый танк 9.2 звёзд в Warpath" class="page-art" width="760" height="532" loading="lazy">
+        <figcaption class="page-caption">Модель 9.2★: Советский МБТ не играбелен в текущей мете — на роль МБТ бери Авангард, а у Советов качай Гаубицу и Катюшу</figcaption>
       </figure>
 
       <h3 class="section-h3">Как работает звёздность</h3>
@@ -505,12 +505,12 @@ window.BOOK_PAGES = [
               <td><span class="ed-tag">S</span></td><td>Сверхброня</td><td>Стенка в лоб (только Авангард). Максимум брони и HP, очень медленный.</td>
             </tr>
             <tr>
-              <td><span class="unit-cell"><svg class="unit-ico" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="8" width="16" height="6" rx="2"/><path d="M7 8l2-4h6l1 4"/><line x1="16" y1="6" x2="23" y2="5.5"/></svg><strong>ТТ (Тяж / МБТ)</strong></span></td>
-              <td><span class="ed-tag">A</span></td><td>Первая линия</td><td>Основа ударного кулака, принимает первый урон.</td>
+              <td><span class="unit-cell"><svg class="unit-ico" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="8" width="16" height="6" rx="2"/><path d="M7 8l2-4h6l1 4"/><line x1="16" y1="6" x2="23" y2="5.5"/></svg><strong>МБТ / ТТ (Авангард)</strong></span></td>
+              <td><span class="ed-tag">A</span></td><td>Основной танк</td><td>Ударный танковый кулак (брать у Авангарда; советский МБТ неиграбелен).</td>
             </tr>
             <tr>
-              <td><span class="unit-cell"><svg class="unit-ico" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="9" width="15" height="5" rx="1.5"/><path d="M5 9l4-4h6v4"/><line x1="15" y1="6.5" x2="23" y2="6.5"/></svg><strong>ПТ (Истребитель)</strong></span></td>
-              <td><span class="ed-tag">A</span></td><td>Анти-броня</td><td>Пробивает ТТ и ШХ из-за спины союзного танка.</td>
+              <td><span class="unit-cell"><svg class="unit-ico" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="9" width="15" height="5" rx="1.5"/><path d="M5 9l4-4h6v4"/><line x1="15" y1="6.5" x2="23" y2="6.5"/></svg><strong>АТГ / ПТО (Немецк.)</strong></span></td>
+              <td><span class="ed-tag">A</span></td><td>Анти-броня и ПВО</td><td>Немецкая пушка Авангарда (АТГ): режет броню ТТ/ШХ и переключается в ПВО.</td>
             </tr>
             <tr>
               <td><span class="unit-cell"><svg class="unit-ico" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="9" width="14" height="5" rx="1"/><line x1="8" y1="9" x2="20" y2="2"/><circle cx="7" cy="14" r="1.5"/><circle cx="15" cy="14" r="1.5"/></svg><strong>Арта (Гаубица)</strong></span></td>
@@ -1027,8 +1027,8 @@ window.BOOK_PAGES = [
     title: 'Приоритет снаряжения и доп. навыков',
     html: `
       <div class="margin-note">
-        <div class="margin-note-title">Склад снаряжения (с 90 дня) и Тест бункера 9</div>
-        <p>Ключи снаряжения: до <strong>100 шт. за золото</strong> каждые 3 дня, гарант фрагмента каждые 10 ящиков; 3 просроченные юрисдикции сохраняются в <em>Очереди перемотки</em>. По тесту ульты Арты (Искатель + Глаз): <strong>Навыки +40%</strong> (2.00B) &gt; Огневая +40% (1.74B) &gt; Интенсивность +25% (1.73B).</p>
+        <div class="margin-note-title">Склад снаряжения и что ставить в доп-навыки (Интенса vs Огневая)</div>
+        <p><strong>Ключи снаряжения:</strong> до <strong>100 шт. за золото</strong> каждые 3 дня, гарант фрагмента каждые 10 ящиков; 3 просроченные юрисдикции хранятся в <em>Очереди перемотки</em>.<br><strong>Что ставить в 2 слота навыков:</strong> в базе статы работают так — <button type="button" class="wp-term" data-term="intensity">Интенсивность урона</button> умножает весь твой урон и режется только сопротивлением врага, а <button type="button" class="wp-term" data-term="firepower">Огневая мощь</button> поднимает базовый ДПС пушек. Для ульты Арты выгоднее <button type="button" class="wp-term" data-term="skill_boost">Усиление навыков</button> (тест бункера: <strong>+40% Навыков = 2.00B</strong> &gt; +40% Огневой = 1.74B &gt; +25% Интенсы = 1.73B).</p>
       </div>
       <div class="editorial-rows">
         <div class="ed-row">
@@ -1121,18 +1121,18 @@ window.BOOK_PAGES = [
     kicker: 'VII. ПОЛНЫЙ СПРАВОЧНИК (ОТ А ДО Я)',
     title: '17. Боевые формулы и Приведённая броня',
     html: `
-      <p class="page-lead">Урон в Warpath считается не одной кнопкой «Мощь», а попарным сравнением характеристик атакующего и цели (по актуальным правилам v14.60):</p>
+      <p class="page-lead">Урон в Warpath считается не строчкой «Мощь», а попарным сравнением статов (наводи на подчёркнутые термины для подсказки). Именно эти параметры ты ставишь в 2 доп-слотах навыков и оперсетях:</p>
       <div class="data-table-wrap">
         <table class="data-table">
           <thead>
-            <tr><th>Атака</th><th>Защита цели</th><th>Как работает</th></tr>
+            <tr><th>Стат атаки</th><th>Защита цели</th><th>Зачем он нужен и куда ставить</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>Глубина бронепробития</strong></td><td><strong>Приведённая броня</strong></td><td>Толщина листа + угол наклона плит. Нет пробития — урон сильно режется.</td></tr>
-            <tr><td><strong>Интенсивность урона</strong></td><td><strong>Сопротивление урону</strong></td><td>Умножающий множитель всего исходящего/входящего урона.</td></tr>
-            <tr><td><strong>Усиление навыков</strong></td><td><strong>Устойчивость к навыкам</strong></td><td>Определяет урон от ульт/тактических/пассивных навыков офицеров (кап базе 80%).</td></tr>
-            <tr><td><strong>Усиление обычных атак</strong></td><td><strong>Устойчивость к автоатакам</strong></td><td>Решающий стат для ЗСУ/Флака, ОБТ на критах и пехоты (кап базе 80%).</td></tr>
-            <tr><td><strong>Усиление ударной волны</strong></td><td><strong>Устойчивость к ударной волне</strong></td><td>Уменьшает взрывной урон (гаубицы/РСЗО) по цели и базе.</td></tr>
+            <tr><td><strong>Глубина бронепробития</strong></td><td><strong>Приведённая броня</strong></td><td>Пробивает толщину и угол брони. Нужно для ПТ, <button type="button" class="wp-term" data-term="atg">АТГ</button> и танков против ШХ.</td></tr>
+            <tr><td><button type="button" class="wp-term" data-term="intensity">Интенсивность урона</button></td><td><button type="button" class="wp-term" data-term="resist">Сопротивление урону</button></td><td>Умножающий множитель всего урона! Важнейший стат из навыков, <button type="button" class="wp-term" data-term="ops_net">оперсетей</button> и <button type="button" class="wp-term" data-term="camp_bonus">Бонуса лагеря</button>.</td></tr>
+            <tr><td><button type="button" class="wp-term" data-term="firepower">Огневая мощь</button></td><td>Броня + ОЗ цели</td><td>Базовый урон в минуту (ДПС оружия). Хорош для старта, но без Интенсивности гасится бронёй и сопрой.</td></tr>
+            <tr><td><button type="button" class="wp-term" data-term="skill_boost">Усиление навыков</button></td><td><strong>Устойчивость к навыкам</strong></td><td>Бустит ульту и активные навыки (кап базе 80%). Мастхэв для Гаубиц и Катюши.</td></tr>
+            <tr><td><button type="button" class="wp-term" data-term="normal_boost">Усиление обычных атак</button></td><td><strong>Устойчивость к автоатакам</strong></td><td>Усиливает выстрелы между навыками (кап базе 80%). Ставится в VADS/Флак, <button type="button" class="wp-term" data-term="atg">АТГ</button> и ОБТ.</td></tr>
           </tbody>
         </table>
       </div>
@@ -1172,11 +1172,13 @@ window.BOOK_PAGES = [
     title: '18. Путь юнита: от 4★ до 9.2★ и XVI ранга',
     html: `
       <p class="page-lead">Эволюция техники делится на две эпохи: <strong>Классические юниты (4★ → 7.2★)</strong> и <strong>Современные юниты (8★ → 9.2★, категории XV–XVI)</strong>.</p>
+      <div class="margin-note">
+        <div class="margin-note-title">Железные правила Чертежей и Уровней категорий</div>
+        <p>• <strong>Чертежи <button type="button" class="wp-term" data-term="gold_pp">Золото++</button> НИКОГДА не разбирай!</strong> Обычные чертежи <strong>Золото+</strong> ещё можно улучшить до <strong>Золото++</strong>, а потеряв <strong>Золото++</strong> — лишишься топовой эндгейм-базы.<br>• <strong>НЕ покупай чертежи в магазинах Кампании и Альянса</strong> — это слив ценной валюты.<br>• Держи пороговый <button type="button" class="wp-term" data-term="cat_bonus">уровень категорий</button>: на <strong>V категории хватит 60 ур.</strong> даже без тренировки — даёт <strong>Скорость исследований</strong>; плюс собирай <button type="button" class="wp-term" data-term="camp_bonus">Бонус лагеря</button> на <button type="button" class="wp-term" data-term="intensity">интенсу</button>!</p>
+      </div>
       <ul class="editorial-list">
-        <li><strong>Переход через «Прототип» (180+ дней):</strong> на серверах возрастом от <strong>180 дней</strong> любой юнит с <code>7.2★</code> можно превратить в Современный юнит <code>8★+</code> — меняется модель, потолок уровня (<code>160–200</code>) и открываются новые моды.</li>
-        <li><strong>Обратная сборка:</strong> позволяет собирать напрямую за <em>Фрагменты прототипов</em> и чертежи только юниты <strong>7★, 7.1★ и 7.2★</strong> (строго того же лагеря!). Выше — только ручное слияние/апгрейд.</li>
-        <li><strong>Наследование скинов:</strong> скин классического юнита работает на <code>5★–7.2★</code> и <em>автоматически открывает</em> свою современную версию для <code>8★+</code>!</li>
-        <li><strong>Разборка и Слияние:</strong> пока юнит ниже <code>7.2★</code>, не трать зря «левые» карты в бесполезные звёзды, а при ошибке делай Разборку за золото (вернутся детали/опыт).</li>
+        <li><strong>Переход через «Прототип» (180+ дней):</strong> с <strong>180 дней сервера</strong> любой юнит с <code>7.2★</code> переводится в Современный <code>8★+</code> (уровни <code>160–200</code>, новые моды).</li>
+        <li><strong>Обратная сборка и наследование скинов:</strong> в Обратной сборке собираются юниты <strong>7★–7.2★</strong> того же лагеря; скин <code>5★–7.2★</code> открывает современную версию <code>8★+</code>.</li>
       </ul>
     `
   },

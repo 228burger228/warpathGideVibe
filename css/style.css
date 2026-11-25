@@ -2016,6 +2016,64 @@ html, body {
 }
 .desk-credits a:hover { color: var(--accent-amber); }
 
+/* ── ИГРОВЫЕ ПОДСКАЗКИ-ТЕРМИНЫ (.wp-term + #wp-tooltip) ─────── */
+.wp-term {
+  display: inline;
+  padding: 0 1px;
+  margin: 0;
+  border: none;
+  background: rgba(143, 79, 14, 0.08);
+  color: #7c3f05;
+  font: inherit;
+  font-weight: 700;
+  line-height: inherit;
+  border-bottom: 1.5px dashed #a85b0a;
+  border-radius: 3px;
+  cursor: help;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.wp-term:hover,
+.wp-term:focus-visible,
+.wp-term.is-active {
+  background: rgba(217, 155, 38, 0.24);
+  color: #4f2500;
+  outline: none;
+}
+
+.wp-tooltip {
+  position: fixed;
+  z-index: 950;
+  max-width: min(310px, calc(100vw - 20px));
+  background: #17191f;
+  color: #ece6d8;
+  border: 1px solid rgba(229, 160, 49, 0.65);
+  border-radius: 8px;
+  padding: 9px 12px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.52);
+  font-size: 12.2px;
+  line-height: 1.45;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.14s ease, transform 0.14s ease;
+}
+.wp-tooltip.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.wp-tooltip-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #f3b54a;
+  margin-bottom: 3px;
+}
+.wp-tooltip-body {
+  color: #dfd7c5;
+}
+
 @media (max-width: 600px) {
   .promo-card { flex-direction: column; align-items: stretch; }
   .promo-actions { justify-content: space-between; }
