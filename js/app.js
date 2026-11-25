@@ -814,7 +814,7 @@
           <div class="promo-card ${isUsed ? 'is-used' : ''}">
             <div class="promo-left">
               <div class="promo-top-row">
-                <code class="promo-code-chip">${c.code}</code>
+                <code class="promo-code-chip notranslate" translate="no">${c.code}</code>
                 <span class="ed-tag">${c.tag}</span>
               </div>
               <div class="promo-note">${c.note}</div>

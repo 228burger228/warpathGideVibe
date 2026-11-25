@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://228burger228.github.io/warpathGideVibe/sitemap.xml
