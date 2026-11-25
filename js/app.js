@@ -936,7 +936,8 @@
 
   /* Клавиатура, клик вне полок и свайпы */
   document.addEventListener('click', (e) => {
-    if (ytDrawer.classList.contains('is-open') && !ytDrawer.contains(e.target) && !btnYtMobile?.contains(e.target)) {
+    const isReadingNav = !document.contains(e.target) || Boolean(e.target.closest('.reader-dock, .side-arrow, .codex-wrapper, [data-goto]'));
+    if (ytDrawer.classList.contains('is-open') && !ytDrawer.contains(e.target) && !btnYtMobile?.contains(e.target) && !isReadingNav) {
       toggleYtDrawer(false);
     }
     if (shelfDrawer && shelfDrawer.classList.contains('is-open') && !shelfDrawer.contains(e.target) && !btnShelfMobile?.contains(e.target)) {
