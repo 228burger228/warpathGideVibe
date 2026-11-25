@@ -549,8 +549,8 @@
 
   /* ── HQ: TABS, TICKETS, CALCULATOR & COMMUNITY ────────────── */
   function getTicketContext() {
-    const vol = IS_UPDATES ? 'Том II (Хроника патчей)' : 'Том I (Полевой устав)';
-    const cur = PAGES.find(p => p.page === currentPage) || PAGES[0];
+    const vol = bookId === 'updates' ? 'Том II (Хроника патчей)' : 'Том I (Полевой устав)';
+    const cur = pages.find(p => p.page === currentPage) || pages[0];
     const chap = cur?.bookmark || cur?.title || `Стр. ${currentPage}`;
     return { vol, page: currentPage, chap };
   }
