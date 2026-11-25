@@ -60,7 +60,8 @@ window.BOOK_TOC_SECTIONS = [
       { id: 19, title: 'База, Стены, VIP и Зал Кэт', page: 41 },
       { id: 20, title: 'Энциклопедия всех родов войск', page: 43 },
       { id: 21, title: 'События, Завоевание и Лимиты', page: 45 },
-      { id: 22, title: 'Чеклист: Новичок / Мид / Профи', page: 47 }
+      { id: 22, title: 'Почести, Гегемон, Кубок и Ивенты', page: 47 },
+      { id: 23, title: 'Чеклист: Новичок / Мид / Профи', page: 49 }
     ]
   }
 ];
@@ -87,7 +88,7 @@ window.BOOK_PAGES = [
         <p class="cover-subtitle">
           Боевое руководство по Warpath: от первого дня на сервере и траты золота до пробуждения офицеров, контров техники, калькулятора и тикетов WarpathHub.
         </p>
-        <div class="page-kicker">ТОМ I • 22 ГЛАВЫ • 48 СТРАНИЦ • v14.60</div>
+        <div class="page-kicker">ТОМ I • 23 ГЛАВЫ • 50 СТРАНИЦ • v14.60</div>
         <div class="cover-verified">Актуальность v14.60 • Механики и офицеры сверены с игрой</div>
         <div class="cover-actions">
           <button type="button" class="btn-cover-primary" data-goto="2">Открыть содержание →</button>
@@ -1364,29 +1365,29 @@ window.BOOK_PAGES = [
     `
   },
 
-  /* ── ГЛАВА 22: СВОДНЫЙ ЧЕКЛИСТ НОВИЧОК / МИД / ПРОФИ (СТР. 47–48) ── */
+  /* ── ГЛАВА 22: ПОЧЕСТИ, ГЕГЕМОН, КУБОК И КРУПНЫЕ ИВЕНТЫ (СТР. 47–48) ── */
   {
     page: 47,
     type: 'content',
     chapterId: 22,
     isChapterStart: true,
     docCode: 'WP-FM // CH-22',
-    bookmark: 'ГЛАВА 22 • ЧЕКЛИСТ',
+    bookmark: 'ГЛАВА 22 • ПОЧЕСТИ И ГЕГЕМОН',
     kicker: 'VII. ПОЛНЫЙ СПРАВОЧНИК (ОТ А ДО Я)',
-    title: '22. Чеклист роста: Новичок / Мид / Профи',
+    title: '22. Почести, Гегемон и Главный кубок',
     html: `
       <div class="editorial-rows">
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Этап 1: Новичок (1–30 дней, F2P)</span><span class="ed-tag">БАЗА</span></div>
-          <p class="ed-row-desc">• 1 главный лагерь + 2 юнита (ТТ/СТ + Арта).<br>• Золото только в VIP 4 → VIP 9, не на ускорение.<br>• Активируй промокоды в «Штаб → Промокоды», гоняй сборщиков и Чёрный рынок (ресурс за ресурс).</p>
+          <div class="ed-row-head"><span class="ed-row-title"><button type="button" class="wp-term" data-term="city_honors">Городские и Боевые почести</button></span><span class="ed-tag">ГОЛОВЫ / ЗНАЧКИ</span></div>
+          <p class="ed-row-desc"><strong>Городские почести</strong> открываются в городах <strong>ур. 2+</strong> (перед <em>Городской обороной</em> в городах ур. 3+). Для прокачки технологий и ветви <em>«Железная армия»</em> нужны <strong>Значки городского вклада</strong> («головы» / медали из городских ивентов и наград кампании). А в событии <strong>Боевые почести</strong> за ежедневные городские задачи выдаются сильные боевые усиления и награды города.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Этап 2: Мидгейм (7.2★ → Прототип 9★)</span><span class="ed-tag">СИНЕРГИЯ</span></div>
-          <p class="ed-row-desc">• Разделяй 4 бюджета апгрейда (SpeedPath).<br>• Качай 1–2 пробуждённых офицеров до упора вместо всех по чуть-чуть.<br>• Собирай фиолетовую снарягу офицеров (ур. 40 > слабое золото 20 ур.).</p>
+          <div class="ed-row-head"><span class="ed-row-title"><button type="button" class="wp-term" data-term="hegemon_cup">Операция «Гегемон»</button></span><span class="ed-tag">16 НАВЫКОВ + ВВС</span></div>
+          <p class="ed-row-desc">Крупный морской и воздушно-морской режим: альянсы сражаются эскадрами и авиацией за ранги (<em>Новичок → Первопроходец → Мастер-гегемон</em>). В 14.6 добавлены <strong>16 командных навыков</strong> и авиаудары ВВС в морских боях.</p>
         </div>
         <div class="ed-row">
-          <div class="ed-row-head"><span class="ed-row-title">Этап 3: Профи (180+ дней, G2 / Эпик)</span><span class="ed-tag">ЭНДГЕЙМ</span></div>
-          <p class="ed-row-desc">• Оперсети в упор (3 зелёных > 1 синий) + защитный ястреб (70% ауры) + 2 бобра.<br>• Жёсткое деление на деф (без гибридов, кап 80% базе) и атаку (усиление навыков арте, автоатаки флаку).<br>• Перед Офицерским обменом (3 слота: 2+1) — полный просчёт в калькуляторе Шевченко.</p>
+          <div class="ed-row-head"><span class="ed-row-title">«Главный кубок» (Турнир Элитного дивизиона)</span><span class="ed-tag">2 ЭТАПА</span></div>
+          <p class="ed-row-desc">Главный межсерверный кубок альянсов: <strong>Этап 1</strong> — <em>Гонка за очками</em> в Театре, куда выходят сильнейшие; <strong>Этап 2</strong> — Финал лучших <strong>16 альянсов</strong> (5 фаз: подготовка, объявление соперников, кампания, подсчёт и вручение чемпионской эмблемы/кубка).</p>
         </div>
       </div>
     `
@@ -1396,12 +1397,66 @@ window.BOOK_PAGES = [
     type: 'content',
     chapterId: 22,
     isChapterStart: false,
+    docCode: 'WP-FM // CH-22B',
+    bookmark: 'ГЛАВА 22 • ДРУГИЕ ИВЕНТЫ',
+    kicker: 'ГЛАВА 22 (ДОП. СТРАНИЦА)',
+    title: 'Другие крупные и регулярные ивенты',
+    html: `
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>Событие / Режим</th><th>Периодичность</th><th>Главная награда и зачем играть</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Лига армий / Золотая лихорадка</strong></td><td>Сезонно (походы)</td><td>2-й Завоевательный поход со свободными агентами (топ-8) и сезонные кампании (Сан-Франциско, Техас, Карибы).</td></tr>
+            <tr><td><strong>Проект закалки и БаттлФест</strong></td><td>По графику сезона</td><td>Миссии на очки развития/боя, редкие ресурсы эндгейма и знаки престижа.</td></tr>
+            <tr><td><strong>Ящики снабжения (Munitions)</strong></td><td>Ивент-пропуск 14.5+</td><td>Рикошетные снаряды, ящики деталей и редкие боевые модули.</td></tr>
+            <tr><td><strong>Легендарный шоурум</strong></td><td>Регулярная ротация</td><td>Скины на базу и юниты (<em>Титановое ядро, Морозный край, Золотой скарабей</em>) со скидочными картами (50/320 круток) — бустят Уровень коллекционера.</td></tr>
+            <tr><td><strong>Зал Кэт и мини-ивенты</strong></td><td>Раз в 3–4 недели</td><td>Зал отдыха Кэт (раз в мес. на 5 дн. — экскл. офицеры), а также <em>Защита ракеты, Авиарейды, Bingo Battle и Carnival Bash</em> (чипы и чертежи).</td></tr>
+          </tbody>
+        </table>
+      </div>
+    `
+  },
+
+  /* ── ГЛАВА 23: СВОДНЫЙ ЧЕКЛИСТ НОВИЧОК / МИД / ПРОФИ (СТР. 49–50) ── */
+  {
+    page: 49,
+    type: 'content',
+    chapterId: 23,
+    isChapterStart: true,
+    docCode: 'WP-FM // CH-23',
+    bookmark: 'ГЛАВА 23 • ЧЕКЛИСТ',
+    kicker: 'VII. ПОЛНЫЙ СПРАВОЧНИК (ОТ А ДО Я)',
+    title: '23. Чеклист роста: Новичок / Мид / Профи',
+    html: `
+      <div class="editorial-rows">
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Этап 1: Новичок (1–30 дней, F2P)</span><span class="ed-tag">БАЗА</span></div>
+          <p class="ed-row-desc">• Советы (Гаубица + Катюша) или Авангард (МБТ + <button type="button" class="wp-term" data-term="atg">АТГ</button>).<br>• Золото только в VIP 4 → VIP 9; промокоды в «Штаб → Промокоды».<br>• Не разбирай <button type="button" class="wp-term" data-term="gold_pp">Золото++</button> и не бери чертежи в магазине Альянса/Кампании.</p>
+        </div>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Этап 2: Мидгейм (7.2★ → Прототип 9★)</span><span class="ed-tag">СИНЕРГИЯ</span></div>
+          <p class="ed-row-desc">• Держи V категорию на 60 ур. (скорость науки) и качай Городские почести за значки/«головы».<br>• Качай 1–2 <button type="button" class="wp-term" data-term="awakening">пробуждённых</button> офицеров до упора вместо всех по чуть-чуть.<br>• Собирай фиолетовую снарягу офицеров (ур. 40 &gt; слабое золото 20 ур.).</p>
+        </div>
+        <div class="ed-row">
+          <div class="ed-row-head"><span class="ed-row-title">Этап 3: Профи (180+ дней, G2 / Эпик)</span><span class="ed-tag">ЭНДГЕЙМ</span></div>
+          <p class="ed-row-desc">• Оперсети в упор (3 зелёных &gt; 1 синий), <button type="button" class="wp-term" data-term="camp_bonus">Бонус лагеря</button> на интенсу и ястреб (70% ауры) + 2 бобра.<br>• Жёсткое деление на деф (без гибридов, кап 80% базе) и атаку (усиление навыков арте, автоатаки флаку).<br>• Перед Офицерским обменом (3 слота: 2+1) — расчёт в калькуляторе Шевченко.</p>
+        </div>
+      </div>
+    `
+  },
+  {
+    page: 50,
+    type: 'content',
+    chapterId: 23,
+    isChapterStart: false,
     docCode: 'WP-FM // FINISH',
     bookmark: 'ФИНАЛ • ТОМ II И ИНСТРУМЕНТЫ',
     kicker: 'ЭНЦИКЛОПЕДИЯ ЗАВЕРШЕНА',
     title: 'Навигация по инструментам и Тому II',
     html: `
-      <p class="page-lead">Теперь у тебя под рукой полный справочник Тома I (48 страниц). Чтобы наверстать изменения патчей 12.0 → 14.60, скопировать промокоды или открыть актуальные калькуляторы — пользуйся быстрыми переходами ниже:</p>
+      <p class="page-lead">Теперь у тебя под рукой полный справочник Тома I (50 страниц). Чтобы наверстать изменения патчей 12.0 → 14.60, скопировать промокоды или открыть актуальные калькуляторы — пользуйся быстрыми переходами ниже:</p>
       <div class="inline-cta-row">
         <a href="updates.html" class="page-link-btn">Том II: Хроника патчей →</a>
         <button type="button" class="page-link-btn secondary" data-open-hq="codes">Промокоды (копировать)</button>
@@ -1702,6 +1757,15 @@ window.YOUTUBE_BY_TOPIC = {
     ]
   },
   22: {
+    topic: 'Почести, Гегемон, Кубок и Крупные ивенты',
+    query: 'Warpath гегемон главный кубок почести ивенты',
+    videos: [
+      { title: 'Гегемон / Warpath v14.4', author: 'Бургер (@burgerdom6)', url: 'https://youtu.be/V4xFkoiUWtM' },
+      { title: 'EN: Морские и сезонные турниры', author: 'Twon22 (@Twon22)', url: 'https://www.youtube.com/@Twon22/videos' },
+      { title: 'EN: Обзор крупных ивентов 14.5–14.6', author: 'MoreScop3s (@MoreScop3s)', url: 'https://www.youtube.com/@MoreScop3s/videos' }
+    ]
+  },
+  23: {
     topic: 'Итоговый чеклист и переход к Тому II',
     query: 'Warpath настройка аккаунта 14.6 гайд',
     videos: [
