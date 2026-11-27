@@ -14,11 +14,26 @@
     tickets: 'wp_guide_tickets',
     ttsRate: 'wp_guide_tts_rate',
     sfx: 'wp_guide_sfx',
-    usedCodes: 'wp_guide_used_codes'
+    usedCodes: 'wp_guide_used_codes',
+    lang: 'wp_guide_lang'
   };
 
-  const pages = window.BOOK_PAGES || [];
-  const tocSections = window.BOOK_TOC_SECTIONS || [];
+  const RU_VOL = {
+    pages: window.BOOK_PAGES || [],
+    tocSections: window.BOOK_TOC_SECTIONS || [],
+    videos: window.YOUTUBE_BY_TOPIC || {},
+    calc: window.CALC_DATA || null,
+    community: window.COMMUNITY_LINKS || [],
+    promoCodes: window.PROMO_CODES || []
+  };
+
+  let currentLang = 'ru';
+  let pages = RU_VOL.pages;
+  let tocSections = RU_VOL.tocSections;
+  let activeVideos = RU_VOL.videos;
+  let activeCalc = RU_VOL.calc;
+  let activeCommunity = RU_VOL.community;
+  let activePromoCodes = RU_VOL.promoCodes;
   const totalPages = pages.length;
 
   const codexWrapper = document.getElementById('codex-wrapper');
@@ -51,6 +66,9 @@
   const btnTocOpen = document.getElementById('btn-toc-open');
   const btnSearch = document.getElementById('btn-search');
   const btnHq = document.getElementById('btn-hq');
+  const btnLangToggle = document.getElementById('btn-lang-toggle');
+  const langActiveCode = document.getElementById('lang-active-code');
+  const langAltCode = document.getElementById('lang-alt-code');
   const btnToolsTrigger = document.getElementById('btn-tools-trigger');
   const toolsMenu = document.getElementById('tools-menu');
 
@@ -126,7 +144,7 @@
   const WP_GLOSSARY = {
     awakening: {
       title: 'Пробуждение офицера',
-      body: 'Открывается, когда все 4 базовых навыка офицера подняты до 5 уровня (нужно 720 фрагментов). Открывает 5-й ультимативный навык — даёт самый сильный скачок боевой мощи.'
+      body: 'Открывается, когда все 4 базовых навыка офицера подняты до 5 уровня (нужно 720 универсальных статуй офицера). Открывает 5-й ультимативный навык — даёт самый сильный скачок боевой мощи.'
     },
     arms_race: {
       title: 'Arms Race (Гонка вооружений)',
@@ -186,6 +204,7 @@
     }
   };
 
+  let activeGlossary = WP_GLOSSARY;
   let tooltipEl = null;
   let activeTermEl = null;
   let hoverOpenedAt = 0;
@@ -204,7 +223,7 @@
 
   function showTermTooltip(target) {
     const key = target?.dataset?.term;
-    const item = key && WP_GLOSSARY[key];
+    const item = key && (activeGlossary[key] || WP_GLOSSARY[key]);
     if (!item) return;
     const box = ensureTooltip();
     box.querySelector('.wp-tooltip-title').textContent = item.title;
@@ -278,18 +297,196 @@
   }
 
   /* ── STATE ────────────────────────────────────────────────── */
+  const RU_JS = {
+    studiedPrefix: 'ИЗУЧЕНО',
+    bookmarkDefaultManual: 'WARPATH УСТАВ',
+    bookmarkDefaultUpdates: 'WARPATH УСТАВ • ТОМ II',
+    tocTitle: 'СОДЕРЖАНИЕ',
+    tocKicker: 'НАВИГАЦИЯ ПО УСТАВУ',
+    markDone: '✓ Изучено',
+    markBtn: 'Отметить',
+    endKicker: 'КОНЕЦ УСТАВА',
+    endText: 'Вы дошли до последней страницы. Вернитесь к содержанию или задайте вопрос в Штабе WarpathHub.',
+    endBtn: 'К содержанию',
+    badgeDark: 'Тёмная',
+    badgeLight: 'Светлая',
+    badgeOn: 'Вкл',
+    badgeOff: 'Выкл',
+    badgePlaying: 'Играет',
+    badgeFull: 'Полный',
+    badgeWindow: 'Окно',
+    pause: 'Пауза',
+    resume: 'Продолжить',
+    radioStatus: 'Радиосвязь',
+    pageShort: 'стр.',
+    searchEmpty: 'Введите термин, имя офицера, юнит или @shevchenko01_bot для поиска по уставу.',
+    searchNoHits: 'Ничего не найдено. Попробуйте другой запрос.',
+    pageWord: 'Стр.',
+    ticketHistoryTitle: 'Последние сформированные тикеты',
+    ticketVol1: 'Том I (Полевой устав)',
+    ticketVol2: 'Том II (Хроника патчей)',
+    ticketContextPrefix: 'Привязка',
+    ticketDefaultMsg: '(укажите, что нужно поправить или обновить на этой странице)',
+    ticketDefaultNick: 'Читатель',
+    ticketCopied: (id) => `Тикет ${id} скопирован! Вставь в @shevchenko01_bot или нажми «Отправить в GitHub ↗».`,
+    ticketFallback: (id) => `Тикет ${id} готов — нажми «Отправить в GitHub ↗» или отправь в @shevchenko01_bot.`,
+    calcPower: 'Боевая мощь',
+    calcAtk: 'Атака',
+    calcDef: 'Защита',
+    calcHp: 'Здоровье (HP)',
+    calcSpeed: 'Скорость',
+    calcAtkBonus: 'Бонус АТК',
+    copyBtn: 'Копировать',
+    copiedBtn: 'Скопировано ✓',
+    usedDoneBtn: 'Использован ✓',
+    usedMarkBtn: 'Отметить',
+    copiedAll: (n) => `Скопировано (${n}) ✓`,
+    copyErr: 'Ошибка буфера',
+    githubTitlePrefix: 'Ошибка в гайде'
+  };
+
+  function uiStr() {
+    return currentLang === 'en' && window.WP_EN?.ui?.js ? window.WP_EN.ui.js : RU_JS;
+  }
+
+  let ruDomSnapshot = null;
+  function getStaticUiTargets() {
+    const isUpd = bookId === 'updates';
+    return [
+      { sel: '.brand-accent', key: 'brandAccent' },
+      { sel: '.brand-sub', key: isUpd ? 'brandSubUpdates' : 'brandSubManual' },
+      { sel: '#btn-toc-open .nav-label', key: 'navToc' },
+      { sel: '#btn-search .nav-label', key: 'navSearch' },
+      { sel: '#btn-hq .nav-label', key: 'navHq' },
+      { sel: '#btn-tools-trigger .nav-label', key: 'navMenu' },
+      { sel: '#tools-menu .tools-group:nth-of-type(1) .tools-group-title', key: 'toolsTitleBook' },
+      { sel: 'label[for="toggle-spread"] span', key: 'toolsSpread' },
+      { sel: 'label[for="skip-subpages"] span', key: 'toolsSkipSub' },
+      { sel: '#tools-menu .tools-group:nth-of-type(2) .tools-group-title', key: 'toolsTitleAudio' },
+      { sel: '#btn-tts .tool-row-left span', key: 'toolsTts' },
+      { sel: '#btn-sfx .tool-row-left span', key: 'toolsSfx' },
+      { sel: '#tools-menu .tools-group:nth-of-type(3) .tools-group-title', key: 'toolsTitleUi' },
+      { sel: '#btn-theme .tool-row-left span', key: 'toolsTheme' },
+      { sel: '#btn-fullscreen .tool-row-left span', key: 'toolsFullscreen' },
+      { sel: '.tools-links-foot a:first-child', key: 'toolsFootChat' },
+      { sel: '.yt-drawer-kicker', key: 'ytKicker' },
+      { sel: '.yt-tab-text', key: 'ytTabText' },
+      { sel: '#yt-search-more', key: 'ytMore' },
+      { sel: '#btn-report-error span', key: 'reportError' },
+      { sel: '#btn-yt-mobile span', key: 'mobileVideo' },
+      { sel: '#btn-shelf-mobile span', key: 'mobileShelf' },
+      { sel: '.shelf-tab-text', key: isUpd ? 'shelfTabUpdates' : 'shelfTabManual' },
+      { sel: '.shelf-kicker', key: 'shelfKicker' },
+      { sel: '.shelf-title', key: 'shelfTitle' },
+      { sel: '.spine-vol1 .spine-vol-num', key: 'shelfVol1Tag' },
+      { sel: '.spine-vol1 .spine-name', key: 'shelfVol1Name' },
+      { sel: '.spine-vol1 .spine-meta', key: 'shelfVol1Meta' },
+      { sel: '.spine-vol1 .spine-status', key: isUpd ? 'shelfStatusOpen' : 'shelfStatusReading' },
+      { sel: '.spine-vol2 .spine-vol-num', key: 'shelfVol2Tag' },
+      { sel: '.spine-vol2 .spine-name', key: 'shelfVol2Name' },
+      { sel: '.spine-vol2 .spine-meta', key: 'shelfVol2Meta' },
+      { sel: '.spine-vol2 .spine-status', key: isUpd ? 'shelfStatusReading' : 'shelfStatusOpen' },
+      { sel: '.spine-wiki .spine-vol-num', key: 'shelfExtTag' },
+      { sel: '.spine-wiki .spine-name', key: 'shelfExtName' },
+      { sel: '.spine-wiki .spine-meta', key: 'shelfExtMeta' },
+      { sel: '.spine-wiki .spine-status', key: 'shelfExtStatus' },
+      { sel: '#shelf-ext-menu a:nth-child(1) strong', key: 'shelfExtWpcTitle' },
+      { sel: '#shelf-ext-menu a:nth-child(1) span', key: 'shelfExtWpcDesc' },
+      { sel: '#shelf-ext-menu a:nth-child(2) strong', key: 'shelfExtSpTitle' },
+      { sel: '#shelf-ext-menu a:nth-child(2) span', key: 'shelfExtSpDesc' },
+      { sel: '#shelf-ext-menu a:nth-child(3) strong', key: 'shelfExtOldTitle' },
+      { sel: '#shelf-ext-menu a:nth-child(3) span', key: 'shelfExtOldDesc' },
+      { sel: '.desk-credits > span', key: 'creditsLabel' },
+      { sel: '.desk-credits a:last-child', key: 'creditsSocrat' },
+      { sel: '#search-dialog-title', key: isUpd ? 'searchTitleUpdates' : 'searchTitleManual' },
+      { sel: '#search-input', key: isUpd ? 'searchPlaceholderUpdates' : 'searchPlaceholderManual', attr: 'placeholder' },
+      { sel: '#menu-dialog-title', key: isUpd ? 'menuTitleUpdates' : 'menuTitleManual' },
+      { sel: '.progress-head > span', key: isUpd ? 'progressHeadUpdates' : 'progressHeadManual' },
+      { sel: '.author-credit-badge', key: 'authorBadge' },
+      { sel: '.author-credit-desc', key: 'authorDesc', html: true },
+      { sel: '#btn-reset-progress', key: 'btnResetProgress' },
+      { sel: '#hq-dialog-title', key: 'hqTitle' },
+      { sel: '[data-hq-tab="tickets"]', key: 'tabTickets' },
+      { sel: '[data-hq-tab="codes"]', key: 'tabCodes' },
+      { sel: '[data-hq-tab="calc"]', key: 'tabCalc' },
+      { sel: '[data-hq-tab="community"]', key: 'tabCommunity' },
+      { sel: '#hq-panel-tickets .hq-action-card.highlight .hq-action-badge', key: 'hqCardBotBadge' },
+      { sel: '#hq-panel-tickets .hq-action-card.highlight .hq-action-desc', key: 'hqCardBotDesc' },
+      { sel: '#hq-panel-tickets .hq-action-card:not(.highlight) .hq-action-title', key: 'hqCardChatTitle' },
+      { sel: '#hq-panel-tickets .hq-action-card:not(.highlight) .hq-action-desc', key: 'hqCardChatDesc' },
+      { sel: '.ticket-form-title', key: 'ticketFormTitle' },
+      { sel: 'label[for="ticket-type"]', key: 'ticketTypeLabel' },
+      { sel: '#ticket-type option[value="Вопрос по тактике"]', key: 'ticketOptTactic' },
+      { sel: '#ticket-type option[value="Ошибка в гайде"]', key: 'ticketOptBug' },
+      { sel: '#ticket-type option[value="Добавить в гайд"]', key: 'ticketOptSuggest' },
+      { sel: '#ticket-type option[value="Модерация / Жалоба"]', key: 'ticketOptMod' },
+      { sel: 'label[for="ticket-nick"]', key: 'ticketNickLabel' },
+      { sel: '#ticket-nick', key: 'ticketNickPlaceholder', attr: 'placeholder' },
+      { sel: 'label[for="ticket-text"]', key: 'ticketTextLabel' },
+      { sel: '#ticket-text', key: 'ticketTextPlaceholder', attr: 'placeholder' },
+      { sel: '#ticket-form button[type="submit"]', key: 'ticketBtnCopy' },
+      { sel: '#btn-github-issue', key: 'ticketBtnGithub' },
+      { sel: '.ticket-actions a:last-child', key: 'ticketBtnBot' },
+      { sel: 'label[for="calc-unit"]', key: 'calcUnitLabel' },
+      { sel: 'label[for="calc-officer"]', key: 'calcOfficerLabel' },
+      { sel: 'label[for="calc-equip"]', key: 'calcEquipLabel' },
+      { sel: '.calc-footer-note > span', key: 'calcFooterNote' },
+      { sel: '.promo-guide-text', key: 'promoGuideHtml', html: true },
+      { sel: '#btn-copy-all-codes', key: 'promoCopyAll' },
+      { sel: '.promo-toolbar a', key: 'promoPortal' }
+    ];
+  }
+
+  function applyStaticUi(lang) {
+    const targets = getStaticUiTargets();
+    if (!ruDomSnapshot) {
+      ruDomSnapshot = { title: document.title, vals: {} };
+      for (const item of targets) {
+        const el = document.querySelector(item.sel);
+        if (!el) continue;
+        ruDomSnapshot.vals[item.key] = item.attr ? el.getAttribute(item.attr) : (item.html ? el.innerHTML : el.textContent);
+      }
+      const lvlLbl = document.querySelector('label[for="calc-level"]');
+      ruDomSnapshot.calcLvlNode = lvlLbl?.firstChild?.textContent || 'Ранг / Уровень (';
+    }
+
+    const isEn = lang === 'en' && Boolean(window.WP_EN);
+    const enUi = isEn ? window.WP_EN.ui : null;
+    document.title = isEn ? enUi[bookId === 'updates' ? 'pageTitleUpdates' : 'pageTitleManual'] : ruDomSnapshot.title;
+
+    for (const item of targets) {
+      const el = document.querySelector(item.sel);
+      if (!el) continue;
+      const val = isEn ? enUi[item.key] : ruDomSnapshot.vals[item.key];
+      if (val === undefined) continue;
+      if (item.attr) el.setAttribute(item.attr, val);
+      else if (item.html) el.innerHTML = val;
+      else el.textContent = val;
+    }
+
+    const lvlLbl = document.querySelector('label[for="calc-level"]');
+    if (lvlLbl?.firstChild) {
+      lvlLbl.firstChild.textContent = isEn ? `${enUi.calcLevelLabel} (` : ruDomSnapshot.calcLvlNode;
+    }
+    if (langActiveCode && langAltCode) {
+      langActiveCode.textContent = isEn ? 'EN' : 'RU';
+      langAltCode.textContent = isEn ? 'RU' : 'EN';
+    }
+  }
+
   function isSpreadActive() {
     return spreadPref && window.innerWidth >= 960;
   }
 
   function updateToolBadges() {
+    const u = uiStr();
     const theme = document.documentElement.getAttribute('data-theme') || 'dark';
-    themeBadgeState.textContent = theme === 'dark' ? 'Тёмная' : 'Светлая';
-    sfxBadgeState.textContent = sfxEnabled ? 'Вкл' : 'Выкл';
+    themeBadgeState.textContent = theme === 'dark' ? u.badgeDark : u.badgeLight;
+    sfxBadgeState.textContent = sfxEnabled ? u.badgeOn : u.badgeOff;
     sfxBadgeState.classList.toggle('on', sfxEnabled);
-    ttsBadgeState.textContent = isSpeaking ? 'Играет' : 'Выкл';
+    ttsBadgeState.textContent = isSpeaking ? u.badgePlaying : u.badgeOff;
     ttsBadgeState.classList.toggle('on', isSpeaking);
-    fsBadgeState.textContent = document.fullscreenElement ? 'Полный' : 'Окно';
+    fsBadgeState.textContent = document.fullscreenElement ? u.badgeFull : u.badgeWindow;
     fsBadgeState.classList.toggle('on', Boolean(document.fullscreenElement));
   }
 
@@ -373,12 +570,13 @@
       .trim();
   }
 
-  function getRussianVoice() {
+  function getVoiceForLang(lang) {
     if (!('speechSynthesis' in window)) return null;
     const voices = window.speechSynthesis.getVoices() || [];
+    const prefix = lang === 'en' ? 'en' : 'ru';
     return (
-      voices.find(v => v.lang.toLowerCase().startsWith('ru') && /pavel|dmitry|google|irina/i.test(v.name)) ||
-      voices.find(v => v.lang.toLowerCase().startsWith('ru')) ||
+      voices.find(v => v.lang.toLowerCase().startsWith(prefix) && /pavel|dmitry|google|irina|daniel|samantha|aria/i.test(v.name)) ||
+      voices.find(v => v.lang.toLowerCase().startsWith(prefix)) ||
       null
     );
   }
@@ -388,7 +586,7 @@
     isSpeaking = false;
     isPaused = false;
     ttsBar.hidden = true;
-    ttsPauseBtn.textContent = 'Пауза';
+    ttsPauseBtn.textContent = uiStr().pause;
     updateToolBadges();
   }
 
@@ -401,14 +599,15 @@
     const text = normalizeSpeechText(`${leftTxt}. ${rightTxt}`);
     if (!text) return;
 
+    const u = uiStr();
     const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = 'ru-RU';
+    utter.lang = currentLang === 'en' ? 'en-US' : 'ru-RU';
     utter.rate = ttsRate;
-    const ruVoice = getRussianVoice();
-    if (ruVoice) utter.voice = ruVoice;
+    const voice = getVoiceForLang(currentLang);
+    if (voice) utter.voice = voice;
 
     utter.onstart = () => {
-      ttsStatusText.textContent = `Радиосвязь: стр. ${currentPage} (${ttsRate}×)`;
+      ttsStatusText.textContent = `${u.radioStatus}: ${u.pageShort} ${currentPage} (${ttsRate}×)`;
     };
     utter.onend = () => stopTts();
     utter.onerror = () => stopTts();
@@ -416,19 +615,20 @@
     isSpeaking = true;
     isPaused = false;
     ttsBar.hidden = false;
-    ttsPauseBtn.textContent = 'Пауза';
-    ttsStatusText.textContent = `Радиосвязь: стр. ${currentPage} (${ttsRate}×)`;
+    ttsPauseBtn.textContent = u.pause;
+    ttsStatusText.textContent = `${u.radioStatus}: ${u.pageShort} ${currentPage} (${ttsRate}×)`;
     updateToolBadges();
     window.speechSynthesis.speak(utter);
   }
 
   /* ── RENDER HELPERS ───────────────────────────────────────── */
   function buildTocHtml() {
+    const u = uiStr();
     return `
       <div class="page-head">
         <div>
-          <div class="page-kicker">НАВИГАЦИЯ ПО УСТАВУ</div>
-          <h1 class="page-title">СОДЕРЖАНИЕ</h1>
+          <div class="page-kicker">${u.tocKicker}</div>
+          <h1 class="page-title">${u.tocTitle}</h1>
         </div>
       </div>
       ${tocSections.map(sec => `
@@ -439,7 +639,7 @@
               const isDone = doneChapters.has(ch.id);
               return `
                 <li class="toc-item">
-                  <button type="button" class="toc-check ${isDone ? 'checked' : ''}" data-toggle-ch="${ch.id}" aria-label="Отметить главу ${ch.id} как изученную" aria-pressed="${isDone}">
+                  <button type="button" class="toc-check ${isDone ? 'checked' : ''}" data-toggle-ch="${ch.id}" aria-label="${ch.id}" aria-pressed="${isDone}">
                     ${isDone ? '✓' : ''}
                   </button>
                   <button type="button" class="toc-link" data-goto="${ch.page}">
@@ -458,17 +658,19 @@
   }
 
   function renderSinglePageInto(data, containerEl, numEl, codeEl, secEl) {
+    const u = uiStr();
+    const defMark = bookId === 'updates' ? u.bookmarkDefaultUpdates : u.bookmarkDefaultManual;
     if (!data) {
-      containerEl.innerHTML = '<div class="cover-page"><div class="page-kicker">КОНЕЦ УСТАВА</div><p class="cover-subtitle">Вы дошли до последней страницы. Вернитесь к содержанию или задайте вопрос в Штабе WarpathHub.</p><button type="button" class="btn-cover-primary" data-goto="2">К содержанию</button></div>';
+      containerEl.innerHTML = `<div class="cover-page"><div class="page-kicker">${u.endKicker}</div><p class="cover-subtitle">${u.endText}</p><button type="button" class="btn-cover-primary" data-goto="2">${u.endBtn}</button></div>`;
       numEl.textContent = '—';
       codeEl.textContent = 'WP-FM // END';
-      secEl.textContent = 'WARPATH УСТАВ';
+      secEl.textContent = defMark;
       return;
     }
 
     numEl.textContent = String(data.page);
     codeEl.textContent = data.docCode || `WP-FM // ${String(data.page).padStart(2, '0')}`;
-    secEl.textContent = data.bookmark || 'WARPATH УСТАВ';
+    secEl.textContent = data.bookmark || defMark;
 
     if (data.type === 'cover') {
       containerEl.innerHTML = data.html;
@@ -478,7 +680,7 @@
       const isDone = data.chapterId ? doneChapters.has(data.chapterId) : false;
       const doneBtnHtml = data.chapterId ? `
         <button type="button" class="btn-mark-done ${isDone ? 'done' : ''}" data-toggle-ch="${data.chapterId}">
-          ${isDone ? '✓ Изучено' : 'Отметить'}
+          ${isDone ? u.markDone : u.markBtn}
         </button>
       ` : '';
 
@@ -538,8 +740,9 @@
       elCounterCurrent.textContent = String(currentPage);
     }
 
+    const u = uiStr();
     const activeData = (leftData?.type === 'cover' && rightData) ? rightData : leftData;
-    elBookmark.textContent = activeData?.bookmark || 'WARPATH УСТАВ';
+    elBookmark.textContent = activeData?.bookmark || (bookId === 'updates' ? u.bookmarkDefaultUpdates : u.bookmarkDefaultManual);
     if (scrubberChapter) {
       scrubberChapter.textContent = activeData?.title || activeData?.bookmark || '';
     }
@@ -550,7 +753,7 @@
     updateYoutubeDrawer(rightData?.chapterId || leftData?.chapterId);
 
     const totalCh = tocSections.reduce((acc, s) => acc + s.chapters.length, 0);
-    elChapterProgress.textContent = `ИЗУЧЕНО ${doneChapters.size} / ${totalCh}`;
+    elChapterProgress.textContent = `${u.studiedPrefix} ${doneChapters.size} / ${totalCh}`;
 
     const atStart = currentPage <= 1;
     const atEnd = spread ? currentPage >= totalPages - 1 : currentPage >= totalPages;
@@ -561,7 +764,7 @@
   }
 
   function updateYoutubeDrawer(chapterId) {
-    const db = window.YOUTUBE_BY_TOPIC || {};
+    const db = activeVideos || {};
     const entry = db[chapterId] || db.default;
     if (!entry) return;
 
@@ -611,9 +814,10 @@
   }
 
   function runSearch(query) {
+    const u = uiStr();
     const q = query.trim().toLowerCase();
     if (!q) {
-      searchResults.innerHTML = '<p style="font-size:13px;color:var(--text-secondary);">Введите термин, имя офицера, юнит или @shevchenko01_bot для поиска по уставу.</p>';
+      searchResults.innerHTML = `<p style="font-size:13px;color:var(--text-secondary);">${u.searchEmpty}</p>`;
       return;
     }
 
@@ -631,13 +835,13 @@
     }
 
     if (hits.length === 0) {
-      searchResults.innerHTML = '<p style="font-size:13px;color:var(--text-secondary);">Ничего не найдено. Попробуйте другой запрос.</p>';
+      searchResults.innerHTML = `<p style="font-size:13px;color:var(--text-secondary);">${u.searchNoHits}</p>`;
       return;
     }
 
     searchResults.innerHTML = hits.map(h => `
       <button type="button" class="search-hit" data-goto="${h.page}">
-        <div class="search-hit-title">Стр. ${h.page} — ${h.title}</div>
+        <div class="search-hit-title">${u.pageWord} ${h.page} — ${h.title}</div>
         <div class="search-hit-snippet">${h.snippet}</div>
       </button>
     `).join('');
@@ -645,6 +849,7 @@
 
   /* ── PROGRESS & DRAWER TOC ────────────────────────────────── */
   function updateProgressUI() {
+    const u = uiStr();
     const totalChapters = tocSections.reduce((acc, s) => acc + s.chapters.length, 0);
     const doneCount = doneChapters.size;
     const pct = totalChapters ? Math.round((doneCount / totalChapters) * 100) : 0;
@@ -657,7 +862,7 @@
       return `
         <button type="button" class="drawer-toc-btn" data-goto="${ch.page}">
           <span>${isDone ? '[✓]' : '[ ]'} ${ch.id}. ${ch.title}</span>
-          <span style="color:var(--accent-amber);font-weight:700;font-family:'JetBrains Mono',monospace;">стр. ${ch.page}</span>
+          <span style="color:var(--accent-amber);font-weight:700;font-family:'JetBrains Mono',monospace;">${u.pageShort} ${ch.page}</span>
         </button>
       `;
     }).join('');
@@ -665,27 +870,30 @@
 
   /* ── HQ: TABS, TICKETS, CALCULATOR & COMMUNITY ────────────── */
   function getTicketContext() {
-    const vol = bookId === 'updates' ? 'Том II (Хроника патчей)' : 'Том I (Полевой устав)';
+    const u = uiStr();
+    const vol = bookId === 'updates' ? u.ticketVol2 : u.ticketVol1;
     const cur = pages.find(p => p.page === currentPage) || pages[0];
-    const chap = cur?.bookmark || cur?.title || `Стр. ${currentPage}`;
+    const chap = cur?.bookmark || cur?.title || `${u.pageWord} ${currentPage}`;
     return { vol, page: currentPage, chap };
   }
 
   function updateGithubIssueLink() {
     if (!btnGithubIssue) return;
+    const u = uiStr();
     const ctx = getTicketContext();
-    const cat = ticketType?.value || 'Ошибка в гайде';
-    const nick = ticketNick?.value.trim() || 'Читатель';
-    const msg = ticketText?.value.trim() || '(укажите, что нужно поправить или обновить на этой странице)';
-    const title = `[${cat}] ${ctx.vol}, стр. ${ctx.page} (${ctx.chap})`;
-    const body = `Том: ${ctx.vol}\nСтраница: ${ctx.page} (${ctx.chap})\nКатегория: ${cat}\nОт: ${nick}\n\nОписание:\n${msg}`;
+    const cat = ticketType?.value || u.githubTitlePrefix;
+    const nick = ticketNick?.value.trim() || u.ticketDefaultNick;
+    const msg = ticketText?.value.trim() || u.ticketDefaultMsg;
+    const title = `[${cat}] ${ctx.vol}, ${u.pageShort} ${ctx.page} (${ctx.chap})`;
+    const body = `Volume: ${ctx.vol}\nPage: ${ctx.page} (${ctx.chap})\nCategory: ${cat}\nFrom: ${nick}\n\nDetails:\n${msg}`;
     btnGithubIssue.href = `https://github.com/228burger228/warpathGideVibe/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
   }
 
   function updateTicketContext() {
+    const u = uiStr();
     const ctx = getTicketContext();
     if (ticketContextBadge) {
-      ticketContextBadge.textContent = `Привязка: ${ctx.vol} • Стр. ${ctx.page} • ${ctx.chap}`;
+      ticketContextBadge.textContent = `${u.ticketContextPrefix}: ${ctx.vol} • ${u.pageWord} ${ctx.page} • ${ctx.chap}`;
     }
     updateGithubIssueLink();
   }
@@ -707,17 +915,18 @@
   }
 
   function renderTickets() {
+    const u = uiStr();
     if (!tickets.length) {
       ticketHistoryEl.innerHTML = '';
       return;
     }
     ticketHistoryEl.innerHTML = `
-      <div class="field-label" style="margin-top:4px;">Последние сформированные тикеты</div>
+      <div class="field-label" style="margin-top:4px;">${u.ticketHistoryTitle}</div>
       ${tickets.map(t => `
         <div class="ticket-item">
           <div class="ticket-item-head">
             <span>${t.id} • ${t.type}</span>
-            <span>стр. ${t.page}</span>
+            <span>${u.pageShort} ${t.page}</span>
           </div>
           <div style="color:var(--text-secondary);">${t.text}</div>
         </div>
@@ -725,20 +934,32 @@
     `;
   }
 
+  let calcBound = false;
+  let calcRecalc = null;
   function initCalculator() {
-    const data = window.CALC_DATA;
+    const data = activeCalc;
     if (!data) return;
+
+    const prevUnit = calcUnit.value;
+    const prevOff = calcOfficer.value;
+    const prevEq = calcEquip.value;
 
     calcUnit.innerHTML = data.units.map(u => `<option value="${u.id}">${u.label}</option>`).join('');
     calcOfficer.innerHTML = data.officers.map(o => `<option value="${o.id}">${o.name}</option>`).join('');
     calcEquip.innerHTML = data.equipment.map(e => `<option value="${e.id}">${e.name}</option>`).join('');
 
-    const recalc = () => {
-      const u = data.units.find(x => x.id === calcUnit.value) || data.units[0];
+    if (prevUnit && data.units.some(x => x.id === prevUnit)) calcUnit.value = prevUnit;
+    if (prevOff && data.officers.some(x => x.id === prevOff)) calcOfficer.value = prevOff;
+    if (prevEq && data.equipment.some(x => x.id === prevEq)) calcEquip.value = prevEq;
+
+    calcRecalc = () => {
+      const curData = activeCalc;
+      const st = uiStr();
+      const u = curData.units.find(x => x.id === calcUnit.value) || curData.units[0];
       const lvl = parseInt(calcLevel.value, 10) || 10;
-      const m = data.levelMult[lvl] || 1;
-      const o = data.officers.find(x => x.id === calcOfficer.value) || data.officers[0];
-      const eq = data.equipment.find(x => x.id === calcEquip.value) || data.equipment[0];
+      const m = curData.levelMult[lvl] || 1;
+      const o = curData.officers.find(x => x.id === calcOfficer.value) || curData.officers[0];
+      const eq = curData.equipment.find(x => x.id === calcEquip.value) || curData.equipment[0];
 
       calcLevelVal.textContent = String(lvl);
 
@@ -754,21 +975,24 @@
       const fmt = n => n >= 1000 ? `${(n / 1000).toFixed(1)}K` : String(n);
 
       calcResults.innerHTML = `
-        <div class="calc-stat"><div class="calc-stat-label">Боевая мощь</div><div class="calc-stat-val">${fmt(power)}</div></div>
-        <div class="calc-stat"><div class="calc-stat-label">Атака</div><div class="calc-stat-val">${fmt(atk)}</div></div>
-        <div class="calc-stat"><div class="calc-stat-label">Защита</div><div class="calc-stat-val">${fmt(def)}</div></div>
-        <div class="calc-stat"><div class="calc-stat-label">Здоровье (HP)</div><div class="calc-stat-val">${fmt(hp)}</div></div>
-        <div class="calc-stat"><div class="calc-stat-label">Скорость</div><div class="calc-stat-val">${u.baseMov}</div></div>
-        <div class="calc-stat"><div class="calc-stat-label">Бонус АТК</div><div class="calc-stat-val">+${o.atkB + eq.atkB}%</div></div>
+        <div class="calc-stat"><div class="calc-stat-label">${st.calcPower}</div><div class="calc-stat-val">${fmt(power)}</div></div>
+        <div class="calc-stat"><div class="calc-stat-label">${st.calcAtk}</div><div class="calc-stat-val">${fmt(atk)}</div></div>
+        <div class="calc-stat"><div class="calc-stat-label">${st.calcDef}</div><div class="calc-stat-val">${fmt(def)}</div></div>
+        <div class="calc-stat"><div class="calc-stat-label">${st.calcHp}</div><div class="calc-stat-val">${fmt(hp)}</div></div>
+        <div class="calc-stat"><div class="calc-stat-label">${st.calcSpeed}</div><div class="calc-stat-val">${u.baseMov}</div></div>
+        <div class="calc-stat"><div class="calc-stat-label">${st.calcAtkBonus}</div><div class="calc-stat-val">+${o.atkB + eq.atkB}%</div></div>
       `;
     };
 
-    [calcUnit, calcLevel, calcOfficer, calcEquip].forEach(el => el.addEventListener('input', recalc));
-    recalc();
+    if (!calcBound) {
+      [calcUnit, calcLevel, calcOfficer, calcEquip].forEach(el => el.addEventListener('input', () => calcRecalc?.()));
+      calcBound = true;
+    }
+    calcRecalc();
   }
 
   function initCommunity() {
-    const items = window.COMMUNITY_LINKS || [];
+    const items = activeCommunity || [];
     communityList.innerHTML = items.map(item => `
       <div class="comm-card">
         <div>
@@ -802,9 +1026,9 @@
     }
   }
 
+  let promoBound = false;
   function initPromoCodes() {
     if (!promoList) return;
-    const codes = window.PROMO_CODES || [];
     let usedSet = new Set();
     try {
       const raw = JSON.parse(localStorage.getItem(STORAGE_KEYS.usedCodes) || '[]');
@@ -816,6 +1040,8 @@
     };
 
     const renderCodes = () => {
+      const st = uiStr();
+      const codes = activePromoCodes || [];
       promoList.innerHTML = codes.map(c => {
         const isUsed = usedSet.has(c.code);
         return `
@@ -828,45 +1054,51 @@
               <div class="promo-note">${c.note}</div>
             </div>
             <div class="promo-actions">
-              <button type="button" class="promo-copy-btn" data-copy-code="${c.code}">Копировать</button>
-              <button type="button" class="promo-used-btn" data-toggle-code="${c.code}" title="Отметить использованным">${isUsed ? 'Использован ✓' : 'Отметить'}</button>
+              <button type="button" class="promo-copy-btn" data-copy-code="${c.code}">${st.copyBtn}</button>
+              <button type="button" class="promo-used-btn" data-toggle-code="${c.code}">${isUsed ? st.usedDoneBtn : st.usedMarkBtn}</button>
             </div>
           </div>
         `;
       }).join('');
     };
 
-    promoList.addEventListener('click', async (e) => {
-      const copyBtn = e.target.closest('[data-copy-code]');
-      if (copyBtn) {
-        const code = copyBtn.dataset.copyCode;
-        const ok = await copyTextSafe(code);
-        copyBtn.textContent = ok ? 'Скопировано ✓' : code;
-        copyBtn.classList.add('is-copied');
-        setTimeout(() => {
-          copyBtn.textContent = 'Копировать';
-          copyBtn.classList.remove('is-copied');
-        }, 1600);
-        return;
-      }
-      const toggleBtn = e.target.closest('[data-toggle-code]');
-      if (toggleBtn) {
-        const code = toggleBtn.dataset.toggleCode;
-        if (usedSet.has(code)) usedSet.delete(code);
-        else usedSet.add(code);
-        saveUsed();
-        renderCodes();
-      }
-    });
+    if (!promoBound) {
+      promoList.addEventListener('click', async (e) => {
+        const st = uiStr();
+        const copyBtn = e.target.closest('[data-copy-code]');
+        if (copyBtn) {
+          const code = copyBtn.dataset.copyCode;
+          const ok = await copyTextSafe(code);
+          copyBtn.textContent = ok ? st.copiedBtn : code;
+          copyBtn.classList.add('is-copied');
+          setTimeout(() => {
+            copyBtn.textContent = uiStr().copyBtn;
+            copyBtn.classList.remove('is-copied');
+          }, 1600);
+          return;
+        }
+        const toggleBtn = e.target.closest('[data-toggle-code]');
+        if (toggleBtn) {
+          const code = toggleBtn.dataset.toggleCode;
+          if (usedSet.has(code)) usedSet.delete(code);
+          else usedSet.add(code);
+          saveUsed();
+          renderCodes();
+        }
+      });
 
-    btnCopyAllCodes?.addEventListener('click', async () => {
-      const activeList = codes.filter(c => !usedSet.has(c.code)).map(c => c.code);
-      const payload = (activeList.length ? activeList : codes.map(c => c.code)).join('\n');
-      const ok = await copyTextSafe(payload);
-      const orig = btnCopyAllCodes.textContent;
-      btnCopyAllCodes.textContent = ok ? `Скопировано (${payload.split('\n').length}) ✓` : 'Ошибка буфера';
-      setTimeout(() => { btnCopyAllCodes.textContent = orig; }, 1800);
-    });
+      btnCopyAllCodes?.addEventListener('click', async () => {
+        const st = uiStr();
+        const codes = activePromoCodes || [];
+        const activeList = codes.filter(c => !usedSet.has(c.code)).map(c => c.code);
+        const payload = (activeList.length ? activeList : codes.map(c => c.code)).join('\n');
+        const ok = await copyTextSafe(payload);
+        const orig = btnCopyAllCodes.textContent;
+        btnCopyAllCodes.textContent = ok ? st.copiedAll(payload.split('\n').length) : st.copyErr;
+        setTimeout(() => { btnCopyAllCodes.textContent = orig; }, 1800);
+      });
+      promoBound = true;
+    }
 
     renderCodes();
   }
@@ -1002,14 +1234,15 @@
 
   ttsPauseBtn.addEventListener('click', () => {
     if (!('speechSynthesis' in window) || !isSpeaking) return;
+    const u = uiStr();
     if (isPaused) {
       window.speechSynthesis.resume();
       isPaused = false;
-      ttsPauseBtn.textContent = 'Пауза';
+      ttsPauseBtn.textContent = u.pause;
     } else {
       window.speechSynthesis.pause();
       isPaused = true;
-      ttsPauseBtn.textContent = 'Продолжить';
+      ttsPauseBtn.textContent = u.resume;
     }
   });
 
@@ -1115,10 +1348,56 @@
     } catch (_) {}
 
     ticketFeedback.textContent = copied
-      ? `Тикет ${id} скопирован! Вставь в @shevchenko01_bot или нажми «Отправить в GitHub ↗».`
-      : `Тикет ${id} готов — нажми «Отправить в GitHub ↗» или отправь в @shevchenko01_bot.`;
+      ? uiStr().ticketCopied(id)
+      : uiStr().ticketFallback(id);
 
     ticketText.value = '';
+  });
+
+  function applyLanguage(lang, rerender = true) {
+    const en = window.WP_EN;
+    const targetLang = (lang === 'en' && en) ? 'en' : 'ru';
+    currentLang = targetLang;
+    document.documentElement.setAttribute('lang', targetLang);
+    try { localStorage.setItem(STORAGE_KEYS.lang, targetLang); } catch (_) {}
+
+    if (targetLang === 'en') {
+      const volEn = bookId === 'updates' ? en.vol2 : en.vol1;
+      pages = volEn.pages;
+      tocSections = volEn.tocSections;
+      activeVideos = Object.assign({}, RU_VOL.videos, volEn.videos);
+      activeCalc = Object.assign({}, RU_VOL.calc, en.calc);
+      activeCommunity = en.community;
+      activePromoCodes = RU_VOL.promoCodes.map(c => ({
+        code: c.code,
+        tag: en.promoNotes[c.code]?.tag || c.tag,
+        note: en.promoNotes[c.code]?.note || c.note
+      }));
+      activeGlossary = Object.assign({}, WP_GLOSSARY, en.glossary);
+    } else {
+      pages = RU_VOL.pages;
+      tocSections = RU_VOL.tocSections;
+      activeVideos = RU_VOL.videos;
+      activeCalc = RU_VOL.calc;
+      activeCommunity = RU_VOL.community;
+      activePromoCodes = RU_VOL.promoCodes;
+      activeGlossary = WP_GLOSSARY;
+    }
+
+    applyStaticUi(targetLang);
+    updateToolBadges();
+    initCalculator();
+    initCommunity();
+    initPromoCodes();
+    updateProgressUI();
+    updateTicketContext();
+    renderTickets();
+    if (rerender) renderPage(currentPage, null);
+  }
+
+  btnLangToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    applyLanguage(currentLang === 'ru' ? 'en' : 'ru', true);
   });
 
   /* Клавиатура, клик вне полок и свайпы */
@@ -1174,8 +1453,13 @@
 
   /* ── INIT ─────────────────────────────────────────────────── */
   loadState();
-  initCalculator();
-  initCommunity();
-  initPromoCodes();
+  let initialLang = 'ru';
+  try {
+    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    const savedLang = localStorage.getItem(STORAGE_KEYS.lang);
+    if (urlLang === 'en' || urlLang === 'ru') initialLang = urlLang;
+    else if (savedLang === 'en' || savedLang === 'ru') initialLang = savedLang;
+  } catch (_) {}
+  applyLanguage(initialLang, false);
   renderPage(currentPage, null);
 })();
